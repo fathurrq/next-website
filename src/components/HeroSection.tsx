@@ -149,10 +149,10 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Navigation Controls */}
+      {/* Navigation Controls - Hidden on mobile */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-x-1 active:scale-95 group"
+        className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:-translate-x-1 active:scale-95 group"
         disabled={isTransitioning}
       >
         <ChevronLeft className="w-6 h-6 transition-transform duration-300 group-hover:-translate-x-0.5" />
@@ -160,16 +160,16 @@ const HeroSection = () => {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:translate-x-1 active:scale-95 group"
+        className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 hover:translate-x-1 active:scale-95 group"
         disabled={isTransitioning}
       >
         <ChevronRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-0.5" />
       </button>
 
-      {/* Auto-play toggle */}
+      {/* Auto-play toggle - Hidden on mobile */}
       <button
         onClick={toggleAutoPlay}
-        className="absolute right-4 bottom-20 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+        className="hidden md:block absolute right-4 bottom-20 z-20 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
       >
         {isAutoPlaying ? (
           <Pause className="w-5 h-5" />
@@ -178,8 +178,8 @@ const HeroSection = () => {
         )}
       </button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3 bg-black/20 backdrop-blur-sm rounded-full px-4 py-2">
+      {/* Slide Indicators - Hidden on mobile */}
+      <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 space-x-3 bg-black/20 backdrop-blur-sm rounded-full px-4 py-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -194,8 +194,8 @@ const HeroSection = () => {
         ))}
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 right-8 z-20 animate-bounce hover:animate-pulse cursor-pointer">
+      {/* Scroll Indicator - Hidden on mobile */}
+      <div className="hidden md:block absolute bottom-8 right-8 z-20 animate-bounce hover:animate-pulse cursor-pointer">
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
         </div>
