@@ -145,7 +145,7 @@ const ServiceHighlight = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-[#26476c] to-[#ecb143] hover:from-[#ecb143] hover:to-[#26476c] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 transform hover:scale-105 hover:shadow-xl">
+          <button className="bg-[#26476c] hover:bg-[#ecb143] text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-500 transform hover:scale-105 hover:shadow-xl">
             View All Services
           </button>
         </div>
