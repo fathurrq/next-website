@@ -130,12 +130,6 @@ const ServiceHighlight = () => {
                   </button>
                 </div>
 
-                {/* Hover Effect Border */}
-                <div 
-                  className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-                  style={{ backgroundColor: service.accentColor }}
-                />
-
                 {/* Click Ripple Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-active:opacity-30 transform -translate-x-full group-active:translate-x-full transition-all duration-700" />
               </div>
