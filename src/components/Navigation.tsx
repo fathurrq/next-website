@@ -225,19 +225,6 @@ const Navigation = () => {
         <div className={`mobile-menu absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform transition-transform duration-300 ease-out ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
-          {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-gray-100">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-[#26476c] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">BKI</span>
-              </div>
-              <div>
-                <h2 className="font-bold text-[#26476c] text-sm">
-                  PT. Biro Klasifikasi Indonesia
-                </h2>
-              </div>
-            </div>
-          </div>
 
           {/* Navigation Items */}
           <div className="flex-1 overflow-y-auto py-4">
