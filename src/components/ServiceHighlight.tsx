@@ -80,15 +80,13 @@ const ServiceHighlight = () => {
             return (
               <div
                 key={index}
-                className={`group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 cursor-pointer overflow-hidden ${
-                  hoveredCard === index ? 'scale-105' : ''
-                }`}
+                className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-3 cursor-pointer overflow-hidden"
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Background Gradient */}
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                  className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-all duration-500 ease-out"
                   style={{ 
                     background: `linear-gradient(135deg, ${service.color} 0%, ${service.accentColor} 100%)` 
                   }}
@@ -99,28 +97,28 @@ const ServiceHighlight = () => {
                   {/* Icon */}
                   <div className="mb-6">
                     <div 
-                      className="w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+                      className="w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3"
                       style={{ backgroundColor: service.color }}
                     >
-                      <IconComponent className="w-8 h-8 text-white" />
+                      <IconComponent className="w-8 h-8 text-white transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-12" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-[#26476c] mb-4 group-hover:text-[#ecb143] transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-[#26476c] mb-4 transition-all duration-300 ease-out group-hover:text-[#ecb143] group-hover:tracking-wide">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6 transition-all duration-300 ease-out group-hover:text-gray-800">
                     {service.description}
                   </p>
 
                   {/* Action Button */}
-                  <button className="inline-flex items-center text-[#26476c] font-semibold group-hover:text-[#ecb143] transition-colors duration-300">
+                  <button className="inline-flex items-center text-[#26476c] font-semibold transition-all duration-300 ease-out group-hover:text-[#ecb143]">
                     Learn More
                     <svg 
-                      className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" 
+                      className="w-4 h-4 ml-2 transition-all duration-300 ease-out group-hover:translate-x-2" 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -131,7 +129,7 @@ const ServiceHighlight = () => {
                 </div>
 
                 {/* Click Ripple Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-active:opacity-30 transform -translate-x-full group-active:translate-x-full transition-all duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-active:opacity-40 transform -translate-x-full group-active:translate-x-full transition-all duration-500 ease-out" />
               </div>
             );
           })}
