@@ -43,9 +43,6 @@ const HeroSection = () => {
                 <button className="bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95">
                   Explore Our Services
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-[#26476c] px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 active:scale-95">
-                  Learn More
-                </button>
               </div>
             </div>
           </div>
