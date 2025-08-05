@@ -29,17 +29,17 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center">
+      <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="max-w-3xl">
+          <div className="max-w-4xl mx-auto text-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight transform transition-all duration-700 hover:scale-105">
+              <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight transform transition-all duration-700 hover:scale-105">
                 Leading Maritime Classification
               </h1>
-              <p className="text-xl md:text-2xl text-gray-200 leading-relaxed transform transition-all duration-700 delay-100">
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed transform transition-all duration-700 delay-100">
                 Excellence in Vessel Safety and Standards
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-8 transform transition-all duration-700 delay-200">
+              <div className="flex flex-col sm:flex-row gap-4 pt-8 justify-center transform transition-all duration-700 delay-200">
                 <button className="bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95">
                   Explore Our Services
                 </button>
