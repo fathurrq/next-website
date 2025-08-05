@@ -98,7 +98,7 @@ const ServiceHighlight = () => {
                   />
                   
                   {/* Animated Background Pattern on Hover */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-80 transition-all duration-500 ease-out">
                     <div 
                       className="absolute inset-0"
                       style={{ 
@@ -115,7 +115,7 @@ const ServiceHighlight = () => {
 
                 {/* Background Gradient */}
                 <div 
-                  className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 group-hover:from-white/85 group-hover:via-white/80 group-hover:to-white/85 transition-all duration-500 ease-out"
+                  className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/80 to-white/80 group-hover:from-white/85 group-hover:via-white/80 group-hover:to-white/85 transition-all duration-500 ease-out"
                 />
 
                 {/* Card Content */}
