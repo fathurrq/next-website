@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,64 +50,64 @@ const Navigation = () => {
     {
       title: 'About Us',
       children: [
-        'Company History',
-        'Vision & Mission',
-        'Organization Structure',
-        'Board of Directors'
+        { title: 'Company History', href: '/company-history' },
+        { title: 'Vision & Mission', href: '#' },
+        { title: 'Organization Structure', href: '#' },
+        { title: 'Board of Directors', href: '#' }
       ]
     },
     {
       title: 'Our Services',
       children: [
-        'Classification Services',
-        'Statutory Services',
-        'Consultancy Services',
-        'Supervision Services'
+        { title: 'Classification Services', href: '#' },
+        { title: 'Statutory Services', href: '#' },
+        { title: 'Consultancy Services', href: '#' },
+        { title: 'Supervision Services', href: '#' }
       ]
     },
     {
       title: 'Resources',
       children: [
-        'Technical Standards',
-        'Guidelines',
-        'Forms & Documents',
-        'Downloads'
+        { title: 'Technical Standards', href: '#' },
+        { title: 'Guidelines', href: '#' },
+        { title: 'Forms & Documents', href: '#' },
+        { title: 'Downloads', href: '#' }
       ]
     },
     {
       title: 'Publication',
       children: [
-        'Technical Journal',
-        'Annual Report',
-        'News & Updates',
-        'Press Release'
+        { title: 'Technical Journal', href: '#' },
+        { title: 'Annual Report', href: '#' },
+        { title: 'News & Updates', href: '#' },
+        { title: 'Press Release', href: '#' }
       ]
     },
     {
       title: 'Opportunity',
       children: [
-        'Career',
-        'Internship',
-        'Partnership',
-        'Tender'
+        { title: 'Career', href: '#' },
+        { title: 'Internship', href: '#' },
+        { title: 'Partnership', href: '#' },
+        { title: 'Tender', href: '#' }
       ]
     },
     {
       title: 'Gallery',
       children: [
-        'Photo Gallery',
-        'Video Gallery',
-        'Events',
-        'Achievements'
+        { title: 'Photo Gallery', href: '#' },
+        { title: 'Video Gallery', href: '#' },
+        { title: 'Events', href: '#' },
+        { title: 'Achievements', href: '#' }
       ]
     },
     {
       title: 'PPID',
       children: [
-        'Information Services',
-        'Public Information',
-        'Complaint Services',
-        'Regulations'
+        { title: 'Information Services', href: '#' },
+        { title: 'Public Information', href: '#' },
+        { title: 'Complaint Services', href: '#' },
+        { title: 'Regulations', href: '#' }
       ]
     }
   ];
@@ -172,13 +173,13 @@ const Navigation = () => {
                   }`}>
                     <div className="py-2">
                       {item.children.map((child, index) => (
-                        <a
+                        <Link
                           key={index}
-                          href="#"
+                          href={child.href}
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#26476c] hover:text-white transition-colors duration-200"
                         >
-                          {child}
-                        </a>
+                          {child.title}
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -251,17 +252,17 @@ const Navigation = () => {
                   }`}>
                     <div className="pl-4 pb-2 space-y-1">
                       {item.children.map((child, childIndex) => (
-                        <a
+                        <Link
                           key={childIndex}
-                          href="#"
+                          href={child.href}
                           className="block p-3 text-sm text-gray-600 hover:text-[#ecb143] hover:bg-[#ecb143]/5 rounded-md transition-all duration-200 transform hover:translate-x-1"
                           onClick={() => {
                             setIsMobileMenuOpen(false);
                             setActiveMobileDropdown(null);
                           }}
                         >
-                          {child}
-                        </a>
+                          {child.title}
+                        </Link>
                       ))}
                     </div>
                   </div>
