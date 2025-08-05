@@ -19,42 +19,48 @@ const ServiceHighlight = () => {
       title: 'Class Register',
       description: "Vessel's Under BKI Class",
       color: '#26476c',
-      accentColor: '#ecb143'
+      accentColor: '#ecb143',
+      image: 'https://images.pexels.com/photos/163236/luxury-yacht-boat-speed-water-163236.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Database,
       title: 'BKI Armada',
       description: 'Information for Owner or Operator Vessel Under BKI Class',
       color: '#26476c',
-      accentColor: '#df5c35'
+      accentColor: '#df5c35',
+      image: 'https://images.pexels.com/photos/906982/pexels-photo-906982.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: FileText,
       title: 'Rules, Regulation and Guidelines',
       description: 'Rules, Regulation & Guidelines',
       color: '#26476c',
-      accentColor: '#12a39a'
+      accentColor: '#12a39a',
+      image: 'https://images.pexels.com/photos/159832/justice-law-case-hearing-159832.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: BookOpen,
       title: 'Technical Journal',
       description: 'Technical Journal BKI',
       color: '#26476c',
-      accentColor: '#ecb143'
+      accentColor: '#ecb143',
+      image: 'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Shield,
       title: 'Certificate Verification',
       description: 'Verification Certificate Validity',
       color: '#26476c',
-      accentColor: '#df5c35'
+      accentColor: '#df5c35',
+      image: 'https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
       icon: Settings,
       title: 'Material and Component',
       description: 'Material and Component',
       color: '#26476c',
-      accentColor: '#12a39a'
+      accentColor: '#12a39a',
+      image: 'https://images.pexels.com/photos/162553/keys-workshop-mechanic-tools-162553.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
@@ -84,12 +90,32 @@ const ServiceHighlight = () => {
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
+                {/* Background Image */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-all duration-500 ease-out group-hover:scale-110 group-hover:blur-sm group-hover:opacity-30"
+                    style={{ backgroundImage: `url(${service.image})` }}
+                  />
+                  
+                  {/* Animated Background Pattern on Hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+                    <div 
+                      className="absolute inset-0"
+                      style={{ 
+                        background: `radial-gradient(circle at 30% 70%, ${service.accentColor}20 0%, transparent 50%), radial-gradient(circle at 70% 30%, ${service.color}15 0%, transparent 50%)` 
+                      }}
+                    />
+                    
+                    {/* Floating particles */}
+                    <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: service.accentColor, animationDelay: '0s' }} />
+                    <div className="absolute top-1/3 right-1/3 w-1 h-1 rounded-full animate-ping" style={{ backgroundColor: service.color, animationDelay: '1s' }} />
+                    <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 rounded-full animate-ping" style={{ backgroundColor: service.accentColor, animationDelay: '2s' }} />
+                  </div>
+                </div>
+
                 {/* Background Gradient */}
                 <div 
-                  className="absolute inset-0 opacity-0 group-hover:opacity-15 transition-all duration-500 ease-out"
-                  style={{ 
-                    background: `linear-gradient(135deg, ${service.color} 0%, ${service.accentColor} 100%)` 
-                  }}
+                  className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-white/95 group-hover:from-white/85 group-hover:via-white/80 group-hover:to-white/85 transition-all duration-500 ease-out"
                 />
 
                 {/* Card Content */}
@@ -97,7 +123,7 @@ const ServiceHighlight = () => {
                   {/* Icon */}
                   <div className="mb-6">
                     <div 
-                      className="w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3"
+                      className="w-16 h-16 rounded-xl flex items-center justify-center transition-all duration-300 ease-out group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-2xl"
                       style={{ backgroundColor: service.color }}
                     >
                       <IconComponent className="w-8 h-8 text-white transition-all duration-300 ease-out group-hover:scale-110 group-hover:rotate-12" />
@@ -110,7 +136,7 @@ const ServiceHighlight = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-600 leading-relaxed mb-6 transition-all duration-300 ease-out group-hover:text-gray-800">
+                  <p className="text-gray-700 leading-relaxed mb-6 transition-all duration-300 ease-out group-hover:text-gray-900 font-medium">
                     {service.description}
                   </p>
 
