@@ -1,6 +1,7 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import ServiceHighlight from '@/components/ServiceHighlight';
+import OurGoals from '@/components/OurGoals';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <ServiceHighlight />
+      <OurGoals />
     </main>
   );
 }
