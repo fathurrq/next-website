@@ -195,7 +195,7 @@ const AnimatedHeroSection = () => {
 
       {/* Navigation Bar */}
       <nav className={`fixed top-0 left-0 right-0 z-10 transition-all duration-1000 ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
       } ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -205,7 +205,9 @@ const AnimatedHeroSection = () => {
             </div>
 
             {/* Navigation Menu */}
-            <div className="hidden lg:block">
+            <div className={`hidden lg:block transition-all duration-800 delay-200 ${
+              animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            }`}>
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigationItems.map((item) => (
                   <div
@@ -247,7 +249,9 @@ const AnimatedHeroSection = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className="lg:hidden">
+            <div className={`lg:hidden transition-all duration-800 delay-200 ${
+              animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            }`}>
               <button 
                 onClick={toggleMobileMenu}
                 className={`mobile-menu-button p-2 rounded-md transition-all duration-300 hover:scale-110 active:scale-95 ${
@@ -339,14 +343,22 @@ const AnimatedHeroSection = () => {
                 ? 'opacity-100 translate-y-0' 
                 : 'opacity-0 translate-y-8'
             }`}>
-              <h1 className="text-3xl md:text-5xl font-bold text-white leading-tight transform transition-all duration-700 hover:scale-105">
+              <h1 className={`text-3xl md:text-5xl font-bold text-white leading-tight transform transition-all duration-1000 hover:scale-105 ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}>
                 Leading Maritime Classification
               </h1>
-              <p className="text-lg md:text-xl text-gray-200 leading-relaxed transform transition-all duration-700 delay-100">
+              <p className={`text-lg md:text-xl text-gray-200 leading-relaxed transform transition-all duration-1000 delay-300 ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}>
                 Excellence in Vessel Safety and Standards
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-8 justify-center transform transition-all duration-700 delay-200">
-                <button className="bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95">
+              <div className={`flex flex-col sm:flex-row gap-4 pt-8 justify-center transform transition-all duration-1000 delay-500 ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}>
+                <button className={`bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95 ${
+                  animationStage >= 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}>
                   Explore Our Services
                 </button>
               </div>
