@@ -168,11 +168,11 @@ const AnimatedHeroSection = () => {
       {/* Animated Logo - Center to Navbar */}
       <div className={`absolute z-20 transition-all duration-1000 ease-in-out ${
         animationStage === 0 
-          ? 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 scale-150' 
-          : 'top-4 left-4 transform translate-x-0 translate-y-0 scale-100'
+          ? 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-150' 
+          : 'top-4 left-4 translate-x-0 translate-y-0 scale-100'
       }`}>
-        <div className={`flex items-center space-x-3 transition-all duration-1000 ${
-          animationStage === 0 ? 'opacity-100' : animationStage >= 2 ? 'opacity-100' : 'opacity-0'
+        <div className={`flex items-center space-x-3 transition-all duration-800 ease-out ${
+          animationStage === 0 || animationStage >= 2 ? 'opacity-100' : 'opacity-0'
         }`}>
           <div className="relative">
             <Image
@@ -183,8 +183,8 @@ const AnimatedHeroSection = () => {
               className="transition-all duration-1000"
             />
           </div>
-          <div className={`transition-all duration-500 ${
-            animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+          <div className={`transition-all duration-800 ease-out ${
+            animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
             <h1 className="font-bold text-lg text-white hidden sm:block">
               PT. Biro Klasifikasi Indonesia
@@ -194,8 +194,8 @@ const AnimatedHeroSection = () => {
       </div>
 
       {/* Navigation Bar */}
-      <nav className={`fixed top-0 left-0 right-0 z-10 transition-all duration-1000 ${
-        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+      <nav className={`fixed top-0 left-0 right-0 z-10 transition-all duration-1000 ease-out ${
+        animationStage >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
       } ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -205,8 +205,8 @@ const AnimatedHeroSection = () => {
             </div>
 
             {/* Navigation Menu */}
-            <div className={`hidden lg:block transition-all duration-800 delay-200 ${
-              animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            <div className={`hidden lg:block transition-all duration-1000 ease-out ${
+              animationStage >= 2 ? 'opacity-100 translate-x-0 delay-300' : 'opacity-0 translate-x-8'
             }`}>
               <div className="ml-10 flex items-baseline space-x-4">
                 {navigationItems.map((item) => (
@@ -249,8 +249,8 @@ const AnimatedHeroSection = () => {
             </div>
 
             {/* Mobile menu button */}
-            <div className={`lg:hidden transition-all duration-800 delay-200 ${
-              animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            <div className={`lg:hidden transition-all duration-1000 ease-out ${
+              animationStage >= 2 ? 'opacity-100 translate-x-0 delay-300' : 'opacity-0 translate-x-8'
             }`}>
               <button 
                 onClick={toggleMobileMenu}
@@ -338,27 +338,21 @@ const AnimatedHeroSection = () => {
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto text-center">
-            <div className={`space-y-6 transition-all duration-1000 ${
-              animationStage >= 4 
-                ? 'opacity-100 translate-y-0' 
-                : 'opacity-0 translate-y-8'
-            }`}>
-              <h1 className={`text-3xl md:text-5xl font-bold text-white leading-tight transform transition-all duration-1000 hover:scale-105 ${
-                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            <div className="space-y-6">
+              <h1 className={`text-3xl md:text-5xl font-bold text-white leading-tight transform transition-all duration-1200 ease-out hover:scale-105 ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}>
                 Leading Maritime Classification
               </h1>
-              <p className={`text-lg md:text-xl text-gray-200 leading-relaxed transform transition-all duration-1000 delay-300 ${
-                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              <p className={`text-lg md:text-xl text-gray-200 leading-relaxed transform transition-all duration-1200 ease-out ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0 delay-400' : 'opacity-0 translate-y-12'
               }`}>
                 Excellence in Vessel Safety and Standards
               </p>
-              <div className={`flex flex-col sm:flex-row gap-4 pt-8 justify-center transform transition-all duration-1000 delay-500 ${
-                animationStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              <div className={`flex flex-col sm:flex-row gap-4 pt-8 justify-center transform transition-all duration-1200 ease-out ${
+                animationStage >= 4 ? 'opacity-100 translate-y-0 scale-100 delay-700' : 'opacity-0 translate-y-12 scale-95'
               }`}>
-                <button className={`bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95 ${
-                  animationStage >= 4 ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}>
+                <button className="bg-[#ecb143] hover:bg-[#ecb143]/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:-translate-y-1 active:scale-95">
                   Explore Our Services
                 </button>
               </div>
@@ -368,8 +362,8 @@ const AnimatedHeroSection = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className={`hidden md:block absolute bottom-8 right-8 z-20 animate-bounce hover:animate-pulse cursor-pointer transition-all duration-1000 ${
-        animationStage >= 4 ? 'opacity-100' : 'opacity-0'
+      <div className={`hidden md:block absolute bottom-8 right-8 z-20 animate-bounce hover:animate-pulse cursor-pointer transition-all duration-1000 ease-out ${
+        animationStage >= 4 ? 'opacity-100 delay-1000' : 'opacity-0'
       }`}>
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse" />
