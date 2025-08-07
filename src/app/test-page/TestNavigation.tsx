@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 
-interface NavigationProps {
-  isAnimationComplete?: boolean;
+interface TestNavigationProps {
+  isVisible: boolean;
 }
 
-const Navigation = ({ isAnimationComplete = false }: NavigationProps) => {
+const TestNavigation = ({ isVisible }: TestNavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -127,98 +127,76 @@ const Navigation = ({ isAnimationComplete = false }: NavigationProps) => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 transition-all duration-300 ${
-        isAnimationComplete ? 'z-50' : 'z-[70]'
-      } ${
+      <nav className={`fixed transition-all duration-300 z-50 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-lg' 
           : 'bg-transparent'
       }`}>
-      <div className="w-full px-6 lg:px-12">
-        <div className="flex items-center justify-between h-16">
-          {/* Animated Logo */}
-          <div className={`flex-shrink-0 ${
-            isAnimationComplete 
-              ? '' 
-              : 'animate-logo-animation'
-          }`}>
-            <div className="flex items-center">
-              <img 
-                src="/bki-2.png" 
-                alt="BKI Logo" 
-                className={`${
-                  isAnimationComplete 
-                    ? 'w-8 h-auto filter brightness(0) invert(1)' 
-                    : 'w-20 h-auto filter brightness(1)'
-                }`}
-              />
-            </div>
-          </div>
+        
+        {/* Navigation Content */}
+        <div className="w-full px-6 lg:px-12">
+            <div className="flex items-center justify-between h-16">
+              
+              {/* Navigation Menu - without logo */}
+              <div className="hidden lg:block">
+                <div className="ml-10 flex items-baseline space-x-4">
+                  {navigationItems.map((item) => (
+                    <div
+                      key={item.title}
+                      className="relative group"
+                      onMouseEnter={() => setActiveDropdown(item.title)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      <button className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center space-x-1 ${
+                        isScrolled 
+                          ? 'text-[#26476c] hover:text-[#ecb143]' 
+                          : 'text-white hover:text-[#ecb143]'
+                      }`}>
+                        <span>{item.title}</span>
+                        <ChevronDown className="w-4 h-4" />
+                      </button>
 
-          {/* Navigation Menu - slides in from right after logo animation */}
-          <div className={`hidden lg:block transition-all duration-1000 ease-out delay-3000 ${
-            isAnimationComplete 
-              ? 'transform-none opacity-100' 
-              : 'transform translate-x-full opacity-0'
-          }`}>
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navigationItems.map((item) => (
-                <div
-                  key={item.title}
-                  className="relative group"
-                  onMouseEnter={() => setActiveDropdown(item.title)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <button className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 flex items-center space-x-1 ${
-                    isScrolled 
-                      ? 'text-[#26476c] hover:text-[#ecb143]' 
-                      : 'text-white hover:text-[#ecb143]'
-                  }`}>
-                    <span>{item.title}</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-
-                  {/* Dropdown Menu */}
-                  <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 transition-all duration-300 ${
-                    activeDropdown === item.title 
-                      ? 'opacity-100 visible transform translate-y-0' 
-                      : 'opacity-0 invisible transform -translate-y-2'
-                  }`}>
-                    <div className="py-2">
-                      {item.children.map((child, index) => (
-                        <Link
-                          key={index}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#26476c] hover:text-white transition-colors duration-200"
-                        >
-                          {child.title}
-                        </Link>
-                      ))}
+                      {/* Dropdown Menu */}
+                      <div className={`absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-100 transition-all duration-300 ${
+                        activeDropdown === item.title 
+                          ? 'opacity-100 visible transform translate-y-0' 
+                          : 'opacity-0 invisible transform -translate-y-2'
+                      }`}>
+                        <div className="py-2">
+                          {item.children.map((child, index) => (
+                            <Link
+                              key={index}
+                              href={child.href}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-[#26476c] hover:text-white transition-colors duration-200"
+                            >
+                              {child.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden">
-            <button 
-              onClick={toggleMobileMenu}
-              className={`mobile-menu-button p-2 rounded-md transition-all duration-300 hover:scale-110 active:scale-95 ${
-                isScrolled ? 'text-[#26476c] hover:bg-[#26476c]/10' : 'text-white hover:bg-white/10'
-              }`}
-              aria-label="Toggle mobile menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
-          </div>
+              {/* Mobile menu button */}
+              <div className="lg:hidden">
+                <button 
+                  onClick={toggleMobileMenu}
+                  className={`mobile-menu-button p-2 rounded-md transition-all duration-300 hover:scale-110 active:scale-95 ${
+                    isScrolled ? 'text-[#26476c] hover:bg-[#26476c]/10' : 'text-white hover:bg-white/10'
+                  }`}
+                  aria-label="Toggle mobile menu"
+                >
+                  {isMobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </button>
+              </div>
+            </div>
         </div>
-      </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
@@ -303,37 +281,4 @@ const Navigation = ({ isAnimationComplete = false }: NavigationProps) => {
   );
 };
 
-export default Navigation;
-
-// Add CSS for logo animation
-const styles = `
-  @keyframes logoAnimation {
-    0% {
-      position: fixed;
-      top: 5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 5rem;
-      filter: brightness(1);
-    }
-    100% {
-      position: static;
-      top: auto;
-      left: auto;
-      transform: none;
-      width: 2rem;
-      filter: brightness(0) invert(1);
-    }
-  }
-  
-  .animate-logo-animation {
-    animation: logoAnimation 4s ease-in-out forwards;
-  }
-`;
-
-// Inject styles into document head
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = styles;
-  document.head.appendChild(styleSheet);
-}
+export default TestNavigation;
