@@ -73,45 +73,48 @@ export default function HeroSection() {
         )}
       </AnimatePresence>
 
-    <AnimatePresence>
-  {startTransition && !showIntroText && (
-    <>
-      <motion.div
-        key="main-hero-text"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }}
-        exit={{ opacity: 0 }}
-      >
-        {/* Title with bevel/gloss effect */}
-        <h1
-          className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text tracking-tight"
-          style={{ backgroundImage: "linear-gradient(to right, #FFFFFF 0%, #346484 100%)" }}
-        >
-          Your Global Partner
-        </h1>
-        <p className="text-white/70 mt-2">In</p>
-        <p className="text-xl md:text-2xl">Testing, Inspection and Certification</p>
-      </motion.div>
+      <AnimatePresence>
+        {startTransition && !showIntroText && (
+          <>
+            <motion.div
+              key="main-hero-text"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }}
+              exit={{ opacity: 0 }}
+            >
+              {/* Title with bevel/gloss effect */}
+              <h1
+                className="text-5xl md:text-6xl font-montserrat text-transparent bg-clip-text tracking-tight"
+                style={{
+                  backgroundImage: `linear-gradient(91deg, #FFF 6.98%, #DBE4E9 11.7%, #C7D4DD 21.72%, #8DA8BA 37.06%, #86A2B6 43.54%, #7D9BB0 51.8%, #6B8DA5 60.65%, #5C829C 70.08%, #4B7592 80.7%, #346484 90.13%, #0A436A 107.52%, #0A436A 115.49%, #0A436A 129.05%)`
+                  ,
+                }}
+              >
+                Your Global Partner
+              </h1>
+              <p className="text-white/70 mt-2">In</p>
+              <p className="text-xl md:text-2xl">Testing, Inspection and Certification</p>
+            </motion.div>
 
-      {/* Lottie appears only when main text is visible */}
-      <motion.div
-        key="radar-lottie"
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[550px] h-[150px] overflow-hidden [clip-path:ellipse(50%_100%_at_50%_100%)]"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.15 } }}
-        exit={{ opacity: 0, y: 10, transition: { duration: 0.25 } }}
-      >
-        <DotLottieReact
-          autoplay
-          loop
-          src="/fv_assets.lottie"
-          style={{ width: 550, height: 300 }}  
-        />
-      </motion.div>
-    </>
-  )}
-</AnimatePresence>
+            {/* Lottie appears only when main text is visible */}
+            <motion.div
+              key="radar-lottie"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[550px] h-[150px] overflow-hidden [clip-path:ellipse(50%_100%_at_50%_100%)]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.15 } }}
+              exit={{ opacity: 0, y: 10, transition: { duration: 0.25 } }}
+            >
+              <DotLottieReact
+                autoplay
+                loop
+                src="/fv_assets.lottie"
+                style={{ width: 550, height: 300 }}
+              />
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
 
     </div>
