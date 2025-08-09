@@ -36,16 +36,21 @@ export default function HeroSection() {
 
       {/* INTRO overlays -> fade OUT (includes darken + white-left + blue-bottom + vignette) */}
       <motion.div
-        className="absolute inset-0 z-10 pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: startTransition ? 0 : 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a3b62]/70 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-black/60 [mask-image:radial-gradient(120%_80%_at_50%_35%,transparent_55%,black_100%)]" />
-      </motion.div>
+  className="absolute inset-0 z-10 pointer-events-none"
+  initial={{ opacity: 1 }}
+  animate={{ opacity: startTransition ? 0 : 1 }}
+  transition={{ duration: 0.8 }}
+  style={{
+    background: `
+      linear-gradient(0deg, #0A436A 0%, rgba(10, 67, 106, 0) 100%),
+      linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFF 100%),
+      linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0) 100%)
+    `,
+    backdropFilter: "blur(22px)",
+    WebkitBackdropFilter: "blur(22px)", // Safari
+    willChange: "opacity, filter",
+  }}
+/>
 
       {/* AFTER transition: darken top & bottom */}
       <motion.div
