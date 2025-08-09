@@ -6,7 +6,7 @@ import NewsSection from '@/components/NewsSection';
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navigation />
+      {/* <Navigation /> */}
       <HeroSection />
       <ServiceHighlight />
       <StatSection/>
