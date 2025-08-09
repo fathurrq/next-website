@@ -157,7 +157,7 @@ export default function Hero() {
               className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text"
               style={{
                 backgroundImage:
-                  "linear-gradient(to right, #FFFFFF 0%, #DBE4E9 4%, #C7D4DD 12%, #8DA8BA 25%, #86A2B6 30%, #7D9BB0 37%, #6B8DA5 44%, #5C829C 51%, #4B7592 60%, #346484 100%)",
+                  "linear-gradient(to right, #FFFFFF 0%, #346484 100%)",
               }}
             >
               Your Global Partner
