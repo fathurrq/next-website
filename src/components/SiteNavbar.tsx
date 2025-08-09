@@ -56,30 +56,47 @@ export default function SiteNavbar() {
           <div className="absolute inset-0 backdrop-blur-sm bg-transparent pointer-events-none" />
 
           <div className="relative flex items-center justify-between">
-            {/* LOGO (keeps your intro move) */}
+            {/* LOGO (move left + crossfade color ↔ white) */}
             <motion.div
               layout
               className="relative h-12 w-[120px]"
               initial={{ position: "fixed", top: "20px", left: "50%", x: "-50%", y: 0 }}
-              animate={
-                startTransition
-                  ? { position: "relative", top: 0, left: 0, x: 0, y: 0 }
-                  : {}
-              }
+              animate={startTransition ? { position: "relative", top: 0, left: 0, x: 0, y: 0 } : {}}
               transition={{ duration: 1.5, ease: "easeInOut" }}
+              
             >
-              <img
-                src={logoSrc}
-                alt="BKI Logo"
-                className="absolute inset-0 h-full w-full object-contain transition-opacity duration-300"
+              {/* Colored logo */}
+              <motion.img
+                src="/bki-2.png"
+                alt="BKI Logo Color"
+                className="absolute inset-0 h-full w-full object-contain"
+                initial={{ opacity: 1 }}
+                animate={{
+                  // visible before transition, and after you scroll past the hero
+                  opacity: !startTransition || !overHero ? 1 : 0,
+                }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              />
+
+              {/* White logo */}
+              <motion.img
+                src="/bki-white.png"
+                alt="BKI Logo White"
+                className="absolute inset-0 h-full w-full object-contain"
+                initial={{ opacity: 0 }}
+                animate={{
+                  // visible only after transition *while still over the hero*
+                  opacity: startTransition && overHero ? 1 : 0,
+                }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </motion.div>
 
+
             {/* MENU — blend over hero, solid color off hero */}
             <motion.ul
-              className={`hidden md:flex gap-8 text-sm tracking-wide transition-colors duration-200 ${
-                overHero ? "mix-blend-difference text-white" : "text-black"
-              }`}
+              className={`hidden md:flex gap-8 text-sm tracking-wide transition-colors duration-200 ${overHero ? "mix-blend-difference text-white" : "text-black"
+                }`}
               initial={{ opacity: 0 }}
               animate={{ opacity: startTransition ? 1 : 0 }}
               transition={{ delay: 1.0, duration: 0.8 }}
@@ -95,9 +112,8 @@ export default function SiteNavbar() {
 
             {/* RIGHT — same rule */}
             <motion.div
-              className={`hidden md:flex items-center gap-4 transition-colors duration-200 ${
-                overHero ? "mix-blend-difference text-white" : "text-black"
-              }`}
+              className={`hidden md:flex items-center gap-4 transition-colors duration-200 ${overHero ? "mix-blend-difference text-white" : "text-black"
+                }`}
               initial={{ opacity: 0 }}
               animate={{ opacity: startTransition ? 1 : 0 }}
               transition={{ delay: 1.0, duration: 0.8 }}
