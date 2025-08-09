@@ -69,17 +69,23 @@ export default function Hero() {
               src="/bki-2.png"
               alt="BKI Logo Color"
               className="absolute inset-0 h-full w-full object-contain"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: startTransition ? 0 : 1 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 1, scale: 2, top: "20px" }}
+              animate={{
+                opacity: startTransition ? 0 : 1,
+                scale: startTransition ? 1 : 2,
+                top: "0px"
+              }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
+
+            {/* White logo (after transition) — normal size */}
             <motion.img
               src="/bki-white.png"
               alt="BKI Logo White"
               className="absolute inset-0 h-full w-full object-contain"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: startTransition ? 1 : 0 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, scale: 1, top: "20px" }}
+              animate={{ opacity: startTransition ? 1 : 0, scale: 1, top: "0px" }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
           </motion.div>
 
@@ -156,7 +162,7 @@ export default function Hero() {
             >
               Your Global Partner
             </h1>
-              <p className="text-white opacity-60">In</p>
+            <p className="text-white opacity-60">In</p>
             <p
               className="text-xl md:text-2xl"
             >
