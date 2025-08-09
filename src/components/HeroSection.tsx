@@ -4,7 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
   const [startTransition, setStartTransition] = useState(false);
+  const [showIntroText, setShowIntroText] = useState(false);
 
+  useEffect(() => {
+    if (!startTransition) return;
+    setShowIntroText(true); // show "Welcome To"
+    const t = setTimeout(() => setShowIntroText(false), 3000);
+    // 500ms hold + ~350ms fade out
+    return () => clearTimeout(t);
+  }, [startTransition]);
   useEffect(() => {
     const t = setTimeout(() => setStartTransition(true), 1000); // intro length
     return () => clearTimeout(t);
@@ -16,7 +24,7 @@ export default function Hero() {
       <video
         className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ${startTransition ? "blur-0 scale-100" : "blur-md scale-105"
           }`}
-        src="/463601_Ha_Long_Bay_Vietnam_1920x1080.mp4"
+        src="/hero-video.mp4"
         autoPlay
         loop
         muted
@@ -116,38 +124,44 @@ export default function Hero() {
       {/* Title & tagline */}
       {/* Title & Tagline with exact Figma gradient */}
       <AnimatePresence>
-        {startTransition && (
+        {startTransition && showIntroText && (
           <motion.div
+            key="intro-welcome"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
-            initial="hidden"
-            animate="show"
-            exit="hidden"
-            variants={{
-              hidden: { opacity: 0, x: -1220 },
-              show: {
-                opacity: 1,
-                x: 0,
-                transition: { duration: 0.9, ease: "easeOut", staggerChildren: 0.12 },
-              },
-            }}
+            initial={{ opacity: 0, x: -1200 }}
+            animate={{ opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } }}
+            exit={{ opacity: 0, transition: { duration: 0.35 } }}
           >
-            <motion.h1
+            <h1 className="text-5xl md:text-6xl font-semibold text-white">Welcome To</h1>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* B) Title + Tagline — fade IN (no slide), with your Figma gradient */}
+      <AnimatePresence>
+        {startTransition && !showIntroText && (
+          <motion.div
+            key="main-hero-text"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }}
+            exit={{ opacity: 0 }}
+          >
+            <h1
               className="text-5xl md:text-6xl font-semibold text-transparent bg-clip-text"
               style={{
                 backgroundImage:
-                  "linear-gradient(to right, #FFFFFF 0%, #86A2B6 50%, #4B7592 100%)",
+                  "linear-gradient(to right, #FFFFFF 0%, #DBE4E9 4%, #C7D4DD 12%, #8DA8BA 25%, #86A2B6 30%, #7D9BB0 37%, #6B8DA5 44%, #5C829C 51%, #4B7592 60%, #346484 100%)",
               }}
-              variants={{ hidden: { opacity: 0, x: -80 }, show: { opacity: 1, x: 0 } }}
             >
               Your Global Partner
-            </motion.h1>
-
-            <motion.p
-              className="mt-4 text-xl md:text-2xl text-transparent bg-clip-text"
-              variants={{ hidden: { opacity: 0, x: -60 }, show: { opacity: 1, x: 0 } }}
+            </h1>
+              <p className="text-white opacity-60">In</p>
+            <p
+              className="text-xl md:text-2xl"
             >
-              Biro Klasifikasi Indonesia
-            </motion.p>
+              Testing, Inspection and Certification
+            </p>
           </motion.div>
         )}
       </AnimatePresence>
