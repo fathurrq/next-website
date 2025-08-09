@@ -1,4 +1,3 @@
-import Navigation from '@/components/Navigation';
 
 const timeline = [
   {
@@ -31,7 +30,6 @@ const timeline = [
 export default function CompanyHistoryPage() {
   return (
     <main className="min-h-screen">
-      <Navigation />
       <section className="bg-gradient-to-b from-[#26476c] to-[#1b3350] text-white py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Company History</h1>
