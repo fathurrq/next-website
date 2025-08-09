@@ -49,14 +49,15 @@ export default function HeroSection() {
 
       {/* AFTER transition: darken top & bottom */}
       <motion.div
-        className="absolute inset-0 z-20 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: startTransition ? 1 : 0 }}
-        transition={{ duration: 1 }}
-      >
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/90 to-transparent" />
-        <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-black/50 to-transparent" />
-      </motion.div>
+  className="absolute inset-0 z-20 pointer-events-none"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: startTransition ? 1 : 0 }}
+  transition={{ duration: 1 }}
+  style={{
+    background:
+      "linear-gradient(0deg, #000 17.98%, rgba(0, 0, 0, 0.30) 100%)"
+  }}
+/>
 
       {/* Title flow (unchanged, your two-step sequence) */}
       <AnimatePresence>
