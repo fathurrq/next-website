@@ -183,26 +183,28 @@ export default function SiteNavbar() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 8, scale: 0.98 }}
                               transition={{ duration: 0.16, ease: "easeOut" }}
-                              className={`absolute left-0 top-full z-[60] ${isCompact ? "mt-6" : "mt-7"}`}
+                              className="absolute left-0 top-full z-[60] mt-7"
                               onMouseEnter={() => handleEnter(i)}
                               onMouseLeave={handleLeaveSoon}
                             >
                               <div
-                                className={`${isCompact ? "w-64" : "w-80"} rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0`}
+                                className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
                                 style={{
                                   borderRadius: "10px",
                                   background: "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
-                                  backdropFilter: "blur(35px)",
+                                  backdropFilter: "blur(35px)" 
                                 }}
                               >
                                 <ul className="py-3">
-                                  {item.submenu!.map((sub) => (
+                                  {item.submenu!.map((sub, si) => (
                                     <li key={sub.label}>
                                       <a
                                         href={sub.href}
                                         className={`
-                                          block ${isCompact ? "px-4" : "px-6"} py-3 text-[16px] font-normal
-                                          text-white border-b border-white/30
+                                          font-normal
+                                          block py-3 text-[16px] 
+                                          text-white 
+                                          border-b border-white/30
                                           hover:text-white/30 hover:border-white
                                           transition-colors duration-150
                                         `}
