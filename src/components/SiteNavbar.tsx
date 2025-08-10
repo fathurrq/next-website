@@ -182,8 +182,9 @@ export default function SiteNavbar() {
                               <div
                                 className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
                                 style={{
-                                  background:
-                                    "linear-gradient(180deg, rgba(12,38,58,0.88) 0%, rgba(10,67,106,0.82) 100%)",
+                                  borderRadius: "10px",
+                                  background: "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+                                  backdropFilter: "blur(35px)" 
                                 }}
                               >
                                 <ul className="py-3">
