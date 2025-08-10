@@ -141,7 +141,7 @@ export default function SiteNavbar() {
               {/* LOGO */}
               <motion.div
                 layout
-                className={`relative ${isCompact ? "h-10 w-[100px]" : "h-10 w-[110px]"} md:${isCompact ? "h-11 w-[110px]" : "h-12 w-[120px]"}`}
+                className={`relative h-10 w-[110px]`}
                 initial={
                   isMobile
                     ? { position: "fixed", top: "50%", left: "50%", x: "-50%", y: "-50%" }
