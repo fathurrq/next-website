@@ -80,6 +80,27 @@ export default function SiteNavbar() {
 
   // desktop dropdown state
   const [hovered, setHovered] = useState<number | null>(null);
+  // mobile menu helpers
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [expanded, setExpanded] = useState<number | null>(null); // which top-level item is expanded
+
+  // lock body scroll while open + close on Escape
+  useEffect(() => {
+    if (!mobileOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const closeTimer = useRef<number | null>(null);
 
   const wrapperClass = overHero ? "fixed inset-0 z-30" : "sticky top-0 z-30";
@@ -95,9 +116,8 @@ export default function SiteNavbar() {
   const handleLeaveSoon = () => {
     closeTimer.current = window.setTimeout(() => setHovered(null), 90) as unknown as number;
   };
-
   return (
-    <motion.nav className={wrapperClass}>
+    <motion.nav className={wrapperClass} style={{zIndex: 999}}>
       <div className={overHero ? "h-screen w-full flex justify-center" : "w-full flex justify-center"}>
         <div className={`${isCompact ? "w-[92%]" : "w-[80%]"} py-3 md:py-4 relative`}>
           <div className="absolute inset-0 bg-transparent pointer-events-none" />
@@ -192,7 +212,7 @@ export default function SiteNavbar() {
                                 style={{
                                   borderRadius: "10px",
                                   background: "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
-                                  backdropFilter: "blur(35px)" 
+                                  backdropFilter: "blur(35px)"
                                 }}
                               >
                                 <ul className="py-3">
@@ -239,8 +259,8 @@ export default function SiteNavbar() {
               <motion.button
                 type="button"
                 aria-label="Open menu"
-                onClick={() => setOpen(true)}
-                className={`md:hidden p-2 rounded-lg transition-colors duration-200 ${textClass}`}
+                onClick={() => setMobileOpen(true)}
+                className={`md:hidden p-2 pr-4 rounded-lg transition-colors duration-200 ${textClass}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: startTransition ? 1 : 0 }}
                 transition={{ delay: 1.0, duration: 0.5 }}
@@ -255,51 +275,150 @@ export default function SiteNavbar() {
           {/* ===== /layered navbar bar ===== */}
 
           {/* MOBILE DRAWER */}
+          {/* ===== MOBILE FULLSCREEN MENU ===== */}
           <AnimatePresence>
-            {open && (
+            {mobileOpen && (
               <>
+                {/* Dim/gradient background */}
                 <motion.div
-                  className="fixed inset-0 bg-black/40 md:hidden"
+                  className="fixed inset-0 z-[98] backdrop-blur-md"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMobileOpen(false)}
+                  style={{
+                    background: `
+            radial-gradient(120% 80% at 50% 0%, rgba(10,67,106,0.85) 0%, rgba(10,67,106,0.65) 35%, rgba(10,67,106,0.42) 55%, rgba(0,0,0,0.75) 100%),
+            linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.7))
+          `,
+                  }}
                 />
-                <motion.aside
-                  className="fixed right-0 top-0 h-full w-72 bg-white md:hidden z-40 shadow-xl"
-                  initial={{ x: "100%" }}
-                  animate={{ x: 0 }}
-                  exit={{ x: "100%" }}
-                  transition={{ type: "tween", duration: 0.25 }}
+
+                {/* Panel content */}
+                <motion.div
+                  role="dialog"
+                  aria-modal="true"
+                  className="fixed inset-0 z-[99] flex flex-col"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                 >
-                  <div className="p-4 flex items-center justify-between border-b">
-                    <span className="font-semibold">Menu</span>
+                  {/* Top bar: logo + close */}
+                  <div className="flex items-center justify-between px-5 py-4">
+                    <img src="/bki-white.png" alt="BKI" className="h-8" />
                     <button
                       aria-label="Close menu"
-                      className="p-2 rounded-md hover:bg-black/5"
-                      onClick={() => setOpen(false)}
+                      onClick={() => setMobileOpen(false)}
+                      className="p-2 pr-0 rounded-lg text-white/90 active:scale-95 transition"
+                      style={{ WebkitTapHighlightColor: "transparent" }}
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                         <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
                       </svg>
                     </button>
                   </div>
-                  <nav className="p-4 space-y-3 text-[15px]">
-                    {NAV.map((item) => (
-                      <a key={item.label} className="block py-2" href={item.href}>
-                        {item.label}
-                      </a>
-                    ))}
-                    <div className="h-px bg-black/10 my-2" />
-                    <div className="flex items-center gap-3 text-sm">
-                      <a className="font-medium" href="#">Bahasa</a>
-                      <span className="opacity-60">English</span>
+
+                  {/* Menu list (scrollable) */}
+                  <motion.nav
+                    className="flex-1 overflow-y-auto px-5 pt-4 pb-10"
+                    initial="hidden"
+                    animate="show"
+                    exit="hidden"
+                    variants={{
+                      hidden: { transition: { staggerChildren: 0.02, staggerDirection: -1 } },
+                      show: { transition: { staggerChildren: 0.05 } },
+                    }}
+                  >
+                    {NAV.map((item, i) => {
+                      const hasSub = !!item.submenu?.length;
+                      const isOpen = expanded === i;
+
+                      return (
+                        <motion.div
+                          key={item.label}
+                          className="mb-2"
+                          variants={{
+                            hidden: { opacity: 0, y: 8 },
+                            show: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.22 } },
+                          }}
+                        >
+                          {/* Top-level row */}
+                          <button
+                            className="w-full flex items-center justify-between py-3.5 border-b border-white/20 text-white text-2xl font-semibold"
+                            onClick={() => (hasSub ? setExpanded(isOpen ? null : i) : setMobileOpen(false))}
+                          >
+                            <span>{item.label}</span>
+                            {hasSub ? (
+                              <motion.span
+                                initial={false}
+                                animate={{ rotate: isOpen ? 180 : 0 }}
+                                transition={{ type: "tween", duration: 0.2 }}
+                                className="inline-block"
+                              >
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                                  <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                </svg>
+                              </motion.span>
+                            ) : (
+                              <span />
+                            )}
+                          </button>
+
+                          {/* Submenu (accordion) */}
+                          {hasSub && (
+                            <AnimatePresence initial={false}>
+                              {isOpen && (
+                                <motion.ul
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.22, ease: "easeInOut" }}
+                                  className="overflow-hidden"
+                                >
+                                  {item.submenu!.map((sub) => (
+                                    <li key={sub.label}>
+                                      <a
+                                        href={sub.href}
+                                        className="block pl-1 pr-1 py-3 text-white/90 text-[17px] border-b border-white/15 active:scale-[.99] transition"
+                                        onClick={() => setMobileOpen(false)}
+                                      >
+                                        {sub.label}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </motion.ul>
+                              )}
+                            </AnimatePresence>
+                          )}
+                        </motion.div>
+                      );
+                    })}
+                  </motion.nav>
+
+                  {/* Footer actions */}
+                  <div className="px-5 pb-6 pt-3 border-t border-white/10">
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-4 text-white/80">
+                        <button className="underline underline-offset-4" onClick={() => setMobileOpen(false)}>
+                          Bahasa
+                        </button>
+                        <span className="opacity-60">English</span>
+                      </div>
+                      <div className="flex items-center gap-3 text-white/80">
+                        <a href="#" aria-label="Facebook" className="p-2 hover:text-white transition">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M..." /></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" className="p-2 hover:text-white transition">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M..." /></svg>
+                        </a>
+                      </div>
                     </div>
-                  </nav>
-                </motion.aside>
+                  </div>
+                </motion.div>
               </>
             )}
           </AnimatePresence>
+
         </div>
       </div>
     </motion.nav>
