@@ -158,13 +158,13 @@ export default function SiteNavbar() {
                     >
                       <a
                         href={item.href}
-                        className="relative inline-flex items-center gap-1 px-1 py-2 transition-colors group-hover:!text-white/30"
+                        className="relative text-lg inline-flex items-center gap-1 px-1 py-2 transition-colors group-hover:!text-white/30"
                         onFocus={() => handleEnter(i)}
                         onBlur={handleLeaveSoon}
                       >
                         {item.label}
                         {/* white bottom indicator */}
-                        <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-5 h-[2px] w-full rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 h-[2px] w-full rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
 
                       {hasSub && (
@@ -180,18 +180,28 @@ export default function SiteNavbar() {
                               onMouseLeave={handleLeaveSoon}
                             >
                               <div
-                                className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md"
+                                className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
                                 style={{
-                                  background: "linear-gradient(180deg, rgba(12,38,58,0.88) 0%, rgba(10,67,106,0.82) 100%)",
+                                  background:
+                                    "linear-gradient(180deg, rgba(12,38,58,0.88) 0%, rgba(10,67,106,0.82) 100%)",
                                 }}
                               >
                                 <ul className="py-3">
-                                  {item.submenu!.map((sub) => (
-                                    <li key={sub.label} className="relative">
-                                      <a href={sub.href} className="block px-6 py-3 text-[16px] text-white/95 hover:text-white">
+                                  {item.submenu!.map((sub, si) => (
+                                    <li key={sub.label}>
+                                      <a
+                                        href={sub.href}
+                                        className={`
+                                          font-normal
+                                          block py-3 text-[16px] 
+                                          text-white 
+                                          border-b border-white/30
+                                          hover:text-white/30 hover:border-white
+                                          transition-colors duration-150
+                                        `}
+                                      >
                                         {sub.label}
                                       </a>
-                                      <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-0 h-px w-[86%] bg-white/20 last:hidden" />
                                     </li>
                                   ))}
                                 </ul>
@@ -200,6 +210,7 @@ export default function SiteNavbar() {
                           )}
                         </AnimatePresence>
                       )}
+
                     </li>
                   );
                 })}
