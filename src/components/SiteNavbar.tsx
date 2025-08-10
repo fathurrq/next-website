@@ -3,36 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useHeroTransition } from "./TransitionProvider";
 
-/* -------------------- helpers -------------------- */
-function useOverHero() {
-  const [overHero, setOverHero] = useState(true);
-  const rafRef = useRef<number | null>(null);
-  useEffect(() => {
-    const calc = () => {
-      const hero = document.getElementById("hero");
-      if (!hero) return setOverHero(false);
-      const heroH = hero.offsetHeight || window.innerHeight;
-      setOverHero(window.scrollY < heroH - 1);
-    };
-    const onScroll = () => {
-      if (rafRef.current) return;
-      rafRef.current = requestAnimationFrame(() => {
-        calc();
-        if (rafRef.current) cancelAnimationFrame(rafRef.current);
-        rafRef.current = null;
-      });
-    };
-    calc();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", calc);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", calc);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, []);
-  return overHero;
-}
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobile] = useState(false);
@@ -49,7 +19,7 @@ function useIsMobile(breakpoint = 768) {
 /* -------------------- component -------------------- */
 export default function SiteNavbar() {
   const { startTransition } = useHeroTransition();
-  const overHero = useOverHero();
+  const overHero = true;
   const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
 
@@ -101,8 +71,8 @@ export default function SiteNavbar() {
                 src="/bki-2.png"
                 alt="BKI Logo Color"
                 className="absolute inset-0 h-full w-full object-contain"
-                initial={{ opacity: 1 }}
-                animate={{ opacity: !startTransition || !overHero ? 1 : 0 }}
+                initial={{ opacity: 1, scale: 2, top: "20px" }}
+                animate={{ opacity: !startTransition ? 1 : 0 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               />
               <motion.img
