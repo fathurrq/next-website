@@ -34,9 +34,9 @@ export default function SiteNavbar() {
       <div className={overHero ? "h-screen w-full flex justify-center" : "w-full flex justify-center"}>
         <div className="w-[90%] md:w-[80%] py-3 md:py-4 relative">
           {/* transparent blur only */}
-          <div className="absolute inset-0 backdrop-blur-sm bg-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-transparent pointer-events-none" />
 
-          <div className="relative flex items-center justify-between">
+          <div className="relative flex items-center justify-between  bg-black opacity-70 py-4 px-0 rounded-lg">
             {/* LOGO — mobile starts center-center, desktop starts top-center */}
             <motion.div
               layout
@@ -87,25 +87,23 @@ export default function SiteNavbar() {
 
             {/* DESKTOP MENU */}
             <motion.ul
-              className={`hidden md:flex gap-8 text-sm tracking-wide transition-colors duration-200 ${textClass}`}
+              className={`hidden md:flex gap-8 text-sm tracking-wide transition-colors font-semibold duration-200 ${textClass}`}
               initial={{ opacity: 0 }}
               animate={{ opacity: startTransition ? 1 : 0 }}
               transition={{ delay: 1.0, duration: 0.8 }}
             >
               <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Resources</a></li>
+              <li><a href="#"> Services</a></li>
+              <li><a href="#">Research</a></li>
               <li><a href="#">Publication</a></li>
-              <li><a href="#">Opportunity</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">PPID</a></li>
+              <li><a href="#">About Us</a></li>
             </motion.ul>
 
             {/* DESKTOP RIGHT */}
             <motion.div
               className={`hidden md:flex items-center gap-4 transition-colors duration-200 ${textClass}`}
               initial={{ opacity: 0 }}
-              animate={{ opacity: startTransition ? 1 : 0 }}
+              animate={{ opacity: startTransition ? 1 : 0, paddingRight: "16px" }}
               transition={{ delay: 1.0, duration: 0.8 }}
             >
               <a href="#" className="font-medium">Bahasa</a>
