@@ -16,13 +16,22 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
+// NEW: compact mode for smaller laptops (<= 1120px)
+function useCompact(breakpoint = 1120) {
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width:${breakpoint}px)`);
+    const update = () => setCompact(mql.matches);
+    update();
+    mql.addEventListener?.("change", update);
+    return () => mql.removeEventListener?.("change", update);
+  }, [breakpoint]);
+  return compact;
+}
+
 /* ---------- menu data ---------- */
 const NAV = [
-  {
-    label: "Home",
-    href: "#"
-
-  },
+  { label: "Home", href: "#" },
   {
     label: "Services", href: "#",
     submenu: [
@@ -47,8 +56,7 @@ const NAV = [
       { label: "Event", href: "#" },
       { label: "Article", href: "#" },
       { label: "Annual Report", href: "#" },
-    ]
-
+    ],
   },
   {
     label: "About Us", href: "#",
@@ -65,8 +73,9 @@ const NAV = [
 /* -------------------- component -------------------- */
 export default function SiteNavbar() {
   const { startTransition } = useHeroTransition();
-  const overHero = true; // wire your over-hero logic if needed
+  const overHero = true;
   const isMobile = useIsMobile();
+  const isCompact = useCompact(1120); // <= 1120px → compact layout
   const [open, setOpen] = useState(false);
 
   // desktop dropdown state
@@ -90,11 +99,11 @@ export default function SiteNavbar() {
   return (
     <motion.nav className={wrapperClass}>
       <div className={overHero ? "h-screen w-full flex justify-center" : "w-full flex justify-center"}>
-        <div className="w-[90%] md:w-[80%] py-3 md:py-4 relative">
+        <div className={`${isCompact ? "w-[92%]" : "w-[80%]"} py-3 md:py-4 relative`}>
           <div className="absolute inset-0 bg-transparent pointer-events-none" />
 
           {/* ===== layered navbar bar ===== */}
-          <div className="relative rounded-xl py-4 px-0">
+          <div className={`relative rounded-xl ${isCompact ? "py-3" : "py-4"} px-0`}>
             {/* background layer only (animates in) */}
             <motion.div
               className="absolute inset-0 rounded-xl backdrop-blur-md"
@@ -104,15 +113,15 @@ export default function SiteNavbar() {
                 scaleY: startTransition ? 1 : 0.92,
               }}
               transition={{ delay: 0.8, duration: 0.6, ease: "easeInOut" }}
-              style={{ backgroundColor: "rgba(0,0,0,0.70)" }} // bg-black/70
+              style={{ backgroundColor: "rgba(0,0,0,0.70)" }}
             />
 
-            {/* foreground content stays visible from first paint */}
+            {/* foreground content */}
             <div className="relative z-10 flex items-center justify-between">
               {/* LOGO */}
               <motion.div
                 layout
-                className="relative h-10 w-[110px] md:h-12 md:w-[120px]"
+                className={`relative ${isCompact ? "h-10 w-[100px]" : "h-10 w-[110px]"} md:${isCompact ? "h-11 w-[110px]" : "h-12 w-[120px]"}`}
                 initial={
                   isMobile
                     ? { position: "fixed", top: "50%", left: "50%", x: "-50%", y: "-50%" }
@@ -142,7 +151,7 @@ export default function SiteNavbar() {
 
               {/* DESKTOP MENU + DROPDOWNS */}
               <motion.ul
-                className={`hidden md:flex gap-8 text-sm tracking-wide transition-colors font-semibold duration-200 ${textClass}`}
+                className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${isCompact ? "text-[15px]" : "text-sm"} tracking-wide transition-colors font-semibold duration-200 ${textClass}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: startTransition ? 1 : 0 }}
                 transition={{ delay: 1.0, duration: 0.8 }}
@@ -158,13 +167,12 @@ export default function SiteNavbar() {
                     >
                       <a
                         href={item.href}
-                        className="relative text-lg inline-flex items-center gap-1 px-1 py-2 transition-colors group-hover:!text-white/30"
+                        className={`relative inline-flex items-center gap-1 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:!text-white/30`}
                         onFocus={() => handleEnter(i)}
                         onBlur={handleLeaveSoon}
                       >
                         {item.label}
-                        {/* white bottom indicator */}
-                        <span className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 h-[2px] w-full rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <span className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${isCompact ? "-bottom-3" : "-bottom-4"} h-[2px] w-full rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity`} />
                       </a>
 
                       {hasSub && (
@@ -175,28 +183,26 @@ export default function SiteNavbar() {
                               animate={{ opacity: 1, y: 0, scale: 1 }}
                               exit={{ opacity: 0, y: 8, scale: 0.98 }}
                               transition={{ duration: 0.16, ease: "easeOut" }}
-                              className="absolute left-0 top-full z-[60] mt-7"
+                              className={`absolute left-0 top-full z-[60] ${isCompact ? "mt-6" : "mt-7"}`}
                               onMouseEnter={() => handleEnter(i)}
                               onMouseLeave={handleLeaveSoon}
                             >
                               <div
-                                className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
+                                className={`${isCompact ? "w-64" : "w-80"} rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0`}
                                 style={{
                                   borderRadius: "10px",
                                   background: "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
-                                  backdropFilter: "blur(35px)" 
+                                  backdropFilter: "blur(35px)",
                                 }}
                               >
                                 <ul className="py-3">
-                                  {item.submenu!.map((sub, si) => (
+                                  {item.submenu!.map((sub) => (
                                     <li key={sub.label}>
                                       <a
                                         href={sub.href}
                                         className={`
-                                          font-normal
-                                          block py-3 text-[16px] 
-                                          text-white 
-                                          border-b border-white/30
+                                          block ${isCompact ? "px-4" : "px-6"} py-3 text-[16px] font-normal
+                                          text-white border-b border-white/30
                                           hover:text-white/30 hover:border-white
                                           transition-colors duration-150
                                         `}
@@ -211,7 +217,6 @@ export default function SiteNavbar() {
                           )}
                         </AnimatePresence>
                       )}
-
                     </li>
                   );
                 })}
@@ -219,9 +224,9 @@ export default function SiteNavbar() {
 
               {/* DESKTOP RIGHT */}
               <motion.div
-                className={`hidden md:flex items-center gap-4 transition-colors duration-200 ${textClass}`}
+                className={`hidden md:flex items-center ${isCompact ? "gap-3" : "gap-4"} transition-colors duration-200 ${textClass}`}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: startTransition ? 1 : 0, paddingRight: "16px" }}
+                animate={{ opacity: startTransition ? 1 : 0, paddingRight: isCompact ? 12 : 16 }}
                 transition={{ delay: 1.0, duration: 0.8 }}
               >
                 <a href="#" className="font-medium">Bahasa</a>
