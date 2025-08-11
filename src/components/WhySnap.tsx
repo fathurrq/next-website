@@ -124,14 +124,14 @@ export default function WhyCrossfadeSteppedLocked() {
           {showCenter && (
             <motion.div
               key="centerText"
-              className="absolute top-[12vh] left-1/2 -translate-x-1/2 text-center text-white z-20"
-              initial={{ opacity: 0, y: 20 }}
+              className=" absolute top-[12vh] left-1/2 -translate-x-1/2 text-center text-white z-20"
+              initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <h2 className="font-montserrat text-[12vw] md:text-[6vw] font-bold leading-none">Why</h2>
-              <p className="text-[5vw] md:text-[2.5vw] font-medium mt-1">Global Trust Us</p>
+              <h2 className="italic font-montserrat text-[12vw] md:text-[6vw] font-bold leading-none">Why</h2>
+              <p className="text-[5vw] md:text-[2.5vw] font-medium mt-1">Global Client Trust Us</p>
             </motion.div>
           )}
         </AnimatePresence>
