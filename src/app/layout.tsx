@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { TransitionProvider } from "@/components/TransitionProvider";
 import SiteNavbar from "@/components/SiteNavbar";
+import FooterSection from '@/components/FooterSection';
 
 import { Montserrat } from 'next/font/google';
 import './globals.css'; // your global styles
@@ -30,6 +31,7 @@ export default function RootLayout({
         <TransitionProvider>
           <SiteNavbar />
           {children}
+          <FooterSection />
         </TransitionProvider>
       </body>
     </html>
