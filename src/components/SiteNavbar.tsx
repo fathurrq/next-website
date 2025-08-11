@@ -103,7 +103,7 @@ export default function SiteNavbar() {
 
   const closeTimer = useRef<number | null>(null);
 
-  const wrapperClass = overHero ? "fixed inset-0 z-30" : "sticky top-0 z-30";
+  const wrapperClass = overHero ? "fixed top-0 left-0 w-full z-[99]" : "sticky top-0 w-full z-[99]";
   const textClass = overHero ? "mix-blend-difference text-white" : "text-black";
 
   const handleEnter = (i: number) => {
@@ -117,10 +117,10 @@ export default function SiteNavbar() {
     closeTimer.current = window.setTimeout(() => setHovered(null), 90) as unknown as number;
   };
   return (
-    <motion.nav className={wrapperClass} style={{zIndex: 999}}>
-      <div className={overHero ? "h-screen w-full flex justify-center" : "w-full flex justify-center"}>
-        <div className={`${isCompact ? "w-[92%]" : "w-[80%]"} py-3 md:py-4 relative`}>
-          <div className="absolute inset-0 bg-transparent pointer-events-none" />
+    <motion.nav className={`${wrapperClass} pointer-events-none`}>
+       <div className="w-full flex justify-center">
+       <div className={`${isCompact ? "w-[92%]" : "w-[80%]"} py-3 md:py-4 relative pointer-events-auto`}>
+          {/* <div className="absolute inset-0 bg-transparent pointer-events-none" /> */}
 
           {/* ===== layered navbar bar ===== */}
           <div className={`relative rounded-xl ${isCompact ? "py-3" : "py-4"} px-0`}>

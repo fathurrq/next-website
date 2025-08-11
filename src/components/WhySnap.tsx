@@ -43,6 +43,13 @@ export default function WhyCrossfadeSteppedLocked() {
   const lastProgressRef = useRef(0);
   const TRANSITION_MS = 520; // match your crossfade (~0.45s) with a little padding
   const EPS = 0.001;         // tiny epsilon for numeric safety
+  const canExitRef = useRef(false); // Track if we can exit to next section
+  
+  // Initialize canExitRef based on current index
+  if (index === slides.length - 1 && !canExitRef.current) {
+    // If we start on the last slide, allow exit immediately
+    canExitRef.current = true;
+  }
 
   useMotionValueEvent(p, "change", (v) => {
     const n = slides.length;
@@ -62,23 +69,55 @@ export default function WhyCrossfadeSteppedLocked() {
     const dir = v > prevV + EPS ? 1 : v < prevV - EPS ? -1 : 0;
     if (dir === 0) return;
 
-    // Compute boundaries relative to current index
-    // Centers are i/(n-1). Boundaries are halfway between centers.
-    const forwardBoundary = (curr + 0.5) / (n - 1);
-    const backwardBoundary = (curr - 0.5) / (n - 1);
-
-    // Move only one step when crossing the *nearest* boundary in the scroll direction.
-    if (dir > 0 && curr < n - 1 && v >= forwardBoundary) {
-      isLockedRef.current = true;
-      setIndex(curr + 1);
-      setTimeout(() => { isLockedRef.current = false; }, TRANSITION_MS);
+    // More restrictive boundaries - require smaller progress jumps to advance
+    // This prevents hard scrolling from jumping multiple slides
+    const progressPerSlide = 1 / (n - 1);
+    const currentProgress = curr * progressPerSlide;
+    
+    // Only advance if we've moved a reasonable amount but not too much
+    const minProgressStep = progressPerSlide * 0.2; // 20% of a slide
+    const maxProgressStep = progressPerSlide * 0.8; // 80% of a slide
+    
+    const progressDiff = Math.abs(v - currentProgress);
+    
+    // Forward direction
+    if (dir > 0 && curr < n - 1) {
+      const nextSlideProgress = (curr + 1) * progressPerSlide;
+      // Only advance if we're past the midpoint but haven't jumped too far
+      if (v >= currentProgress + minProgressStep && v <= nextSlideProgress + maxProgressStep) {
+        isLockedRef.current = true;
+        canExitRef.current = false; // Reset exit flag when transitioning
+        setIndex(curr + 1);
+        setTimeout(() => { 
+          isLockedRef.current = false;
+          // If we just reached the last slide, allow exit after a delay
+          if (curr + 1 === n - 1) {
+            setTimeout(() => {
+              canExitRef.current = true;
+            }, 300); // Additional delay before allowing exit
+          }
+        }, TRANSITION_MS);
+        return;
+      }
+    }
+    
+    // Special case: if we're on the last slide and scrolling forward, allow scroll to propagate
+    // This lets the user scroll to the next section after reaching the last image
+    if (dir > 0 && curr === n - 1 && canExitRef.current && v > currentProgress + minProgressStep) {
+      // Don't prevent scroll, let it continue to next section
       return;
     }
-    if (dir < 0 && curr > 0 && v <= backwardBoundary) {
-      isLockedRef.current = true;
-      setIndex(curr - 1);
-      setTimeout(() => { isLockedRef.current = false; }, TRANSITION_MS);
-      return;
+    
+    // Backward direction
+    if (dir < 0 && curr > 0) {
+      const prevSlideProgress = (curr - 1) * progressPerSlide;
+      // Only go back if we're before the midpoint but haven't jumped too far back
+      if (v <= currentProgress - minProgressStep && v >= prevSlideProgress - maxProgressStep) {
+        isLockedRef.current = true;
+        setIndex(curr - 1);
+        setTimeout(() => { isLockedRef.current = false; }, TRANSITION_MS);
+        return;
+      }
     }
   });
 
