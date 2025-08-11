@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Card, CardContent } from "./Card"
 import { Calendar, Clock, User, ArrowRight, Filter, Search, Globe, Shield, Award, Anchor } from "lucide-react"
+import FooterSection from "./FooterSection"
 
 interface NewsItem {
   id: number
@@ -160,7 +161,7 @@ const NewsSection = () => {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-slate-50 to-gray-100 py-16 px-4">
+    <section className="h-screen w-full bg-gradient-to-b from-slate-50 to-gray-100 py-16 px-4 flex flex-col">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-3">
         <div
@@ -175,11 +176,10 @@ const NewsSection = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
-
+      <div className="relative z-10 max-w-7xl mx-auto flex-1 flex flex-col">
         {/* Regular News Grid */}
         {regularNews.length > 0 && (
-          <div>
+          <div className="flex-1">
             <h2 className="text-3xl font-bold text-[#26476c] mb-8 flex items-center gap-3">
               Latest Updates
             </h2>
@@ -239,7 +239,11 @@ const NewsSection = () => {
             </div>
           </div>
         )}
+      </div>
 
+      {/* Sticky Footer */}
+      <div className="relative z-10 mt-auto">
+        <FooterSection />
       </div>
     </section>
   )

@@ -111,7 +111,7 @@ const  StatSection = () => {
   }
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-slate-50 to-gray-100 py-16 px-4">
+    <section className="h-screen w-full bg-gradient-to-b from-slate-50 to-gray-100 py-16 px-4">
       {/* Formal Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -126,7 +126,7 @@ const  StatSection = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center">
 
         <div className="space-y-16">
 
