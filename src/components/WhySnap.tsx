@@ -23,6 +23,7 @@ export default function WhyCrossfadeSteppedLocked() {
     { src: "/member.png",  topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Trusted by Global Clients" },
     { src: "/office.svg",  topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Decades of Experience" },
     { src: "/member.png",  topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Innovation & Excellence" },
+    { src: "/member.png",  topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Innovation & Excellence" },
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);

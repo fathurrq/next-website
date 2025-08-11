@@ -14,17 +14,17 @@ export default function WhyTrustSection() {
     offset: ["start end", "end start"], // 0 at section bottom hits viewport bottom; 1 when top hits top
   });
 
-  // Add a tiny spring so it feels buttery and avoids jitter
-  const p = useSpring(scrollYProgress, { stiffness: 120, damping: 24, mass: 0.4 });
+  // Add a gentle spring for smoother, slower animation
+  const p = useSpring(scrollYProgress, { stiffness: 80, damping: 30, mass: 0.6 });
 
   /* ---------- Parallax mappings ---------- */
   // Background (slow)
   const bgY = useTransform(p, [0, 1], ["-6vh", "8vh"]);    // gentle vertical drift
   const bgScale = useTransform(p, [0, 1], [1.02, 1.08]);  // subtle push-in
 
-  // Top strip (faster horizontal)
-  // Start at 0%, end at -65% so it keeps moving while in view
-  const stripX = useTransform(p, [0, 1], ["0%", "-65%"]);
+  // Top strip (slower horizontal movement)
+  // Start at 0%, end at -35% for slower sliding
+  const stripX = useTransform(p, [0, 1], ["0%", "-35%"]);
 
   // Headline “Why” — slight rise + subtle scale
   const titleY = useTransform(p, [0, 1], ["0vh", "-6vh"]);
@@ -38,21 +38,8 @@ export default function WhyTrustSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-[140vh] md:min-h-[160vh] overflow-hidden"
+      className="relative w-full min-h-[35vh] md:min-h-[35vh] overflow-hidden"
     >
-      {/* Bottom full-screen background with slow parallax */}
-      <motion.img
-        src="/member.png"
-        alt="Background"
-        className="absolute bottom-0 left-0 w-full h-full object-cover"
-        style={{ y: bgY, scale: bgScale }}
-        aria-hidden
-      />
-
-      {/* Tinted overlay to keep foreground legible */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0A436A]/70 via-[#0A436A]/30 to-transparent" />
-
-      {/* Top strip (scroll-controlled, faster) */}
       <div className="absolute top-0 left-0 w-full h-[34vh] md:h-[38vh] overflow-hidden">
         <motion.div className="flex h-full w-[220%]" style={{ x: stripX }}>
           {/* Set A */}
@@ -85,21 +72,7 @@ export default function WhyTrustSection() {
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-black/30 to-transparent pointer-events-none" />
       </div>
 
-      {/* Center titles — parallax on Y/opacity/scale */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-        <motion.h2
-          className="font-montserrat text-white text-[18vw] leading-none md:text-[10vw] drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)] will-change-transform"
-          style={{ y: titleY, scale: titleScale, opacity: titleOpacity }}
-        >
-          Why
-        </motion.h2>
-        <motion.p
-          className="mt-4 md:mt-6 text-white/95 text-[6.5vw] md:text-[3vw] will-change-transform"
-          style={{ y: subY, opacity: subOpacity }}
-        >
-          Global Client Trust Us?
-        </motion.p>
-      </div>
+     
     </section>
   );
 }

@@ -9,13 +9,15 @@ import ScrollController from '@/components/ScrollController';
 
 export default function Home() {
   return (
-    <ScrollController>
+    // <ScrollController>
+    <main className="min-h-screen">
       <HeroSection />
       <ServiceHighlight />
-      {/* <WhyTrustSection/> */}
+      <WhyTrustSection/>
       <WhyCrossfade />
       <StatSection/>
-      <NewsSection/>
-    </ScrollController>
+      {/* <NewsSection/> */}
+      </main>
+    // </ScrollController>
   );
 }
