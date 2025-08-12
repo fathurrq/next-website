@@ -117,7 +117,7 @@ export default function WhyCrossfadeSteppedLocked() {
   const sectionHeight = `${slides.length * 120}vh`;
 
   return (
-    <section ref={sectionRef} className="relative w-full snap-start" style={{ minHeight: sectionHeight }}>
+    <section id="why-trust" ref={sectionRef} className="relative w-full snap-start" style={{ minHeight: sectionHeight }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
         {/* Center intro text */}
         <AnimatePresence>

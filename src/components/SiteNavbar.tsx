@@ -68,6 +68,7 @@ const NAV = [
       { label: "ESGRC", href: "#" },
     ],
   },
+  { label: "PPID", href: "#" },
 ];
 
 /* -------------------- component -------------------- */
@@ -83,6 +84,7 @@ export default function SiteNavbar() {
   // mobile menu helpers
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<number | null>(null); // which top-level item is expanded
+  const [mobileLangOpen, setMobileLangOpen] = useState(false);
 
   // lock body scroll while open + close on Escape
   useEffect(() => {
@@ -102,6 +104,47 @@ export default function SiteNavbar() {
   }, [mobileOpen]);
 
   const closeTimer = useRef<number | null>(null);
+
+  // Track whether area under logo is dark → choose white vs color logo
+  const logoRef = useRef<HTMLDivElement | null>(null);
+  const [useWhiteLogo, setUseWhiteLogo] = useState<boolean>(true);
+
+  useEffect(() => {
+    let rafId = 0 as unknown as number;
+    const updateLogoTheme = () => {
+      // Default to white while over hero area
+      let isDark = false;
+      const heroEl = document.getElementById("hero");
+      const logoEl = logoRef.current;
+      if (heroEl && logoEl) {
+        const heroRect = heroEl.getBoundingClientRect();
+        const logoRect = logoEl.getBoundingClientRect();
+        const logoCenterY = logoRect.top + logoRect.height / 2;
+        // If logo vertical center is within hero bounds, consider background dark
+        if (logoCenterY >= heroRect.top && logoCenterY <= heroRect.bottom) {
+          isDark = true;
+        }
+      }
+      setUseWhiteLogo(isDark);
+    };
+
+    const onScrollOrResize = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(() => {
+        updateLogoTheme();
+        rafId = 0 as unknown as number;
+      }) as unknown as number;
+    };
+
+    updateLogoTheme();
+    window.addEventListener("scroll", onScrollOrResize, { passive: true });
+    window.addEventListener("resize", onScrollOrResize, { passive: true });
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", onScrollOrResize);
+      window.removeEventListener("resize", onScrollOrResize);
+    };
+  }, []);
 
   const wrapperClass = overHero ? "fixed top-0 left-0 w-full z-[99]" : "sticky top-0 w-full z-[99]";
   const textClass = overHero ? "mix-blend-difference text-white" : "text-black";
@@ -133,7 +176,7 @@ export default function SiteNavbar() {
                 scaleY: startTransition ? 1 : 0.92,
               }}
               transition={{ delay: 0.8, duration: 0.6, ease: "easeInOut" }}
-              style={{ backgroundColor: "rgba(0,0,0,0.70)" }}
+              // style={{ backgroundColor: "rgba(0,0,0,0.70)" }}
             />
 
             {/* foreground content */}
@@ -142,6 +185,7 @@ export default function SiteNavbar() {
               <motion.div
                 layout
                 className={`relative h-10 w-[110px]`}
+                ref={logoRef}
                 initial={
                   isMobile
                     ? { position: "fixed", top: "50%", left: "50%", x: "-50%", y: "-50%" }
@@ -156,7 +200,11 @@ export default function SiteNavbar() {
                   alt="BKI Logo Color"
                   className="absolute inset-0 h-full w-full object-contain"
                   initial={{ opacity: 1, scale: 2, top: "20px" }}
-                  animate={{ opacity: !startTransition ? 1 : 0 }}
+                  animate={{
+                    opacity: !startTransition || !useWhiteLogo ? 1 : 0,
+                    scale: startTransition ? 1 : 2,
+                    top: startTransition ? "0px" : "20px",
+                  }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
                 <motion.img
@@ -164,14 +212,14 @@ export default function SiteNavbar() {
                   alt="BKI Logo White"
                   className="absolute inset-0 h-full w-full object-contain"
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: startTransition && overHero ? 1 : 0 }}
+                  animate={{ opacity: startTransition && useWhiteLogo ? 1 : 0 }}
                   transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
               </motion.div>
 
               {/* DESKTOP MENU + DROPDOWNS */}
               <motion.ul
-                className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${isCompact ? "text-[15px]" : "text-sm"} tracking-wide transition-colors font-semibold duration-200 ${textClass}`}
+                className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${isCompact ? "text-[15px]" : "text-sm"} tracking-wide transition-colors font-semibold duration-200 ${useWhiteLogo ? textClass : "text-[#0A436A]" }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: startTransition ? 1 : 0 }}
                 transition={{ delay: 1.0, duration: 0.8 }}
@@ -187,12 +235,12 @@ export default function SiteNavbar() {
                     >
                       <a
                         href={item.href}
-                        className={`relative inline-flex items-center gap-1 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:!text-white/30`}
+                        className={`relative inline-flex items-center gap-1 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:${useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"}`}
                         onFocus={() => handleEnter(i)}
                         onBlur={handleLeaveSoon}
                       >
                         {item.label}
-                        <span className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${isCompact ? "-bottom-3" : "-bottom-4"} h-[2px] w-full rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity`} />
+                        <span className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${isCompact ? "-bottom-3" : "-bottom-4"} h-[2px] w-full rounded-full ${useWhiteLogo ? "bg-white" : "bg-[#0A436A]"} opacity-0 group-hover:opacity-100 transition-opacity`} />
                       </a>
 
                       {hasSub && (
@@ -251,8 +299,82 @@ export default function SiteNavbar() {
                 animate={{ opacity: startTransition ? 1 : 0, paddingRight: isCompact ? 12 : 16 }}
                 transition={{ delay: 1.0, duration: 0.8 }}
               >
-                <a href="#" className="font-medium">Bahasa</a>
-                <span className={`${overHero ? "opacity-90" : "opacity-60"}`}>English</span>
+                {/* Language (globe) dropdown */}
+                <div
+                  className="relative group"
+                  onMouseEnter={() => handleEnter(-1)}
+                  onMouseLeave={handleLeaveSoon}
+                >
+                  <div className="flex items-center">
+                  <a
+                    href="#"
+                    className={`relative inline-flex items-center gap-2 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:${useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"}`}
+                  >
+                    <span
+                      aria-hidden
+                      className="inline-block h-5 w-5"
+                      style={{
+                        backgroundColor: useWhiteLogo ? "#ffffff" : "#0A436A",
+                        WebkitMaskImage: "url(/globe.svg)",
+                        maskImage: "url(/globe.svg)",
+                        WebkitMaskRepeat: "no-repeat",
+                        maskRepeat: "no-repeat",
+                        WebkitMaskPosition: "center",
+                        maskPosition: "center",
+                        WebkitMaskSize: "contain",
+                        maskSize: "contain",
+                      }}
+                    />
+                    
+                  </a>
+                  <img src="/english.svg" alt="English" className="h-6 w-6 ml-2" />
+                  </div>
+                 
+                  <AnimatePresence>
+                    {hovered === -1 && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                        transition={{ duration: 0.16, ease: "easeOut" }}
+                        className="absolute right-0 top-full z-[60] mt-7"
+                        onMouseEnter={() => handleEnter(-1)}
+                        onMouseLeave={handleLeaveSoon}
+                      >
+                        <div
+                          className="w-64 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
+                          style={{
+                            borderRadius: "10px",
+                            background:
+                              "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+                            backdropFilter: "blur(35px)",
+                          }}
+                        >
+                          <ul className="py-3">
+                            <li>
+                              <a
+                                href="#"
+                                className="flex items-center gap-3 font-normal py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
+                              >
+                                <img src="/english.svg" alt="English" className="h-4 w-6" />
+                                <span>English</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a
+                                href="#"
+                                className="flex items-center gap-3 font-normal py-3 text-[16px] text-white hover:text-white/30 transition-colors duration-150"
+                              >
+                                <img src="/indo.svg" alt="Bahasa" className="h-4 w-6" />
+                                <span>Bahasa</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.div>
 
               {/* MOBILE HAMBURGER */}
@@ -398,12 +520,75 @@ export default function SiteNavbar() {
                   {/* Footer actions */}
                   <div className="px-5 pb-6 pt-3 border-t border-white/10">
                     <div className="flex items-center justify-between">
-                      <div className="flex gap-4 text-white/80">
-                        <button className="underline underline-offset-4" onClick={() => setMobileOpen(false)}>
-                          Bahasa
+                      {/* Language globe with submenu */}
+                      <div className="relative">
+                        <button
+                          className="flex items-center gap-2 text-white/90 px-2 py-2 active:scale-[.99] transition"
+                          onClick={() => setMobileLangOpen((v) => !v)}
+                          aria-haspopup="true"
+                          aria-expanded={mobileLangOpen}
+                        >
+                          <span
+                            aria-hidden
+                            className="inline-block h-5 w-5"
+                            style={{
+                              backgroundColor: useWhiteLogo ? "#ffffff" : "#0A436A",
+                              WebkitMaskImage: "url(/globe.svg)",
+                              maskImage: "url(/globe.svg)",
+                              WebkitMaskRepeat: "no-repeat",
+                              maskRepeat: "no-repeat",
+                              WebkitMaskPosition: "center",
+                              maskPosition: "center",
+                              WebkitMaskSize: "contain",
+                              maskSize: "contain",
+                            }}
+                          />
+                          <img src="/english.svg" alt="English" className="h-4 w-6" />
                         </button>
-                        <span className="opacity-60">English</span>
+                        <AnimatePresence>
+                          {mobileLangOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                              transition={{ duration: 0.16, ease: "easeOut" }}
+                              className="absolute left-0 bottom-full mb-3 z-[100]"
+                            >
+                              <div
+                                className="w-64 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
+                                style={{
+                                  borderRadius: "10px",
+                                  background:
+                                    "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+                                  backdropFilter: "blur(35px)",
+                                }}
+                              >
+                                <ul className="py-3">
+                                  <li>
+                                    <button
+                                      className="w-full text-left flex items-center gap-3 font-normal py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
+                                      onClick={() => setMobileLangOpen(false)}
+                                    >
+                                      <span className="text-lg" aria-hidden>🇬🇧</span>
+                                      <span>English</span>
+                                    </button>
+                                  </li>
+                                  <li>
+                                    <button
+                                      className="w-full text-left flex items-center gap-3 font-normal py-3 text-[16px] text-white hover:text-white/30 transition-colors duration-150"
+                                      onClick={() => setMobileLangOpen(false)}
+                                    >
+                                      <span className="text-lg" aria-hidden>🇮🇩</span>
+                                      <span>Bahasa</span>
+                                    </button>
+                                  </li>
+                                </ul>
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
+
                       <div className="flex items-center gap-3 text-white/80">
                         <a href="#" aria-label="Facebook" className="p-2 hover:text-white transition">
                           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M..." /></svg>
