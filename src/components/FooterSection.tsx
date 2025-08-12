@@ -5,35 +5,82 @@
             <footer className={`${styles.background} py-10`}>
             <div className="container mx-auto px-6">
                 {/* Menu Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-white/20 pb-8">
-                    {/* Company */}
-                    <div>
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Company</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">About</a></li>
-                            <li><a href="#" className="hover:underline">Features</a></li>
-                            <li><a href="#" className="hover:underline">Works</a></li>
-                            <li><a href="#" className="hover:underline">Career</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Publication */}
-                    <div className="">
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Publication</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">News</a></li>
-                            <li><a href="#" className="hover:underline">Event</a></li>
-                            <li><a href="#" className="hover:underline">Article</a></li>
-                            <li><a href="#" className="hover:underline">Annual Report</a></li>
+                <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-white/20 pb-8">
+                    {/* Services */}
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Services</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                        {[
+                            { label: "Classification", href: "/classification" },
+                            { label: "Statutory", href: "/statutory" },
+                            { label: "Marine Services", href: "/marine-services" },
+                            { label: "Energy & Industry", href: "/energy-industry" },
+                            { label: "BKI Academy", href: "/academy" },
+                        ].map((item) => (
+                            <li key={item.label} className="py-1">
+                            <a
+                                href="#"
+                                className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                            >
+                                {item.label}
+                            </a>
+                            </li>
+                        ))}
                         </ul>
                     </div>
 
                     {/* Research */}
-                    <div className="md:justify-self-end">
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Research</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">Research & Development</a></li>
-                            <li><a href="#" className="hover:underline">Technical Journal</a></li>
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Research</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                        {["Research & Development", "Technical Journal"].map((item) => (
+                            <li key={item} className="py-1">
+                            <a
+                                href="#"
+                                className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                            >
+                                {item}
+                            </a>
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+
+                    {/* Publication */}
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Publication</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                        {["News", "Event", "Article", "Annual Report"].map((item) => (
+                            <li key={item} className="py-1">
+                            <a
+                                href="#"
+                                className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                            >
+                                {item}
+                            </a>
+                            </li>
+                        ))}
+                        </ul>
+                    </div>
+
+                    {/* About Us */}
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">About Us</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                        {["Company Profile", "Achievement", "Opportunity", "Documentation", "ESGRC"].map((item) => (
+                            <li key={item} className="py-1">
+                            <a
+                                href="#"
+                                className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                            >
+                                {item}
+                            </a>
+                            </li>
+                        ))}
                         </ul>
                     </div>
                 </div>
@@ -46,7 +93,7 @@
                     </div>
 
                     {/* Copyright */}
-                    <div className="text-xs text-center font-light md:text-lg">
+                    <div className="text-xs md:text-sm text-center font-light">
                         © Copyright 2024, All Rights Reserved by BKI
                     </div>
 
