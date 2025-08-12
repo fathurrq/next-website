@@ -1,37 +1,192 @@
+import styles from './FooterSection.module.css';
+
+const aboutUs = [
+    {
+        title: "Company Profile",
+        href: "#",
+        children: [
+            { title: "History", href: "#" },
+            { title: "Vision, Mission & Culture", href: "#" },
+            { title: "BOC", href: "#" },
+            { title: "BOD", href: "#" },
+            { title: "Technical Committee", href: "#" },
+            { title: "Organization Structure", href: "#" },
+        ]
+    },
+    {
+        title: "Achievement",
+        href: "#",
+        children: [
+            { title: "Cooperation", href: "#" },
+            { title: "Award & Recognition", href: "#" },
+        ]
+    },
+    {
+        title: "Opportunity",
+        href: "#",
+        children: [
+            { title: "Procurement", href: "#" },
+            { title: "Assets Auction", href: "#" },
+            { title: "Career Auction", href: "#" },
+        ]
+    },
+    {
+        title: "Documentation",
+        href: "#",
+        children: [
+            { title: "Photo", href: "#" },
+            { title: "Podcast", href: "#" },
+        ]
+    },
+    {
+        title: "ESGRC",
+        href: "#",
+        children: [
+            { title: "Environment", href: "#" },
+            { title: "Corporate Social Responsibility", href: "#" },
+            {
+                title: "Good Corporate Governance",
+                href: "#",
+                children: [
+                    { title: "Code of Conduct", href: "#" },
+                    { title: "Principal & Policy", href: "#" },
+                    { title: "Implementation", href: "#" },
+                    { title: "Internal Audit Unit", href: "#" },
+                    { title: "Gratification Control", href: "#" },
+                    { title: "Whistle Blowing System", href: "#" },
+                    { title: "Risk Management Policy", href: "#" },
+                    { title: "Communication Policy", href: "#" }
+                ]
+            },
+        ]
+    }
+]
+
 export default function FooterSection() {
     return (
-        <footer className="bg-gradient-to-r from-[#0b3b60] to-[#133b54] text-white py-10">
+        <footer className={`${styles.background} py-10`}>
             <div className="container mx-auto px-6">
                 {/* Menu Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-white/20 pb-8">
-                    {/* Company */}
-                    <div>
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Company</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">About</a></li>
-                            <li><a href="#" className="hover:underline">Features</a></li>
-                            <li><a href="#" className="hover:underline">Works</a></li>
-                            <li><a href="#" className="hover:underline">Career</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Publication */}
-                    <div className="">
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Publication</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">News</a></li>
-                            <li><a href="#" className="hover:underline">Event</a></li>
-                            <li><a href="#" className="hover:underline">Article</a></li>
-                            <li><a href="#" className="hover:underline">Annual Report</a></li>
+                <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-white/20 pb-8">
+                    {/* Services */}
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Services</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                            {[
+                                { label: "Classification", href: "#" },
+                                { label: "Statutory", href: "#" },
+                                { label: "Marine Services", href: "#" },
+                                { label: "Energy & Industry", href: "#" },
+                                { label: "BKI Academy", href: "#" },
+                            ].map((item) => (
+                                <li key={item.label} className="py-1">
+                                    <a
+                                        href={item.href}
+                                        className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Research */}
-                    <div className="md:justify-self-end">
-                        <h3 className="font-semibold text-lg md:text-2xl mb-4">Research</h3>
-                        <ul className="space-y-2 text-lg md:text-2xl font-light">
-                            <li><a href="#" className="hover:underline">Research & Development</a></li>
-                            <li><a href="#" className="hover:underline">Technical Journal</a></li>
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Research</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                            {[
+                                { label: "Research & Development", href: "#" },
+                                { label: "Technical Journal", href: "#" },
+                            ].map((item) => (
+                                <li key={item.label} className="py-1">
+                                    <a
+                                        href={item.href}
+                                        className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Publication */}
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">Publication</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                            {[
+                                { label: "News", href: "#" },
+                                { label: "Event", href: "#" },
+                                { label: "Article", href: "#" },
+                                { label: "Annual Report", href: "#" },
+                            ].map((item) => (
+                                <li key={item.label} className="py-1">
+                                    <a
+                                        href={item.href}
+                                        className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                                    >
+                                        {item.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="w-full">
+                        <h3 className="font-semibold text-xs md:text-sm mb-4">About Us</h3>
+                        <ul className="space-y-2 text-xs md:text-sm font-light">
+                            {aboutUs.map((menu, idx) => (
+                                <li key={idx} className={menu.children ? "group" : ""}>
+                                    {/* Parent link */}
+                                    <a
+                                        href={menu.href}
+                                        className="block w-full border-b-2 hover:border-b-white border-b-zinc-600 hover:text-white/50
+                                transition-all duration-300 pb-2"
+                                    >
+                                        {menu.title}
+                                    </a>
+                                    {/* Render submenu kalau ada children */}
+                                    {menu.children && (
+                                        <ul
+                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                           group-hover:max-h-screen group-hover:opacity-100 group-focus-within:max-h-screen group-focus-within:opacity-100"
+                                        >
+                                            {menu.children.map((child, childIdx) => (
+                                                <li key={childIdx} className={child.children ? "group/sub" : ""}>
+                                                    <a
+                                                        href={child.href}
+                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                    >
+                                                        {child.title}
+                                                    </a>
+                                                    {/* Render sub-submenu kalau ada children */}
+                                                    {child.children && (
+                                                        <ul
+                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                group-hover/sub:max-h-screen group-hover/sub:opacity-100"
+                                                        >
+                                                            {child.children.map((child2, child2Idx) => (
+                                                                <li key={child2Idx}>
+                                                                    <a
+                                                                        href={child2.href}
+                                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                                    >
+                                                                        {child2.title}
+                                                                    </a>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    )}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -44,7 +199,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Copyright */}
-                    <div className="text-xs text-center font-light md:text-lg">
+                    <div className="text-xs md:text-sm text-center font-light">
                         © Copyright 2024, All Rights Reserved by BKI
                     </div>
 
