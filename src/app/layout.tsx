@@ -5,6 +5,7 @@ import SiteNavbar from "@/components/SiteNavbar";
 
 import { Montserrat } from 'next/font/google';
 import './globals.css'; // your global styles
+import FooterSection from "@/components/FooterSection";
 
 // Load Montserrat with chosen weights
 const montserrat = Montserrat({
@@ -30,6 +31,7 @@ export default function RootLayout({
         <TransitionProvider>
           <SiteNavbar />
           {children}
+          <FooterSection/>
         </TransitionProvider>
       </body>
     </html>
