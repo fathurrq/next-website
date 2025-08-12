@@ -38,7 +38,7 @@ export default function WhyTrustSection() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-[35vh] md:min-h-[35vh] overflow-hidden"
+      className="hidden md:block relative w-full min-h-[35vh] md:min-h-[35vh] overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-[34vh] md:h-[38vh] overflow-hidden">
         <motion.div className="flex h-full w-[220%]" style={{ x: stripX }}>
