@@ -1,6 +1,8 @@
-export default function FooterSection() {
-    return (
-        <footer className="bg-gradient-to-r from-[#0b3b60] to-[#133b54] text-white py-10">
+    import styles from './FooterSection.module.css';
+
+    export default function FooterSection() {
+        return (
+            <footer className={`${styles.background} py-10`}>
             <div className="container mx-auto px-6">
                 {/* Menu Section */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-white/20 pb-8">
