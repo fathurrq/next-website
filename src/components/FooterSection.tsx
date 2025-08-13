@@ -68,6 +68,48 @@ export default function FooterSection() {
             <div className="container mx-auto px-6">
                 {/* Menu Section */}
                 <div className="flex flex-col md:flex-row justify-between gap-8 border-b border-white/20 pb-8">
+                    {/* Contact Info */}
+                    <div className="w-full text-white/75">
+                        <p className="text-xs md:text-sm mb-4 leading-relaxed">
+                            Jl. Yos Sudarso 38-40, Tanjung Priok, Jakarta - 14320
+                        </p>
+
+                        <div className="space-y-4">
+                            <div>
+                                <a
+                                    href="mailto:ho@bki.co.id"
+                                    className="text-xs md:text-sm hover:text-white/50 transition-colors duration-200"
+                                >
+                                    ho@bki.co.id
+                                </a>
+                                <p className="text-xs md:text-sm font-light">
+                                    (Corporate Secretary, Corporate Communication)
+                                </p>
+                            </div>
+
+                            <div>
+                                <a
+                                    href="mailto:cs@bki.co.id"
+                                    className="text-xs md:text-sm hover:text-white/50 transition-colors duration-200"
+                                >
+                                    cs@bki.co.id
+                                </a>
+                                <p className="text-xs md:text-sm font-light">
+                                    (Customer Communication)
+                                </p>
+                            </div>
+                        </div>
+
+                        <ul className="mt-4 space-y-1 text-xs md:text-sm font-light">
+                            <li>+62 21 430 10 17</li>
+                            <li>+62 21 430 17 03</li>
+                            <li>+62 21 4393 70 21</li>
+                            <li>+62 21 435 32 91</li>
+                            <li>+62 21 436 19 03/04</li>
+                            <li>+62 21 436 18 99</li>
+                        </ul>
+                    </div>
+
                     {/* Services */}
                     <div className="w-full">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Services</h3>
@@ -136,6 +178,7 @@ export default function FooterSection() {
                         </ul>
                     </div>
 
+                    {/* About Us */}
                     <div className="w-full">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">About Us</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
@@ -152,28 +195,28 @@ export default function FooterSection() {
                                     {/* Render submenu kalau ada children */}
                                     {menu.children && (
                                         <ul
-                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
                            group-hover:max-h-screen group-hover:opacity-100 group-focus-within:max-h-screen group-focus-within:opacity-100"
                                         >
                                             {menu.children.map((child, childIdx) => (
                                                 <li key={childIdx} className={child.children ? "group/sub" : ""}>
                                                     <a
                                                         href={child.href}
-                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-300 hover:text-white/50"
                                                     >
                                                         {child.title}
                                                     </a>
                                                     {/* Render sub-submenu kalau ada children */}
                                                     {child.children && (
                                                         <ul
-                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
                 group-hover/sub:max-h-screen group-hover/sub:opacity-100"
                                                         >
                                                             {child.children.map((child2, child2Idx) => (
                                                                 <li key={child2Idx}>
                                                                     <a
                                                                         href={child2.href}
-                                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-300 hover:text-white/50"
                                                                     >
                                                                         {child2.title}
                                                                     </a>
