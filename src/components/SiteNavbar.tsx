@@ -33,7 +33,8 @@ function useCompact(breakpoint = 1120) {
 const NAV = [
   { label: "Home", href: "#" },
   {
-    label: "Services", href: "#",
+    label: "Services",
+    href: "#",
     submenu: [
       { label: "Classification", href: "#" },
       { label: "Statutory", href: "#" },
@@ -43,14 +44,16 @@ const NAV = [
     ],
   },
   {
-    label: "Research", href: "#",
+    label: "Research",
+    href: "#",
     submenu: [
       { label: "Research & Development", href: "#" },
       { label: "Technical Journal", href: "#" },
     ],
   },
   {
-    label: "Publication", href: "#",
+    label: "Publication",
+    href: "#",
     submenu: [
       { label: "News", href: "#" },
       { label: "Event", href: "#" },
@@ -59,7 +62,8 @@ const NAV = [
     ],
   },
   {
-    label: "About Us", href: "#",
+    label: "About Us",
+    href: "#",
     submenu: [
       { label: "Company Profile", href: "#" },
       { label: "Achievement", href: "#" },
@@ -68,7 +72,6 @@ const NAV = [
       { label: "ESGRC", href: "#" },
     ],
   },
-  { label: "PPID", href: "#" },
 ];
 
 /* -------------------- component -------------------- */
@@ -78,6 +81,7 @@ export default function SiteNavbar() {
   const isMobile = useIsMobile();
   const isCompact = useCompact(1120); // <= 1120px → compact layout
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // desktop dropdown state
   const [hovered, setHovered] = useState<number | null>(null);
@@ -102,6 +106,15 @@ export default function SiteNavbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const closeTimer = useRef<number | null>(null);
 
@@ -146,7 +159,9 @@ export default function SiteNavbar() {
     };
   }, []);
 
-  const wrapperClass = overHero ? "fixed top-0 left-0 w-full z-[99]" : "sticky top-0 w-full z-[99]";
+  const wrapperClass = overHero
+    ? "fixed top-0 left-0 w-full z-[99]"
+    : "sticky top-0 w-full z-[99]";
   const textClass = overHero ? "mix-blend-difference text-white" : "text-black";
 
   const handleEnter = (i: number) => {
@@ -157,19 +172,30 @@ export default function SiteNavbar() {
     setHovered(i);
   };
   const handleLeaveSoon = () => {
-    closeTimer.current = window.setTimeout(() => setHovered(null), 90) as unknown as number;
+    closeTimer.current = window.setTimeout(
+      () => setHovered(null),
+      90
+    ) as unknown as number;
   };
   return (
     <motion.nav className={`${wrapperClass} pointer-events-none`}>
-       <div className="w-full flex justify-center">
-       <div className={`${isCompact ? "w-[92%]" : "w-[80%]"} py-3 md:py-4 relative pointer-events-auto`}>
+      <div className="w-full flex justify-center">
+        <div
+          className={`${
+            isCompact ? "w-[92%]" : "w-[80%]"
+          } py-3 md:py-4 relative pointer-events-auto`}
+        >
           {/* <div className="absolute inset-0 bg-transparent pointer-events-none" /> */}
 
           {/* ===== layered navbar bar ===== */}
-          <div className={`relative rounded-xl ${isCompact ? "py-3" : "py-4"} px-0`}>
+          <div
+            className={`relative rounded-xl ${
+              isCompact ? "py-3" : "py-4"
+            } px-0`}
+          >
             {/* background layer only (animates in) */}
             <motion.div
-              className="absolute inset-0 rounded-xl backdrop-blur-md"
+              className={`absolute inset-0 rounded-xl ${isScrolled && 'backdrop-blur-md' }`}
               initial={{ opacity: 0, scaleY: 0.92, transformOrigin: "top" }}
               animate={{
                 opacity: startTransition ? 1 : 0,
@@ -188,12 +214,38 @@ export default function SiteNavbar() {
                 ref={logoRef}
                 initial={
                   isMobile
-                    ? { position: "fixed", top: "50%", left: "50%", x: "-50%", y: "-50%" }
-                    : { position: "fixed", top: "20px", left: "50%", x: "-50%", y: 0 }
+                    ? {
+                        position: "fixed",
+                        top: "50%",
+                        left: "50%",
+                        x: "-50%",
+                        y: "-50%",
+                      }
+                    : {
+                        position: "fixed",
+                        top: "20px",
+                        left: "50%",
+                        x: "-50%",
+                        y: 0,
+                      }
                 }
-                animate={startTransition ? { position: "relative", top: 0, left: 0, x: 0, y: 0, scale: 1 } : {}}
+                animate={
+                  startTransition
+                    ? {
+                        position: "relative",
+                        top: 0,
+                        left: 0,
+                        x: 0,
+                        y: 0,
+                        scale: 1,
+                      }
+                    : {}
+                }
                 transition={{ duration: 1.5, ease: "easeInOut" }}
-                style={{ willChange: "transform", transformOrigin: "left center" }}
+                style={{
+                  willChange: "transform",
+                  transformOrigin: "left center",
+                }}
               >
                 <motion.img
                   src="/bki-2.png"
@@ -219,7 +271,11 @@ export default function SiteNavbar() {
 
               {/* DESKTOP MENU + DROPDOWNS */}
               <motion.ul
-                className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${isCompact ? "text-[15px]" : "text-sm"} tracking-wide transition-colors font-semibold duration-200 ${useWhiteLogo ? textClass : "text-[#0A436A]" }`}
+                className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${
+                  isCompact ? "text-[15px]" : "text-sm"
+                } tracking-wide transition-colors font-semibold duration-200 ${
+                  useWhiteLogo ? textClass : "text-[#0A436A]"
+                }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: startTransition ? 1 : 0 }}
                 transition={{ delay: 1.0, duration: 0.8 }}
@@ -235,12 +291,22 @@ export default function SiteNavbar() {
                     >
                       <a
                         href={item.href}
-                        className={`relative inline-flex items-center gap-1 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:${useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"}`}
+                        className={`relative inline-flex items-center gap-1 px-1 ${
+                          isCompact ? "py-1.5" : "py-2"
+                        } transition-colors group-hover:${
+                          useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"
+                        }`}
                         onFocus={() => handleEnter(i)}
                         onBlur={handleLeaveSoon}
                       >
                         {item.label}
-                        <span className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${isCompact ? "-bottom-3" : "-bottom-4"} h-[2px] w-full rounded-full ${useWhiteLogo ? "bg-white" : "bg-[#0A436A]"} opacity-0 group-hover:opacity-100 transition-opacity`} />
+                        <span
+                          className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${
+                            isCompact ? "-bottom-3" : "-bottom-4"
+                          } h-[2px] w-full rounded-full ${
+                            useWhiteLogo ? "bg-white" : "bg-[#0A436A]"
+                          } opacity-0 group-hover:opacity-100 transition-opacity`}
+                        />
                       </a>
 
                       {hasSub && (
@@ -259,8 +325,9 @@ export default function SiteNavbar() {
                                 className="w-80 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
                                 style={{
                                   borderRadius: "10px",
-                                  background: "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
-                                  backdropFilter: "blur(35px)"
+                                  background:
+                                    "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+                                  backdropFilter: "blur(35px)",
                                 }}
                               >
                                 <ul className="py-3">
@@ -293,89 +360,128 @@ export default function SiteNavbar() {
               </motion.ul>
 
               {/* DESKTOP RIGHT */}
-              <motion.div
-                className={`hidden md:flex items-center ${isCompact ? "gap-3" : "gap-4"} transition-colors duration-200 ${textClass}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: startTransition ? 1 : 0, paddingRight: isCompact ? 12 : 16 }}
-                transition={{ delay: 1.0, duration: 0.8 }}
-              >
-                {/* Language (globe) dropdown */}
-                <div
-                  className="relative group"
-                  onMouseEnter={() => handleEnter(-1)}
-                  onMouseLeave={handleLeaveSoon}
+              <div className="flex ">
+                <motion.div
+                  className={`hidden md:flex items-center ${
+                    isCompact ? "gap-3" : "gap-4"
+                  } transition-colors duration-200 ${textClass}`}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: startTransition ? 1 : 0,
+                    paddingRight: isCompact ? 12 : 16,
+                  }}
+                  transition={{ delay: 1.0, duration: 0.8 }}
                 >
-                  <div className="flex items-center">
                   <a
-                    href="#"
-                    className={`relative inline-flex items-center gap-2 px-1 ${isCompact ? "py-1.5" : "py-2"} transition-colors group-hover:${useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"}`}
+                    href={"#"}
+                    className={`relative inline-flex items-center gap-1 px-1 ${
+                      isCompact ? "py-1.5" : "py-2"
+                    } transition-colors group-hover:${
+                      useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"
+                    }`}
+                    onFocus={() => handleEnter(NAV.length + 1)}
+                    onBlur={handleLeaveSoon}
                   >
+                    PPID
                     <span
-                      aria-hidden
-                      className="inline-block h-5 w-5"
-                      style={{
-                        backgroundColor: useWhiteLogo ? "#ffffff" : "#0A436A",
-                        WebkitMaskImage: "url(/globe.svg)",
-                        maskImage: "url(/globe.svg)",
-                        WebkitMaskRepeat: "no-repeat",
-                        maskRepeat: "no-repeat",
-                        WebkitMaskPosition: "center",
-                        maskPosition: "center",
-                        WebkitMaskSize: "contain",
-                        maskSize: "contain",
-                      }}
+                      className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${
+                        isCompact ? "-bottom-3" : "-bottom-4"
+                      } h-[2px] w-full rounded-full ${
+                        useWhiteLogo ? "bg-white" : "bg-[#0A436A]"
+                      } opacity-0 group-hover:opacity-100 transition-opacity`}
                     />
-                    
                   </a>
-                  <img src="/english.svg" alt="English" className="h-6 w-6 ml-2" />
-                  </div>
-                 
-                  <AnimatePresence>
-                    {hovered === -1 && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                        transition={{ duration: 0.16, ease: "easeOut" }}
-                        className="absolute right-0 top-full z-[60] mt-7"
-                        onMouseEnter={() => handleEnter(-1)}
-                        onMouseLeave={handleLeaveSoon}
+                </motion.div>
+                <motion.div
+                  className={`hidden md:flex items-center ${
+                    isCompact ? "gap-3" : "gap-4"
+                  } transition-colors duration-200 ${textClass}`}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: startTransition ? 1 : 0,
+                    paddingRight: isCompact ? 12 : 16,
+                  }}
+                  transition={{ delay: 1.0, duration: 0.8 }}
+                >
+                  {/* Language (globe) dropdown */}
+                  <div
+                    className="relative group"
+                    onMouseEnter={() => handleEnter(-1)}
+                    onMouseLeave={handleLeaveSoon}
+                  >
+                    <div className="flex items-center">
+                      <a
+                        href="#"
+                        className={`relative inline-flex items-center gap-2 px-1 ${
+                          isCompact ? "py-1.5" : "py-2"
+                        } transition-colors group-hover:${
+                          useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"
+                        }`}
                       >
-                        <div
-                          className="w-64 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
-                          style={{
-                            borderRadius: "10px",
-                            background:
-                              "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
-                            backdropFilter: "blur(35px)",
-                          }}
+                        <img
+                          src="/indo.svg"
+                          alt="Bahasa"
+                          className="inline-block h-5 w-5"
+                        />
+                      </a>
+                      {/* <img src="/english.svg" alt="English" className="h-6 w-6 ml-2" /> */}
+                    </div>
+
+                    <AnimatePresence>
+                      {hovered === -1 && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                          transition={{ duration: 0.16, ease: "easeOut" }}
+                          className="absolute right-0 top-full z-[60] mt-7"
+                          onMouseEnter={() => handleEnter(-1)}
+                          onMouseLeave={handleLeaveSoon}
                         >
-                          <ul className="py-3">
-                            <li>
-                              <a
-                                href="#"
-                                className="flex items-center gap-3 font-normal py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
-                              >
-                                <img src="/english.svg" alt="English" className="h-4 w-6" />
-                                <span>English</span>
-                              </a>
-                            </li>
-                            <li>
-                              <a
-                                href="#"
-                                className="flex items-center gap-3 font-normal py-3 text-[16px] text-white hover:text-white/30 transition-colors duration-150"
-                              >
-                                <img src="/indo.svg" alt="Bahasa" className="h-4 w-6" />
-                                <span>Bahasa</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </motion.div>
+                          <div
+                            className="w-64 rounded-2xl shadow-2xl overflow-hidden border border-white/10 backdrop-blur-md p-4 py-0"
+                            style={{
+                              borderRadius: "10px",
+                              background:
+                                "linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%)",
+                              backdropFilter: "blur(35px)",
+                            }}
+                          >
+                            <ul className="py-3">
+                              <li>
+                                <a
+                                  href="#"
+                                  className="flex items-center gap-3 font-normal py-3 text-[16px] text-white hover:text-white/30 transition-colors duration-150"
+                                >
+                                  <img
+                                    src="/indo.svg"
+                                    alt="Bahasa"
+                                    className="h-4 w-6"
+                                  />
+                                  <span>Bahasa</span>
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  href="#"
+                                  className="flex items-center gap-3 font-normal py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
+                                >
+                                  <img
+                                    src="/english.svg"
+                                    alt="English"
+                                    className="h-4 w-6"
+                                  />
+                                  <span>English</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              </div>
 
               {/* MOBILE HAMBURGER */}
               <motion.button
@@ -389,7 +495,12 @@ export default function SiteNavbar() {
                 style={{ WebkitTapHighlightColor: "transparent" }}
               >
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                  <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                  <path
+                    d="M3 6h18M3 12h18M3 18h18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </motion.button>
             </div>
@@ -434,8 +545,18 @@ export default function SiteNavbar() {
                       className="p-2 pr-0 rounded-lg text-white/90 active:scale-95 transition"
                       style={{ WebkitTapHighlightColor: "transparent" }}
                     >
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 6l12 12M18 6L6 18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                        />
                       </svg>
                     </button>
                   </div>
@@ -447,7 +568,12 @@ export default function SiteNavbar() {
                     animate="show"
                     exit="hidden"
                     variants={{
-                      hidden: { transition: { staggerChildren: 0.02, staggerDirection: -1 } },
+                      hidden: {
+                        transition: {
+                          staggerChildren: 0.02,
+                          staggerDirection: -1,
+                        },
+                      },
                       show: { transition: { staggerChildren: 0.05 } },
                     }}
                   >
@@ -461,13 +587,21 @@ export default function SiteNavbar() {
                           className="mb-2"
                           variants={{
                             hidden: { opacity: 0, y: 8 },
-                            show: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 0.22 } },
+                            show: {
+                              opacity: 1,
+                              y: 0,
+                              transition: { ease: "easeOut", duration: 0.22 },
+                            },
                           }}
                         >
                           {/* Top-level row */}
                           <button
                             className="w-full flex items-center justify-between py-3.5 border-b border-white/20 text-white text-2xl font-semibold"
-                            onClick={() => (hasSub ? setExpanded(isOpen ? null : i) : setMobileOpen(false))}
+                            onClick={() =>
+                              hasSub
+                                ? setExpanded(isOpen ? null : i)
+                                : setMobileOpen(false)
+                            }
                           >
                             <span>{item.label}</span>
                             {hasSub ? (
@@ -477,8 +611,18 @@ export default function SiteNavbar() {
                                 transition={{ type: "tween", duration: 0.2 }}
                                 className="inline-block"
                               >
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                                  <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                                <svg
+                                  width="22"
+                                  height="22"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                >
+                                  <path
+                                    d="M7 10l5 5 5-5"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                  />
                                 </svg>
                               </motion.span>
                             ) : (
@@ -494,7 +638,10 @@ export default function SiteNavbar() {
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.22, ease: "easeInOut" }}
+                                  transition={{
+                                    duration: 0.22,
+                                    ease: "easeInOut",
+                                  }}
                                   className="overflow-hidden"
                                 >
                                   {item.submenu!.map((sub) => (
@@ -532,7 +679,9 @@ export default function SiteNavbar() {
                             aria-hidden
                             className="inline-block h-5 w-5"
                             style={{
-                              backgroundColor: useWhiteLogo ? "#ffffff" : "#0A436A",
+                              backgroundColor: useWhiteLogo
+                                ? "#ffffff"
+                                : "#0A436A",
                               WebkitMaskImage: "url(/globe.svg)",
                               maskImage: "url(/globe.svg)",
                               WebkitMaskRepeat: "no-repeat",
@@ -543,7 +692,11 @@ export default function SiteNavbar() {
                               maskSize: "contain",
                             }}
                           />
-                          <img src="/english.svg" alt="English" className="h-4 w-6" />
+                          <img
+                            src="/english.svg"
+                            alt="English"
+                            className="h-4 w-6"
+                          />
                         </button>
                         <AnimatePresence>
                           {mobileLangOpen && (
@@ -569,7 +722,9 @@ export default function SiteNavbar() {
                                       className="w-full text-left flex items-center gap-3 font-normal py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
                                       onClick={() => setMobileLangOpen(false)}
                                     >
-                                      <span className="text-lg" aria-hidden>🇬🇧</span>
+                                      <span className="text-lg" aria-hidden>
+                                        🇬🇧
+                                      </span>
                                       <span>English</span>
                                     </button>
                                   </li>
@@ -578,7 +733,9 @@ export default function SiteNavbar() {
                                       className="w-full text-left flex items-center gap-3 font-normal py-3 text-[16px] text-white hover:text-white/30 transition-colors duration-150"
                                       onClick={() => setMobileLangOpen(false)}
                                     >
-                                      <span className="text-lg" aria-hidden>🇮🇩</span>
+                                      <span className="text-lg" aria-hidden>
+                                        🇮🇩
+                                      </span>
                                       <span>Bahasa</span>
                                     </button>
                                   </li>
@@ -590,11 +747,33 @@ export default function SiteNavbar() {
                       </div>
 
                       <div className="flex items-center gap-3 text-white/80">
-                        <a href="#" aria-label="Facebook" className="p-2 hover:text-white transition">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M..." /></svg>
+                        <a
+                          href="#"
+                          aria-label="Facebook"
+                          className="p-2 hover:text-white transition"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                          >
+                            <path d="M..." />
+                          </svg>
                         </a>
-                        <a href="#" aria-label="Instagram" className="p-2 hover:text-white transition">
-                          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M..." /></svg>
+                        <a
+                          href="#"
+                          aria-label="Instagram"
+                          className="p-2 hover:text-white transition"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                          >
+                            <path d="M..." />
+                          </svg>
                         </a>
                       </div>
                     </div>
@@ -603,7 +782,6 @@ export default function SiteNavbar() {
               </>
             )}
           </AnimatePresence>
-
         </div>
       </div>
     </motion.nav>
