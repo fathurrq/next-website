@@ -136,6 +136,7 @@ export default function FooterSection() {
                         </ul>
                     </div>
 
+                    {/* About Us */}                            
                     <div className="w-full">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">About Us</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
@@ -152,28 +153,28 @@ export default function FooterSection() {
                                     {/* Render submenu kalau ada children */}
                                     {menu.children && (
                                         <ul
-                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
                            group-hover:max-h-screen group-hover:opacity-100 group-focus-within:max-h-screen group-focus-within:opacity-100"
                                         >
                                             {menu.children.map((child, childIdx) => (
                                                 <li key={childIdx} className={child.children ? "group/sub" : ""}>
                                                     <a
                                                         href={child.href}
-                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-300 hover:text-white/50"
                                                     >
                                                         {child.title}
                                                     </a>
                                                     {/* Render sub-submenu kalau ada children */}
                                                     {child.children && (
                                                         <ul
-                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-200
+                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
                 group-hover/sub:max-h-screen group-hover/sub:opacity-100"
                                                         >
                                                             {child.children.map((child2, child2Idx) => (
                                                                 <li key={child2Idx}>
                                                                     <a
                                                                         href={child2.href}
-                                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-200"
+                                                                        className="block w-full border-b-2 border-b-zinc-600 pb-2 hover:border-b-white transition-colors duration-300 hover:text-white/50"
                                                                     >
                                                                         {child2.title}
                                                                     </a>
