@@ -6,6 +6,8 @@ import NewsSection from '@/components/NewsSection';
 import WhyTrustSection from "@/components/WhyTrustSection";
 import WhyCrossfade from '@/components/WhySnap';
 import ScrollController from '@/components/ScrollController';
+import ArticleSection from '@/components/ArticleSection';
+import NewsSection2 from '@/components/NewsSection2';
 
 export default function Home() {
   return (
@@ -16,6 +18,9 @@ export default function Home() {
       <WhyTrustSection/>
       <WhyCrossfade />
       <StatSection/>
+      <ArticleSection />
+      <div className='w-full h-16 bg-[#00385A]'></div>
+      <NewsSection2 />
       {/* <NewsSection/> */}
       </main>
     // </ScrollController>
