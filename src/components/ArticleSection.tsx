@@ -26,8 +26,8 @@ export default function ArticleSection() {
     <section
       className="px-24 py-12 bg-cover text-white relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(212,166,106,0.5) 0%, rgba(212,166,106,0) 25%), url('/article-bg.jpg')`,
-        backgroundPosition: "center 65%"
+        backgroundImage: `linear-gradient(to bottom, #D4A66A 0%, transparent 50%), url('/article-bg.jpg')`,
+        backgroundPosition: "top"
       }}
     >
       {/* Bottom gradient overlay for smooth transition to NewsSection2 */}

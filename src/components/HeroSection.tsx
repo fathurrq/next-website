@@ -139,7 +139,7 @@ export default function HeroSection() {
               Your Global Partner
             </h1>
             <p className="text-white/70 mt-2">In</p>
-            <p className="text-xl md:text-2xl">Testing, Inspection and Certification</p>
+            <p className="text-xl md:text-2xl">TICCS (Testing, Inspection, Certification, Classification and Statutory)</p>
           </motion.div>
   
           {/* Lottie (kept as-is) */}

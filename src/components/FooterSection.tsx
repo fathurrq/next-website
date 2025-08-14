@@ -89,10 +89,10 @@ export default function FooterSection() {
 
                             <div>
                                 <a
-                                    href="mailto:cs@bki.co.id"
+                                    href="mailto:crc@bki.co.id"
                                     className="text-xs md:text-sm hover:text-white/50 transition-colors duration-200"
                                 >
-                                    cs@bki.co.id
+                                    crc@bki.co.id
                                 </a>
                                 <p className="text-xs md:text-sm font-light">
                                     (Customer Communication)
@@ -238,12 +238,12 @@ export default function FooterSection() {
                 <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold">bki</span>
+                        <img src="/bki-white.png" alt="BKI Logo" className="h-7 w-auto" />
                     </div>
 
                     {/* Copyright */}
                     <div className="text-xs md:text-sm text-center font-light">
-                        © Copyright 2024, All Rights Reserved by BKI
+                        © Copyright 2025, All Rights Reserved by BKI
                     </div>
 
                     {/* Social Icons */}

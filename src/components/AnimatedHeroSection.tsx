@@ -187,7 +187,7 @@ const AnimatedHeroSection = () => {
             animationStage >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
           }`}>
             <h1 className="font-bold text-lg text-white hidden sm:block">
-              PT. Biro Klasifikasi Indonesia
+              PT Biro Klasifikasi Indonesia
             </h1>
           </div>
         </div>

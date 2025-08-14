@@ -145,6 +145,7 @@ export default function WhyCrossfadeSteppedLocked() {
 }
 
 function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
+  const isLastSlide = slide.bottomRight === "Innovation & Excellence";
   return (
     <motion.div className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45, ease: "easeInOut" }}>
       <motion.img
@@ -158,6 +159,19 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
         draggable={false}
       />
       <div className="absolute inset-0 bg-black/35" />
+      {/* Add bottom gradient only for last slide */}
+      {isLastSlide && (
+        <div style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: '120px',
+          background: 'linear-gradient(to bottom, transparent 0%, #D4A66A 100%)',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }} />
+      )}
 
       {!hideText && (
         <>

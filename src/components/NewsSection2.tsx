@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Newsletter from "./Newsletter";
 
 export default function NewsSection2() {
   const news = [
@@ -72,6 +73,7 @@ export default function NewsSection2() {
           </div>
         ))}
       </div>
+      <Newsletter />
     </section>
   );
 }

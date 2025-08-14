@@ -14,7 +14,7 @@ const montserrat = Montserrat({
   variable: '--font-montserrat', // optional CSS variable
 });
 export const metadata: Metadata = {
-  title: "PT. Biro Klasifikasi Indonesia (BKI) - Leading Maritime Classification Agency",
+  title: "PT Biro Klasifikasi Indonesia (BKI) - Leading Maritime Classification Agency",
   description: "BKI is Indonesia's premier maritime classification agency, providing vessel classification, statutory certification, and maritime consultancy services since 1964.",
 };
 

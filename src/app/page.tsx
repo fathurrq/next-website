@@ -17,7 +17,7 @@ export default function Home() {
       <ServiceHighlight />
       <WhyTrustSection/>
       <WhyCrossfade />
-      <StatSection/>
+      {/* <StatSection/> */}
       <ArticleSection />
       <div className='w-full h-16 bg-[#00385A]'></div>
       <NewsSection2 />
