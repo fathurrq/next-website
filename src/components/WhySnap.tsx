@@ -19,11 +19,8 @@ type Slide = {
 export default function WhyCrossfadeSteppedLocked() {
   const slides: Slide[] = [
     { src: "/member.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Certified to International ISO Standards" },
-    { src: "/office.svg", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "International Recognition & Compliance" },
-    { src: "/member.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Trusted by Global Clients" },
-    { src: "/office.svg", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Decades of Experience" },
-    { src: "/member.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Innovation & Excellence" },
-    { src: "/member.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Innovation & Excellence" },
+    { src: "/office-bki-1.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "International Recognition & Compliance" },
+    { src: "/crew-1.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Decades of Experience" },
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
