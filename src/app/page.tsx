@@ -8,13 +8,15 @@ import WhyCrossfade from '@/components/WhySnap';
 import ScrollController from '@/components/ScrollController';
 import ArticleSection from '@/components/ArticleSection';
 import NewsSection2 from '@/components/NewsSection2';
+import OurServicesSection from "@/components/OurServicesSection";
 
 export default function Home() {
   return (
     // <ScrollController>
     <main className="min-h-screen">
       <HeroSection />
-      <ServiceHighlight />
+        <OurServicesSection/>
+      {/*<ServiceHighlight />*/}
       <WhyTrustSection/>
       <WhyCrossfade />
       {/* <StatSection/> */}
