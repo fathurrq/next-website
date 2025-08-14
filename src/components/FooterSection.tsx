@@ -77,10 +77,10 @@ export default function FooterSection() {
                         <div className="space-y-4">
                             <div>
                                 <a
-                                    href="mailto:ho@bki.co.id"
+                                    href="mailto:crc@bki.co.id"
                                     className="text-xs md:text-sm hover:text-white/50 transition-colors duration-200"
                                 >
-                                    ho@bki.co.id
+                                    crc@bki.co.id
                                 </a>
                                 <p className="text-xs md:text-sm font-light">
                                     (Corporate Secretary, Corporate Communication)
@@ -89,10 +89,10 @@ export default function FooterSection() {
 
                             <div>
                                 <a
-                                    href="mailto:crc@bki.co.id"
+                                    href="mailto:cs@bki.co.id"
                                     className="text-xs md:text-sm hover:text-white/50 transition-colors duration-200"
                                 >
-                                    crc@bki.co.id
+                                    cs@bki.co.id
                                 </a>
                                 <p className="text-xs md:text-sm font-light">
                                     (Customer Communication)
