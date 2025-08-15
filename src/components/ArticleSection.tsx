@@ -24,7 +24,7 @@ const articles = [
 export default function ArticleSection() {
   return (
     <section
-      className="px-24 py-12 bg-cover text-white relative"
+      className="px-4 py-6 md:px-24 md:py-12 bg-cover text-white relative"
       style={{
         backgroundImage: `linear-gradient(to bottom, #D4A66A 0%, transparent 50%), url('/article-bg.jpg')`,
         backgroundPosition: "top"
@@ -54,11 +54,11 @@ export default function ArticleSection() {
               <Image src={a.img} alt={a.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-linear-to-t from-[rgba(10,67,106,0.6)] to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 px-4 pb-8 bg-gradient-to-t from-blue-900/70 to-transparent">
-                <h3 className="font-semibold text-2xl mb-2">{a.title}</h3>
-                <div className="text-sm mb-2">{a.content}</div>
+                <h3 className="font-semibold text-lg md:text-2xl mb-2">{a.title}</h3>
+                <div className="text-xs md:text-sm mb-2">{a.content}</div>
                 <a
                   href={a.link}
-                  className="inline-block text-lg px-4 py-2 bg-[rgba(255,255,255,0.3)] hover:bg-white hover:text-black transition-colors duration-400 border border-white border-opacity-50"
+                  className="inline-block text-base md:text-lg px-4 py-2 bg-[rgba(255,255,255,0.3)] hover:bg-white hover:text-black transition-colors duration-400 border border-white border-opacity-50"
                 >
                   Read Article →
                 </a>
