@@ -195,7 +195,7 @@ export default function FooterSection() {
                                     {/* Render submenu kalau ada children */}
                                     {menu.children && (
                                         <ul
-                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
+                                            className="pl-4 mt-2 space-y-2 md:max-h-0 md:opacity-0 overflow-hidden transition-all duration-1000
                            group-hover:max-h-screen group-hover:opacity-100 group-focus-within:max-h-screen group-focus-within:opacity-100"
                                         >
                                             {menu.children.map((child, childIdx) => (
@@ -209,7 +209,7 @@ export default function FooterSection() {
                                                     {/* Render sub-submenu kalau ada children */}
                                                     {child.children && (
                                                         <ul
-                                                            className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
+                                                            className="pl-4 mt-2 space-y-2 md:max-h-0 md:opacity-0 overflow-hidden transition-all duration-1000
                 group-hover/sub:max-h-screen group-hover/sub:opacity-100"
                                                         >
                                                             {child.children.map((child2, child2Idx) => (
