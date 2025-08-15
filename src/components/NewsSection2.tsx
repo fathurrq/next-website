@@ -27,23 +27,23 @@ export default function NewsSection2() {
   ];
   return (
     <section
-      className="px-24 py-12 bg-cover bg-center"
+      className="px-6 md:px-24 py-12 bg-cover bg-center"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, #00385A 0%, transparent 100%), url('/news-bg.jpg')",
         backgroundPosition: "center top",
       }}
     >
-      <div className="flex items-center gap-6 bg-[#00385A] bg-opacity-25 border-2 border-white border-opacity-50 rounded py-4 px-6 mb-10 relative -top-6">
-        <div className="pl-2 font-medium text-4xl w-1/3">
+      <div className="flex flex-col md:flex-row items-center gap-6 bg-[#00385A] bg-opacity-25 border-2 border-white border-opacity-50 rounded py-4 px-6 mb-10 relative -top-6">
+        <div className="pl-2 font-medium text-2xl md:text-4xl w-full md:w-1/3 text-center md:text-left">
           We’ll help what you looking for
         </div>
         <input
           type="text"
           placeholder="Type something here"
-          className="flex-1 bg-transparent outline-none px-2 border-b border-white text-3xl placeholder:text-3xl"
+          className="w-full bg-transparent outline-none px-2 border-b border-white text-lg md:text-3xl placeholder:text-lg md:placeholder:text-3xl"
         />
-        <button className="px-4 py-2 bg-[#0A436A] border border-white cursor-pointer rounded hover:bg-[#0A436A]/50">
+        <button className="w-full md:w-auto px-4 py-2 bg-[#0A436A] border border-white cursor-pointer rounded hover:bg-[#0A436A]/50">
           Search
         </button>
       </div>
