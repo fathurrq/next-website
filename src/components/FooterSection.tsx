@@ -162,7 +162,7 @@ export default function FooterSection() {
                             {[
                                 { label: "News", href: "#" },
                                 { label: "Event", href: "#" },
-                                { label: "Article", href: "#" },
+                                { label: "Article", href: "/articles" },
                                 { label: "Annual Report", href: "#" },
                             ].map((item) => (
                                 <li key={item.label} className="py-1">
