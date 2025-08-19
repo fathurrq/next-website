@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Cooperation from "@/components/achievements/CooperationSection";
+import AwardSection from "@/components/achievements/AwardSection";
 
 export default function Achievements() {
   const { startTransition, setStartTransition } = useHeroTransition();
@@ -81,6 +82,9 @@ export default function Achievements() {
 
     {/* cooperation section */}
     <Cooperation/>
+
+    {/* award section */}
+    <AwardSection/>
     </div>
   )
 }

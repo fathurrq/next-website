@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Articles() {
   const { startTransition, setStartTransition } = useHeroTransition();
-  const articleRef = useRef<HTMLDivElement | null>(null);
+  const articlesRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setStartTransition(true), 1000);
@@ -59,7 +59,24 @@ export default function Articles() {
   ]
 
   return (
-    <div id="articles" ref={articleRef} className="pb-12 relative w-full min-h-screen overflow-hidden">
+    <div id="articles" ref={articlesRef} className="pb-12 relative w-full min-h-screen overflow-hidden">
+      
+      {/* INTRO overlay (your multi-gradient) → fades out as before */}
+    <motion.div
+      className="absolute inset-0 z-10 pointer-events-none"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: startTransition ? 0 : 1 }}
+      transition={{ duration: 0.8 }}
+      style={{
+        background: `
+          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
+          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
+          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
+        `,
+        backdropFilter: "blur(22px)",
+        WebkitBackdropFilter: "blur(22px)",
+      }}
+    />
 
     {/* background image */}
     <div className=" h-[50vh] bg-[url('/bg-article.png')] bg-cover"></div>
