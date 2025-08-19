@@ -194,7 +194,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             exit={{ y: 12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="text-[8vw] md:text-[3.6vw] font-extrabold leading-[1.05]">
+            <div className="text-[8vw] md:text-[3vw] font-extrabold leading-[1.05] md:w-[50vw]">
               {slide.bottomRight}
             </div>
           </motion.div>

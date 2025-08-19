@@ -67,7 +67,7 @@ export default function OurServicesSection() {
     });
 
     return (
-        <div id={'our-services'} ref={servicesRef} className="relative w-full">
+        <div id={'our-services'} ref={servicesRef} className="relative w-full text-white">
             <motion.div
                 className="absolute inset-x-0 top-0 z-20 pointer-events-none h-[100vh]"
                 style={{

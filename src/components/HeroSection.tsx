@@ -123,7 +123,7 @@ export default function HeroSection() {
         <>
           <motion.div
             key="main-hero-text"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4 text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }}
             exit={{ opacity: 0 }}
@@ -139,7 +139,7 @@ export default function HeroSection() {
               Your Global Partner
             </h1>
             <p className="text-white/70 mt-2">In</p>
-            <p className="text-xl md:text-2xl">TICCS (Testing, Inspection, Certification, Classification and Statutory)</p>
+            <p className="text-white text-xl md:text-2xl">TICCS (Testing, Inspection, Certification, Classification and Statutory)</p>
           </motion.div>
   
           {/* Lottie (kept as-is) */}

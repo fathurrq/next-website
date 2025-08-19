@@ -12,7 +12,7 @@ export default function Newsletter() {
           <input
             type="text"
             placeholder="Enter email here"
-            className="w-full text-center bg-transparent outline-none border-b border-white text-sm md:text-lg placeholder:text-lg md:placeholder:text-3xl"
+            className="w-full text-center bg-transparent outline-none border-b border-white text-sm md:text-lg placeholder:text-lg md:placeholder:text-xl"
           />
         </div>
         <a

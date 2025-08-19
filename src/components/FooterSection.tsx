@@ -111,7 +111,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Services */}
-                    <div className="w-full">
+                    <div className="w-full text-white">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Services</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
@@ -135,7 +135,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Research */}
-                    <div className="w-full">
+                    <div className="w-full text-white">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Research</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
@@ -156,7 +156,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Publication */}
-                    <div className="w-full">
+                    <div className="w-full text-white">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Publication</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
@@ -179,7 +179,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* About Us */}
-                    <div className="w-full">
+                    <div className="w-full text-white">
                         <h3 className="font-semibold text-xs md:text-sm mb-4">About Us</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {aboutUs.map((menu, idx) => (
@@ -235,7 +235,7 @@ export default function FooterSection() {
                 </div>
 
                 {/* Bottom Section */}
-                <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4">
+                <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4 text-white">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
                         <img src="/bki-white.png" alt="BKI Logo" className="h-7 w-auto" />
