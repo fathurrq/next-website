@@ -102,7 +102,7 @@ export default function Cooperation() {
                         <h3 className="text-2xl font-semibold mb-6">Member of Association</h3>
                         <div className="flex flex-wrap gap-8 items-center">
                             {logo.map((a, i) => (
-                                <img src={a.src} alt={a.alt} className="h-16" />
+                                <img src={a.src} alt={a.alt} key={i} className="h-16" />
                             ))}
                         </div>
                     </div>
