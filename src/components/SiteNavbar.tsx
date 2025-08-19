@@ -65,7 +65,7 @@ const NAV = [
     label: "About Us",
     href: "#",
     submenu: [
-      { label: "Company Profile", href: "#" },
+      { label: "Company Profile", href: "/company-profile" },
       { label: "Achievement", href: "#" },
       { label: "Opportunity", href: "#" },
       { label: "Documentation", href: "#" },
