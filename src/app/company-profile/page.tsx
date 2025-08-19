@@ -60,7 +60,7 @@ export default function CompanyProfile() {
     }, [startTransition]);
 
     return (
-        <div id="articles" ref={companyProfileRef} className="pb-12 relative w-full min-h-screen overflow-hidden">
+        <div id="company-profile" ref={companyProfileRef} className="relative w-full min-h-screen">
             <motion.div
                 className="absolute inset-0 z-10 pointer-events-none"
                 initial={{opacity: 1}}
@@ -84,22 +84,22 @@ export default function CompanyProfile() {
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]"/>
                 <div
-                    className="w-full relative flex flex-col justify-center items-center container py-24 text-center text-white">
+                    className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
                     <div className="flex flex-row w-full justify-center items-center gap-2">
-                        <Link href={'/'} className="text-xl xl:text-3xl">
+                        <Link href={'/'} className="text-xl 2xl:text-3xl">
                             Home
                         </Link>
-                        <p className="text-xl xl:text-3xl">
+                        <p className="text-xl 2xl:text-3xl">
                             /
                         </p>
-                        <p className="text-xl xl:text-3xl text-[#ffffff75]">
+                        <p className="text-xl 2xl:text-3xl text-[#ffffff75]">
                             Company Profile
                         </p>
                     </div>
-                    <h1 className="mt-4 text-4xl xl:text-6xl font-semibold">
+                    <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
                         Anchored in Trust, Driven by Innovation
                     </h1>
-                    <p className="mt-4 text-lg xl:text-xl max-w-1/2">
+                    <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
                         Building stronger maritime capabilities with technical
                         standard-setting excellence.
                     </p>
@@ -109,7 +109,7 @@ export default function CompanyProfile() {
             {/* Vision & Mission */}
             <section className="w-full px-6 py-16 grid md:grid-cols-2 gap-10 bg-white">
                 <div className="relative bg-[#0A436A] text-white p-6 rounded-lg shadow-lg h-[50vh]">
-                    <h2 className="text-4xl xl:text-6xl font-bold">
+                    <h2 className="text-4xl 2xl:text-6xl font-bold">
                         Integrity <span className="text-[#ffffff50]">is our</span> compass,
                         quality <span className="text-[#ffffff50]">is our</span> anchor
                     </h2>
@@ -117,8 +117,8 @@ export default function CompanyProfile() {
                         className="bg-[#ffffff50] absolute bottom-[28px] left-[24px] right-[24px] flex justify-between items-center w-auto py-[10px] px-3">
                         <Image src={'/left-arrow.png'} alt={"Left Arrow"} width={16} height={16}/>
                         <div className="flex justify-center items-center gap-1">
-                            <p className="xl:text-2xl font-semibold text-white">Our Culture</p>
-                            <p className="xl:text-2xl font-semibold text-white">1<span
+                            <p className="2xl:text-2xl font-semibold text-white">Our Culture</p>
+                            <p className="2xl:text-2xl font-semibold text-white">1<span
                                 className="text-[#ffffff50]">/8</span></p>
                         </div>
                         <Image src={'/right-arrow.png'} alt={"Right Arrow"} width={16} height={16}/>
@@ -150,11 +150,11 @@ export default function CompanyProfile() {
             </section>
 
             {/* History Section */}
-            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] py-16">
+            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16">
                 <div className="flex flex-col gap-7 px-10">
-                    <h2 className="text-3xl xl:text-6xl font-bold">Our History</h2>
-                    <p className="xl:text-2xl">
-                        Biro Klasifikasi Indonesia (BKI) berdiri pada 1 Juli 1964 sebagai
+                    <h2 className="text-3xl 2xl:text-6xl font-bold">Our History</h2>
+                    <p className="2xl:text-2xl">
+                        <span className="font-bold">Biro Klasifikasi Indonesia (BKI)</span> berdiri pada 1 Juli 1964 sebagai
                         satu-satunya biro klasifikasi nasional untuk kapal berbendera Indonesia. Didirikan untuk
                         mengurangi ketergantungan pada biro asing, BKI memastikan standar yang sesuai dengan kondisi
                         pelayaran Indonesia sekaligus menghemat devisa dan mengembangkan keahlian lokal. Seiring
@@ -164,10 +164,10 @@ export default function CompanyProfile() {
                 </div>
                 <div className="flex flex-col pl-10 py-3">
                     <div className="flex flex-row items-center gap-4">
-                        <p className="text-lg xl:text-2xl font-bold text-[#FFFFFF50]">The Faces of Innovation</p>
+                        <p className="text-lg 2xl:text-2xl font-bold text-[#FFFFFF50]">The Faces of Innovation</p>
                         <div className="bg-gradient-to-r from-[#FFFFFF50] to-[#FFFFFF00] h-[1px] w-2/3"/>
                     </div>
-                    <div className="flex flex-row items-center gap-3 xl:gap-6 overflow-x-scroll w-max-content pt-3">
+                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pt-3">
                         {Array.from({length: 4}).map((_, i) => (
                             <div
                                 key={i}
@@ -178,16 +178,16 @@ export default function CompanyProfile() {
                                        className="object-cover rounded-xs"/>
                                 <div
                                     className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    <p className="font-semibold text-[#FFFFFF60] xl:text-[20px] text-xs">2024 - 2025</p>
-                                    <p className="font-bold xl:text-3xl">Ahmad Johnny Depp</p>
-                                    <p className="text-sm xl:text-2xl">Position</p>
+                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
+                                    <p className="text-sm 2xl:text-2xl">Position</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="py-20 xl:py-40 w-full px-8 xl:px-32">
+                <div className="pt-28 2xl:pt-40 w-full px-24 2xl:px-32">
                     {/* Timeline */}
                     <div className="flex w-full flex-col items-start">
                         {timeline.map((item, idx) => (
@@ -199,71 +199,98 @@ export default function CompanyProfile() {
                                         className="relative z-10 grid h-3 w-3 place-items-center rounded-full bg-slate-200 text-slate-800"></span>
                                 </div>
                                 <div
-                                    className="-translate-y-2/5 mb-12 pb-8 bg-[#00000060] rounded-sm px-3 xl:px-6 py-4 xl:py-8 flex flex-col">
+                                    className="-translate-y-2/5 mb-12 pb-8 bg-[#00000060] rounded-sm px-3 2xl:px-6 py-4 2xl:py-8 flex flex-col">
                                     <div className="flex flex-row items-end gap-1">
-                                        <p className="text-[#FFFFFF60] xl:text-[20px] text-xs">{item.year}</p>
+                                        <p className="text-[#FFFFFF60] 2xl:text-[20px] text-xs">{item.year}</p>
                                         <p className="text-[#FFFFFF60] text-[9px]">{item.yearNote}</p>
                                     </div>
-                                    <p className="font-bold xl:text-3xl text-xl">{item.title}</p>
-                                    <p className="xl:text-2xl text-lg">{item.desc}</p>
+                                    <p className="font-bold 2xl:text-3xl text-xl">{item.title}</p>
+                                    <p className="2xl:text-2xl text-lg">{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
+                <div className="flex flex-row justify-center items-center">
+                    <div className="bg-gradient-to-r from-[#FFFFFF50] to-[#FFFFFF00] h-[1px] w-6/7"/>
+                </div>
             </section>
 
             {/* Committees */}
-            <section className="container mx-auto px-6 py-16">
-                <h2 className="text-3xl font-bold mb-12">Technical Committee</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <section className="pt-16 pb-40 2xl:py-32 bg-black flex flex-col items-center justify-center">
+                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight">Technical Committee</h2>
+                <h2 className="text-xl 2xl:text-3xl mb-12 text-center max-w-2/3">Our world-class technical experts who drive innovation and ensure the highest standards of technology implementation across all our projects</h2>
+                <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
                     {Array.from({length: 4}).map((_, i) => (
                         <div
                             key={i}
-                            className="bg-white shadow rounded-lg overflow-hidden text-center"
+                            className="shadow overflow-hidden relative"
                         >
-                            <img src="/person.jpg" alt="member" className="w-full h-48 object-cover"/>
-                            <div className="p-4">
-                                <h3 className="font-bold">Ahmad Johnny Depp</h3>
-                                <p className="text-sm text-gray-500">Position</p>
+                            <Image src="/faces-of-innovation/1.png" alt="member"
+                                   width={484} height={422}
+                                   className="object-cover rounded-xs"/>
+                            <div
+                                className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
+                                <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
+                                <p className="text-sm 2xl:text-2xl">Position</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* Governance */}
-            <section className="bg-gray-50 py-16">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-bold mb-12">Board Governance</h2>
+            {/* Board Governance */}
+            <section className="bg-white py-16 flex flex-col items-center justify-center pb-36">
+                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight text-black">Board Governance</h2>
+                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-black 2xl:mb-36">Our distinguished board members provide strategic oversight, governance excellence, and visionary leadership to guide our company's continued growth and success</h2>
 
-                    <h3 className="text-2xl font-semibold mb-6">Board of Commissioners</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div className="flex flex-col gap-5 w-full">
+                    <div className="flex flex-row justify-between items-center w-full px-18 mb-5">
+                        <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Commissioners</p>
+                        <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Independent oversight and strategic guidance from industry leaders and subject matter experts</p>
+                    </div>
+                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
                         {Array.from({length: 4}).map((_, i) => (
                             <div
                                 key={i}
-                                className="bg-white shadow rounded-lg overflow-hidden text-center"
+                                className="shadow overflow-hidden relative"
                             >
-                                <img src="/person.jpg" alt="commissioner" className="w-full h-48 object-cover"/>
-                                <div className="p-4">
-                                    <h3 className="font-bold">Ahmad Johnny Depp</h3>
-                                    <p className="text-sm text-gray-500">President</p>
+                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                       width={484} height={422}
+                                       className="object-cover rounded-xs"/>
+                                <div
+                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
+                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
+                                    <p className="text-sm 2xl:text-2xl">Position</p>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <h3 className="text-2xl font-semibold mb-6">Board of Directors</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div className="flex flex-row justify-center items-center my-14">
+                        <div className="bg-gradient-to-r from-[#00000050] to-[#00000000] h-[1px] w-[89%]"/>
+                    </div>
+
+                    <div className="flex flex-row justify-between items-center w-full px-18 mb-5">
+                        <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Directors</p>
+                        <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Executive leadership team responsible for day-to-day operations and strategic implementation</p>
+                    </div>
+                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
                         {Array.from({length: 4}).map((_, i) => (
                             <div
                                 key={i}
-                                className="bg-white shadow rounded-lg overflow-hidden text-center"
+                                className="shadow overflow-hidden relative"
                             >
-                                <img src="/person.jpg" alt="director" className="w-full h-48 object-cover"/>
-                                <div className="p-4">
-                                    <h3 className="font-bold">Ahmad Johnny Depp</h3>
-                                    <p className="text-sm text-gray-500">Director</p>
+                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                       width={484} height={422}
+                                       className="object-cover rounded-xs"/>
+                                <div
+                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
+                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
+                                    <p className="text-sm 2xl:text-2xl">Position</p>
                                 </div>
                             </div>
                         ))}
@@ -272,16 +299,38 @@ export default function CompanyProfile() {
             </section>
 
             {/* Structure */}
-            <section className="bg-blue-900 text-white py-16">
-                <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold mb-12">Structure</h2>
-                    <img
-                        src="/structure.png"
-                        alt="Organization Structure"
-                        className="mx-auto max-w-full"
-                    />
-                </div>
+            <section className="bg-gradient-to-b from-[#0A436A] to-[#000000] py-16 flex flex-col items-center justify-center relative overflow-hidden">
+                {/* Top structure: opacity dari 100% → 0% ke bawah */}
+                <div className="absolute top-0 right-0 left-0 w-full h-2/5
+                  bg-[url('/structure-top.png')] bg-top
+                  [mask-image:linear-gradient(to_bottom,black,transparent)]
+                  [mask-repeat:no-repeat] [mask-size:100%_100%]
+                  [webkit-mask-image:linear-gradient(to_bottom,black,transparent)]
+                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]" />
+
+                {/* Bottom structure: opacity dari 100% → 0% ke atas */}
+                <div className="absolute bottom-0 right-0 left-0 w-full h-2/5
+                  bg-[url('/structure-bottom.png')] bg-bottom
+                  [mask-image:linear-gradient(to_top,black,transparent)]
+                  [mask-repeat:no-repeat] [mask-size:100%_100%]
+                  [webkit-mask-image:linear-gradient(to_top,black,transparent)]
+                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]" />
+
+                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight text-white">
+                    Structure
+                </h2>
+                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-white 2xl:mb-36">
+                    ORGANIZATION STRUCTURE OF PT Biro Klasifikasi Indonesia (Persero)
+                </h2>
+                <Image
+                    src="/structure.png"
+                    alt="Structure"
+                    width={1200}
+                    height={600}
+                    className="w-[90%] mb-24"
+                />
             </section>
+
         </div>
     );
 }
