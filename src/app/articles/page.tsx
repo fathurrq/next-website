@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Articles() {
   const { startTransition, setStartTransition } = useHeroTransition();
-  const articleRef = useRef<HTMLDivElement | null>(null);
+  const articlesRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setStartTransition(true), 1000);
@@ -59,7 +59,7 @@ export default function Articles() {
   ]
 
   return (
-    <div id="articles" ref={articleRef} className="pb-12 relative w-full min-h-screen overflow-hidden">
+    <div id="articles" ref={articlesRef} className="pb-12 relative w-full min-h-screen overflow-hidden">
       
       {/* INTRO overlay (your multi-gradient) → fades out as before */}
     <motion.div
