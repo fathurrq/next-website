@@ -93,8 +93,8 @@ export default function HeroSection() {
     <motion.div
       className="absolute inset-x-0 bottom-0 z-20 pointer-events-none h-[55vh]"
       style={{
-        y: washY,
-        opacity: washOpacity,
+        // y: washY,
+        // opacity: washOpacity,
         background:
           "linear-gradient(0deg, rgba(10,67,106,0.95) 0%, rgba(10,67,106,0.6) 60%, rgba(10,67,106,0) 100%)",
         backdropFilter: "blur(8px)",

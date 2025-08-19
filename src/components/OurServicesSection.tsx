@@ -1,6 +1,6 @@
 'use client';
-import {useRef, useState} from "react";
-import {AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform} from "framer-motion";
+import {useRef} from "react";
+import {motion} from "framer-motion";
 import Image from "next/image";
 
 const services = [
@@ -38,131 +38,74 @@ const services = [
 
 export default function OurServicesSection() {
     const servicesRef = useRef<HTMLDivElement | null>(null);
-    const [showOurServicesTitle, setShowOurServicesTitle] = useState(false);
-    const [showServicesDescription, setShowServicesDescription] = useState(false);
-    const [showOurServicesBottomTitle, setShowOurServicesBottomTitle] = useState(false);
-
-    const {scrollYProgress} = useScroll({
-        target: servicesRef,
-    });
-
-    const topGradientY = useTransform(scrollYProgress, [0, 1], [0, -120]);
-    const topGradientOpacity = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0, 0]);
-    useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        // ================= SHOW OUR SERVICES TITLE AND DESCRIPTION =======================
-        if (latest >= 0.01 && !showOurServicesTitle) {
-            setShowOurServicesTitle(true);
-        }
-
-        if (latest >= 0.25 && latest <= 0.3 && !showServicesDescription) {
-            setShowServicesDescription(true);
-        } else if (latest >= 0.3 && showServicesDescription) {
-            setShowServicesDescription(false);
-        }
-
-        if (latest >= 0.75 && !showOurServicesBottomTitle) {
-            setShowOurServicesBottomTitle(true);
-        }
-        // ================= END SHOW OUR SERVICES TITLE AND DESCRIPTION =======================
-    });
 
     return (
         <div id={'our-services'} ref={servicesRef} className="relative w-full text-white">
-            <motion.div
-                className="absolute inset-x-0 top-0 z-20 pointer-events-none h-[100vh]"
-                style={{
-                    y: topGradientY,
-                    opacity: topGradientOpacity,
-                    background:
-                        "linear-gradient(0deg, rgba(10,67,106,0) 0%, rgba(10,67,106,0.6) 60%, rgba(10,67,106,0.95) 100%)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    willChange: "transform, opacity",
-                }}
-            />
-            <AnimatePresence>
-                {showOurServicesTitle && (
-                    <motion.div
-                        key="our-services-title"
-                        className="absolute left-1/2 top-1/8 xl:top-1/6 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
-                        initial={{ opacity: 0, y: 1000 }}
-                        animate={{opacity: 1, y: 0, transition: {duration: 1.5, ease: "easeOut"}}}
-                        exit={{ opacity: 0, transition: { duration: 0.35 } }}
-                    >
-                        <div className="text-5xl xl:text-8xl text-white">Our Services</div>
-                    </motion.div>
-                )}
-                {showServicesDescription && (
-                    <motion.div
-                        key="our-services-description"
-                        className="absolute left-0 top-1/6 xl:top-1/5 w-full z-30 text-center px-4 flex items-center justify-center"
-                        initial={{ opacity: 0, y: 1000 }}
-                        animate={{ opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }}
-                        exit={{ opacity: 0, transition: { duration: 0.35 } }}
-                    >
-                        <p className="text-lg md:text-2xl text-white font-medium w-2/3">
-                            Step into a world where every vessel is guided by precision and trust. From design approvals to on-board inspections, we ensure each ship meets the highest global standards.
-                            <br /><br />
-                            Safeguarding lives, protecting the environment, and enhancing operational performance—our expertise keeps Indonesia’s maritime industry moving forward.
-                            <br/><br/>
-                            Set sail with confidence, knowing your journey is backed by world-class classification and certification.
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-            <div className={'w-full h-[100vh] bg-[#86A7D4]'}></div>
-            <motion.img src="/services-bg.png" alt="Background" className="w-full h-full object-cover" />
-            <div className={'w-full h-[100vh] bg-black'}></div>
             <div
-                className="absolute inset-x-0 top-[130vh] xl:top-[175vh] z-20 pointer-events-none xl:h-[100vh] w-full flex items-center justify-center"
-                style={{
-                    background:
-                        "linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(10, 67, 106, 1) 83%, rgba(0, 0, 0, 0) 100%)",
-                    willChange: "transform, opacity",
-                }}
-            >
-                <AnimatePresence>
-                    {showOurServicesBottomTitle && (
-                        <motion.div
-                            key="our-services-title-bottom"
-                            className="absolute left-1/2 top-1/5 xl:top-1/4 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4"
-                            initial={{ opacity: 0, y: -1000 }}
-                            animate={{opacity: 1, y: 0, transition: {duration: 1.5, ease: "easeOut"}}}
-                            exit={{ opacity: 0, transition: { duration: 0.35 } }}
-                        >
-                            <h1 className="text-5xl md:text-8xl text-[rgba(255,255,255,0.5)]">Our Services</h1>
-                        </motion.div>
-                    )}
-                    {showOurServicesBottomTitle && (
-                        <motion.div
-                            key="our-services-description-bottom"
-                            className="absolute left-0 top-1/4 xl:top-2/5 z-30 w-full text-center px-4 flex items-center justify-center w-full"
-                            initial={{ opacity: 0 }}
-                            animate={{opacity: 1, transition: {duration: 1.5, ease: "easeOut"}}}
-                            exit={{ opacity: 0, transition: { duration: 0.35 } }}
-                        >
-                            <p className="text-lg md:text-2xl text-[rgba(255,255,255,0.5)]">Discover maritime services built for safety, compliance, and excellence.</p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
+                className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
+                <p className="text-5xl 2xl:text-8xl text-[rgba(255,255,255,0.65)] mb-16 22xl:mb-24">Our Services</p>
+                <p className="text-lg md:text-2xl text-white font-medium w-2/5 text-center">
+                    Step into a world where every vessel is guided by precision and trust. From design approvals to
+                    on-board inspections, we ensure each ship meets the highest global standards.
+                    <br/><br/>
+                    Safeguarding lives, protecting the environment, and enhancing operational performance—our expertise
+                    keeps Indonesia’s maritime industry moving forward.
+                    <br/><br/>
+                    Set sail with confidence, knowing your journey is backed by world-class classification and
+                    certification.
+                </p>
+            </div>
+
+            <div className="relative w-full">
+                {/* Background image */}
+                <motion.img
+                    src="/services-bg.png"
+                    alt="Background"
+                    className="w-full h-full object-cover"
+                />
+
+                {/* Gradient overlay + content */}
+                <div className="absolute -bottom-24 left-0 right-0
+                  bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_40%,rgba(11,63,101,1)_60%,transparent)] w-full h-[250px]"/>
+            </div>
+
+            <div
+                className="bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_20%,rgba(11,63,101,1)_50%,#000_100%)] flex flex-col justify-center items-center pt-5 pb-36">
+                <div className="flex flex-col gap-12 mb-20">
+                    <h1 className="text-5xl md:text-8xl text-[rgba(255,255,255,0.75)] text-center">Our Services</h1>
+                    <p className="text-2xl md:text-4xl text-[rgba(255,255,255,0.5)] text-center">Discover maritime
+                        services built for safety, compliance, and excellence.</p>
+                </div>
                 <div
-                    className={'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-[30px] gap-y-[60px] mt-[60vh] xl:mt-[50vh] mx-[50px] xl:mx-[70px] pb-[100px] xl:pb-0'}>
+                    className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] mx-[50px] 2xl:mx-[70px] pb-[100px] 2xl:pb-0">
                     {services.map((service, index) => (
-                        <div key={index} className={`py-[20px] px-[32px] rounded-[4px] relative group`}>
-                            <Image
-                                src={service.image}
-                                alt={service.title}
-                                width={550}
-                                height={198}
-                                className={'w-full h-full object-cover absolute inset-0 z-0 rounded-[4px] opacity-50 group-hover:opacity-100 transition-opacity duration-500'}
+                        <div
+                            key={index}
+                            className="w-full md:w-[calc(50%-30px)] 2xl:w-[calc(33.333%-30px)]
+                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden"
+                        >
+                            {/* Background layer */}
+                            <div
+                                className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-100 transition-opacity duration-1000"
+                                style={{backgroundImage: `url(${service.image})`}}
                             />
-                            <div className={'flex flex-col gap-[15px] z-1'}>
+
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col gap-[15px]">
                                 <Image src={service.icon} alt={service.title} width={32} height={22}/>
-                                <p className={'text-4xl xl:text-5xl text-white mt-[15px]'}>{service.title}</p>
-                                <p className={'text-sm xl:text-[16px] text-white'}>{service.description}</p>
+                                <p className="text-4xl 2xl:text-5xl text-white mt-[15px]">{service.title}</p>
+                                <p className="text-sm 2xl:text-[16px] text-white">{service.description}</p>
                             </div>
-                            <div className={'absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white opacity-30 z-0'} />
-                            {/*<div className={'absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white opacity-80 z-1'} />*/}
+
+                            {/* Bottom line */}
+                            <div
+                                className="absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white opacity-30 z-10"/>
+                            <div
+                                className="absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white z-10
+                   opacity-30 group-hover:opacity-100
+                   transform scale-x-0 group-hover:scale-x-100
+                   origin-right transition-all duration-1000 ease-out"
+                            />
                         </div>
                     ))}
                 </div>
