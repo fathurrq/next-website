@@ -55,7 +55,7 @@ const NAV = [
     label: "Publication",
     href: "#",
     submenu: [
-      { label: "News", href: "#" },
+      { label: "News", href: "/news" },
       { label: "Event", href: "/events" },
       { label: "Article", href: "/articles" },
       { label: "Annual Report", href: "" },
