@@ -5,6 +5,46 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 
+const timeline: {
+    year: string
+    title: string
+    desc: string
+    yearNote?: string
+}[] = [
+    {
+        year: "1964",
+        title: "Company Foundation",
+        desc: "Biro Klasifikasi Indonesia (BKI) resmi berdiri sebagai satu-satunya biro klasifikasi nasional untuk kapal berbendera Indonesia."
+    },
+    {
+        year: "1964",
+        title: "Company Foundation",
+        desc: "Penugasan BKI diperkuat dengan Keputusan Menteri Perhubungan Laut No. Th. 1/17/2 yang mewajibkan kapal berbendera Indonesia memiliki sertifikat klas dari BKI."
+    },
+    {
+        year: "1964",
+        yearNote: "(PP No. 28/1964)",
+        title: "Company Foundation",
+        desc: "Pemerintah menetapkan pembentukan BKI sebagai Perusahaan Negara untuk mengurangi ketergantungan pada biro klasifikasi asing, menyesuaikan standar teknis dengan kondisi pelayaran nasional, serta menghemat devisa dan mengembangkan keahlian insinyur perkapalan Indonesia."
+    },
+    {
+        year: "1977",
+        yearNote: "(PP No. 1/1977)",
+        title: "Company Foundation",
+        desc: "Status perusahaan berubah dari Perusahaan Negara menjadi PT. Biro Klasifikasi Indonesia (Persero)."
+    },
+    {
+        year: "1978",
+        title: "Company Foundation",
+        desc: "Akta pendirian PT. BKI dibuat di hadapan Notaris Imas Fatimah, SH (No. 57), dan disahkan oleh Menteri Kehakiman melalui SK No. YA5/345/1978 pada 7 November 1978."
+    },
+    {
+        year: "1982",
+        title: "Company Foundation",
+        desc: "BKI memulai diversifikasi usaha komersial di bidang maritim, industri, minyak, dan gas, mencakup layanan klasifikasi, sertifikasi, konsultasi teknik, pengujian material, pelatihan, dan pengawasan proyek."
+    },
+];
+
 export default function CompanyProfile() {
     const companyProfileRef = useRef<HTMLDivElement | null>(null);
     const {startTransition, setStartTransition} = useHeroTransition();
@@ -110,23 +150,63 @@ export default function CompanyProfile() {
             </section>
 
             {/* History Section */}
-            <section className="bg-gray-100 py-16">
-                <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-bold mb-12">Our History</h2>
-
-                    {/* Timeline */}
-                    <div className="relative border-l border-gray-300 pl-8 space-y-10">
-                        {[
-                            {year: "1964", title: "Company Foundation", desc: "Company was founded…"},
-                            {year: "1980", title: "Expansion", desc: "Extended global operations…"},
-                            {year: "2000", title: "Modernization", desc: "Adopted new innovations…"},
-                        ].map((item, idx) => (
-                            <div key={idx} className="relative">
+            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] py-16">
+                <div className="flex flex-col gap-7 px-10">
+                    <h2 className="text-3xl xl:text-6xl font-bold">Our History</h2>
+                    <p className="xl:text-2xl">
+                        Biro Klasifikasi Indonesia (BKI) berdiri pada 1 Juli 1964 sebagai
+                        satu-satunya biro klasifikasi nasional untuk kapal berbendera Indonesia. Didirikan untuk
+                        mengurangi ketergantungan pada biro asing, BKI memastikan standar yang sesuai dengan kondisi
+                        pelayaran Indonesia sekaligus menghemat devisa dan mengembangkan keahlian lokal. Seiring
+                        perkembangan, BKI bertransformasi menjadi PT (Persero) pada 1977 dan memperluas layanan ke
+                        berbagai sektor maritim, industri, serta minyak dan gas.
+                    </p>
+                </div>
+                <div className="flex flex-col pl-10 py-3">
+                    <div className="flex flex-row items-center gap-4">
+                        <p className="text-lg xl:text-2xl font-bold text-[#FFFFFF50]">The Faces of Innovation</p>
+                        <div className="bg-gradient-to-r from-[#FFFFFF50] to-[#FFFFFF00] h-[1px] w-2/3"/>
+                    </div>
+                    <div className="flex flex-row items-center gap-3 xl:gap-6 overflow-x-scroll w-max-content pt-3">
+                        {Array.from({length: 4}).map((_, i) => (
+                            <div
+                                key={i}
+                                className="shadow overflow-hidden relative"
+                            >
+                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                       width={484} height={422}
+                                       className="object-cover rounded-xs"/>
                                 <div
-                                    className="absolute -left-4 w-8 h-8 bg-blue-600 rounded-full border-4 border-white"/>
-                                <h3 className="text-xl font-semibold">{item.year}</h3>
-                                <p className="text-gray-600 font-medium">{item.title}</p>
-                                <p className="text-gray-500">{item.desc}</p>
+                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
+                                    <p className="font-semibold text-[#FFFFFF60] xl:text-[20px] text-xs">2024 - 2025</p>
+                                    <p className="font-bold xl:text-3xl">Ahmad Johnny Depp</p>
+                                    <p className="text-sm xl:text-2xl">Position</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="py-20 xl:py-40 w-full px-8 xl:px-32">
+                    {/* Timeline */}
+                    <div className="flex w-full flex-col items-start">
+                        {timeline.map((item, idx) => (
+                            <div key={`timeline-${idx + 1}`} className="group flex gap-x-6">
+                                <div className="relative">
+                                    {idx + 1 !== timeline.length && <div
+                                        className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-[#FFFFFF30]"></div>}
+                                    <span
+                                        className="relative z-10 grid h-3 w-3 place-items-center rounded-full bg-slate-200 text-slate-800"></span>
+                                </div>
+                                <div
+                                    className="-translate-y-2/5 mb-12 pb-8 bg-[#00000060] rounded-sm px-3 xl:px-6 py-4 xl:py-8 flex flex-col">
+                                    <div className="flex flex-row items-end gap-1">
+                                        <p className="text-[#FFFFFF60] xl:text-[20px] text-xs">{item.year}</p>
+                                        <p className="text-[#FFFFFF60] text-[9px]">{item.yearNote}</p>
+                                    </div>
+                                    <p className="font-bold xl:text-3xl text-xl">{item.title}</p>
+                                    <p className="xl:text-2xl text-lg">{item.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
