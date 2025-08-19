@@ -99,9 +99,9 @@ export default function OurServicesSection() {
 
                             {/* Bottom line */}
                             <div
-                                className="absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white opacity-30 z-10"/>
+                                className="absolute bottom-0 left-[32px] right-[32px] h-[2px] bg-white opacity-30 z-10"/>
                             <div
-                                className="absolute bottom-0 left-[32px] right-[32px] h-[1px] bg-white z-10
+                                className="absolute bottom-0 left-[32px] right-[32px] h-[2px] bg-white z-10
                    opacity-30 group-hover:opacity-100
                    transform scale-x-0 group-hover:scale-x-100
                    origin-right transition-all duration-1000 ease-out"
