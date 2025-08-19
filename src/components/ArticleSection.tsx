@@ -3,7 +3,8 @@ import Image from "next/image";
 
 export default async function ArticleSection() {
   const data = (await fetch(
-    process.env.STRAPI_API_URL + "/articles?populate=cover&pagination[page]=1&pagination[pageSize]=3"
+    process.env.STRAPI_API_URL +
+      "/articles?populate=cover&pagination[page]=1&pagination[pageSize]=3"
   ).then((response) => response.json())) as { data: Article[] };
 
   return (
@@ -28,10 +29,12 @@ export default async function ArticleSection() {
           zIndex: 1,
         }}
       />
-      <h1 className="text-[12vw] md:text-[6vw]  font-bold mb-2">
+      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">
         Stay Curious
       </h1>
-      <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8">Articles</h2>
+      <div className="text-white text-2xl md:text-4xl font-medium mb-8">
+        Articles
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {data.data.map((article, i) => (

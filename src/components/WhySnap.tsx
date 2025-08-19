@@ -8,19 +8,42 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
+import Image from "next/image";
 
 type Slide = {
   src: string;
   topTitle?: string;
   subTitle?: string;
   bottomRight?: string;
+  description?: string;
 };
 
 export default function WhyCrossfadeSteppedLocked() {
   const slides: Slide[] = [
-    { src: "/member.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Certified to International ISO Standards" },
-    { src: "/office-bki-1.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "International Recognition & Compliance" },
-    { src: "/crew-1.png", topTitle: "Why", subTitle: "The Global Trust Us", bottomRight: "Decades of Experience" },
+    {
+      src: "/member.png",
+      topTitle: "Why",
+      subTitle: "Global Client Trust Us",
+      bottomRight: "Certified to International ISO Standards",
+      description:
+        "Setting safety and performance standards for every vessel. Trusted by industry leaders for our rigorous certification process.",
+    },
+    {
+      src: "/office-bki-1.png",
+      topTitle: "Why",
+      subTitle: "Global Client Trust Us",
+      bottomRight: "International Recognition & Compliance",
+      description:
+        "Ensuring adherence to global standards and regulations. Our compliance record is recognized by authorities worldwide.",
+    },
+    {
+      src: "/crew-1.png",
+      topTitle: "Why",
+      subTitle: "Global Client Trust Us",
+      bottomRight: "Decades of Experience",
+      description:
+        "Leveraging years of expertise to deliver exceptional service. Our seasoned professionals guarantee reliable solutions.",
+    },
   ];
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -29,7 +52,11 @@ export default function WhyCrossfadeSteppedLocked() {
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-  const p = useSpring(scrollYProgress, { stiffness: 220, damping: 32, mass: 0.35 });
+  const p = useSpring(scrollYProgress, {
+    stiffness: 220,
+    damping: 32,
+    mass: 0.35,
+  });
 
   const [index, setIndex] = useState(0);
 
@@ -80,7 +107,10 @@ export default function WhyCrossfadeSteppedLocked() {
 
     if (dir > 0 && curr < n - 1) {
       const nextSlideProgress = (curr + 1) * progressPerSlide;
-      if (v >= currentProgress + minProgressStep && v <= nextSlideProgress + maxProgressStep) {
+      if (
+        v >= currentProgress + minProgressStep &&
+        v <= nextSlideProgress + maxProgressStep
+      ) {
         isLockedRef.current = true;
         canExitRef.current = false;
         setIndex(curr + 1);
@@ -96,16 +126,26 @@ export default function WhyCrossfadeSteppedLocked() {
       }
     }
 
-    if (dir > 0 && curr === n - 1 && canExitRef.current && v > currentProgress + minProgressStep) {
+    if (
+      dir > 0 &&
+      curr === n - 1 &&
+      canExitRef.current &&
+      v > currentProgress + minProgressStep
+    ) {
       return;
     }
 
     if (dir < 0 && curr > 0) {
       const prevSlideProgress = (curr - 1) * progressPerSlide;
-      if (v <= currentProgress - minProgressStep && v >= prevSlideProgress - maxProgressStep) {
+      if (
+        v <= currentProgress - minProgressStep &&
+        v >= prevSlideProgress - maxProgressStep
+      ) {
         isLockedRef.current = true;
         setIndex(curr - 1);
-        setTimeout(() => { isLockedRef.current = false; }, TRANSITION_MS);
+        setTimeout(() => {
+          isLockedRef.current = false;
+        }, TRANSITION_MS);
         return;
       }
     }
@@ -114,7 +154,12 @@ export default function WhyCrossfadeSteppedLocked() {
   const sectionHeight = `${slides.length * 120}vh`;
 
   return (
-    <section id="why-trust" ref={sectionRef} className="relative w-full snap-start" style={{ minHeight: sectionHeight }}>
+    <section
+      id="why-trust"
+      ref={sectionRef}
+      className="relative w-full snap-start"
+      style={{ minHeight: sectionHeight }}
+    >
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
         {/* Center intro text */}
         <AnimatePresence>
@@ -127,8 +172,12 @@ export default function WhyCrossfadeSteppedLocked() {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             >
-              <h2 className="italic font-montserrat text-[12vw] md:text-[6vw] font-bold leading-none">Why</h2>
-              <p className="text-[5vw] md:text-[2.5vw] font-medium mt-1">Global Client Trust Us</p>
+              <h2 className="italic font-montserrat text-[12vw] md:text-[6vw] font-bold leading-none">
+                Why
+              </h2>
+              <p className="text-[5vw] md:text-[2.5vw] font-medium mt-1">
+                Global Client Trust Us
+              </p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -144,7 +193,13 @@ export default function WhyCrossfadeSteppedLocked() {
 function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
   const isLastSlide = slide.bottomRight === "Decades of Experience";
   return (
-    <motion.div className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45, ease: "easeInOut" }}>
+    <motion.div
+      className="absolute inset-0"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, ease: "easeInOut" }}
+    >
       <motion.img
         src={slide.src}
         alt=""
@@ -158,44 +213,59 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
       <div className="absolute inset-0 bg-black/35" />
       {/* Add bottom gradient only for last slide */}
       {isLastSlide && (
-        <div style={{
-          position: 'absolute',
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: '120px',
-          background: 'linear-gradient(to bottom, transparent 0%, #D4A66A 100%)',
-          zIndex: 2,
-          pointerEvents: 'none',
-        }} />
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: "120px",
+            background:
+              "linear-gradient(to bottom, transparent 0%, #D4A66A 100%)",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        />
       )}
 
       {!hideText && (
         <>
           {/* Top-left text with fade-in */}
           <motion.div
-            className="absolute top-[12vh] left-[6vw] right-[10vw] text-white"
+            className="absolute top-[12vh] left-4 md:left-24 right-[10vw] text-white"
             initial={{ y: 18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }} // longer fade-in
           >
-            <h2 className="font-montserrat text-[13vw] md:text-[8vw] leading-none font-extrabold">
-              {slide.topTitle ?? "Why"}
-            </h2>
-            <p className="mt-2 text-[6vw] md:text-[3vw] font-medium">{slide.subTitle ?? "The Global Trust Us"}</p>
+            <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex">
+              {slide.topTitle ?? "Why"}{" "}
+              <Image
+                src="/tick-only.png"
+                alt="Tick"
+                width={128}
+                height={32}
+                sizes="(max-width: 768px) 64px, 64px"
+              />
+            </div>
+            <p className="mt-2 text-xl md:text-5xl font-medium">
+              {slide.subTitle ?? "The Global Trust Us"}
+            </p>
           </motion.div>
 
           {/* Bottom-right text with fade-in */}
           <motion.div
-            className="absolute bottom-[9vh] right-[6vw] left-[10vw] md:left-auto text-white text-right"
+            className="absolute bottom-[9vh] right-[1vw] left-[10vw] md:left-auto text-white text-right"
             initial={{ y: 18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="text-[8vw] md:text-[3vw] font-extrabold leading-[1.05] md:w-[50vw]">
+            <div className="text-2xl md:text-5xl font-extrabold leading-[1.05] md:w-[50vw] text-left">
               {slide.bottomRight}
+              <div className="text-sm font-normal mt-2 md:text-xl">
+                {slide.description}
+              </div>
             </div>
           </motion.div>
         </>

@@ -89,18 +89,18 @@ export default function OurServicesSection() {
                         animate={{opacity: 1, y: 0, transition: {duration: 1.5, ease: "easeOut"}}}
                         exit={{ opacity: 0, transition: { duration: 0.35 } }}
                     >
-                        <h1 className="text-6xl xl:text-8xl text-white">Our Services</h1>
+                        <div className="text-5xl xl:text-8xl text-white">Our Services</div>
                     </motion.div>
                 )}
                 {showServicesDescription && (
                     <motion.div
                         key="our-services-description"
-                        className="absolute left-0 top-1/6 xl:top-1/5 z-30 text-center px-4 flex items-center justify-center"
+                        className="absolute left-0 top-1/6 xl:top-1/5 w-full z-30 text-center px-4 flex items-center justify-center"
                         initial={{ opacity: 0, y: 1000 }}
                         animate={{ opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } }}
                         exit={{ opacity: 0, transition: { duration: 0.35 } }}
                     >
-                        <p className="text-2xl xl:text-[32px] text-white font-medium w-2/3">
+                        <p className="text-lg md:text-2xl text-white font-medium w-2/3">
                             Step into a world where every vessel is guided by precision and trust. From design approvals to on-board inspections, we ensure each ship meets the highest global standards.
                             <br /><br />
                             Safeguarding lives, protecting the environment, and enhancing operational performance—our expertise keeps Indonesia’s maritime industry moving forward.
@@ -130,18 +130,18 @@ export default function OurServicesSection() {
                             animate={{opacity: 1, y: 0, transition: {duration: 1.5, ease: "easeOut"}}}
                             exit={{ opacity: 0, transition: { duration: 0.35 } }}
                         >
-                            <h1 className="text-6xl xl:text-8xl text-[rgba(255,255,255,0.5)]">Our Services</h1>
+                            <h1 className="text-5xl md:text-8xl text-[rgba(255,255,255,0.5)]">Our Services</h1>
                         </motion.div>
                     )}
                     {showOurServicesBottomTitle && (
                         <motion.div
                             key="our-services-description-bottom"
-                            className="absolute left-0 top-1/4 xl:top-2/5 z-30 text-center px-4 flex items-center justify-center w-full"
+                            className="absolute left-0 top-1/4 xl:top-2/5 z-30 w-full text-center px-4 flex items-center justify-center w-full"
                             initial={{ opacity: 0 }}
                             animate={{opacity: 1, transition: {duration: 1.5, ease: "easeOut"}}}
                             exit={{ opacity: 0, transition: { duration: 0.35 } }}
                         >
-                            <p className="text-3xl xl:text-[40px] text-[rgba(255,255,255,0.5)]">Discover maritime services built for safety, compliance, and excellence.</p>
+                            <p className="text-lg md:text-2xl text-[rgba(255,255,255,0.5)]">Discover maritime services built for safety, compliance, and excellence.</p>
                         </motion.div>
                     )}
                 </AnimatePresence>

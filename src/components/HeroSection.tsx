@@ -123,23 +123,23 @@ export default function HeroSection() {
         <>
           <motion.div
             key="main-hero-text"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4 text-white"
+            className="absolute left-1/2 w-full top-1/2 -translate-x-1/2 -translate-y-1/2 z-30 text-center px-4 text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }}
             exit={{ opacity: 0 }}
             style={{ y: titleY, willChange: "transform" }}
           >
-            <h1
-              className="text-5xl md:text-6xl font-montserrat text-transparent bg-clip-text tracking-tight"
+            <div
+              className="text-3xl xl:text-8xl font-montserrat text-transparent bg-clip-text tracking-tight"
               style={{
                 backgroundImage:
                   "linear-gradient(91deg, #FFF 6.98%, #DBE4E9 11.7%, #C7D4DD 21.72%, #8DA8BA 37.06%, #86A2B6 43.54%, #7D9BB0 51.8%, #6B8DA5 60.65%, #5C829C 70.08%, #4B7592 80.7%, #346484 90.13%, #0A436A 107.52%, #0A436A 115.49%, #0A436A 129.05%)",
               }}
             >
               Your Global Partner
-            </h1>
-            <p className="text-white/70 mt-2">In</p>
-            <p className="text-white text-xl md:text-2xl">TICCS (Testing, Inspection, Certification, Classification and Statutory)</p>
+            </div>
+            <div className="text-white/70 mt-2 md:text-3xl">In</div>
+            <div className="text-white text-sm md:text-4xl">TICCS (Testing, Inspection, Certification, Classification and Statutory)</div>
           </motion.div>
   
           {/* Lottie (kept as-is) */}

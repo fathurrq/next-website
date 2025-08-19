@@ -1,4 +1,4 @@
 .background {
     background: linear-gradient(0deg, rgba(10, 67, 106, 0.70) 0%, rgba(0, 0, 0, 0.70) 100%);
-    backdrop-filter: blur(35px);
+    /* backdrop-filter: blur(35px); */
 }

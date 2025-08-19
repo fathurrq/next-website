@@ -138,7 +138,7 @@ export default function SiteNavbar() {
           isDark = true;
         }
       }
-      setUseWhiteLogo(isDark);
+      // setUseWhiteLogo?(isDark);
     };
 
     const onScrollOrResize = () => {
@@ -181,9 +181,7 @@ export default function SiteNavbar() {
     <motion.nav className={`${wrapperClass} pointer-events-none`}>
       <div className="w-full flex justify-center">
         <div
-          className={`${
-            isCompact ? "w-[92%]" : "w-[80%]"
-          } py-3 md:py-4 relative pointer-events-auto`}
+          className={`w-full px-4 md:px-24 py-3 md:py-4 relative pointer-events-auto`}
         >
           {/* <div className="absolute inset-0 bg-transparent pointer-events-none" /> */}
 
@@ -195,7 +193,7 @@ export default function SiteNavbar() {
           >
             {/* background layer only (animates in) */}
             <motion.div
-              className={`absolute inset-0 rounded-xl ${isScrolled && 'backdrop-blur-md' }`}
+              className={`absolute inset-0 rounded-xl ${isScrolled && 'bg-black/50 backdrop-blur-md'}`}
               initial={{ opacity: 0, scaleY: 0.92, transformOrigin: "top" }}
               animate={{
                 opacity: startTransition ? 1 : 0,
@@ -273,9 +271,7 @@ export default function SiteNavbar() {
               <motion.ul
                 className={`hidden md:flex ${isCompact ? "gap-5" : "gap-8"} ${
                   isCompact ? "text-[15px]" : "text-sm"
-                } tracking-wide transition-colors font-semibold duration-200 ${
-                  useWhiteLogo ? textClass : "text-[#0A436A]"
-                }`}
+                } tracking-wide transition-colors font-semibold duration-200 ${textClass}`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: startTransition ? 1 : 0 }}
                 transition={{ delay: 1.0, duration: 0.8 }}

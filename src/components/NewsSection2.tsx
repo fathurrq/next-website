@@ -53,8 +53,8 @@ export default function NewsSection2() {
           Search
         </button>
       </div>
-      <h1 className="text-white text-[12vw] md:text-[6vw] font-bold mb-2">Keep Updated</h1>
-      <h2 className="text-white text-[5vw] md:text-[2.5vw] font-semibold mb-8">Top News</h2>
+      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">Keep Updated</h1>
+      <h2 className="text-white text-2xl md:text-4xl font-medium mb-8">Top News</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {news.map((n, i) => (

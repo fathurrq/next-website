@@ -247,7 +247,7 @@ export default function FooterSection() {
                     </div>
 
                     {/* Social Icons */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 text-white">
                         {/* Twitter */}
                         <a href="#" className="hover:opacity-80 border border-white rounded-full p-2 flex items-center justify-center" aria-label="Twitter">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
