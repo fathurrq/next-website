@@ -86,7 +86,7 @@ export default function News() {
 
   return (
     <div
-      id="events"
+      id="news"
       ref={newsRef}
       className="pb-12 relative w-full min-h-screen overflow-hidden bg-white"
     >
@@ -121,7 +121,7 @@ export default function News() {
         <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2">
           {/* Title */}
           <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8">
-            Events
+            News
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
