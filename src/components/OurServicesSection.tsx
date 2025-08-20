@@ -41,7 +41,7 @@ export default function OurServicesSection() {
 
     return (
         <div id={'our-services'} ref={servicesRef} className="relative w-full text-white">
-            <div
+            {/* <div
                 className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
                 <p className="text-5xl 2xl:text-8xl text-[rgba(255,255,255,0.65)] mb-16 22xl:mb-24">Our Services</p>
                 <p className="text-lg md:text-2xl text-white font-medium w-2/5 text-center">
@@ -54,7 +54,7 @@ export default function OurServicesSection() {
                     Set sail with confidence, knowing your journey is backed by world-class classification and
                     certification.
                 </p>
-            </div>
+            </div> */}
 
             <div className="relative w-full">
                 {/* Background image */}
