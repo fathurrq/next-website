@@ -69,18 +69,13 @@ export default function Cooperation() {
       {/* gradient putih transisi */}
       <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A] to-transparent"></div>
       {/* white background di bawah */}
-      <div className="absolute top-[50vh] inset-0 h-[100vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
+      <div className="absolute top-[50vh] inset-0 h-[200vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
       <motion.div
         className="absolute inset-0 z-10 pointer-events-none"
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         style={{
-          background: `
-          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
-          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
-          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
-        `,
           backdropFilter: "blur(22px)",
           WebkitBackdropFilter: "blur(22px)",
         }}
@@ -88,8 +83,6 @@ export default function Cooperation() {
 
       <section className="w-full h-[40vh] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/bg-cooperation.jpg')] bg-cover blur-xs bg-top" />
-        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]" />
-        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]" />
         <div className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
           <div className="flex flex-row w-full justify-center items-center gap-2">
             <Link href={"/"} className="text-xl 2xl:text-3xl">
