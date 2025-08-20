@@ -4,14 +4,13 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import { Card, CardContent } from "./Card"
-import { ChevronLeft, ChevronRight, Anchor, Users, Building, Target, Shield, Award } from "lucide-react"
+import { Users, Building, Target } from "lucide-react"
 
 const  StatSection = () => {
   const [currentSection, setCurrentSection] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
-  const containerRef = useRef<HTMLDivElement>(null)
 
   const sections = [
     {

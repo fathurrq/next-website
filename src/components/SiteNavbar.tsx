@@ -81,7 +81,6 @@ export default function SiteNavbar() {
   const overHero = true;
   const isMobile = useIsMobile();
   const isCompact = useCompact(1120); // <= 1120px → compact layout
-  const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // desktop dropdown state

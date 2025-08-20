@@ -1,6 +1,3 @@
-'use client';
-
-import { useState } from 'react';
 import { 
   Ship, 
   Database, 
@@ -11,7 +8,6 @@ import {
 } from 'lucide-react';
 
 const ServiceHighlight = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const services = [
     {
@@ -87,8 +83,6 @@ const ServiceHighlight = () => {
               <div
                 key={index}
                 className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-3 cursor-pointer overflow-hidden"
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 overflow-hidden">
