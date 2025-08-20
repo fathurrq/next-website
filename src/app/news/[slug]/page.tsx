@@ -69,7 +69,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
     },
   ]
   return (
-    <div id="articles" ref={newsRef} className="pb-12 w-full min-h-screen overflow-hidden bg-white">
+    <div id="news" ref={newsRef} className="pb-12 w-full min-h-screen relative bg-white">
       {/* INTRO overlay (your multi-gradient) → fades out as before */}
       <motion.div
         className="absolute inset-0 z-10 pointer-events-none"
@@ -87,33 +87,33 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
         }}
       />
 
-      {/* background image */}
-      <div className="h-[50vh] lg:h-[100vh] bg-[url('/thumbnail-article.jpg')] bg-cover"></div>
+      <div className="relative w-full h-[400px] lg:h-[550px]">
+        <Image src="/thumbnail-article.jpg" alt="thumbnail-article" fill className="object-cover" />
+        <div className="absolute top-0 inset-0 h-[400px] lg:h-[550px] bg-gradient-to-t from-[#0A0C67] to-[#0a446a00] backdrop-filter-[blur(10px)]"></div>
 
-      {/* linear orange gradient overlay */}
-      <div className="absolute top-0 inset-0 lg:h-[550px] bg-gradient-to-t from-[#0A0C67] to-[#0a446a00] backdrop-filter-[blur(10px)] "></div>
-      <div className="absolute top-[550px] inset-0 h-[100vh] bg-white"></div>
-
-      <div className="relative mt-[-20rem] md:mt-[-25rem] lg:mt-[-45rem] inset-0 w-full">
-        <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2">
+        <div className="relative container mx-auto px-4 pt-8 lg:px-0 flex flex-col gap-2 text-white h-full w-full justify-center">
           {/* Breadcrumb */}
-          <h3 className="text-white text-[5vw] md:text-[2.5vw] font-medium mb-2">News / <span className="text-white/50 truncate">Pegawai PT Ke...</span></h3>
+          <h3 className=" text-[4vw] md:text-[2.5vw] font-medium mb-2">News / <span className="text-white/50 truncate">Pegawai PT Ke...</span></h3>
           {/* Title */}
-          <h1 className="text-[5vw] md:text-[4.5vw] font-medium mb-4">Offshore Support Journal Asia 2025</h1>
+          <h1 className="text-[4vw] md:text-[4.5vw] font-medium mb-4">Offshore Support Journal Asia 2025</h1>
 
           {/* Author & Date */}
-          <div className="flex items-center gap-x-4 mb-4">
+          <div className="flex flex-col md:flex-row items-start gap-4 text-white text-[3vw] md:text-[2.2vw] lg:text-[1.4vw] font-medium">
             {/* Author */}
-            <div className="flex justify-center items-center gap-2">
+            <div className="flex justify-center items-center gap-2 font-medium">
               <Image src="/avatar.png" alt="Author" width={32} height={32} />
-              <span className="text-[1.4vw] font-medium">Redaktur Ferry Napitupulu</span>
+              <span>Redaktur Ferry Napitupulu</span>
             </div>
             {/* Date */}
-            <span className="text-[1.4vw] font-medium">Senin, 17 February 2025 20:26</span>
+            <span className="ml-2 md:ml-0">Senin, 17 February 2025 20:26</span>
           </div>
+        </div>
+      </div>
 
+      <div className="relative mt-[-1.7rem] md:mt-[-3.4rem] lg:mt-[-5rem] w-full">
+        <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2 text-white">
           {/* Large Thumbnail */}
-          <div className="bg-white/10 p-4 rounded-md backdrop-filter-[blur(10px)]">
+          <div className="bg-white/10 p-2 rounded-md backdrop-filter-[blur(10px)]">
             <Image src="/thumbnail-article.jpg" alt="Large Thumbnail" width={1259} height={719} />
           </div>
 
@@ -124,7 +124,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
               <p dangerouslySetInnerHTML={{ __html: news }} className="text-[4vw] md:text-[1.5vw] lg:text-[1.4vw] font-medium text-slate-800" />
             </div>
             {/* Keep Updated */}
-            <div className="shadow-md rounded-md w-[350px] md:w-[450px] p-4 h-fit ">
+            <div className="sticky top-[105px] shadow-md rounded-md w-[350px] md:w-[450px] p-4 h-fit ">
               <h3 className="mb-4 text-[6vw] md:text-[2.8vw] lg:text-[2.5vw] font-bold text-slate-800">BKI Updates</h3>
               <div className="flex flex-col gap-8 overflow-y-auto">
                 {keepUpdated.map((item) => (
