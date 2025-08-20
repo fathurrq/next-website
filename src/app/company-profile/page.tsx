@@ -243,7 +243,7 @@ export default function CompanyProfile() {
             {/* Board Governance */}
             <section className="bg-white py-16 flex flex-col items-center justify-center pb-36">
                 <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight text-black">Board Governance</h2>
-                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-black 2xl:mb-36">Our distinguished board members provide strategic oversight, governance excellence, and visionary leadership to guide our company's continued growth and success</h2>
+                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-black 2xl:mb-36">Our distinguished board members provide strategic oversight, governance excellence, and visionary leadership to guide our company&apos;s continued growth and success</h2>
 
                 <div className="flex flex-col gap-5 w-full">
                     <div className="flex flex-row justify-between items-center w-full px-18 mb-5">

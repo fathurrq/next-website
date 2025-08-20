@@ -58,15 +58,15 @@ export default function OurServicesSection() {
 
             <div className="relative w-full">
                 {/* Background image */}
-                {/* <motion.img
+                <motion.img
                     src="/services-bg.png"
                     alt="Background"
                     className="w-full h-full object-cover"
-                /> */}
+                />
 
                 {/* Gradient overlay + content */}
-                {/* <div className="absolute -bottom-24 left-0 right-0
-                  bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_40%,rgba(11,63,101,1)_60%,transparent)] w-full h-[250px]"/> */}
+                <div className="absolute -bottom-24 left-0 right-0
+                  bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_40%,rgba(11,63,101,1)_60%,transparent)] w-full h-[250px]"/>
             </div>
 
             <div
