@@ -238,14 +238,14 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             exit={{ y: -12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }} // longer fade-in
           >
-            <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex">
+            <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex items-center gap-2">
               {slide.topTitle ?? "Why"}{" "}
               <Image
-                src="/tick-only.png"
-                alt="Tick"
-                width={128}
-                height={32}
-                sizes="(max-width: 768px) 64px, 64px"
+              src="/tick-only.png"
+              alt="Tick"
+              width={64}
+              height={32}
+              className="md:w-[96px] md:h-[96px] w-[32px] h-[32px]"
               />
             </div>
             <p className="mt-2 text-xl md:text-5xl font-medium">

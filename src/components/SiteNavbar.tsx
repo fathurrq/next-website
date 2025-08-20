@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useHeroTransition } from "./TransitionProvider";
+import Link from "next/link";
 
 /* ---------- helpers ---------- */
 function useIsMobile(breakpoint = 768) {
@@ -31,7 +32,7 @@ function useCompact(breakpoint = 1120) {
 
 /* ---------- menu data ---------- */
 const NAV = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   {
     label: "Services",
     href: "#",
@@ -285,7 +286,7 @@ export default function SiteNavbar() {
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={handleLeaveSoon}
                     >
-                      <a
+                      <Link
                         href={item.href}
                         className={`relative inline-flex items-center gap-1 px-1 ${
                           isCompact ? "py-1.5" : "py-2"
@@ -303,7 +304,7 @@ export default function SiteNavbar() {
                             useWhiteLogo ? "bg-white" : "bg-[#0A436A]"
                           } opacity-0 group-hover:opacity-100 transition-opacity`}
                         />
-                      </a>
+                      </Link>
 
                       {hasSub && (
                         <AnimatePresence>
@@ -329,7 +330,7 @@ export default function SiteNavbar() {
                                 <ul className="py-3">
                                   {item.submenu!.map((sub, si) => (
                                     <li key={sub.label}>
-                                      <a
+                                      <Link
                                         href={sub.href}
                                         className={`
                                           font-normal
@@ -341,7 +342,7 @@ export default function SiteNavbar() {
                                         `}
                                       >
                                         {sub.label}
-                                      </a>
+                                      </Link>
                                     </li>
                                   ))}
                                 </ul>
