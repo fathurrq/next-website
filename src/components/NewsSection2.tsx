@@ -33,7 +33,7 @@ export default function NewsSection2() {
   ];
   return (
     <section
-      className="px-6 md:px-24 py-12 bg-cover bg-center"
+      className="px-6 md:px-24 py-12 bg-cover bg-center text-white"
       style={{
         backgroundImage:
           "linear-gradient(to bottom, #00385A 0%, transparent 100%), url('/news-bg.jpg')",
