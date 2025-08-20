@@ -37,7 +37,7 @@ export default async function ArticleSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {data.data.map((article, i) => (
+        {data?.data?.map((article, i) => (
           <div
             key={i}
             className="bg-blue-900/40 rounded overflow-hidden p-1 shadow-xl hover:-translate-y-1 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
