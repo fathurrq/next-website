@@ -44,7 +44,7 @@ export default function HeroSection() {
     }, [startTransition]);
 
     return (
-        <div id="hero" ref={heroRef} className="relative w-full h-screen overflow-hidden">
+        <div id="hero" ref={heroRef} className="relative w-full h-screen">
             {/* Background video (wrapped so we can translate it) */}
             <motion.div className="absolute inset-0" style={{y: videoY, willChange: "transform"}}>
                 <video
@@ -96,8 +96,8 @@ export default function HeroSection() {
                     // opacity: washOpacity,
                     background:
                         "linear-gradient(0deg, rgba(10,67,106,0.95) 0%, rgba(10,67,106,0.6) 60%, rgba(10,67,106,0) 100%)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
+                    // backdropFilter: "blur(8px)",
+                    // WebkitBackdropFilter: "blur(8px)",
                     willChange: "transform, opacity",
                 }}
             />
@@ -146,7 +146,7 @@ export default function HeroSection() {
                         {/* Lottie (kept as-is) */}
                         <motion.div
                             key="radar-lottie"
-                            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[550px] h-[150px] overflow-hidden [clip-path:ellipse(50%_100%_at_50%_100%)]"
+                            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[550px] h-[150px] [clip-path:ellipse(50%_100%_at_50%_100%)]"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0, transition: {duration: 0.6, ease: "easeOut", delay: 0.15}}}
                             exit={{opacity: 0, y: 10, transition: {duration: 0.25}}}
