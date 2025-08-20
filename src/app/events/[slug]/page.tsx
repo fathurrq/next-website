@@ -78,7 +78,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
         }}
       />
 
-      <div className="h-[50vh] lg:h-[100vh] bg-[url('/thumbnail-article.png')] bg-cover"></div>
+      <div className="h-[50vh] lg:h-[100vh] bg-[url('/thumbnail-article.jpg')] bg-cover"></div>
 
       <div className="absolute top-0 inset-0 lg:h-[550px] bg-gradient-to-t from-[#0A0C67] to-[#0a446a00] backdrop-filter-[blur(10px)] "></div>
       <div className="absolute top-[550px] inset-0 h-[100vh] bg-white"></div>
@@ -90,7 +90,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
             <h1 className="text-[5vw] md:text-[3vw] font-medium mb-4">Offshore Support Journal Asia 2025</h1>
 
             <div className="bg-white/10 p-4 rounded-md backdrop-filter-[blur(10px)]">
-              <Image src="/thumbnail-article.png" alt="Large Thumbnail" width={1259} height={719} />
+              <Image src="/thumbnail-article.jpg" alt="Large Thumbnail" width={1259} height={719} />
             </div>
 
             <div className="mt-[3rem] md:mt-0 flex flex-col md:flex-row gap-8 p-4">

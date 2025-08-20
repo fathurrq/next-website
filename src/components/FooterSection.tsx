@@ -3,39 +3,39 @@ import styles from './FooterSection.module.css';
 const aboutUs = [
     {
         title: "Company Profile",
-        href: "#",
+        href: "/company-profile",
         children: [
-            { title: "History", href: "#" },
-            { title: "Vision, Mission & Culture", href: "#" },
-            { title: "BOC", href: "#" },
-            { title: "BOD", href: "#" },
-            { title: "Technical Committee", href: "#" },
-            { title: "Organization Structure", href: "#" },
+            { title: "History", href: "/company-profile" },
+            { title: "Vision, Mission & Culture", href: "/company-profile" },
+            { title: "BOC", href: "/company-profile" },
+            { title: "BOD", href: "/company-profile" },
+            { title: "Technical Committee", href: "/company-profile" },
+            { title: "Organization Structure", href: "/company-profile" },
         ]
     },
     {
         title: "Achievement",
         href: "#",
         children: [
-            { title: "Cooperation", href: "#" },
-            { title: "Award & Recognition", href: "#" },
+            { title: "Cooperation", href: "/achievements" },
+            { title: "Award & Recognition", href: "/achievements" },
         ]
     },
     {
         title: "Opportunity",
-        href: "#",
+        href: "https://www.bki.co.id/halamanstatis-133.html",
         children: [
-            { title: "Procurement", href: "#" },
-            { title: "Assets Auction", href: "#" },
-            { title: "Career Auction", href: "#" },
+            { title: "Procurement", href: "https://www.bki.co.id/halamanstatis-133.html#" },
+            { title: "Assets Auction", href: "https://www.bki.co.id/halamanstatis-1.html" },
+            { title: "Career Auction", href: "https://www.bki.co.id/halamanstatis-92.html" },
         ]
     },
     {
         title: "Documentation",
-        href: "#",
+        href: "https://www.bki.co.id/galery.html",
         children: [
-            { title: "Photo", href: "#" },
-            { title: "Podcast", href: "#" },
+            { title: "Photo", href: "https://www.bki.co.id/galery.html" },
+            { title: "Podcast", href: "https://www.bki.co.id/galery.html" },
         ]
     },
     {
@@ -115,11 +115,11 @@ export default function FooterSection() {
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Services</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
-                                { label: "Classification", href: "#" },
-                                { label: "Statutory", href: "#" },
-                                { label: "Marine Services", href: "#" },
-                                { label: "Energy & Industry", href: "#" },
-                                { label: "BKI Academy", href: "#" },
+                                { label: "Classification", href: "https://www.bki.co.id/halamanstatis-64.html" },
+                                { label: "Statutory", href: "https://www.bki.co.id/info_statutory-1.html" },
+                                { label: "Marine Services", href: "https://www.bki.co.id/halamanstatis-29.html" },
+                                { label: "Energy & Industry", href: "https://www.bki.co.id/halamanstatis-30.html" },
+                                { label: "BKI Academy", href: "https://www.bki.academy/id" },
                             ].map((item) => (
                                 <li key={item.label} className="py-1">
                                     <a
@@ -139,8 +139,8 @@ export default function FooterSection() {
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Research</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
-                                { label: "Research & Development", href: "#" },
-                                { label: "Technical Journal", href: "#" },
+                                { label: "Research & Development", href: "https://www.bki.co.id/rnd.html" },
+                                { label: "Technical Journal", href: "https://www.bki.co.id/halamanstatis-119.html" },
                             ].map((item) => (
                                 <li key={item.label} className="py-1">
                                     <a
@@ -160,10 +160,10 @@ export default function FooterSection() {
                         <h3 className="font-semibold text-xs md:text-sm mb-4">Publication</h3>
                         <ul className="space-y-2 text-xs md:text-sm font-light">
                             {[
-                                { label: "News", href: "#" },
-                                { label: "Event", href: "#" },
+                                { label: "News", href: "https://www.bki.co.id/halamanstatis-64.html" },
+                                { label: "Event", href: "https://www.bki.co.id/halamanstatis-64.html" },
                                 { label: "Article", href: "/articles" },
-                                { label: "Annual Report", href: "#" },
+                                { label: "Annual Report", href: "https://www.bki.co.id/download-2-1.html" },
                             ].map((item) => (
                                 <li key={item.label} className="py-1">
                                     <a

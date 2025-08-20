@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function WhyTrustSection() {
-  const IMGS = ["/bki-marine.svg", "/bki-marine2.svg", "/bki-marine3.svg", "/bki-marine4.svg", "/bki-marine5.svg"];
+  const IMGS = ["/bki-marine.jpg", "/bki-marine2.jpg", "/bki-marine3.jpg", "/bki-marine4.jpg", "/bki-marine5.jpg"];
   const ref = useRef<HTMLDivElement>(null);
 
   // Track scroll progress for this section only
@@ -17,23 +17,9 @@ export default function WhyTrustSection() {
   // Add a gentle spring for smoother, slower animation
   const p = useSpring(scrollYProgress, { stiffness: 80, damping: 30, mass: 0.6 });
 
-  /* ---------- Parallax mappings ---------- */
-  // Background (slow)
-  const bgY = useTransform(p, [0, 1], ["-6vh", "8vh"]);    // gentle vertical drift
-  const bgScale = useTransform(p, [0, 1], [1.02, 1.08]);  // subtle push-in
-
   // Top strip (slower horizontal movement)
   // Start at 0%, end at -35% for slower sliding
   const stripX = useTransform(p, [0, 1], ["0%", "-35%"]);
-
-  // Headline “Why” — slight rise + subtle scale
-  const titleY = useTransform(p, [0, 1], ["0vh", "-6vh"]);
-  const titleScale = useTransform(p, [0, 1], [1, 0.96]);
-  const titleOpacity = useTransform(p, [0, 0.15, 0.85, 1], [0.7, 1, 1, 0.85]);
-
-  // Tagline — a bit more rise; fade in/out across the section
-  const subY = useTransform(p, [0, 1], ["1vh", "-8vh"]);
-  const subOpacity = useTransform(p, [0, 0.15, 0.8, 1], [0, 1, 1, 0.6]);
 
   return (
     <section

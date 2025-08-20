@@ -37,19 +37,19 @@ const NAV = [
     label: "Services",
     href: "#",
     submenu: [
-      { label: "Classification", href: "#" },
-      { label: "Statutory", href: "#" },
-      { label: "Marine Services", href: "#" },
-      { label: "Energy & Industry", href: "#" },
-      { label: "BKI Academy", href: "#" },
+      { label: "Classification", href: "https://www.bki.co.id/halamanstatis-64.html" },
+      { label: "Statutory", href: "https://www.bki.co.id/info_statutory-1.html" },
+      { label: "Marine Services", href: "https://www.bki.co.id/halamanstatis-29.html" },
+      { label: "Energy & Industry", href: "https://www.bki.co.id/halamanstatis-30.html" },
+      { label: "BKI Academy", href: "https://www.bki.academy/id" },
     ],
   },
   {
     label: "Research",
     href: "#",
     submenu: [
-      { label: "Research & Development", href: "#" },
-      { label: "Technical Journal", href: "#" },
+      { label: "Research & Development", href: "https://www.bki.co.id/rnd.html" },
+      { label: "Technical Journal", href: "https://www.bki.co.id/halamanstatis-119.html" },
     ],
   },
   {
@@ -59,7 +59,7 @@ const NAV = [
       { label: "News", href: "/news" },
       { label: "Event", href: "/events" },
       { label: "Article", href: "/articles" },
-      { label: "Annual Report", href: "" },
+      { label: "Annual Report", href: "https://www.bki.co.id/download-2-1.html" },
     ],
   },
   {
@@ -67,9 +67,9 @@ const NAV = [
     href: "#",
     submenu: [
       { label: "Company Profile", href: "/company-profile" },
-      { label: "Achievement", href: "#" },
-      { label: "Opportunity", href: "#" },
-      { label: "Documentation", href: "#" },
+      { label: "Achievement", href: "/achievements" },
+      { label: "Opportunity", href: "https://www.bki.co.id/halamanstatis-133.html" },
+      { label: "Documentation", href: "https://www.bki.co.id/galery.html" },
       { label: "ESGRC", href: "#" },
     ],
   },
@@ -81,7 +81,6 @@ export default function SiteNavbar() {
   const overHero = true;
   const isMobile = useIsMobile();
   const isCompact = useCompact(1120); // <= 1120px → compact layout
-  const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // desktop dropdown state
@@ -370,8 +369,8 @@ export default function SiteNavbar() {
                   transition={{ delay: 1.0, duration: 0.8 }}
                 >
                   <a
-                    href={"#"}
-                    className={`relative inline-flex items-center gap-1 px-1 ${
+                    href={"https://www.bki.co.id/home"}
+                    className={`relative inline-flex font-semibold text-sm items-center gap-1 px-1 ${
                       isCompact ? "py-1.5" : "py-2"
                     } transition-colors group-hover:${
                       useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"

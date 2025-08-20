@@ -79,7 +79,7 @@ export default function Articles() {
     />
 
     {/* background image */}
-    <div className=" h-[50vh] bg-[url('/bg-article.png')] bg-cover"></div>
+    <div className=" h-[50vh] bg-[url('/bg-article.jpg')] bg-cover"></div>
     {/* linear orange gradient overlay */}
     <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#d4a66a]"></div>
     {/* linear white gradient overlay */}

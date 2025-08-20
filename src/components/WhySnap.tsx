@@ -21,7 +21,7 @@ type Slide = {
 export default function WhyCrossfadeSteppedLocked() {
   const slides: Slide[] = [
     {
-      src: "/member.png",
+      src: "/member.jpg",
       topTitle: "Why",
       subTitle: "Global Client Trust Us",
       bottomRight: "Certified to International ISO Standards",
@@ -29,7 +29,7 @@ export default function WhyCrossfadeSteppedLocked() {
         "Setting safety and performance standards for every vessel. Trusted by industry leaders for our rigorous certification process.",
     },
     {
-      src: "/office-bki-1.png",
+      src: "/office-bki-1.jpg",
       topTitle: "Why",
       subTitle: "Global Client Trust Us",
       bottomRight: "International Recognition & Compliance",
@@ -37,7 +37,7 @@ export default function WhyCrossfadeSteppedLocked() {
         "Ensuring adherence to global standards and regulations. Our compliance record is recognized by authorities worldwide.",
     },
     {
-      src: "/crew-1.png",
+      src: "/crew-1.jpg",
       topTitle: "Why",
       subTitle: "Global Client Trust Us",
       bottomRight: "Decades of Experience",

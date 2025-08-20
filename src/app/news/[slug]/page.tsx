@@ -88,7 +88,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
       />
 
       {/* background image */}
-      <div className="h-[50vh] lg:h-[100vh] bg-[url('/thumbnail-article.png')] bg-cover"></div>
+      <div className="h-[50vh] lg:h-[100vh] bg-[url('/thumbnail-article.jpg')] bg-cover"></div>
 
       {/* linear orange gradient overlay */}
       <div className="absolute top-0 inset-0 lg:h-[550px] bg-gradient-to-t from-[#0A0C67] to-[#0a446a00] backdrop-filter-[blur(10px)] "></div>
@@ -114,7 +114,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
 
           {/* Large Thumbnail */}
           <div className="bg-white/10 p-4 rounded-md backdrop-filter-[blur(10px)]">
-            <Image src="/thumbnail-article.png" alt="Large Thumbnail" width={1259} height={719} />
+            <Image src="/thumbnail-article.jpg" alt="Large Thumbnail" width={1259} height={719} />
           </div>
 
           {/* Article */}
@@ -125,7 +125,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
             </div>
             {/* Keep Updated */}
             <div className="shadow-md rounded-md w-[350px] md:w-[450px] p-4 h-fit ">
-              <h3 className="mb-4 text-[6vw] md:text-[2.8vw] lg:text-[2.5vw] font-bold text-slate-800">Keep Updated</h3>
+              <h3 className="mb-4 text-[6vw] md:text-[2.8vw] lg:text-[2.5vw] font-bold text-slate-800">BKI Updates</h3>
               <div className="flex flex-col gap-8 overflow-y-auto">
                 {keepUpdated.map((item) => (
                   <div key={item.title} className="relative w-[300px] md:w-[400px] h-[200px] bg-gradient-to-t from-[#0A0C67] to-[#0A436A]">

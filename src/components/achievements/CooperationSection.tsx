@@ -1,4 +1,9 @@
-"use client"
+"use client";
+
+import { motion } from "framer-motion";
+import { useHeroTransition } from "../TransitionProvider";
+import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Cooperation() {
 
@@ -51,17 +56,58 @@ export default function Cooperation() {
         },
     ];
 
-    return (
-        <div id="cooperation" className="relative w-full min-h-screen overflow-hidden">
-            {/* background image */}
-            <div className="h-[50vh] bg-[url('/bg-cooperation.png')] bg-cover bg-center"></div>
+  return (
+    <div
+      id="cooperation"
+      className="relative w-full min-h-screen overflow-hidden"
+    >
+      {/* background image */}
+      {/* <div className="h-[50vh] bg-[url('/bg-cooperation.jpg')] bg-cover bg-center"></div> */}
 
-            {/* gradient overlay bagian atas */}
-            <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#0A436A]"></div>
-            {/* gradient putih transisi */}
-            <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A] to-transparent"></div>
-            {/* white background di bawah */}
-            <div className="absolute top-[50vh] inset-0 h-[100vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
+      {/* gradient overlay bagian atas */}
+      <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#0A436A]"></div>
+      {/* gradient putih transisi */}
+      <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A] to-transparent"></div>
+      {/* white background di bawah */}
+      <div className="absolute top-[50vh] inset-0 h-[100vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
+      <motion.div
+        className="absolute inset-0 z-10 pointer-events-none"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: startTransition ? 0 : 1 }}
+        transition={{ duration: 0.8 }}
+        style={{
+          background: `
+          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
+          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
+          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
+        `,
+          backdropFilter: "blur(22px)",
+          WebkitBackdropFilter: "blur(22px)",
+        }}
+      />
+
+      <section className="w-full h-[40vh] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bg-cooperation.jpg')] bg-cover blur-xs bg-top" />
+        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]" />
+        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]" />
+        <div className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
+          <div className="flex flex-row w-full justify-center items-center gap-2">
+            <Link href={"/"} className="text-xl 2xl:text-3xl">
+              Home
+            </Link>
+            <p className="text-xl 2xl:text-3xl">/</p>
+            <p className="text-xl 2xl:text-3xl text-[#ffffff75]">
+              Achievements
+            </p>
+          </div>
+          <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
+           Our Achievements
+          </h1>
+          <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
+            Highlights that reflect our growth and commitment.
+          </p>
+        </div>
+      </section>
 
             {/* Content wrapper */}
             <div className="mt-[-5rem] md:mt-[-10rem] w-full relative z-10">

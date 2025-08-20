@@ -30,7 +30,7 @@ export default async function ArticleSection() {
         }}
       />
       <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">
-        Stay Curious
+        Knowledge Hub
       </h1>
       <div className="text-white text-2xl md:text-4xl font-medium mb-8">
         Articles
