@@ -125,7 +125,7 @@ Untuk diketahui, persidangan akan dilanjutkan pada Jumat (21/2/25) dengan agenda
             </div>
             {/* Keep Updated */}
             <div className="shadow-md rounded-md w-[350px] md:w-[450px] p-4 h-fit ">
-              <h3 className="mb-4 text-[6vw] md:text-[2.8vw] lg:text-[2.5vw] font-bold text-slate-800">Keep Updated</h3>
+              <h3 className="mb-4 text-[6vw] md:text-[2.8vw] lg:text-[2.5vw] font-bold text-slate-800">BKI Updates</h3>
               <div className="flex flex-col gap-8 overflow-y-auto">
                 {keepUpdated.map((item) => (
                   <div key={item.title} className="relative w-[300px] md:w-[400px] h-[200px] bg-gradient-to-t from-[#0A0C67] to-[#0A436A]">
