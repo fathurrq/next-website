@@ -106,7 +106,7 @@ export default function CompanyProfile() {
     }, [startTransition]);
 
     return (
-        <div id="company-profile" ref={companyProfileRef} className="relative w-full min-h-screen">
+        <div id="company-profile" ref={companyProfileRef} className="relative min-h-screen overflow-auto">
             <motion.div
                 className="absolute inset-0 z-10 pointer-events-none"
                 initial={{opacity: 1}}
@@ -126,11 +126,11 @@ export default function CompanyProfile() {
             {/* Hero Section */}
             <section
                 className="w-full h-[40vh] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/company-profile-bg.jpg')] bg-cover blur-xs bg-top"/>
+                <div className="absolute inset-0 bg-[url('/company-profile-bg.png')] bg-cover blur-xs bg-top"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]"/>
                 <div
-                    className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
+                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-48 text-center text-white">
                     <div className="flex flex-row w-full justify-center items-center gap-2">
                         <Link href={'/'} className="text-xl 2xl:text-3xl">
                             Home
@@ -142,46 +142,49 @@ export default function CompanyProfile() {
                             Company Profile
                         </p>
                     </div>
-                    <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
+                    <h1 className="mt-4 text-4xl 2xl:text-[64px] font-semibold">
                         Anchored in Trust, Driven by Innovation
                     </h1>
-                    <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
-                        Building stronger maritime capabilities with technical
-                        standard-setting excellence.
+                    <p className="mt-4 text-lg 2xl:text-[32px] max-w-3/5">
+                        Building strong partnerships and pioneering solutions to meet the evolving needs of maritime
+                        stakeholders.
                     </p>
                 </div>
             </section>
 
             {/* Vision & Mission */}
-            <section className="w-full px-6 py-16 grid md:grid-cols-2 gap-10 bg-white">
-                <div className="relative bg-[#0A436A] text-white p-6 rounded-lg shadow-lg h-[50vh]">
-                    <h2 className="text-4xl 2xl:text-6xl font-bold">
-                        Integrity <span className="text-[#ffffff50]">is our</span> compass,
+            <section className="w-full px-6 2xl:px-[105px] py-16 grid md:grid-cols-2 gap-12 bg-white">
+                <div
+                    className="relative bg-[#0A436A] text-white p-6 2xl:py-[53px] 2xl:px-[35px] rounded-lg shadow-lg h-[50vh]">
+                    <h2 className="text-4xl 2xl:text-[64px] font-bold">
+                        Integrity <span className="text-[#ffffff50]">is our</span> <br/> compass,
                         quality <span className="text-[#ffffff50]">is our</span> anchor
                     </h2>
                     <div
-                        className="bg-[#ffffff50] absolute bottom-[28px] left-[24px] right-[24px] flex justify-between items-center w-auto py-[10px] px-3">
-                        <Image src={'/left-arrow.png'} alt={"Left Arrow"} width={16} height={16}/>
-                        <div className="flex justify-center items-center gap-1">
+                        className="bg-[#ffffff50] absolute bottom-[28px] left-[24px] right-[24px] flex justify-between items-center w-auto py-[10px] 2xl:py-[30px] px-3 2xl:px-[24px]">
+                        <Image src={'/left-arrow.png'} alt={"Left Arrow"} width={32} height={30}
+                               className="w-4 2xl:w-[32px] h-4 2xl:h-[30px]"/>
+                        <div className="flex justify-center items-center gap-1 2xl:gap-[17px]">
                             <p className="2xl:text-2xl font-semibold text-white">Our Culture</p>
                             <p className="2xl:text-2xl font-semibold text-white">1<span
                                 className="text-[#ffffff50]">/8</span></p>
                         </div>
-                        <Image src={'/right-arrow.png'} alt={"Right Arrow"} width={16} height={16}/>
+                        <Image src={'/right-arrow.png'} alt={"Right Arrow"} width={32} height={30}
+                               className="w-4 2xl:w-[32px] h-4 2xl:h-[30px]"/>
                     </div>
-                    <Image src={'/quotation-mark.png'} alt={'Quotation Mark'} width={147} height={115}
-                           className="absolute bottom-[10vh] right-[19px]"/>
+                    <Image src={'/quotation-mark.png'} alt={'Quotation Mark'} width={245} height={192}
+                           className="absolute bottom-[10vh] right-[19px] w-[147px] h-[115px] 2xl:w-[245px] 2xl:h-[192px]"/>
                 </div>
                 <div className="flex flex-col justify-between">
                     <div>
-                        <h3 className="text-2xl font-bold mb-4 text-[#0A436A]">Our Vision</h3>
-                        <ul className="list-disc list-inside text-[#0A436A] space-y-2">
+                        <h3 className="text-2xl 2xl:text-[64px] font-bold mb-4 text-[#0A436A]">Our Vision</h3>
+                        <ul className="2xl:text-2xl font-semibold list-disc list-inside text-[#0A436A] space-y-2">
                             <li>World class integrated assurance group, empowering the nation by building trust</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 className="text-2xl font-bold mt-8 mb-4 text-[#0A436A]">Our Mission</h3>
-                        <ul className="list-disc list-inside text-[#0A436A] space-y-2">
+                        <h3 className="text-2xl 2xl:text-[64px] font-bold mt-8 mb-4 text-[#0A436A]">Our Mission</h3>
+                        <ul className="2xl:text-2xl font-semibold list-disc list-inside text-[#0A436A] space-y-4">
                             <li>Providing comprehensive and trusted services by strengthening capacity and capabilities
                                 related to human resources, technology and innovation through synergy and business
                                 integration.
@@ -196,11 +199,12 @@ export default function CompanyProfile() {
             </section>
 
             {/* History Section */}
-            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16">
-                <div className="flex flex-col gap-7 px-10">
-                    <h2 className="text-3xl 2xl:text-6xl font-bold">Our History</h2>
+            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16 2xl:pt-[135px]">
+                <div className="flex flex-col gap-7 px-10 2xl:px-[105px]">
+                    <h2 className="text-3xl 2xl:text-[64px] font-bold">Our History</h2>
                     <p className="2xl:text-2xl">
-                        <span className="font-bold">Biro Klasifikasi Indonesia (BKI)</span> berdiri pada 1 Juli 1964 sebagai
+                        <span className="font-bold">Biro Klasifikasi Indonesia (BKI)</span> berdiri pada 1 Juli 1964
+                        sebagai
                         satu-satunya biro klasifikasi nasional untuk kapal berbendera Indonesia. Didirikan untuk
                         mengurangi ketergantungan pada biro asing, BKI memastikan standar yang sesuai dengan kondisi
                         pelayaran Indonesia sekaligus menghemat devisa dan mengembangkan keahlian lokal. Seiring
@@ -208,13 +212,14 @@ export default function CompanyProfile() {
                         berbagai sektor maritim, industri, serta minyak dan gas.
                     </p>
                 </div>
-                <div className="flex flex-col pl-10 py-3">
+                <div className="flex flex-col pl-10 2xl:pl-[105px] py-3 2xl:py-[21px]">
                     <div className="flex flex-row items-center gap-4">
-                        <p className="text-lg 2xl:text-2xl font-bold text-[#FFFFFF50]">The Faces of Innovation</p>
-                        <div className="bg-gradient-to-r from-[#FFFFFF50] to-[#FFFFFF00] h-[1px] w-2/3"/>
+                        <p className="text-lg 2xl:text-2xl font-bold text-[#FFFFFF75]">The Faces of Innovation</p>
+                        <div className="bg-gradient-to-r from-[#FFFFFF75] to-[#FFFFFF00] h-[1px] w-2/3 2xl:w-5/6"/>
                     </div>
-                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pt-3">
-                        {Array.from({length: 4}).map((_, i) => (
+                    <div
+                        className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pt-3 2xl:pt-[21px]">
+                        {Array.from({length: 5}).map((_, i) => (
                             <div
                                 key={i}
                                 className="shadow overflow-hidden relative"
@@ -224,7 +229,8 @@ export default function CompanyProfile() {
                                        className="object-cover rounded-xs"/>
                                 <div
                                     className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 -
+                                        2025</p>
                                     <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
                                     <p className="text-sm 2xl:text-2xl">Position</p>
                                 </div>
@@ -233,22 +239,22 @@ export default function CompanyProfile() {
                     </div>
                 </div>
 
-                <div className="pt-28 2xl:pt-40 w-full px-24 2xl:px-32">
+                <div className="pt-28 2xl:pt-40 w-full px-24 2xl:px-[196px]">
                     {/* Timeline */}
                     <div className="flex w-full flex-col items-start">
                         {timeline.map((item, idx) => (
-                            <div key={`timeline-${idx + 1}`} className="group flex gap-x-6">
+                            <div key={`timeline-${idx + 1}`} className="group flex gap-x-6 2xl:gap-x-[90px] grow">
                                 <div className="relative">
                                     {idx + 1 !== timeline.length && <div
-                                        className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-[#FFFFFF30]"></div>}
+                                        className="absolute left-1/2 top-0 h-full w-0.5 2xl:w-[5px] -translate-x-1/2 bg-[#FFFFFF30]"></div>}
                                     <span
-                                        className="relative z-10 grid h-3 w-3 place-items-center rounded-full bg-slate-200 text-slate-800"></span>
+                                        className="relative z-10 grid h-3 w-3 2xl:h-[32px] 2xl:w-[32px] place-items-center rounded-full bg-slate-200"></span>
                                 </div>
                                 <div
-                                    className="-translate-y-2/5 mb-12 pb-8 bg-[#00000060] rounded-sm px-3 2xl:px-6 py-4 2xl:py-8 flex flex-col">
-                                    <div className="flex flex-row items-end gap-1">
-                                        <p className="text-[#FFFFFF60] 2xl:text-[20px] text-xs">{item.year}</p>
-                                        <p className="text-[#FFFFFF60] text-[9px]">{item.yearNote}</p>
+                                    className="-translate-y-2/5 mb-12 pb-8 bg-[#00000060] rounded-sm px-3 2xl:px-6 py-4 2xl:py-8 flex flex-col 2xl:gap-y-[18px]">
+                                    <div className="flex flex-row items-end gap-1 2xl:gap-3">
+                                        <p className="text-[#FFFFFF60] 2xl:text-[32px] text-[16px]">{item.year}</p>
+                                        <p className="text-[#FFFFFF60] 2xl:text-2xl text-xs 2xl:mb-2">{item.yearNote}</p>
                                     </div>
                                     <p className="font-bold 2xl:text-3xl text-xl">{item.title}</p>
                                     <p className="2xl:text-2xl text-lg">{item.desc}</p>
@@ -263,10 +269,15 @@ export default function CompanyProfile() {
             </section>
 
             {/* Committees */}
-            <section className="pt-16 pb-40 2xl:py-32 bg-black flex flex-col items-center justify-center">
-                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight">Technical Committee</h2>
-                <h2 className="text-xl 2xl:text-3xl mb-12 text-center max-w-2/3">Our world-class technical experts who drive innovation and ensure the highest standards of technology implementation across all our projects</h2>
-                <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
+            <section
+                className="pt-16 2xl:py-32 2xl:pb-[227px] pb-40 bg-black flex flex-col items-center justify-center">
+                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight">Technical Committee</h2>
+                <h2 className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center max-w-2/3">Our world-class
+                    technical experts
+                    who
+                    drive innovation and ensure the highest standards of technology implementation across all our
+                    projects</h2>
+                <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
                     {Array.from({length: 4}).map((_, i) => (
                         <div
                             key={i}
@@ -288,15 +299,20 @@ export default function CompanyProfile() {
 
             {/* Board Governance */}
             <section className="bg-white py-16 flex flex-col items-center justify-center pb-36">
-                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight text-black">Board Governance</h2>
-                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-black 2xl:mb-36">Our distinguished board members provide strategic oversight, governance excellence, and visionary leadership to guide our company&apos;s continued growth and success</h2>
+                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-black">Board
+                    Governance</h2>
+                <h2 className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center max-w-2/3 text-black">Our
+                    distinguished
+                    board members provide strategic oversight, governance excellence, and visionary leadership to guide
+                    our company&apos;s continued growth and success</h2>
 
                 <div className="flex flex-col gap-5 w-full">
-                    <div className="flex flex-row justify-between items-center w-full px-18 mb-5">
+                    <div className="flex flex-row justify-between items-center w-full px-18 2xl:px-[105px] mb-5">
                         <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Commissioners</p>
-                        <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Independent oversight and strategic guidance from industry leaders and subject matter experts</p>
+                        <p className="text-2xl 2xl:text-[32px] text-black flex-1/2 text-end">Independent oversight and
+                            strategic guidance from industry leaders and subject matter experts</p>
                     </div>
-                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
+                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
                         {boardOfCommissioner.map((member, i) => (
                             <div
                                 key={i}
@@ -319,11 +335,12 @@ export default function CompanyProfile() {
                         <div className="bg-gradient-to-r from-[#00000050] to-[#00000000] h-[1px] w-[89%]"/>
                     </div>
 
-                    <div className="flex flex-row justify-between items-center w-full px-18 mb-5">
+                    <div className="flex flex-row justify-between items-center w-full px-18 2xl:px-[105px] mb-5">
                         <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Directors</p>
-                        <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Executive leadership team responsible for day-to-day operations and strategic implementation</p>
+                        <p className="text-xl 2xl:text-[32px] text-black flex-1/2 text-end">Executive leadership team
+                            responsible for day-to-day operations and strategic implementation</p>
                     </div>
-                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
+                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
                         {boardOfDirectors.map((member, i) => (
                             <div
                                 key={i}
@@ -345,14 +362,15 @@ export default function CompanyProfile() {
             </section>
 
             {/* Structure */}
-            <section className="bg-gradient-to-b from-[#0A436A] to-[#000000] py-16 flex flex-col items-center justify-center relative overflow-hidden">
+            <section
+                className="bg-gradient-to-b from-[#0A436A] to-[#000000] py-16 flex flex-col items-center justify-center relative overflow-hidden">
                 {/* Top structure: opacity dari 100% → 0% ke bawah */}
                 <div className="absolute top-0 right-0 left-0 w-full h-2/5
                   bg-[url('/structure-top.png')] bg-top
                   [mask-image:linear-gradient(to_bottom,black,transparent)]
                   [mask-repeat:no-repeat] [mask-size:100%_100%]
                   [webkit-mask-image:linear-gradient(to_bottom,black,transparent)]
-                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]" />
+                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]"/>
 
                 {/* Bottom structure: opacity dari 100% → 0% ke atas */}
                 <div className="absolute bottom-0 right-0 left-0 w-full h-2/5
@@ -360,12 +378,12 @@ export default function CompanyProfile() {
                   [mask-image:linear-gradient(to_top,black,transparent)]
                   [mask-repeat:no-repeat] [mask-size:100%_100%]
                   [webkit-mask-image:linear-gradient(to_top,black,transparent)]
-                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]" />
+                  [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]"/>
 
-                <h2 className="text-3xl 2xl:text-6xl font-semibold mb-6 -tracking-tight text-white">
+                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-white">
                     Structure
                 </h2>
-                <h2 className="text-xl 2xl:text-3xl mb-24 text-center max-w-2/3 text-white 2xl:mb-36">
+                <h2 className="text-xl 2xl:text-[32px] mb-24 text-center max-w-2/3 text-white 2xl:mb-36">
                     ORGANIZATION STRUCTURE OF PT Biro Klasifikasi Indonesia (Persero)
                 </h2>
                 <Image
