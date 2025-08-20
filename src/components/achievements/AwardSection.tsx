@@ -35,14 +35,14 @@ export default function AwardSection() {
             {/* gradient putih transisi */}
             <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#A98049] to-transparent"></div>
             {/* white background di bawah */}
-            <div className="absolute top-[50vh] inset-0 h-[100vh] bg-gradient-to-b from-[#A98049] to-black"></div>
+            <div className="absolute top-[50vh] inset-0 h-full bg-gradient-to-b from-[#A98049] to-black"></div>
 
             {/* Content wrapper */}
             <div className="mt-[-30rem] md:mt-[-20rem] w-full relative z-10">
                 <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-10">
 
                     {/* Awards Section */}
-                    <div className="mt-10">
+                    <div className="mt-64">
                         <div className="flex justify-between">
                             <h3 className="text-4xl font-bold mb-2">Award & Recognition</h3>
                             <p className="text-white mb-6">Achievements that define our commitment and quality.</p>
