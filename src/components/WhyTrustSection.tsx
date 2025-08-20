@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 export default function WhyTrustSection() {
-  const IMGS = ["/bki-marine.svg", "/bki-marine2.svg", "/bki-marine3.svg", "/bki-marine4.svg", "/bki-marine5.svg"];
+  const IMGS = ["/bki-marine.jpg", "/bki-marine2.jpg", "/bki-marine3.jpg", "/bki-marine4.jpg", "/bki-marine5.jpg"];
   const ref = useRef<HTMLDivElement>(null);
 
   // Track scroll progress for this section only

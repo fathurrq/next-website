@@ -7,31 +7,31 @@ const services = [
         title: "Classification",
         description: "Setting safety and performance standards for every vessel.",
         icon: "/icon-service-classification.png",
-        image: "/service-classification.png",
+        image: "/service-classification.jpg",
     },
     {
         title: "Statutory",
         description: "Ensuring vessels comply with all regulatory requirements.",
         icon: "/icon-service-statutory.png",
-        image: "/service-statutory.png",
+        image: "/service-statutory.jpg",
     },
     {
         title: "Marine Services",
         description: "Supporting safe and efficient vessel operations.",
         icon: "/icon-service-marine-services.png",
-        image: "/service-marine-services.png",
+        image: "/service-marine-services.jpg",
     },
     {
         title: "Energy & Industry",
         description: "Delivering reliable solutions maritime and industrial needs.",
         icon: "/icon-service-energy-industry.png",
-        image: "/service-energy-industry.png",
+        image: "/service-energy-industry.jpg",
     },
     {
         title: "BKI Academy",
         description: "Advancing skills for the maritime industry",
         icon: "/icon-service-bki-academy.png",
-        image: "/service-bki-academy.png",
+        image: "/service-bki-academy.jpg",
     },
 ];
 
@@ -62,7 +62,7 @@ export default function OurServicesSection() {
 
                 {/* Background image */}
                 <img
-                    src="/services-bg.png"
+                    src="/services-bg.jpg"
                     alt="Background"
                     className="w-full h-full object-cover z-0"
                 />

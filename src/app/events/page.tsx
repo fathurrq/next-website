@@ -40,7 +40,7 @@ export default function Events() {
       endDate: "20 August 2025",
       title: "New Research Vessel For Marine Science in SA",
       place: "Gedung Konser Balai Sarbini, Kota Jakarta Selatan, Indonesia",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/events/news3",
     },
     {
@@ -64,7 +64,7 @@ export default function Events() {
       endDate: "20 August 2025",
       title: "New Research Vessel For Marine Science in SA",
       place: "Gedung Konser Balai Sarbini, Kota Jakarta Selatan, Indonesia",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/events/news3",
     },
     {
@@ -88,7 +88,7 @@ export default function Events() {
       endDate: "20 August 2025",
       title: "New Research Vessel For Marine Science in SA",
       place: "Gedung Konser Balai Sarbini, Kota Jakarta Selatan, Indonesia",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/events/news3",
     },
     
@@ -118,7 +118,7 @@ export default function Events() {
       />
 
       {/* background image */}
-      <div className=" h-[50vh] bg-[url('/bg-events.png')] bg-cover"></div>
+      <div className=" h-[50vh] bg-[url('/bg-events.jpg')] bg-cover"></div>
       {/* linear orange gradient overlay */}
       <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A00] to-[#000000]"></div>
       {/* linear white gradient overlay */}

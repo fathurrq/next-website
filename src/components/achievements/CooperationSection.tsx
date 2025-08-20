@@ -47,7 +47,7 @@ export default function Cooperation() {
       className="relative w-full min-h-screen overflow-hidden"
     >
       {/* background image */}
-      {/* <div className="h-[50vh] bg-[url('/bg-cooperation.png')] bg-cover bg-center"></div> */}
+      {/* <div className="h-[50vh] bg-[url('/bg-cooperation.jpg')] bg-cover bg-center"></div> */}
 
       {/* gradient overlay bagian atas */}
       <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#0A436A]"></div>
@@ -72,7 +72,7 @@ export default function Cooperation() {
       />
 
       <section className="w-full h-[40vh] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/bg-cooperation.png')] bg-cover blur-xs bg-top" />
+        <div className="absolute inset-0 bg-[url('/bg-cooperation.jpg')] bg-cover blur-xs bg-top" />
         <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]" />
         <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]" />
         <div className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">

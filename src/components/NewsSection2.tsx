@@ -27,7 +27,7 @@ export default function NewsSection2() {
       date: "05 Aug 2025 1:10 pm",
       title: "Container Shipping Sees Record High Traffic",
       content: "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "#",
     },
   ];

@@ -40,7 +40,7 @@ export default function News() {
       title: "Container Shipping Sees Record High Traffic",
       content:
         "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/news3",
     },
     {
@@ -64,7 +64,7 @@ export default function News() {
       title: "Container Shipping Sees Record High Traffic",
       content:
         "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/news3",
     },
     {
@@ -88,7 +88,7 @@ export default function News() {
       title: "Container Shipping Sees Record High Traffic",
       content:
         "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
-      img: "/news3.png",
+      img: "/news3.jpg",
       link: "/news3",
     },
   ];

@@ -80,7 +80,7 @@ export default function CompanyProfile() {
             {/* Hero Section */}
             <section
                 className="w-full h-[40vh] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/company-profile-bg.png')] bg-cover blur-xs bg-top"/>
+                <div className="absolute inset-0 bg-[url('/company-profile-bg.jpg')] bg-cover blur-xs bg-top"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]"/>
                 <div
