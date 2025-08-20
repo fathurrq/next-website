@@ -45,6 +45,52 @@ const timeline: {
     },
 ];
 
+const boardOfCommissioner = [
+    {
+        name: "Susyanto",
+        position: "President Commissioner / Independent Commissioner",
+        image: "bod-susyanto.png"
+    },
+    {
+        name: "Rainoc",
+        position: "Commissioner",
+        image: "bod-rainoc.png"
+    },
+    {
+        name: "Virgo Eresta Jaya",
+        position: "Commissioner",
+        image: "bod-virgo.png"
+    },
+    {
+        name: "Subagiyo",
+        position: "Commissioner",
+        image: "bod-subagiyo.png"
+    },
+]
+
+const boardOfDirectors = [
+    {
+        name: "Arisudono Soerono",
+        position: "President Director",
+        image: "/director/director1.jpg"
+    },
+    {
+        name: "R Benny Susanto",
+        position: "Director of Operation",
+        image: "/bod/bod-subagiyo.png"
+    },
+    {
+        name: "Sinung Triwulandari",
+        position: "Director of Finance, Aministration and Risk Mangement",
+        image: "/director/director3.jpg"
+    },
+    {
+        name: "​​​​​​​Andry Tanudjaja",
+        position: "Director of Institutional Relations",
+        image: "/director/director4.png"
+    },
+]
+
 export default function CompanyProfile() {
     const companyProfileRef = useRef<HTMLDivElement | null>(null);
     const {startTransition, setStartTransition} = useHeroTransition();
@@ -251,19 +297,19 @@ export default function CompanyProfile() {
                         <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Independent oversight and strategic guidance from industry leaders and subject matter experts</p>
                     </div>
                     <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
-                        {Array.from({length: 4}).map((_, i) => (
+                        {boardOfCommissioner.map((member, i) => (
                             <div
                                 key={i}
                                 className="shadow overflow-hidden relative"
                             >
-                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                <Image src={`/bod/${member.image}`} alt="member"
                                        width={484} height={422}
                                        className="object-cover rounded-xs"/>
                                 <div
                                     className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
-                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
-                                    <p className="text-sm 2xl:text-2xl">Position</p>
+                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
+                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
+                                    <div className="text-sm  md:text-xl">{member.position}</div>
                                 </div>
                             </div>
                         ))}
@@ -278,19 +324,19 @@ export default function CompanyProfile() {
                         <p className="text-xl 2xl:text-2xl text-black flex-1/2 text-end">Executive leadership team responsible for day-to-day operations and strategic implementation</p>
                     </div>
                     <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-scroll w-max-content pl-18">
-                        {Array.from({length: 4}).map((_, i) => (
+                        {boardOfDirectors.map((member, i) => (
                             <div
                                 key={i}
                                 className="shadow overflow-hidden relative"
                             >
-                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                <Image src={member.image} alt="member"
                                        width={484} height={422}
                                        className="object-cover rounded-xs"/>
                                 <div
                                     className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
-                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
-                                    <p className="text-sm 2xl:text-2xl">Position</p>
+                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
+                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
+                                    <p className="text-sm md:text-xl">{member.position}</p>
                                 </div>
                             </div>
                         ))}
