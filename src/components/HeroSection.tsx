@@ -17,7 +17,7 @@ export default function HeroSection() {
     });
 
     // video moves slower upward
-    const videoY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+    const videoY = useTransform(scrollYProgress, [0, 1], [0, 240]);
 
     // blue wash rises / strengthens as you start scrolling
     const washY = useTransform(scrollYProgress, [0, 1], [40, -40]);

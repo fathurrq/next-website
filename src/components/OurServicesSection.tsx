@@ -1,6 +1,7 @@
 'use client';
 import {useRef} from "react";
 import Image from "next/image";
+import {motion, useScroll, useTransform} from "framer-motion";
 
 const services = [
     {
@@ -38,8 +39,16 @@ const services = [
 export default function OurServicesSection() {
     const servicesRef = useRef<HTMLDivElement | null>(null);
 
+    const {scrollYProgress} = useScroll({
+        target: servicesRef,
+        offset: ["start start", "end start"], // 0 at top, 1 at bottom of hero
+    });
+
+    // video moves slower upward
+    const servicesSection = useTransform(scrollYProgress, [0, 1], [0, -240]);
+
     return (
-        <div id={'our-services'} ref={servicesRef} className="relative w-full text-white">
+        <div id={'our-services'} ref={servicesRef} className="relative w-full h-[150vh] text-white bg-black">
             {/* <div
                 className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
                 <p className="text-5xl 2xl:text-8xl text-[rgba(255,255,255,0.65)] mb-16 22xl:mb-24">Our Services</p>
@@ -58,13 +67,13 @@ export default function OurServicesSection() {
             <div className="relative w-full">
                 {/*Top Gradient Overlay*/}
                 <div className="absolute top-0 left-0 right-0
-                  bg-[linear-gradient(to_bottom,rgb(11,63,101),rgba(11,63,101,0.75)_30%,rgba(11,63,101,0.5)_60%,transparent)] w-full h-[250px]"/>
+                  bg-[linear-gradient(to_bottom,rgb(11,63,101),rgba(11,63,101,0.75)_30%,rgba(11,63,101,0.5)_60%,transparent)] w-full h-[250px] z-1"/>
 
                 {/* Background image */}
                 <img
                     src="/services-bg.jpg"
                     alt="Background"
-                    className="w-full h-full object-cover z-0"
+                    className="w-screen h-[75vh] object-cover z-0"
                 />
 
                 {/* Gradient overlay + content */}
@@ -72,8 +81,10 @@ export default function OurServicesSection() {
                   bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_40%,rgba(11,63,101,1)_60%,transparent)] w-full h-[250px]"/>
             </div>
 
-            <div
-                className="bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_20%,rgba(11,63,101,1)_50%,#000_100%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7">
+            <motion.div style={{y: servicesSection, willChange: "transform"}}
+                        className="absolute bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_20%,rgba(11,63,101,1)_50%,#000_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1">
+                <div
+                    className='absolute -top-10 left-0 right-0 w-full h-20 bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_50%,transparent)] z-1'/>
                 <div className="flex flex-col gap-12 mb-20">
                     <h1 className="text-5xl md:text-8xl text-[rgba(255,255,255,0.75)] text-center">Our Services</h1>
                     <p className="text-2xl md:text-4xl text-[rgba(255,255,255,0.5)] text-center">Discover maritime
@@ -112,7 +123,7 @@ export default function OurServicesSection() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 
