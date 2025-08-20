@@ -67,7 +67,7 @@ const NAV = [
     href: "#",
     submenu: [
       { label: "Company Profile", href: "/company-profile" },
-      { label: "Achievement", href: "#" },
+      { label: "Achievement", href: "/achievements" },
       { label: "Opportunity", href: "#" },
       { label: "Documentation", href: "#" },
       { label: "ESGRC", href: "#" },
