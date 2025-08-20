@@ -97,7 +97,7 @@ export default function Articles() {
         {articles.map((a, i) => (
           <div
             key={i}
-            className="bg-blue-900 bg-opacity-40 rounded-lg overflow-hidden shadow-lg"
+            className="bg-blue-900 bg-opacity-40 rounded-lg overflow-hidden shadow-lg hover:-translate-y-1 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer text-white"
           >
             <div className="relative h-96 ">
               <Image src={a.img} alt={a.title} fill className="object-cover" />

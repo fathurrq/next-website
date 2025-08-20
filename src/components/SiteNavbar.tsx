@@ -57,8 +57,8 @@ const NAV = [
     href: "#",
     submenu: [
       { label: "News", href: "/news" },
-      { label: "Event", href: "/events" },
-      { label: "Article", href: "/articles" },
+      { label: "Events", href: "/events" },
+      { label: "Articles", href: "/articles" },
       { label: "Annual Report", href: "https://www.bki.co.id/download-2-1.html" },
     ],
   },

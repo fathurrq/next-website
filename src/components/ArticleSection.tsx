@@ -40,14 +40,14 @@ export default async function ArticleSection() {
         {data.data.map((article, i) => (
           <div
             key={i}
-            className="bg-blue-900 bg-opacity-40 rounded-lg overflow-hidden shadow-lg"
+            className="bg-blue-900/40 rounded overflow-hidden p-1 shadow-xl hover:-translate-y-1 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
           >
-            <div className="relative h-96 ">
+            <div className="relative h-96 shadow-2xl">
               <Image
                 src={article.cover.formats.thumbnail.url}
                 alt={article.title}
                 fill
-                className="object-cover"
+                className="object-cover shadow-2xl"
               />
               <div className="absolute inset-0 bg-linear-to-t from-[rgba(10,67,106,0.6)] to-transparent"></div>
               <div className="absolute inset-x-0 bottom-0 px-4 pb-8 bg-gradient-to-t from-blue-900/70 to-transparent">

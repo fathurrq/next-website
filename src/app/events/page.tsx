@@ -138,7 +138,7 @@ export default function Events() {
             {events.map((n, i) => (
               <div
                 key={i}
-                className="bg-white rounded-lg overflow-hidden shadow-lg text-black"
+                className="bg-white rounded-lg overflow-hidden shadow-lg text-black hover:-translate-y-1 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
               >
                 <div className="relative h-48">
                   <Image
