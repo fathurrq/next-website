@@ -80,8 +80,8 @@ export default function CommitteTable() {
           {committees.map((item, idx) => (
             <Fragment key={idx}>
               <tr key={idx} className={`border-t border-gray-600 text-white ${item.subMember ? "cursor-pointer" : ""}`} onClick={() => item.subMember && toggleRow(idx)}>
-                <td className="p-3 font-medium md:text-lg">{item.name}</td>
-                <td className="p-3 md:text-lg">{item.position || "-"}</td>
+                <td className="p-3 font-medium text-sm md:text-lg">{item.name}</td>
+                <td className="p-3 md:text-lg text-sm">{item.position || "-"}</td>
                 <td className="p-3 text-center">
                   {item.subMember ? (
                     <button
@@ -115,8 +115,8 @@ export default function CommitteTable() {
                               key={subIdx}
                               className="border-b border-gray-200"
                             >
-                              <td className="p-2 w-1/2 text-base">{sub.name}</td>
-                              <td className="p-2">{sub.position}</td>
+                              <td className="p-2 w-1/2 text-sm md:text-base">{sub.name}</td>
+                              <td className="p-2 text-sm md:text-base">{sub.position}</td>
                             </tr>
                           ))}
                         </tbody>

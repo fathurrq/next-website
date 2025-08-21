@@ -5,6 +5,7 @@ import {motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import CollapsibleTable from "./components/table";
+import { StructureImageLightbox } from "./components/lightbox";
 
 const timeline: {
     year: string
@@ -78,7 +79,7 @@ const boardOfDirectors = [
     {
         name: "R Benny Susanto",
         position: "Director of Operation",
-        image: "/bod/bod-subagiyo.png"
+        image: "/director/director2.jpg"
     },
     {
         name: "Sinung Triwulandari",
@@ -107,7 +108,7 @@ export default function CompanyProfile() {
     }, [startTransition]);
 
     return (
-        <div id="company-profile" ref={companyProfileRef} className="relative min-h-screen overflow-auto">
+        <div id="company-profile" ref={companyProfileRef} className="relative min-h-screen overflow-hidden">
             <motion.div
                 className="absolute inset-0 z-10 pointer-events-none"
                 initial={{opacity: 1}}
@@ -131,25 +132,25 @@ export default function CompanyProfile() {
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]"/>
                 <div
-                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-48 text-center text-white">
+                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-40 text-center text-white">
                     <div className="flex flex-row w-full justify-center items-center gap-2">
-                        <Link href={'/'} className="text-xl 2xl:text-3xl">
+                        <Link href={'/'} className="md:text-xl 2xl:text-3xl">
                             Home
                         </Link>
-                        <p className="text-xl 2xl:text-3xl">
+                        <span className="md:text-xl 2xl:text-3xl">
                             /
-                        </p>
-                        <p className="text-xl 2xl:text-3xl text-[#ffffff75]">
+                        </span>
+                        <span className="md:text-xl 2xl:text-3xl text-[#ffffff75]">
                             Company Profile
-                        </p>
+                        </span>
                     </div>
-                    <h1 className="mt-4 text-4xl 2xl:text-[64px] font-semibold">
+                    <span className="mt-4 text-2xl md:text-4xl 2xl:text-[64px] font-semibold">
                         Anchored in Trust, Driven by Innovation
-                    </h1>
-                    <p className="mt-4 text-lg 2xl:text-[32px] max-w-3/5">
+                    </span>
+                    <span className="mt-4 text-md md:text-lg 2xl:text-[32px] max-w-3/5">
                         Building strong partnerships and pioneering solutions to meet the evolving needs of maritime
                         stakeholders.
-                    </p>
+                    </span>
                 </div>
             </section>
 
@@ -220,27 +221,26 @@ export default function CompanyProfile() {
                     </div>
                     <div
                         className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pt-3 2xl:pt-[21px]">
-                        {Array.from({length: 5}).map((_, i) => (
+                        {boardOfCommissioner.map((member, i) => (
                             <div
                                 key={i}
                                 className="shadow overflow-hidden relative"
                             >
-                                <Image src="/faces-of-innovation/1.png" alt="member"
+                                <Image src={`/bod/${member.image}`} alt={member.name}
                                        width={484} height={422}
                                        className="object-cover rounded-xs"/>
                                 <div
                                     className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 -
-                                        2025</p>
-                                    <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
-                                    <p className="text-sm 2xl:text-2xl">Position</p>
+                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
+                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
+                                    <p className="text-sm 2xl:text-2xl">{member.position}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div className="pt-28 2xl:pt-40 w-full px-24 2xl:px-[196px]">
+                <div className="pt-28 2xl:pt-40 w-full px-6 md:px-24 2xl:px-[196px]">
                     {/* Timeline */}
                     <div className="flex w-full flex-col items-start">
                         {timeline.map((item, idx) => (
@@ -271,13 +271,13 @@ export default function CompanyProfile() {
 
             {/* Committees */}
             <section
-                className="pt-16 2xl:py-32 2xl:pb-[227px] pb-40 bg-black flex flex-col items-center justify-center">
-                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight">Technical Committee</h2>
-                <h2 className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center max-w-2/3">Our world-class
+                className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center">
+                <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center">Technical Committee</span>
+                <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3">Our world-class
                     technical experts
                     who
                     drive innovation and ensure the highest standards of technology implementation across all our
-                    projects</h2>
+                    projects</div>
                 {/* <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
                     {Array.from({length: 4}).map((_, i) => (
                         <div
@@ -303,17 +303,17 @@ export default function CompanyProfile() {
 
             {/* Board Governance */}
             <section className="bg-white py-16 flex flex-col items-center justify-center pb-36">
-                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-black">Board
-                    Governance</h2>
-                <h2 className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center max-w-2/3 text-black">Our
+                <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-black">Board
+                    Governance</span>
+                <span className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center max-w-2/3 text-black">Our
                     distinguished
                     board members provide strategic oversight, governance excellence, and visionary leadership to guide
-                    our company&apos;s continued growth and success</h2>
+                    our company&apos;s continued growth and success</span>
 
                 <div className="flex flex-col gap-5 w-full">
-                    <div className="flex flex-row justify-between items-center w-full px-18 2xl:px-[105px] mb-5">
-                        <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Commissioners</p>
-                        <p className="text-2xl 2xl:text-[32px] text-black flex-1/2 text-end">Independent oversight and
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-6 md:px-18 2xl:px-[105px] mb-5 gap-2 md:gap-0">
+                        <p className="text-4xl 2xl:text-5xl font-bold text-black md:flex-1/2">Board of Commissioners</p>
+                        <p className="md:text-2xl 2xl:text-[32px] text-black md:flex-1/2 md:text-end">Independent oversight and
                             strategic guidance from industry leaders and subject matter experts</p>
                     </div>
                     <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
@@ -339,9 +339,9 @@ export default function CompanyProfile() {
                         <div className="bg-gradient-to-r from-[#00000050] to-[#00000000] h-[1px] w-[89%]"/>
                     </div>
 
-                    <div className="flex flex-row justify-between items-center w-full px-18 2xl:px-[105px] mb-5">
-                        <p className="text-4xl 2xl:text-6xl font-bold text-black flex-1/2">Board of Directors</p>
-                        <p className="text-xl 2xl:text-[32px] text-black flex-1/2 text-end">Executive leadership team
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full px-6 md:px-18 2xl:px-[105px] mb-5 gap-2 md:gap-0">
+                        <p className="text-4xl 2xl:text-5xl font-bold text-black md:flex-1/2">Board of Directors</p>
+                        <p className="md:text-2xl 2xl:text-[32px] text-black md:flex-1/2 md:text-end">Executive leadership team
                             responsible for day-to-day operations and strategic implementation</p>
                     </div>
                     <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
@@ -384,19 +384,13 @@ export default function CompanyProfile() {
                   [webkit-mask-image:linear-gradient(to_top,black,transparent)]
                   [webkit-mask-repeat:no-repeat] [webkit-mask-size:100%_100%]"/>
 
-                <h2 className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-white">
+                <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-white">
                     Structure
-                </h2>
-                <h2 className="text-xl 2xl:text-[32px] mb-24 text-center max-w-2/3 text-white 2xl:mb-36">
-                    ORGANIZATION STRUCTURE OF PT Biro Klasifikasi Indonesia (Persero)
-                </h2>
-                <Image
-                    src="/structure.png"
-                    alt="Structure"
-                    width={1200}
-                    height={600}
-                    className="w-[90%] mb-24"
-                />
+                </span>
+                <span className="text-xl 2xl:text-[32px] mb-24 text-center max-w-2/3 text-white 2xl:mb-36">
+                    Organization Structure of PT Biro Klasifikasi Indonesia (Persero)
+                </span>
+                <StructureImageLightbox />
             </section>
 
         </div>

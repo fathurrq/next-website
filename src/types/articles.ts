@@ -12,4 +12,5 @@ export type Article = {
   title: string;
   description: string;
   cover: Cover;
+  publishedAt: string;
 };

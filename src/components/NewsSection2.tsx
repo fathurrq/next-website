@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Newsletter from "./Newsletter";
+import NewsCard from "./NewsCard";
 
 export function NewsDivider() {
   return <div className="w-full h-16 bg-[#00385A]"></div>;
@@ -8,6 +9,7 @@ export function NewsDivider() {
 export default function NewsSection2() {
   const news = [
     {
+      id: "1",
       date: "08 Aug 2025 4:40 pm",
       title: "New Research Vessel For Marine Science in SA",
       content:
@@ -16,6 +18,7 @@ export default function NewsSection2() {
       link: "#",
     },
     {
+      id: "2",
       date: "05 Aug 2025 1:10 pm",
       title: "Container Shipping Sees Record High Traffic",
       content:
@@ -24,6 +27,7 @@ export default function NewsSection2() {
       link: "#",
     },
     {
+      id: "3",
       date: "05 Aug 2025 1:10 pm",
       title: "Container Shipping Sees Record High Traffic",
       content:
@@ -63,25 +67,7 @@ export default function NewsSection2() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {news.map((n, i) => (
-          <div
-            key={i}
-            className="bg-white rounded-lg overflow-hidden shadow-lg text-black hover:-translate-y-1 hover:shadow-lg transition duration-300 ease-in-out cursor-pointer"
-          >
-            <div className="relative h-48">
-              <Image src={n.img} alt={n.title} fill className="object-cover" />
-            </div>
-            <div className="p-4">
-              <p className="text-sm">{n.date}</p>
-              <h3 className="font-semibold text-lg mb-3">{n.title}</h3>
-              <div className="text-sm mb-4">{n.content}</div>
-              <a
-                href={n.link}
-                className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
-              >
-                Read News →
-              </a>
-            </div>
-          </div>
+          <NewsCard key={i} news={n} />
         ))}
       </div>
       <Newsletter />
