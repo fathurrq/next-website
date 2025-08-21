@@ -52,13 +52,13 @@ export default function OurServicesSection() {
     });
 
     // video moves slower upward
-    const servicesSection = useTransform(scrollYProgress, [0, 1], [0, -240]);
+    const servicesSection = useTransform(scrollYProgress, [0, 1], [0, -120]);
 
     return (
         <div
             id={"our-services"}
             ref={servicesRef}
-            className="relative w-full h-[150vh] text-white bg-black overflow-hidden"
+            className="relative w-full h-[100vh] text-white bg-black overflow-hidden"
         >
             {/* <div
                 className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
@@ -83,30 +83,26 @@ export default function OurServicesSection() {
                 />
 
                 {/* Background image */}
-                <img
+                <Image
                     src="/services-bg.jpg"
                     alt="Background"
-                    className="w-screen h-[75vh] object-cover z-0"
+                    className="w-screen h-[100vh] object-cover z-0"
+                    width={1920}
+                    height={1080}
                 />
 
-                {/* Gradient overlay + content */}
-                <div
-                    className="absolute -bottom-24 left-0 right-0
-                  bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_40%,rgba(11,63,101,1)_60%,transparent)] w-full h-[250px]"
-                />
+                {/*<div className="absolute left-0 right-0 bottom-0 bg-black h-[120px]"/>*/}
             </div>
 
             <motion.div
                 style={{y: servicesSection, willChange: "transform"}}
-                className="absolute bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_20%,rgba(11,63,101,1)_50%,#000_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
+                className="absolute inset-0 h-[calc(100vh+240px)] bg-[linear-gradient(to_bottom,rgba(11,63,101,0.25),rgba(11,63,101,0.5)_20%,rgba(11,63,101,1)_75%,rgba(0,0,0,1)_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
             >
-                <div
-                    className="absolute -top-10 left-0 right-0 w-full h-20 bg-[linear-gradient(to_bottom,transparent,rgba(11,63,101,1)_50%,transparent)] z-1"/>
                 <div className="flex flex-col gap-12 mb-20">
-                    <h1 className="text-5xl md:text-8xl text-[rgba(255,255,255,0.75)] text-center">
+                    <h1 className="text-5xl md:text-8xl text-white text-center">
                         Our Services
                     </h1>
-                    <p className="text-2xl md:text-4xl text-[rgba(255,255,255,0.5)] text-center">
+                    <p className="text-2xl md:text-4xl text-white text-center">
                         Discover maritime services built for safety, compliance, and
                         excellence.
                     </p>
@@ -120,28 +116,35 @@ export default function OurServicesSection() {
                             target={"_blank"}
                             rel={"noopener noreferrer"}
                             className="w-full md:w-[calc(50%-30px)] 2xl:w-[calc(33.333%-30px)]
-                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer"
+                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[300px] 2xl:h-[350px]"
                         >
-                            {/* Background layer */}
+                            {/* Background Image */}
                             <div
-                                className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-100 transition-opacity duration-1000"
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-[130%]"
                                 style={{backgroundImage: `url(${service.image})`}}
                             />
 
+                            {/*Backround Overlay*/}
+                            <div
+                                className="absolute left-0 bottom-0 right-0 h-1/2 bg-gradient-to-b from-transparent to-[rgb(11,63,101)]"/>
+
                             {/* Content */}
-                            <div className="relative z-10 flex flex-col gap-[15px]">
+                            <div
+                                className="relative z-10 flex flex-col justify-between gap-[15px] w-full h-full pb-[8px]">
                                 <Image
                                     src={service.icon}
                                     alt={service.title}
                                     width={32}
                                     height={22}
                                 />
-                                <p className="text-4xl 2xl:text-5xl text-white mt-[15px]">
-                                    {service.title}
-                                </p>
-                                <p className="text-sm 2xl:text-[16px] text-white">
-                                    {service.description}
-                                </p>
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-4xl 2xl:text-5xl text-white opacity-60 group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
+                                        {service.title}
+                                    </p>
+                                    <p className="text-sm 2xl:text-[16px] text-white opacity-60 group-hover:opacity-100 transition-opacity duration-1000">
+                                        {service.description}
+                                    </p>
+                                </div>
                             </div>
 
                             {/* Bottom line */}
