@@ -31,76 +31,82 @@ export default function Cooperation() {
     ]
     const classificationData = [
         {
-            title: null,
-            content: "All INSA Members registered with BKI",
+            title: "Direktorat Jenderal Perhubungan Laut",
+            content: `Cooperation Agreement between the Directorate General of Sea Transportation (Direktorat Jenderal Perhubungan Laut)
+    and PT. Biro Klasifikasi Indonesia (Persero) concerning the Implementation of Surveying and Certification of Indonesian-flagged Ship
+    No. B.04190 / HK.503 / KI-20`,
+            images: logo,
         },
         {
             title: "Direktorat Jenderal Perhubungan Laut",
             content: `Cooperation Agreement between the Directorate General of Sea Transportation (Direktorat Jenderal Perhubungan Laut)
     and PT. Biro Klasifikasi Indonesia (Persero) concerning the Implementation of Surveying and Certification of Indonesian-flagged Ship
     No. B.04190 / HK.503 / KI-20`,
+            images: logo,
         },
     ];
     const commercialData = [
         {
-            title: "Energy & Industry Sector",
-            content: `JICT, TPK KOJA, NPCT 1, KEMSOS, MORATELINDO, SARULLA OPERATION LIMITED, STAR ENERGY KAKAP LTD., 
-            REKAYASA INDUSTRI, FUJI ELECTRIC, PERTAMINA EP, SOKORIA, SORIK MARAPI, KSO BKI SCI, PERTAMINA EP CEPU,`,
+            title: "Direktorat Jenderal Perhubungan Laut",
+            content: `Cooperation Agreement between the Directorate General of Sea Transportation (Direktorat Jenderal Perhubungan Laut)
+    and PT. Biro Klasifikasi Indonesia (Persero) concerning the Implementation of Surveying and Certification of Indonesian-flagged Ship
+    No. B.04190 / HK.503 / KI-20`,
+            images: logo,
         },
         {
-            title: "Marine & Offshore Sector",
-            content: `PT. PHE OSES, Ministry of Marine and Fisheries, CONOCOPHILLIPS GRISSIK LTD, MEDCO E&P NATUNA LTD, 
-            PT. PGN LNG INDONESIA, PLN, SKK MIGAS, PT. PERTAMINA SHIPPING, BP BERAU, PT. MBSS, PT. PELNI, PT. ASDP INDONESIA FERRY, 
-            PT. RUKINDO, PT. PELAYARAN BAHTERA ADHIGUNA, PERTAMINA MOR 1 MEDAN, SHIPPING COMPANY, OIL & GAS COMPANY, ENI MUARA BAKAU BV, 
-            INPEX CO., OIL & GAS COMPANY`,
+            title: "Direktorat Jenderal Perhubungan Laut",
+            content: `Cooperation Agreement between the Directorate General of Sea Transportation (Direktorat Jenderal Perhubungan Laut)
+    and PT. Biro Klasifikasi Indonesia (Persero) concerning the Implementation of Surveying and Certification of Indonesian-flagged Ship
+    No. B.04190 / HK.503 / KI-20`,
+            images: logo,
         },
     ];
 
-  return (
-    <div
-      id="cooperation"
-      className="relative w-full min-h-screen overflow-hidden"
-    >
-      {/* background image */}
-      {/* <div className="h-[50vh] bg-[url('/bg-cooperation.jpg')] bg-cover bg-center"></div> */}
+    return (
+        <div
+            id="cooperation"
+            className="relative w-full min-h-screen overflow-hidden"
+        >
+            {/* background image */}
+            {/* <div className="h-[50vh] bg-[url('/bg-cooperation.jpg')] bg-cover bg-center"></div> */}
 
-      {/* gradient overlay bagian atas */}
-      <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#0A436A]"></div>
-      {/* gradient putih transisi */}
-      <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A] to-transparent"></div>
-      {/* white background di bawah */}
-      <div className="absolute top-[50vh] inset-0 h-[200vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
-      <motion.div
-        className="absolute inset-0 z-10 pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        style={{
-          backdropFilter: "blur(22px)",
-          WebkitBackdropFilter: "blur(22px)",
-        }}
-      />
+            {/* gradient overlay bagian atas */}
+            <div className="absolute top-0 inset-0 h-[20vh] bg-gradient-to-t from-[#d4a66a06] to-[#0A436A]"></div>
+            {/* gradient putih transisi */}
+            <div className="absolute top-[30vh] inset-0 h-[20vh] bg-gradient-to-t from-[#0A436A] to-transparent"></div>
+            {/* white background di bawah */}
+            <div className="absolute top-[50vh] inset-0 h-[200vh] bg-gradient-to-b from-[#0A436A] to-black"></div>
+            <motion.div
+                className="absolute inset-0 z-10 pointer-events-none"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                style={{
+                    backdropFilter: "blur(22px)",
+                    WebkitBackdropFilter: "blur(22px)",
+                }}
+            />
 
-      <section className="w-full h-[40vh] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/bg-cooperation.jpg')] bg-cover blur-xs bg-top" />
-        <div className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
-          <div className="flex flex-row w-full justify-center items-center gap-2">
-            <Link href={"/"} className="text-xl 2xl:text-3xl">
-              Home
-            </Link>
-            <p className="text-xl 2xl:text-3xl">/</p>
-            <p className="text-xl 2xl:text-3xl text-[#ffffff75]">
-              Achievements
-            </p>
-          </div>
-          <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
-           Our Achievements
-          </h1>
-          <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
-            Highlights that reflect our growth and commitment.
-          </p>
-        </div>
-      </section>
+            <section className="w-full h-[40vh] relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/bg-cooperation.jpg')] bg-cover blur-xs bg-top" />
+                <div className="w-full relative flex flex-col justify-center items-center py-24 text-center text-white">
+                    <div className="flex flex-row w-full justify-center items-center gap-2">
+                        <Link href={"/"} className="text-xl 2xl:text-3xl">
+                            Home
+                        </Link>
+                        <p className="text-xl 2xl:text-3xl">/</p>
+                        <p className="text-xl 2xl:text-3xl text-[#ffffff75]">
+                            Achievements
+                        </p>
+                    </div>
+                    <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
+                        Our Achievements
+                    </h1>
+                    <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
+                        Highlights that reflect our growth and commitment.
+                    </p>
+                </div>
+            </section>
 
             {/* Content wrapper */}
             <div className="mt-[-5rem] md:mt-[-10rem] w-full relative z-10">
@@ -118,7 +124,7 @@ export default function Cooperation() {
                     </div>
 
                     {/* Cooperation Section */}
-                    <div className="mt-10 flex flex-col gap-16">
+                    <div className="mt-10 flex flex-col gap-2">
                         <div className="container flex justify-between">
                             <h3 className="text-4xl font-semibold mb-2">Cooperation</h3>
                             <p className="text-white mb-6">Connecting with partners to strengthen maritime excellence.</p>
@@ -126,27 +132,50 @@ export default function Cooperation() {
 
                         {/* Classification Segment */}
                         <div className="container flex flex-col text-2xl font-bold">
-                            <h4 className={`font-semibold text-xl text-white/70 mb-2`}>CLASSIFICATION SEGMENT</h4>
+                            <h4 className="font-semibold text-xl text-white/70 mb-2">
+                                CLASSIFICATION SEGMENT
+                            </h4>
                             <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-3/4 mb-6"></div>
 
                             {classificationData.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-black/60 rounded p-4 mb-6 text-lg font-semibold"
+                                    className="bg-black/60 rounded-md p-6 mb-6 text-white"
                                 >
-                                    {item.title ? (
-                                        <>
-                                            {item.title}
-                                            <h6 className="font-normal text-sm mt-2 whitespace-pre-line">
+                                    {/* Header */}
+                                    <div className="flex flex-col items-start">
+                                        <div className="flex gap-4 items-center">
+                                            <img
+                                                src={"/logo-kemenhub.png"}
+                                                alt={"logo-kemenhub"}
+                                                className="w-10 h-10 object-contain"
+                                            />
+                                            <h5 className="text-lg font-bold">{item.title}</h5>
+                                        </div>
+                                        <div>
+                                            <p className="font-normal text-sm mt-2 leading-relaxed">
                                                 {item.content}
-                                            </h6>
-                                        </>
-                                    ) : (
-                                        item.content
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Images / Thumbnails */}
+                                    {item.images && item.images.length > 0 && (
+                                        <div className="flex flex-wrap gap-3 mt-2">
+                                            {item.images.map((img, i) => (
+                                                <img
+                                                    key={i}
+                                                    src={img.src}
+                                                    alt={img.alt}
+                                                    className="w-20 h-20 object-cover rounded-md"
+                                                />
+                                            ))}
+                                        </div>
                                     )}
                                 </div>
                             ))}
                         </div>
+
 
                         {/* Commercial Segment */}
                         {/* Classification Segment */}
@@ -156,17 +185,37 @@ export default function Cooperation() {
                             {commercialData.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-black/60 rounded p-4 mb-6 text-lg font-semibold"
+                                    className="bg-black/60 rounded-md p-6 mb-6 text-white shadow-md"
                                 >
-                                    {item.title ? (
-                                        <>
-                                            {item.title}
-                                            <h6 className="font-normal text-sm mt-2 whitespace-pre-line">
+                                    {/* Header */}
+                                    <div className="flex flex-col items-start">
+                                        <div className="flex gap-4 items-center">
+                                            <img
+                                                src={"/logo-kemenhub.png"}
+                                                alt={"logo-kemenhub"}
+                                                className="w-10 h-10 object-contain"
+                                            />
+                                            <h5 className="text-lg font-bold">{item.title}</h5>
+                                        </div>
+                                        <div>
+                                            <p className="font-normal text-sm mt-2 leading-relaxed">
                                                 {item.content}
-                                            </h6>
-                                        </>
-                                    ) : (
-                                        item.content
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Images / Thumbnails */}
+                                    {item.images && item.images.length > 0 && (
+                                        <div className="flex flex-wrap gap-3 mt-2">
+                                            {item.images.map((img, i) => (
+                                                <img
+                                                    key={i}
+                                                    src={img.src}
+                                                    alt={img.alt}
+                                                    className="w-20 h-20 object-cover rounded-md"
+                                                />
+                                            ))}
+                                        </div>
                                     )}
                                 </div>
                             ))}
