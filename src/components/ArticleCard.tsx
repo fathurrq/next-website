@@ -13,7 +13,7 @@ export default function ArticleCard({ article }: { article: Article }) {
         <h3 className="font-semibold text-lg mb-3">{article.title}</h3>
         <div className="text-sm mb-4">{article.description}</div>
         <Link
-          href={"/articles/" + article.documentId}
+          href={"/news/" + "news1"}
           className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
         >
           Read More →

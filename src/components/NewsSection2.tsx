@@ -15,7 +15,7 @@ export default function NewsSection2() {
       content:
         "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
       img: "/news1.jpg",
-      link: "#",
+      link: "/news/news1",
     },
     {
       id: "2",
@@ -24,7 +24,7 @@ export default function NewsSection2() {
       content:
         "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
       img: "/news2.png",
-      link: "#",
+      link: "/news/news1",
     },
     {
       id: "3",
@@ -33,7 +33,7 @@ export default function NewsSection2() {
       content:
         "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
       img: "/news3.jpg",
-      link: "#",
+      link: "/news/news1",
     },
   ];
   return (
