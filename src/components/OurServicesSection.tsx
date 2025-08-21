@@ -58,7 +58,7 @@ export default function OurServicesSection() {
         <div
             id={"our-services"}
             ref={servicesRef}
-            className="relative w-full h-[100vh] text-white bg-black overflow-hidden"
+            className="relative w-full h-[100vh] text-white bg-black overflow-hidden mb-6"
         >
             {/* <div
                 className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
