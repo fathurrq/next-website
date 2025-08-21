@@ -153,7 +153,7 @@ export default function Events() {
                   <h3 className="font-semibold text-lg mb-3">{n.title}</h3>
                   <div className="text-sm mb-4">{n.place}</div>
                   <a
-                    href={n.link}
+                    href={'/events/news1'}
                     className="flex justify-center items-center px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
                   >
                     View Event →

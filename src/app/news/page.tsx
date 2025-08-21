@@ -150,7 +150,7 @@ export default function News() {
                   <h3 className="font-semibold text-lg mb-3">{n.title}</h3>
                   <div className="text-sm mb-4">{n.content}</div>
                   <a
-                    href={n.link}
+                    href={'/news/news1'}
                     className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
                   >
                     Read News →
