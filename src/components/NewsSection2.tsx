@@ -2,9 +2,7 @@ import Image from "next/image";
 import Newsletter from "./Newsletter";
 
 export function NewsDivider() {
-    return (
-        <div className="w-full h-16 bg-[#00385A]"></div>
-    )
+  return <div className="w-full h-16 bg-[#00385A]"></div>;
 }
 
 export default function NewsSection2() {
@@ -12,21 +10,24 @@ export default function NewsSection2() {
     {
       date: "08 Aug 2025 4:40 pm",
       title: "New Research Vessel For Marine Science in SA",
-      content: "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
+      content:
+        "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
       img: "/news1.jpg",
       link: "#",
     },
     {
       date: "05 Aug 2025 1:10 pm",
       title: "Container Shipping Sees Record High Traffic",
-      content: "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
+      content:
+        "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
       img: "/news2.png",
       link: "#",
     },
     {
       date: "05 Aug 2025 1:10 pm",
       title: "Container Shipping Sees Record High Traffic",
-      content: "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
+      content:
+        "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
       img: "/news3.jpg",
       link: "#",
     },
@@ -53,8 +54,12 @@ export default function NewsSection2() {
           Search
         </button>
       </div>
-      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">BKI Updates</h1>
-      <h2 className="text-white text-2xl md:text-4xl font-medium mb-8">Top News</h2>
+      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">
+        BKI Updates
+      </h1>
+      <h2 className="text-white text-2xl md:text-4xl font-medium mb-8">
+        Top News
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {news.map((n, i) => (
@@ -69,17 +74,18 @@ export default function NewsSection2() {
               <p className="text-sm">{n.date}</p>
               <h3 className="font-semibold text-lg mb-3">{n.title}</h3>
               <div className="text-sm mb-4">{n.content}</div>
-            <a
+              <a
                 href={n.link}
                 className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
-            >
+              >
                 Read News →
-            </a>
+              </a>
             </div>
           </div>
         ))}
       </div>
       <Newsletter />
+      
     </section>
   );
 }

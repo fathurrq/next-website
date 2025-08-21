@@ -11,7 +11,7 @@ export default function LifeWithBKISection() {
     >
       {/* Hero Wrapper */}
       <div className="h-[40vh] relative">
-        <Image src="/opportunities-hero-bg.png" alt="opportunities-hero-bg" fill className="object-cover" />
+        <Image src="/opportunities-hero-bg.jpg" alt="opportunities-hero-bg" fill className="object-cover" />
         <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#00000050]"></div>
         <div className="relative h-full w-full flex flex-col justify-center items-center py-24 text-center text-white">
             <div className="flex flex-row w-full justify-center items-center gap-2">

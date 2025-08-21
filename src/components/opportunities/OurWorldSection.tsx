@@ -9,7 +9,7 @@ export default function  OurWorldSection() {
       id="our-world"
       className="relative w-full h-screen overflow-hidden"
     >
-        <Image src="/our-world-bg.png" alt="our-world-bg" fill className="object-cover" />
+        <Image src="/our-world-bg.jpg" alt="our-world-bg" fill className="object-cover" />
         <div className="relative top-0 inset-0 h-[50vh] bg-gradient-to-t from-[#0A436A00] to-[#0A436A]"></div>
         <div className="relative bottom-0 inset-0 h-[50vh] bg-gradient-to-b from-[#00000000] to-[#000000]"></div>
         
