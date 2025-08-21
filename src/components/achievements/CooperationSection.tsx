@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useHeroTransition } from "../TransitionProvider";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Cooperation() {
-
+    const [selectedImage, setSelectedImage] = useState("");
     const logo = [
         {
             src: "/logo-acs.png",
@@ -167,7 +167,8 @@ export default function Cooperation() {
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 object-cover rounded-md"
+                                                    className="w-20 h-20 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
                                         </div>
@@ -212,7 +213,8 @@ export default function Cooperation() {
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 object-cover rounded-md"
+                                                    className="w-20 h-20 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
                                         </div>
@@ -233,6 +235,24 @@ export default function Cooperation() {
                     </div>
                 </div>
             </div>
+            {/* Modal Popup */}
+            {selectedImage && (
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+                    <div className="relative">
+                        <img
+                            src={selectedImage}
+                            alt="expanded"
+                            className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-lg"
+                        />
+                        <button
+                            className="absolute cursor-pointer -top-4 -right-4 bg-white text-black rounded-full px-2 py-1 font-bold shadow hover:bg-gray-200"
+                            onClick={() => setSelectedImage("")}
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
 
     )
