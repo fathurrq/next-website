@@ -241,11 +241,11 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex items-center gap-2">
               {slide.topTitle ?? "Why"}{" "}
               <Image
-              src="/tick-only.png"
-              alt="Tick"
-              width={64}
-              height={32}
-              className="md:w-[96px] md:h-[96px] w-[32px] h-[32px]"
+                src="/tick-only.png"
+                alt="Tick"
+                width={64}
+                height={32}
+                className="md:w-[96px] md:h-[96px] w-[32px] h-[32px]"
               />
             </div>
             <p className="mt-2 text-xl md:text-5xl font-medium">
@@ -255,13 +255,13 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
 
           {/* Bottom-right text with fade-in */}
           <motion.div
-            className="absolute bottom-[9vh] right-[1vw] left-[10vw] md:left-auto text-white text-right"
+            className="absolute bottom-[9vh] right-24 left-[10vw] md:left-auto text-white text-right"
             initial={{ y: 18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="text-2xl md:text-5xl font-extrabold leading-[1.05] md:w-[50vw] text-left">
+            <div className="text-2xl md:text-5xl font-extrabold leading-[1.05] md:w-[50vw] text-left ">
               {slide.bottomRight}
               <div className="text-sm font-normal mt-2 md:text-xl">
                 {slide.description}

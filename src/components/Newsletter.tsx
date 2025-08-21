@@ -1,6 +1,6 @@
 export default function Newsletter() {
   return (
-    <div className="py-36 md:px-12 lg:px-48">
+    <div className="pt-12 md:px-12 lg:px-48">
       <div className="text-white border-white/50 border-opacity-50 rounded flex items-center py-8 flex-col gap-8 border-4 backdrop-blur-xl w-full max-w-4xl mx-auto">
         <div className="font-medium text-xl md:text-4xl text-center">
           Subscribe Now

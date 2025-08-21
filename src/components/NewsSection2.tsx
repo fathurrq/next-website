@@ -54,10 +54,10 @@ export default function NewsSection2() {
           Search
         </button>
       </div>
-      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">
+      <h1 className="text-white text-5xl md:text-6xl font-bold mb-2">
         BKI Updates
       </h1>
-      <h2 className="text-white text-2xl md:text-4xl font-medium mb-8">
+      <h2 className="text-white text-2xl md:text-3xl font-medium mb-8">
         Top News
       </h2>
 

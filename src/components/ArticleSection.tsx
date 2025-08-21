@@ -29,10 +29,10 @@ export default async function ArticleSection() {
           zIndex: 1,
         }}
       />
-      <h1 className="text-white text-5xl md:text-7xl font-bold mb-2">
+      <h1 className="text-white text-5xl md:text-6xl font-bold mb-2">
         Knowledge Hub
       </h1>
-      <div className="text-white text-2xl md:text-4xl font-medium mb-8">
+      <div className="text-white text-2xl md:text-3xl font-medium mb-8">
         Articles
       </div>
 

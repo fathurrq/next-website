@@ -130,7 +130,7 @@ export default function Events() {
         {/* Articles */}
         <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2">
           {/* Title */}
-          <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8">
+          <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8 text-white">
             Events
           </h2>
 

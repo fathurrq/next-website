@@ -41,7 +41,7 @@ const NAV = [
       { label: "Statutory", href: "https://www.bki.co.id/info_statutory-1.html" },
       { label: "Marine Services", href: "https://www.bki.co.id/halamanstatis-29.html" },
       { label: "Energy & Industry", href: "https://www.bki.co.id/halamanstatis-30.html" },
-      { label: "BKI Academy", href: "https://www.bki.academy/id" },
+      { label: "BKI Academy", href: "https://www.bki.academy/id", type: "_blank" },
     ],
   },
   {
@@ -339,6 +339,9 @@ export default function SiteNavbar() {
                                           hover:text-white/30 hover:border-white
                                           transition-colors duration-150
                                         `}
+                                        {...(sub.type === "_blank"
+                                          ? { target: "_blank", rel: "noopener noreferrer" }
+                                          : {})}
                                       >
                                         {sub.label}
                                       </Link>

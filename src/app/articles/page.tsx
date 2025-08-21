@@ -91,7 +91,7 @@ export default function Articles() {
       {/* Articles */}
       <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2">
         {/* Title */}
-        <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8">Articles</h2>
+        <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8 text-white">Articles</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {articles.map((a, i) => (
