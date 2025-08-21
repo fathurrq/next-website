@@ -129,10 +129,11 @@ export default function HeroSection() {
                             style={{y: titleY, willChange: "transform"}}
                         >
                             <div
-                                className="text-5xl md:text-6xl font-montserrat text-transparent bg-clip-text tracking-tight"
+                                className="text-5xl md:text-8xl font-montserrat text-transparent bg-clip-text tracking-tight"
                                 style={{
                                     backgroundImage:
-                                        "linear-gradient(91deg, #FFF 6.98%, #DBE4E9 11.7%, #C7D4DD 21.72%, #8DA8BA 37.06%, #86A2B6 43.54%, #7D9BB0 51.8%, #6B8DA5 60.65%, #5C829C 70.08%, #4B7592 80.7%, #346484 90.13%, #0A436A 107.52%, #0A436A 115.49%, #0A436A 129.05%)",
+                                        "linear-gradient(91deg, #FFF 21.08%, #B1D6EF 38%, #B3C5D2 58.04%, rgba(255, 255, 255, 0.91) 75.45%)",
+                                        textShadow: "0 4px 20px rgba(0, 0, 0, 0.50)"
                                 }}
                             >
                                 Your Global Partner
