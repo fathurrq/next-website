@@ -4,6 +4,7 @@ import {useHeroTransition} from "@/components/TransitionProvider";
 import {motion} from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import CollapsibleTable from "./components/table";
 
 const timeline: {
     year: string
@@ -277,7 +278,7 @@ export default function CompanyProfile() {
                     who
                     drive innovation and ensure the highest standards of technology implementation across all our
                     projects</h2>
-                <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
+                {/* <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
                     {Array.from({length: 4}).map((_, i) => (
                         <div
                             key={i}
@@ -294,6 +295,9 @@ export default function CompanyProfile() {
                             </div>
                         </div>
                     ))}
+                </div> */}
+                <div className="w-full px-6 md:px-24">
+                    <CollapsibleTable />
                 </div>
             </section>
 
