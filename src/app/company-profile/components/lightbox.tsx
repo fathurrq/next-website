@@ -14,7 +14,7 @@ export function StructureImageLightbox() {
         alt="Structure"
         width={1200}
         height={600}
-        className="w-[90%] mb-24 cursor-pointer"
+        className="w-[90%] mb-24 cursor-pointer hover:scale-105 hover:shadow-lg transition-transform duration-300 ease-in-out"
         onClick={() => setOpen(true)}
       />
       <Lightbox
