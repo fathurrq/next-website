@@ -58,7 +58,7 @@ export default function OurServicesSection() {
         <div
             id={"our-services"}
             ref={servicesRef}
-            className="relative w-full h-[100vh] text-white bg-black overflow-hidden mb-6"
+            className="relative w-full h-[110vh] text-white bg-black overflow-hidden mb-6"
         >
             {/* <div
                 className="flex flex-col justify-center items-center bg-[linear-gradient(to_bottom,rgba(11,63,101,1),rgba(11,63,101,1)_30%,rgb(134,167,212))] py-32">
@@ -86,7 +86,7 @@ export default function OurServicesSection() {
                 <Image
                     src="/services-bg.jpg"
                     alt="Background"
-                    className="w-screen h-[100vh] object-cover z-0"
+                    className="w-screen h-[110vh] object-cover z-0"
                     width={1920}
                     height={1080}
                 />
@@ -116,7 +116,7 @@ export default function OurServicesSection() {
                             target={"_blank"}
                             rel={"noopener noreferrer"}
                             className="w-full md:w-[calc(50%-30px)] 2xl:w-[calc(33.333%-30px)]
-                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[300px] 2xl:h-[350px]"
+                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[250px] 2xl:h-[300px]"
                         >
                             {/* Background Image */}
                             <div
