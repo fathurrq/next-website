@@ -167,20 +167,21 @@ export default function CompanyProfile() {
                     <div>
                         <h3 className="text-2xl 2xl:text-[64px] font-bold mb-4 text-[#0A436A]">Our Vision</h3>
                         <ul className="2xl:text-2xl font-semibold list-disc list-inside text-[#0A436A] space-y-2">
-                            <li>World class integrated assurance group, empowering the nation by building trust</li>
+                            <li>To be a global and world class Indonesian integrated assurance group that is innovative, trusted and value creating to stakeholders</li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-2xl 2xl:text-[64px] font-bold mt-8 mb-4 text-[#0A436A]">Our Mission</h3>
-                        <ul className="2xl:text-2xl font-semibold list-disc list-inside text-[#0A436A] space-y-4">
-                            <li>Providing comprehensive and trusted services by strengthening capacity and capabilities
-                                related to human resources, technology and innovation through synergy and business
-                                integration.
+                        <ul className="2xl:text-xl font-semibold list-disc list-inside text-[#0A436A] space-y-4 text-justify">
+                            <li>
+                                Providing added value to stakeholders through assuring compliance to quality standard as well as increasing efficiency, safety, and security;
                             </li>
-                            <li>Providing added value to stakeholders through quality standardization, increasing
-                                efficiency, safety and security.
+                            <li>
+                                Providing comprehensive and trusted services by strengthening capacity and capabilities related to human resources, technology, and innovation through synergy and business integration;
                             </li>
-                            <li>Building networks and strengthening reputation in Asia Pacific.</li>
+                            <li>
+                                Expanding networks and strengthening reputation at the global level in order to support the vision of Golden Indonesia 2045.
+                            </li>
                         </ul>
                     </div>
                 </div>

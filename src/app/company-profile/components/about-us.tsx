@@ -31,25 +31,22 @@ export default function AboutUs() {
 
         <h2 className="text-3xl md:text-5xl font-bold">Get to Know Us</h2>
         <p className="text-sm md:text-lg leading-relaxed">
-          Indonesian Classification Bureau (BKI) is the sole national
-          classification society of Indonesia, established on July 1, 1964.
-          Appointed by the Government of the Republic of Indonesia, BKI is
-          responsible for providing classification services and statutory
-          certification for Indonesian-flagged vessels.
+          Biro Klasifikasi Indonesia (BKI) is the national classification society of Indonesia, established in 1964 to strengthen the country’s maritime independence. For more than six decades, BKI has been trusted for its independence, integrity, and expertise in safeguarding assets across the maritime, energy, infrastructure, and industrial sectors.
         </p>
         <p className="text-sm md:text-lg leading-relaxed">
-          With decades of experience, BKI continues to strengthen its role in
-          supporting maritime safety, environmental protection, and industry
-          standards. As a trusted partner, BKI is committed to delivering
-          professional services that meet international regulations and the
-          needs of stakeholders across the maritime sector.
+          As a Classification Society, BKI develops and applies technical standards for the design, construction, and survey of ships and offshore structures. Vessels built and maintained in accordance with these standards are awarded a Classification Certificate, confirming compliance with recognized international safety and quality benchmarks.
         </p>
         <p className="text-sm md:text-lg leading-relaxed">
-          Looking ahead, BKI is dedicated to innovation and digital
-          transformation to enhance service efficiency and competitiveness. By
-          expanding capabilities and collaborating with global partners, BKI
-          ensures sustainable growth while contributing to the advancement of
-          Indonesia’s maritime industry.
+          BKI also carries out statutory survey and certification services on behalf of the Government of Indonesia and foreign flag states. These include Load Line, ISM Code, and ISPS Code certification, ensuring compliance with IMO conventions and global maritime regulations.
+        </p>
+        <p className="text-sm md:text-lg leading-relaxed">
+          Over the years, BKI has evolved into a comprehensive TICCS service provider (Testing, Inspection, Certification, Classification, and Statutory), supporting industries through inspection, testing, consultancy, and certification services. Our solutions are designed to ensure safety, reliability, and sustainability across multiple sectors.
+        </p>
+        <p className="text-sm md:text-lg leading-relaxed">
+          Headquartered in Jakarta with branch offices in major Indonesian ports and Singapore, BKI also maintains cooperative agreements with leading international classification societies, including mutual recognition and dual class arrangements. This network enables BKI to serve both domestic and global clients with confidence.
+        </p>
+        <p className="text-sm md:text-lg leading-relaxed">
+          Through continuous investment in people, research, and digital innovation, BKI remains committed to delivering world-class services that support industry progress while reinforcing Indonesia’s maritime sovereignty.
         </p>
 
         {/* Button */}

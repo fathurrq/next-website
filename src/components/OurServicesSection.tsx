@@ -98,7 +98,7 @@ export default function OurServicesSection() {
                 style={{y: servicesSection, willChange: "transform"}}
                 className="absolute inset-0 h-[calc(100vh+240px)] bg-[linear-gradient(to_bottom,rgba(11,63,101,0.25),rgba(11,63,101,0.5)_20%,rgba(11,63,101,1)_75%,rgba(0,0,0,1)_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
             >
-                <div className="flex flex-col gap-12 mb-20">
+                <div className="flex flex-col gap-6 mb-20">
                     <div className="text-5xl md:text-6xl text-white text-center">
                         Our Services
                     </div>
@@ -108,7 +108,7 @@ export default function OurServicesSection() {
                     </p>
                 </div>
                 <div
-                    className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] mx-[50px] 2xl:mx-[70px] pb-[100px] 2xl:pb-0">
+                    className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] mx-6 md:mx-24 pb-[100px] 2xl:pb-0">
                     {services.map((service, index) => (
                         <Link
                             key={index}
@@ -130,12 +130,13 @@ export default function OurServicesSection() {
 
                             {/* Content */}
                             <div
-                                className="relative z-10 flex flex-col justify-between gap-[15px] w-full h-full pb-[8px]">
+                                className="relative z-10 flex flex-col justify-end gap-[15px] w-full h-full pb-[8px]">
                                 {/* <Image
                                     src={service.icon}
                                     alt={service.title}
                                     width={32}
                                     height={22}
+                                    className="hidden"
                                 /> */}
                                 <div className="flex flex-col gap-1">
                                     <p className="text-4xl 2xl:text-5xl text-white group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
