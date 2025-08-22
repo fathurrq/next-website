@@ -31,7 +31,7 @@ export default function HeroSection() {
 
     // trigger main transition after 1s
     useEffect(() => {
-        const t = setTimeout(() => setStartTransition(true), 1000);
+        const t = setTimeout(() => setStartTransition(true), 50);
         return () => clearTimeout(t);
     }, [setStartTransition]);
 
@@ -48,9 +48,7 @@ export default function HeroSection() {
             {/* Background video (wrapped so we can translate it) */}
             <motion.div className="absolute inset-0" style={{y: videoY, willChange: "transform"}}>
                 <video
-                    className={`w-full h-full object-cover transition-all duration-1000 ${
-                        startTransition ? "blur-0 scale-100" : "blur-md scale-105"
-                    }`}
+                    className={`w-full h-full object-cover transition-all duration-1000 blur-0 scale-100`}
                     src="/hero-banner-bki.mp4"
                     autoPlay
                     loop
@@ -59,7 +57,7 @@ export default function HeroSection() {
             </motion.div>
 
             {/* INTRO overlay (your multi-gradient) → fades out as before */}
-            <motion.div
+            {/* <motion.div
                 className="absolute inset-0 z-10 pointer-events-none"
                 initial={{opacity: 1}}
                 animate={{opacity: startTransition ? 0 : 1}}
@@ -73,13 +71,13 @@ export default function HeroSection() {
                     backdropFilter: "blur(22px)",
                     WebkitBackdropFilter: "blur(22px)",
                 }}
-            />
+            /> */}
 
             {/* AFTER transition: single dark gradient over whole hero (parallax-softened) */}
             <motion.div
                 className="absolute inset-0 z-20 pointer-events-none"
                 initial={{opacity: 0}}
-                animate={{opacity: startTransition ? 1 : 0}}
+                animate={{opacity: 1}}
                 transition={{duration: 1}}
                 style={{
                     /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -90,7 +88,7 @@ export default function HeroSection() {
 
             {/* Blue parallax wash that appears while scrolling (pic 1 vibe) */}
             <motion.div
-                className="absolute inset-x-0 bottom-0 z-20 pointer-events-none h-[55vh]"
+                className="absolute inset-x-0 bottom-0 z-20 pointer-events-none h-[10vh]"
                 style={{
                     // y: washY,
                     // opacity: washOpacity,
@@ -139,7 +137,7 @@ export default function HeroSection() {
                                 Your Global Partner
                             </div>
                             <div className="text-white/70 mt-2 md:text-3xl">In</div>
-                            <div className="text-white text-sm md:text-4xl">TICCS (Testing, Inspection, Certification,
+                            <div className="text-white text-sm md:text-2xl">TICCS (Testing, Inspection, Certification,
                                 Classification and Statutory)
                             </div>
                         </motion.div>
