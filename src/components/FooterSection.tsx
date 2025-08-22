@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import styles from "./FooterSection.module.css";
 import Link from "next/link";
+import Image from 'next/image';
 const aboutUs = [
   {
     title: "Company Profile",
@@ -237,7 +238,7 @@ export default function FooterSection() {
                   {/* Render submenu kalau ada children */}
                   {menu.children && (
                     <ul
-                      className="pl-4 mt-2 space-y-2 md:max-h-0 md:opacity-0 overflow-hidden transition-all duration-1000
+                      className="pl-4 mt-2 space-y-2 max-h-0 opacity-0 overflow-hidden transition-all duration-1000
                            group-hover:max-h-screen group-hover:opacity-100 group-focus-within:max-h-screen group-focus-within:opacity-100"
                     >
                       {menu.children.map((child, childIdx) => (
@@ -282,9 +283,9 @@ export default function FooterSection() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mt-6 gap-4 text-white">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <img src="/bki-white.png" alt="BKI Logo" className="h-7 w-auto" />
-          </div>
+            <div className="flex items-center gap-2">
+            <Image src="/bki-white.png" alt="BKI Logo" className="h-7 w-auto" width={80} height={28} />
+            </div>
 
           {/* Copyright */}
           <div className="text-xs md:text-sm text-center font-light">

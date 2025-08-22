@@ -3,6 +3,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import Image from "next/image";
 
 export default function WhyTrustSection() {
   const IMGS = ["/bki-marine.jpg", "/bki-marine2.jpg", "/bki-marine3.jpg", "/bki-marine4.jpg", "/bki-marine5.jpg"];
@@ -31,25 +32,29 @@ export default function WhyTrustSection() {
           {/* Set A */}
           <div className="flex h-full w-1/2">
             {IMGS.map((src, i) => (
-              <img
-                key={`A-${i}`}
-                src={src}
-                alt=""
-                className="h-full w-1/4 flex-none object-cover"
-                aria-hidden
-              />
+              <div key={`A-${i}`} className="relative h-full w-1/4 flex-none">
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  aria-hidden
+                />
+              </div>
             ))}
           </div>
           {/* Set B (for seamless loop look) */}
           <div className="flex h-full w-1/2">
             {IMGS.map((src, i) => (
-              <img
-                key={`B-${i}`}
-                src={src}
-                alt=""
-                className="h-full w-1/4 flex-none object-cover"
-                aria-hidden
-              />
+              <div key={`B-${i}`} className="relative h-full w-1/4 flex-none">
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  aria-hidden
+                />
+              </div>
             ))}
           </div>
         </motion.div>

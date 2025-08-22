@@ -80,7 +80,8 @@ export default function HeroSection() {
                 animate={{opacity: 1}}
                 transition={{duration: 1}}
                 style={{
-                    opacity: darkOpacity as any,
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    opacity: darkOpacity,
                     background: "linear-gradient(0deg, #000 5%, rgba(0,0,0,0.30) 100%)",
                     // background: 'red'
                 }}
