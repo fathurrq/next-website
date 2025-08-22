@@ -99,10 +99,10 @@ export default function OurServicesSection() {
                 className="absolute inset-0 h-[calc(100vh+240px)] bg-[linear-gradient(to_bottom,rgba(11,63,101,0.25),rgba(11,63,101,0.5)_20%,rgba(11,63,101,1)_75%,rgba(0,0,0,1)_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
             >
                 <div className="flex flex-col gap-12 mb-20">
-                    <h1 className="text-5xl md:text-8xl text-white text-center">
+                    <div className="text-5xl md:text-6xl text-white text-center">
                         Our Services
-                    </h1>
-                    <p className="text-2xl md:text-4xl text-white text-center">
+                    </div>
+                    <p className="text-2xl md:text-2xl text-white text-center">
                         Discover maritime services built for safety, compliance, and
                         excellence.
                     </p>
@@ -131,17 +131,17 @@ export default function OurServicesSection() {
                             {/* Content */}
                             <div
                                 className="relative z-10 flex flex-col justify-between gap-[15px] w-full h-full pb-[8px]">
-                                <Image
+                                {/* <Image
                                     src={service.icon}
                                     alt={service.title}
                                     width={32}
                                     height={22}
-                                />
+                                /> */}
                                 <div className="flex flex-col gap-1">
-                                    <p className="text-4xl 2xl:text-5xl text-white opacity-60 group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
+                                    <p className="text-4xl 2xl:text-5xl text-white group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
                                         {service.title}
                                     </p>
-                                    <p className="text-sm 2xl:text-[16px] text-white opacity-60 group-hover:opacity-100 transition-opacity duration-1000">
+                                    <p className="text-sm 2xl:text-[16px] text-white group-hover:opacity-100 transition-opacity duration-1000">
                                         {service.description}
                                     </p>
                                 </div>

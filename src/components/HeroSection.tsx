@@ -145,7 +145,7 @@ export default function HeroSection() {
                         </motion.div>
 
                         {/* Lottie (kept as-is) */}
-                        <motion.div
+                        {/* <motion.div
                             key="radar-lottie"
                             className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 w-[550px] h-[150px] [clip-path:ellipse(50%_100%_at_50%_100%)]"
                             initial={{opacity: 0, y: 20}}
@@ -153,7 +153,7 @@ export default function HeroSection() {
                             exit={{opacity: 0, y: 10, transition: {duration: 0.25}}}
                         >
                             <DotLottieReact autoplay loop src="/fv_assets.lottie" style={{width: 550, height: 300}}/>
-                        </motion.div>
+                        </motion.div> */}
                     </>
                 )}
             </AnimatePresence>

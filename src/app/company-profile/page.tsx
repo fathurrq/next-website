@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CollapsibleTable from "./components/table";
 import { StructureImageLightbox } from "./components/lightbox";
+import Carousel from "./components/carousel";
 
 const timeline: {
     year: string
@@ -156,27 +157,7 @@ export default function CompanyProfile() {
 
             {/* Vision & Mission */}
             <section className="w-full px-6 2xl:px-[105px] py-16 grid md:grid-cols-2 gap-12 bg-white">
-                <div
-                    className="relative bg-[#0A436A] text-white p-6 2xl:py-[53px] 2xl:px-[35px] rounded-lg shadow-lg h-[50vh]">
-                    <h2 className="text-4xl 2xl:text-[64px] font-bold">
-                        Integrity <span className="text-[#ffffff50]">is our</span> <br/> compass,
-                        quality <span className="text-[#ffffff50]">is our</span> anchor
-                    </h2>
-                    <div
-                        className="bg-[#ffffff50] absolute bottom-[28px] left-[24px] right-[24px] flex justify-between items-center w-auto py-[10px] 2xl:py-[30px] px-3 2xl:px-[24px]">
-                        <Image src={'/left-arrow.png'} alt={"Left Arrow"} width={32} height={30}
-                               className="w-4 2xl:w-[32px] h-4 2xl:h-[30px]"/>
-                        <div className="flex justify-center items-center gap-1 2xl:gap-[17px]">
-                            <p className="2xl:text-2xl font-semibold text-white">Our Culture</p>
-                            <p className="2xl:text-2xl font-semibold text-white">1<span
-                                className="text-[#ffffff50]">/8</span></p>
-                        </div>
-                        <Image src={'/right-arrow.png'} alt={"Right Arrow"} width={32} height={30}
-                               className="w-4 2xl:w-[32px] h-4 2xl:h-[30px]"/>
-                    </div>
-                    <Image src={'/quotation-mark.png'} alt={'Quotation Mark'} width={245} height={192}
-                           className="absolute bottom-[10vh] right-[19px] w-[147px] h-[115px] 2xl:w-[245px] 2xl:h-[192px]"/>
-                </div>
+                <Carousel />
                 <div className="flex flex-col justify-between">
                     <div>
                         <h3 className="text-2xl 2xl:text-[64px] font-bold mb-4 text-[#0A436A]">Our Vision</h3>
@@ -269,39 +250,7 @@ export default function CompanyProfile() {
                 </div>
             </section>
 
-            {/* Committees */}
-            <section
-                className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center">
-                <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center">Technical Committee</span>
-                <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3">Our world-class
-                    technical experts
-                    who
-                    drive innovation and ensure the highest standards of technology implementation across all our
-                    projects</div>
-                {/* <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
-                    {Array.from({length: 4}).map((_, i) => (
-                        <div
-                            key={i}
-                            className="shadow overflow-hidden relative"
-                        >
-                            <Image src="/faces-of-innovation/1.png" alt="member"
-                                   width={484} height={422}
-                                   className="object-cover rounded-xs"/>
-                            <div
-                                className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
-                                <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
-                                <p className="text-sm 2xl:text-2xl">Position</p>
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
-                <div className="w-full px-6 md:px-24">
-                    <CollapsibleTable />
-                </div>
-            </section>
-
-            {/* Board Governance */}
+                        {/* Board Governance */}
             <section className="bg-white py-16 flex flex-col items-center justify-center pb-36">
                 <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-black">Board
                     Governance</span>
@@ -362,6 +311,38 @@ export default function CompanyProfile() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Committees */}
+            <section
+                className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center">
+                <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center">Technical Committee</span>
+                <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3">Our world-class
+                    technical experts
+                    who
+                    drive innovation and ensure the highest standards of technology implementation across all our
+                    projects</div>
+                {/* <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
+                    {Array.from({length: 4}).map((_, i) => (
+                        <div
+                            key={i}
+                            className="shadow overflow-hidden relative"
+                        >
+                            <Image src="/faces-of-innovation/1.png" alt="member"
+                                   width={484} height={422}
+                                   className="object-cover rounded-xs"/>
+                            <div
+                                className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
+                                <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p>
+                                <p className="font-bold 2xl:text-3xl">Ahmad Johnny Depp</p>
+                                <p className="text-sm 2xl:text-2xl">Position</p>
+                            </div>
+                        </div>
+                    ))}
+                </div> */}
+                <div className="w-full px-6 md:px-24">
+                    <CollapsibleTable />
                 </div>
             </section>
 
