@@ -51,7 +51,7 @@ export default function HeroSection() {
                     className={`w-full h-full object-cover transition-all duration-1000 ${
                         startTransition ? "blur-0 scale-100" : "blur-md scale-105"
                     }`}
-                    src="/hero-video.mp4"
+                    src="/hero-banner-bki.mp4"
                     autoPlay
                     loop
                     muted
