@@ -53,22 +53,22 @@ const boardOfCommissioner = [
     {
         name: "Susyanto",
         position: "President Commissioner / Independent Commissioner",
-        image: "bod-susyanto.png"
+        image: "/bod/bod-susyanto.png"
     },
     {
         name: "Rainoc",
         position: "Commissioner",
-        image: "bod-rainoc.png"
+        image: "/bod/bod-rainoc.png"
     },
     {
         name: "Virgo Eresta Jaya",
         position: "Commissioner",
-        image: "bod-virgo.png"
+        image: "/bod/bod-virgo.png"
     },
     {
         name: "Subagiyo",
         position: "Commissioner",
-        image: "bod-subagiyo.png"
+        image: "/bod/bod-subagiyo.png"
     },
 ]
 
@@ -201,26 +201,7 @@ export default function CompanyProfile() {
                         <p className="text-lg 2xl:text-2xl font-bold text-[#FFFFFF75]">The Faces of Innovation</p>
                         <div className="bg-gradient-to-r from-[#FFFFFF75] to-[#FFFFFF00] h-[1px] w-2/3 2xl:w-5/6"/>
                     </div>
-                    <div
-                        className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pt-3 2xl:pt-[21px]">
-                        {boardOfCommissioner.map((member, i) => (
-                            <div
-                                key={i}
-                                className="shadow overflow-hidden relative"
-                            >
-                                <Image src={`/bod/${member.image}`} alt={member.name}
-                                       width={484} height={422}
-                                       className="object-cover rounded-xs"/>
-                                <div
-                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
-                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
-                                    <p className="text-sm 2xl:text-2xl">{member.position}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    {/* <ImageScroll /> */}
+                    <ImageScroll members={boardOfCommissioner}/>
                 </div>
 
                 <div className="pt-28 2xl:pt-40 w-full px-6 md:px-24 2xl:px-[196px]">
@@ -267,23 +248,8 @@ export default function CompanyProfile() {
                         <p className="md:text-2xl 2xl:text-[32px] text-black md:flex-1/2 md:text-end">Independent oversight and
                             strategic guidance from industry leaders and subject matter experts</p>
                     </div>
-                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
-                        {boardOfCommissioner.map((member, i) => (
-                            <div
-                                key={i}
-                                className="shadow overflow-hidden relative"
-                            >
-                                <Image src={`/bod/${member.image}`} alt="member"
-                                       width={484} height={422}
-                                       className="object-cover rounded-xs"/>
-                                <div
-                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
-                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
-                                    <div className="text-sm  md:text-xl">{member.position}</div>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="pl-18">
+                        <ImageScroll members={boardOfCommissioner}/>
                     </div>
 
                     <div className="flex flex-row justify-center items-center my-14">
@@ -295,23 +261,8 @@ export default function CompanyProfile() {
                         <p className="md:text-2xl 2xl:text-[32px] text-black md:flex-1/2 md:text-end">Executive leadership team
                             responsible for day-to-day operations and strategic implementation</p>
                     </div>
-                    <div className="flex flex-row items-center gap-3 2xl:gap-6 overflow-x-auto w-max pl-18">
-                        {boardOfDirectors.map((member, i) => (
-                            <div
-                                key={i}
-                                className="shadow overflow-hidden relative"
-                            >
-                                <Image src={member.image} alt="member"
-                                       width={484} height={422}
-                                       className="object-cover rounded-xs"/>
-                                <div
-                                    className="p-2 absolute bottom-4 left-4 right-4 bg-[#00000075] flex flex-col rounded-sm">
-                                    {/* <p className="font-semibold text-[#FFFFFF60] 2xl:text-[20px] text-xs">2024 - 2025</p> */}
-                                    <p className="font-bold 2xl:text-3xl">{member.name}</p>
-                                    <p className="text-sm md:text-xl">{member.position}</p>
-                                </div>
-                            </div>
-                        ))}
+                    <div className="pl-18">
+                        <ImageScroll members={boardOfDirectors}/>
                     </div>
                 </div>
             </section>
