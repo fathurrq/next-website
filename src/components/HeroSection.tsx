@@ -39,7 +39,7 @@ export default function HeroSection() {
     useEffect(() => {
         if (!startTransition) return;
         setShowIntroText(true);
-        const t = setTimeout(() => setShowIntroText(false), 3000);
+        const t = setTimeout(() => setShowIntroText(false), 2000);
         return () => clearTimeout(t);
     }, [startTransition]);
 
@@ -127,11 +127,11 @@ export default function HeroSection() {
                             style={{y: titleY, willChange: "transform"}}
                         >
                             <div
-                                className="text-5xl md:text-8xl font-montserrat text-transparent bg-clip-text tracking-tight"
+                                className="jost-font font-medium text-5xl md:text-8xl text-transparent bg-clip-text tracking-tight"
                                 style={{
                                     backgroundImage:
-                                        "linear-gradient(91deg, #FFF 21.08%, #B1D6EF 38%, #B3C5D2 58.04%, rgba(255, 255, 255, 0.91) 75.45%)",
-                                        textShadow: "0 4px 20px rgba(0, 0, 0, 0.50)"
+                                        "linear-gradient(90deg, #0A346A -40.69%, #94BFD9 46.94%, #FFF 100%)",
+                                        textShadow: "0 4px 34px #000"
                                 }}
                             >
                                 Your Global Partner

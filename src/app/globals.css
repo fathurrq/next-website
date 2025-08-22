@@ -31,6 +31,10 @@ body {
   line-height: 1.6;
 }
 
+.jost-font {
+  font-family: var(--font-jost), sans-serif; /* default */
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
