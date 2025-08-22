@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useHeroTransition } from "../TransitionProvider";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Cooperation() {
     const [selectedImage, setSelectedImage] = useState("");
@@ -102,7 +103,7 @@ export default function Cooperation() {
                     <h1 className="mt-4 text-4xl 2xl:text-6xl font-semibold">
                         Our Achievements
                     </h1>
-                    <p className="mt-4 text-lg 2xl:text-xl max-w-1/2">
+                    <p className="mt-4 text-xl 2xl:text-3xl max-w-1/2">
                         Highlights that reflect our growth and commitment.
                     </p>
                 </div>
@@ -126,13 +127,13 @@ export default function Cooperation() {
                     {/* Cooperation Section */}
                     <div className="mt-10 flex flex-col gap-2">
                         <div className="container flex justify-between">
-                            <h3 className="text-4xl font-semibold mb-2">Cooperation</h3>
-                            <p className="text-white mb-6">Connecting with partners to strengthen maritime excellence.</p>
+                            <h3 className="text-4xl 2xl:text-6xl font-semibold mb-2">Cooperation</h3>
+                            <p className="text-white text-end 2xl:text-3xl mb-6">Connecting with partners to strengthen maritime excellence.</p>
                         </div>
 
                         {/* Classification Segment */}
                         <div className="container flex flex-col text-2xl font-bold">
-                            <h4 className="font-semibold text-xl text-white/70 mb-2">
+                            <h4 className="font-semibold text-xl 2xl:text-3xl text-white/70 mb-2">
                                 CLASSIFICATION SEGMENT
                             </h4>
                             <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-3/4 mb-6"></div>
@@ -145,15 +146,17 @@ export default function Cooperation() {
                                     {/* Header */}
                                     <div className="flex flex-col items-start">
                                         <div className="flex gap-4 items-center">
-                                            <img
+                                            <Image
+                                                height={67}
+                                                width={67}
                                                 src={"/logo-kemenhub.png"}
                                                 alt={"logo-kemenhub"}
-                                                className="w-10 h-10 object-contain"
+                                                className="w-10 h-10 2xl:w-16 2xl:h-16"
                                             />
-                                            <h5 className="text-lg font-bold">{item.title}</h5>
+                                            <h5 className="text-lg 2xl:text-3xl font-bold">{item.title}</h5>
                                         </div>
                                         <div>
-                                            <p className="font-normal text-sm mt-2 leading-relaxed">
+                                            <p className="font-normal text-sm 2xl:text-2xl mt-2 leading-relaxed">
                                                 {item.content}
                                             </p>
                                         </div>
@@ -163,11 +166,13 @@ export default function Cooperation() {
                                     {item.images && item.images.length > 0 && (
                                         <div className="flex flex-wrap gap-3 mt-2">
                                             {item.images.map((img, i) => (
-                                                <img
+                                                <Image
+                                                height={120}
+                                                width={120}
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    className="w-20 h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
                                                     onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
@@ -181,7 +186,7 @@ export default function Cooperation() {
                         {/* Commercial Segment */}
                         {/* Classification Segment */}
                         <div className="container flex flex-col text-2xl font-bold">
-                            <h4 className={`font-semibold mb-2 text-xl text-white/70`}>COMMERCIAL SEGMENT</h4>
+                            <h4 className="font-semibold text-xl 2xl:text-3xl text-white/70 mb-2">COMMERCIAL SEGMENT</h4>
                             <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-3/4 mb-6"></div>
                             {commercialData.map((item, index) => (
                                 <div
@@ -191,15 +196,17 @@ export default function Cooperation() {
                                     {/* Header */}
                                     <div className="flex flex-col items-start">
                                         <div className="flex gap-4 items-center">
-                                            <img
+                                            <Image
+                                                height={67}
+                                                width={67}
                                                 src={"/logo-kemenhub.png"}
                                                 alt={"logo-kemenhub"}
-                                                className="w-10 h-10 object-contain"
+                                                className="w-10 h-10 2xl:w-16 2xl:h-16"
                                             />
-                                            <h5 className="text-lg font-bold">{item.title}</h5>
+                                            <h5 className="text-lg 2xl:text-3xl font-bold">{item.title}</h5>
                                         </div>
                                         <div>
-                                            <p className="font-normal text-sm mt-2 leading-relaxed">
+                                            <p className="font-normal text-sm 2xl:text-2xl mt-2 leading-relaxed">
                                                 {item.content}
                                             </p>
                                         </div>
@@ -209,11 +216,13 @@ export default function Cooperation() {
                                     {item.images && item.images.length > 0 && (
                                         <div className="flex flex-wrap gap-3 mt-2">
                                             {item.images.map((img, i) => (
-                                                <img
+                                                <Image
+                                                height={120}
+                                                width={120}
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    className="w-20 h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
                                                     onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
@@ -227,9 +236,9 @@ export default function Cooperation() {
                     {/* Member of Association */}
                     <div className="mt-12 container">
                         <h3 className="text-2xl font-semibold mb-6">Member of Association</h3>
-                        <div className="flex flex-wrap gap-8 items-center">
+                        <div className="flex flex-wrap justify-between">
                             {logo.map((a, i) => (
-                                <img src={a.src} alt={a.alt} key={i} className="h-32" />
+                                <Image width={500} height={163} src={a.src} alt={a.alt} key={i} className="w-auto h-20 2xl:h-40" />
                             ))}
                         </div>
                     </div>
@@ -239,10 +248,12 @@ export default function Cooperation() {
             {selectedImage && (
                 <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
                     <div className="relative">
-                        <img
+                        <Image
+                            width={500}
+                            height={500}
                             src={selectedImage}
                             alt="expanded"
-                            className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-lg"
+                            className="w-auto h-1/2 rounded-lg shadow-lg text-center"
                         />
                         <button
                             className="absolute cursor-pointer -top-4 -right-4 bg-white text-black rounded-full px-2 py-1 font-bold shadow hover:bg-gray-200"
