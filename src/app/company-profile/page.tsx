@@ -8,6 +8,7 @@ import CollapsibleTable from "./components/table";
 import { StructureImageLightbox } from "./components/lightbox";
 import Carousel from "./components/carousel";
 import ImageScroll from "./components/image-scroll";
+import AboutUs from "./components/about-us";
 
 const timeline: {
     year: string
@@ -155,6 +156,9 @@ export default function CompanyProfile() {
                     </span>
                 </div>
             </section>
+
+            {/* about us */}
+            <AboutUs />
 
             {/* Vision & Mission */}
             <section className="w-full px-6 2xl:px-[105px] py-16 grid md:grid-cols-2 gap-12 bg-white">
