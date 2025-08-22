@@ -113,66 +113,72 @@ export default function Cooperation() {
             <div className="mt-[-5rem] md:mt-[-10rem] w-full relative z-10">
                 <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-10">
 
-                    <div className="container flex flex-col gap-6 items-center">
+                    <div className="container flex flex-col gap-6 items-center text-center md:text-left">
                         {/* Breadcrumbs */}
-                        <div className="text-sm text-white">Home / <span className="text-white/50">Achievement</span></div>
+                        <div className="text-xs md:text-sm text-white">
+                            Home / <span className="text-white/50">Achievement</span>
+                        </div>
 
                         {/* Title */}
-                        <h2 className="text-4xl md:text-5xl font-medium text-white">Our Achievements</h2>
-                        <p className="text-lg md:text-xl text-white/80">
+                        <h2 className="text-2xl md:text-5xl font-medium text-white">
+                            Our Achievements
+                        </h2>
+                        <p className="text-base md:text-xl text-white/80">
                             Highlights that reflect our growth and commitment.
                         </p>
                     </div>
 
                     {/* Cooperation Section */}
                     <div className="mt-10 flex flex-col gap-2">
-                        <div className="container flex justify-between">
-                            <h3 className="text-4xl 2xl:text-6xl font-semibold mb-2">Cooperation</h3>
-                            <p className="text-white text-end 2xl:text-3xl mb-6">Connecting with partners to strengthen maritime excellence.</p>
+                        <div className="container flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                            <h3 className="text-2xl md:text-4xl 2xl:text-6xl font-semibold mb-2 md:mb-0 text-center md:text-left">
+                                Cooperation
+                            </h3>
+                            <p className="text-sm md:text-base 2xl:text-3xl text-white text-center md:text-end">
+                                Connecting with partners to strengthen maritime excellence.
+                            </p>
                         </div>
 
                         {/* Classification Segment */}
-                        <div className="container flex flex-col text-2xl font-bold">
-                            <h4 className="font-semibold text-xl 2xl:text-3xl text-white/70 mb-2">
+                        <div className="container flex flex-col text-base md:text-2xl font-bold">
+                            <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2 text-center md:text-left">
                                 CLASSIFICATION SEGMENT
                             </h4>
-                            <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-3/4 mb-6"></div>
+                            <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-full md:w-3/4 mb-6"></div>
 
                             {classificationData.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-black/60 rounded-md p-6 mb-6 text-white"
+                                    className="bg-black/60 rounded-md p-4 md:p-6 mb-6 text-white"
                                 >
                                     {/* Header */}
-                                    <div className="flex flex-col items-start">
-                                        <div className="flex gap-4 items-center">
+                                    <div className="flex flex-col items-start gap-2">
+                                        <div className="flex gap-3 items-center">
                                             <Image
                                                 height={67}
                                                 width={67}
                                                 src={"/logo-kemenhub.png"}
                                                 alt={"logo-kemenhub"}
-                                                className="w-10 h-10 2xl:w-16 2xl:h-16"
+                                                className="w-8 h-8 md:w-10 md:h-10 2xl:w-16 2xl:h-16"
                                             />
-                                            <h5 className="text-lg 2xl:text-3xl font-bold">{item.title}</h5>
+                                            <h5 className="text-base md:text-lg 2xl:text-3xl font-bold">{item.title}</h5>
                                         </div>
-                                        <div>
-                                            <p className="font-normal text-sm 2xl:text-2xl mt-2 leading-relaxed">
-                                                {item.content}
-                                            </p>
-                                        </div>
+                                        <p className="font-normal text-xs md:text-sm 2xl:text-2xl mt-2 md:mt-0 leading-relaxed">
+                                            {item.content}
+                                        </p>
                                     </div>
 
                                     {/* Images / Thumbnails */}
                                     {item.images && item.images.length > 0 && (
-                                        <div className="flex flex-wrap gap-3 mt-2">
+                                        <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mt-3">
                                             {item.images.map((img, i) => (
                                                 <Image
-                                                height={120}
-                                                width={120}
+                                                    height={120}
+                                                    width={120}
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    className="w-16 h-16 md:w-20 md:h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
                                                     onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
@@ -184,45 +190,45 @@ export default function Cooperation() {
 
 
                         {/* Commercial Segment */}
-                        {/* Classification Segment */}
-                        <div className="container flex flex-col text-2xl font-bold">
-                            <h4 className="font-semibold text-xl 2xl:text-3xl text-white/70 mb-2">COMMERCIAL SEGMENT</h4>
-                            <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-3/4 mb-6"></div>
+                        <div className="container flex flex-col text-base md:text-2xl font-bold">
+                            <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2 text-center md:text-left">
+                                COMMERCIAL SEGMENT
+                            </h4>
+                            <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-full md:w-3/4 mb-6"></div>
+
                             {commercialData.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="bg-black/60 rounded-md p-6 mb-6 text-white shadow-md"
+                                    className="bg-black/60 rounded-md p-4 md:p-6 mb-6 text-white"
                                 >
                                     {/* Header */}
-                                    <div className="flex flex-col items-start">
-                                        <div className="flex gap-4 items-center">
+                                    <div className="flex flex-col items-start gap-2">
+                                        <div className="flex gap-3 items-center">
                                             <Image
                                                 height={67}
                                                 width={67}
                                                 src={"/logo-kemenhub.png"}
                                                 alt={"logo-kemenhub"}
-                                                className="w-10 h-10 2xl:w-16 2xl:h-16"
+                                                className="w-8 h-8 md:w-10 md:h-10 2xl:w-16 2xl:h-16"
                                             />
-                                            <h5 className="text-lg 2xl:text-3xl font-bold">{item.title}</h5>
+                                            <h5 className="text-base md:text-lg 2xl:text-3xl font-bold">{item.title}</h5>
                                         </div>
-                                        <div>
-                                            <p className="font-normal text-sm 2xl:text-2xl mt-2 leading-relaxed">
-                                                {item.content}
-                                            </p>
-                                        </div>
+                                        <p className="font-normal text-xs md:text-sm 2xl:text-2xl mt-2 md:mt-0 leading-relaxed">
+                                            {item.content}
+                                        </p>
                                     </div>
 
                                     {/* Images / Thumbnails */}
                                     {item.images && item.images.length > 0 && (
-                                        <div className="flex flex-wrap gap-3 mt-2">
+                                        <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 mt-3">
                                             {item.images.map((img, i) => (
                                                 <Image
-                                                height={120}
-                                                width={120}
+                                                    height={120}
+                                                    width={120}
                                                     key={i}
                                                     src={img.src}
                                                     alt={img.alt}
-                                                    className="w-20 h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
+                                                    className="w-16 h-16 md:w-20 md:h-20 2xl:w-28 2xl:h-28 object-cover rounded-md cursor-pointer hover:scale-105 transition-transform"
                                                     onClick={() => setSelectedImage(img.src)}
                                                 />
                                             ))}
@@ -235,36 +241,47 @@ export default function Cooperation() {
 
                     {/* Member of Association */}
                     <div className="mt-12 container">
-                        <h3 className="text-2xl font-semibold mb-6">Member of Association</h3>
-                        <div className="flex flex-wrap justify-between">
+                        <h3 className="text-lg md:text-2xl font-semibold mb-6 text-center md:text-left">
+                            Member of Association
+                        </h3>
+                        <div className="flex flex-wrap justify-center md:justify-between gap-4">
                             {logo.map((a, i) => (
-                                <Image width={500} height={163} src={a.src} alt={a.alt} key={i} className="w-auto h-20 2xl:h-40" />
+                                <Image
+                                    width={500}
+                                    height={163}
+                                    src={a.src}
+                                    alt={a.alt}
+                                    key={i}
+                                    className="w-auto h-12 md:h-20 2xl:h-40"
+                                />
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
             {/* Modal Popup */}
-            {selectedImage && (
-                <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-                    <div className="relative">
-                        <Image
-                            width={500}
-                            height={500}
-                            src={selectedImage}
-                            alt="expanded"
-                            className="w-auto h-1/2 rounded-lg shadow-lg text-center"
-                        />
-                        <button
-                            className="absolute cursor-pointer -top-4 -right-4 bg-white text-black rounded-full px-2 py-1 font-bold shadow hover:bg-gray-200"
-                            onClick={() => setSelectedImage("")}
-                        >
-                            ✕
-                        </button>
+            {
+                selectedImage && (
+                    <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+                        <div className="relative">
+                            <Image
+                                width={500}
+                                height={500}
+                                src={selectedImage}
+                                alt="expanded"
+                                className="w-auto h-1/2 rounded-lg shadow-lg text-center"
+                            />
+                            <button
+                                className="absolute cursor-pointer -top-4 -right-4 bg-white text-black rounded-full px-2 py-1 font-bold shadow hover:bg-gray-200"
+                                onClick={() => setSelectedImage("")}
+                            >
+                                ✕
+                            </button>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
 
     )
 }
