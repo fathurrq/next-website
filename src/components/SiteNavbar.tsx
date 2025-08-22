@@ -146,12 +146,14 @@ export default function SiteNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // desktop dropdown state
-  const [hovered, setHovered] = useState<number | null>(4);
+  const [hovered, setHovered] = useState<number | null>(null);
   const [subHovered, setSubHovered] = useState<number | null>(null);
   // mobile menu helpers
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<number | null>(null); // which top-level item is expanded
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
+  // Track expanded sub-submenu per top-level item
+  const [subExpanded, setSubExpanded] = useState<{[key: number]: number | null}>({});
 
   // lock body scroll while open + close on Escape
   useEffect(() => {
@@ -460,7 +462,7 @@ export default function SiteNavbar() {
                                     exit={{ opacity: 0 }}
                                     className="min-w-[220px] border-l border-white/20 pl-4"
                                   >
-                                    <ul className="py-0 w-full">
+                                    <ul className="py-4 w-full">
                                       {(
                                         item.submenu![subHovered]?.submenu || []
                                       ).map((ssub) => (
@@ -771,17 +773,73 @@ export default function SiteNavbar() {
                                   }}
                                   className="overflow-hidden"
                                 >
-                                  {item.submenu!.map((sub) => (
-                                    <li key={sub.label}>
-                                      <a
-                                        href={sub.href}
-                                        className="block pl-1 pr-1 py-3 text-white/90 text-[17px] border-b border-white/15 active:scale-[.99] transition"
-                                        onClick={() => setMobileOpen(false)}
-                                      >
-                                        {sub.label}
-                                      </a>
-                                    </li>
-                                  ))}
+                                  {item.submenu!.map((sub, si) => {
+                                    const hasSubSub = Array.isArray(sub.submenu) && sub.submenu.length > 0;
+                                    const isSubOpen = subExpanded[i] === si;
+                                    return (
+                                      <li key={sub.label}>
+                                        <div className="flex items-center justify-between">
+                                          <a
+                                            href={sub.href}
+                                            className="block flex-1 pl-1 pr-1 py-3 text-white/90 text-[17px] border-b border-white/15 active:scale-[.99] transition"
+                                            onClick={() => {
+                                              if (!hasSubSub) setMobileOpen(false);
+                                            }}
+                                          >
+                                            {sub.label}
+                                          </a>
+                                          {hasSubSub && (
+                                            <button
+                                              type="button"
+                                              aria-label={isSubOpen ? "Collapse" : "Expand"}
+                                              className="ml-2 p-1 text-white/70"
+                                              onClick={() =>
+                                                setSubExpanded((prev) => ({
+                                                  ...prev,
+                                                  [i]: isSubOpen ? null : si,
+                                                }))
+                                              }
+                                            >
+                                              <motion.span
+                                                initial={false}
+                                                animate={{ rotate: isSubOpen ? 90 : 0 }}
+                                                transition={{ type: "tween", duration: 0.2 }}
+                                                className="inline-block"
+                                              >
+                                                <ChevronRight size={18} />
+                                              </motion.span>
+                                            </button>
+                                          )}
+                                        </div>
+                                        {/* Sub-submenu collapsible */}
+                                        {hasSubSub && (
+                                          <AnimatePresence initial={false}>
+                                            {isSubOpen && (
+                                              <motion.ul
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.22, ease: "easeInOut" }}
+                                                className="overflow-hidden pl-4 border-l border-white/15 bg-white/5 rounded-md"
+                                              >
+                                                {(sub?.submenu || []).map((ssub) => (
+                                                  <li key={ssub.label}>
+                                                    <a
+                                                      href={ssub.href}
+                                                      className="block py-3 text-white/80 text-[16px] border-b border-white/10 active:scale-[.99] transition"
+                                                      onClick={() => setMobileOpen(false)}
+                                                    >
+                                                      {ssub.label}
+                                                    </a>
+                                                  </li>
+                                                ))}
+                                              </motion.ul>
+                                            )}
+                                          </AnimatePresence>
+                                        )}
+                                      </li>
+                                    );
+                                  })}
                                 </motion.ul>
                               )}
                             </AnimatePresence>
