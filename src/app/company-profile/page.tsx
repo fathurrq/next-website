@@ -129,7 +129,7 @@ export default function CompanyProfile() {
             />
 
             {/* Hero Section */}
-            <section
+            <section id="introduction"
                 className="w-full h-[40vh] relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/company-profile-bg.png')] bg-cover blur-xs bg-top"/>
                 <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
@@ -158,10 +158,11 @@ export default function CompanyProfile() {
             </section>
 
             {/* about us */}
+            {/* AboutUs is part of introduction section above */}
             <AboutUs />
 
             {/* Vision & Mission */}
-            <section className="w-full px-6 2xl:px-[105px] py-16 grid md:grid-cols-2 gap-12 bg-white">
+            <section id="vision-mission-culture" className="w-full px-6 2xl:px-[105px] py-16 grid md:grid-cols-2 gap-12 bg-white">
                 <Carousel />
                 <div className="flex flex-col justify-between">
                     <div>
@@ -188,7 +189,7 @@ export default function CompanyProfile() {
             </section>
 
             {/* History Section */}
-            <section className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16 2xl:pt-[135px]">
+            <section id="history" className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16 2xl:pt-[135px]">
                 <div className="flex flex-col gap-7 px-10 2xl:px-[105px]">
                     <h2 className="text-3xl 2xl:text-[64px] font-bold">Our History</h2>
                     <p className="2xl:text-2xl">
@@ -254,7 +255,9 @@ export default function CompanyProfile() {
                             strategic guidance from industry leaders and subject matter experts</p>
                     </div>
                     <div className="pl-18">
-                        <ImageScroll members={boardOfCommissioner}/>
+                                                <div id="boc">
+                                                    <ImageScroll members={boardOfCommissioner}/>
+                                                </div>
                     </div>
 
                     <div className="flex flex-row justify-center items-center my-14">
@@ -266,14 +269,14 @@ export default function CompanyProfile() {
                         <p className="md:text-2xl 2xl:text-[32px] text-black md:flex-1/2 md:text-end">Executive leadership team
                             responsible for day-to-day operations and strategic implementation</p>
                     </div>
-                    <div className="pl-18">
+                    <div id="bod" className="pl-18">
                         <ImageScroll members={boardOfDirectors}/>
                     </div>
                 </div>
             </section>
 
             {/* Committees */}
-            <section
+            <section id="technical-committee"
                 className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center">
                 <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center">Technical Committee</span>
                 <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3">Our world-class
@@ -305,7 +308,7 @@ export default function CompanyProfile() {
             </section>
 
             {/* Structure */}
-            <section
+            <section id="organization-structure"
                 className="bg-gradient-to-b from-[#0A436A] to-[#000000] py-16 flex flex-col items-center justify-center relative overflow-hidden">
                 {/* Top structure: opacity dari 100% → 0% ke bawah */}
                 <div className="absolute top-0 right-0 left-0 w-full h-2/5

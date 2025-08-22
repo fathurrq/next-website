@@ -32,7 +32,18 @@ function useCompact(breakpoint = 1120) {
 }
 
 /* ---------- menu data ---------- */
-const NAV = [
+type NavigationSubMenu = {
+    label: string;
+    href: string;
+    type: "" | "_blank"
+    submenu?: NavigationSubMenu[];
+}
+type Navigation = {
+    label: string,
+    href: string,
+    submenu?: NavigationSubMenu[]
+}
+const NAV:Navigation[] = [
   { label: "Home", href: "/" },
   {
     label: "Services",
@@ -121,18 +132,84 @@ const NAV = [
           },
         ],
       },
-      { label: "Achievement", href: "/achievements", type: "" },
+      {
+        label: "Achievement",
+        href: "/achievements",
+        type: "",
+        submenu: [
+          {
+            label: "Cooperation",
+            href: "/achievements#cooperation",
+            type: "",
+          },
+          {
+            label: "Awards & Recognitions",
+            href: "/achievements#awards-recognitions",
+            type: "",
+          },
+        ],
+      },
       {
         label: "Opportunity",
-        href: "https://www.bki.co.id/halamanstatis-133.html",
+        href: "/opportunities",
         type: "",
+        submenu: [
+          {
+            label: "Procurements",
+            href: "/opportunities#procurements",
+            type: "",
+          },
+          {
+            label: "Assets Auction",
+            href: "/opportunities#assets-auction",
+            type: "",
+          },
+          {
+            label: "Career",
+            href: "/opportunities#career",
+            type: "",
+          },
+        ],
       },
       {
         label: "Documentation",
         href: "https://www.bki.co.id/galery.html",
         type: "",
+        submenu: [
+          {
+            label: "Photos",
+            href: "/opportunities#photos",
+            type: "",
+          },
+          {
+            label: "Podcasts",
+            href: "/opportunities#podcasts",
+            type: "",
+          },
+        ],
       },
-      { label: "ESGRC", href: "#", type: "" },
+       {
+        label: "ESGRC",
+        href: "https://www.bki.co.id/galery.html",
+        type: "",
+        submenu: [
+          {
+            label: "Environment",
+            href: "/opportunities#environment",
+            type: "",
+          },
+          {
+            label: "Corporate Social Responsibility",
+            href: "/opportunities#corporate-social-responsibility",
+            type: "",
+          },
+          {
+            label: "Good Corporate Governance",
+            href: "/opportunities#good-corporate-governance",
+            type: "",
+          },
+        ],
+      },
     ],
   },
 ];
@@ -153,7 +230,9 @@ export default function SiteNavbar() {
   const [expanded, setExpanded] = useState<number | null>(null); // which top-level item is expanded
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
   // Track expanded sub-submenu per top-level item
-  const [subExpanded, setSubExpanded] = useState<{[key: number]: number | null}>({});
+  const [subExpanded, setSubExpanded] = useState<{
+    [key: number]: number | null;
+  }>({});
 
   // lock body scroll while open + close on Escape
   useEffect(() => {
@@ -403,7 +482,7 @@ export default function SiteNavbar() {
                               transition={{ duration: 0.22, ease: "easeInOut" }}
                               className="absolute left-0 top-full z-[60] mt-7"
                               onMouseEnter={() => handleEnter(i)}
-                              onMouseLeave={()=>handleLeaveSoon}
+                              onMouseLeave={() => handleLeaveSoon}
                               style={{ overflow: "visible" }}
                             >
                               <div
@@ -426,7 +505,7 @@ export default function SiteNavbar() {
                                       >
                                         <Link
                                           href={sub.href}
-                                          className={`font-normal block py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150 flex items-center justify-between pr-2 ${
+                                          className={`font-normal block py-3 text-[16px] text-white border-b border-white/30 hover:font-bold hover:border-white transition-colors duration-150 flex items-center justify-between pr-2 ${
                                             si === 0 && "mt-4"
                                           }`}
                                           {...(sub.type === "_blank"
@@ -774,7 +853,9 @@ export default function SiteNavbar() {
                                   className="overflow-hidden"
                                 >
                                   {item.submenu!.map((sub, si) => {
-                                    const hasSubSub = Array.isArray(sub.submenu) && sub.submenu.length > 0;
+                                    const hasSubSub =
+                                      Array.isArray(sub.submenu) &&
+                                      sub.submenu.length > 0;
                                     const isSubOpen = subExpanded[i] === si;
                                     return (
                                       <li key={sub.label}>
@@ -783,7 +864,8 @@ export default function SiteNavbar() {
                                             href={sub.href}
                                             className="block flex-1 pl-1 pr-1 py-3 text-white/90 text-[17px] border-b border-white/15 active:scale-[.99] transition"
                                             onClick={() => {
-                                              if (!hasSubSub) setMobileOpen(false);
+                                              if (!hasSubSub)
+                                                setMobileOpen(false);
                                             }}
                                           >
                                             {sub.label}
@@ -791,7 +873,11 @@ export default function SiteNavbar() {
                                           {hasSubSub && (
                                             <button
                                               type="button"
-                                              aria-label={isSubOpen ? "Collapse" : "Expand"}
+                                              aria-label={
+                                                isSubOpen
+                                                  ? "Collapse"
+                                                  : "Expand"
+                                              }
                                               className="ml-2 p-1 text-white/70"
                                               onClick={() =>
                                                 setSubExpanded((prev) => ({
@@ -802,8 +888,13 @@ export default function SiteNavbar() {
                                             >
                                               <motion.span
                                                 initial={false}
-                                                animate={{ rotate: isSubOpen ? 90 : 0 }}
-                                                transition={{ type: "tween", duration: 0.2 }}
+                                                animate={{
+                                                  rotate: isSubOpen ? 90 : 0,
+                                                }}
+                                                transition={{
+                                                  type: "tween",
+                                                  duration: 0.2,
+                                                }}
                                                 className="inline-block"
                                               >
                                                 <ChevronRight size={18} />
@@ -816,23 +907,36 @@ export default function SiteNavbar() {
                                           <AnimatePresence initial={false}>
                                             {isSubOpen && (
                                               <motion.ul
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: "auto", opacity: 1 }}
+                                                initial={{
+                                                  height: 0,
+                                                  opacity: 0,
+                                                }}
+                                                animate={{
+                                                  height: "auto",
+                                                  opacity: 1,
+                                                }}
                                                 exit={{ height: 0, opacity: 0 }}
-                                                transition={{ duration: 0.22, ease: "easeInOut" }}
+                                                transition={{
+                                                  duration: 0.22,
+                                                  ease: "easeInOut",
+                                                }}
                                                 className="overflow-hidden pl-4 border-l border-white/15 bg-white/5 rounded-md"
                                               >
-                                                {(sub?.submenu || []).map((ssub) => (
-                                                  <li key={ssub.label}>
-                                                    <a
-                                                      href={ssub.href}
-                                                      className="block py-3 text-white/80 text-[16px] border-b border-white/10 active:scale-[.99] transition"
-                                                      onClick={() => setMobileOpen(false)}
-                                                    >
-                                                      {ssub.label}
-                                                    </a>
-                                                  </li>
-                                                ))}
+                                                {(sub?.submenu || []).map(
+                                                  (ssub) => (
+                                                    <li key={ssub.label}>
+                                                      <a
+                                                        href={ssub.href}
+                                                        className="block py-3 text-white/80 text-[16px] border-b border-white/10 active:scale-[.99] transition"
+                                                        onClick={() =>
+                                                          setMobileOpen(false)
+                                                        }
+                                                      >
+                                                        {ssub.label}
+                                                      </a>
+                                                    </li>
+                                                  )
+                                                )}
                                               </motion.ul>
                                             )}
                                           </AnimatePresence>
