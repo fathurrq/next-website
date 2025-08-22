@@ -220,7 +220,7 @@ export default function CompanyProfile() {
                             </div>
                         ))}
                     </div>
-                    <ImageScroll />
+                    {/* <ImageScroll /> */}
                 </div>
 
                 <div className="pt-28 2xl:pt-40 w-full px-6 md:px-24 2xl:px-[196px]">

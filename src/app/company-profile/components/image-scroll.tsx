@@ -8,13 +8,28 @@ type Member = {
   image: string;
 };
 
-const boardOfCommissioner: Member[] = [
-  { name: "John Doe", position: "Chairman", image: "john.png" },
-  { name: "Jane Smith", position: "Vice Chair", image: "jane.png" },
-  { name: "David Lee", position: "Member", image: "david.png" },
-  { name: "Alice Brown", position: "Member", image: "alice.png" },
-  // add more members...
-];
+const boardOfCommissioner = [
+    {
+        name: "Susyanto",
+        position: "President Commissioner / Independent Commissioner",
+        image: "bod-susyanto.png"
+    },
+    {
+        name: "Rainoc",
+        position: "Commissioner",
+        image: "bod-rainoc.png"
+    },
+    {
+        name: "Virgo Eresta Jaya",
+        position: "Commissioner",
+        image: "bod-virgo.png"
+    },
+    {
+        name: "Subagiyo",
+        position: "Commissioner",
+        image: "bod-subagiyo.png"
+    },
+]
 
 export default function ImageScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
