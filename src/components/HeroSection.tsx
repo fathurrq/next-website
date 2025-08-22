@@ -80,9 +80,9 @@ export default function HeroSection() {
                 animate={{opacity: 1}}
                 transition={{duration: 1}}
                 style={{
-                    /* eslint-disable @typescript-eslint/no-explicit-any */
                     opacity: darkOpacity as any,
-                    background: "linear-gradient(0deg, #000 17.98%, rgba(0,0,0,0.30) 100%)",
+                    background: "linear-gradient(0deg, #000 5%, rgba(0,0,0,0.30) 100%)",
+                    // background: 'red'
                 }}
             />
 
@@ -93,7 +93,7 @@ export default function HeroSection() {
                     // y: washY,
                     // opacity: washOpacity,
                     background:
-                        "linear-gradient(0deg, rgba(10,67,106,0.95) 0%, rgba(10,67,106,0.6) 60%, rgba(10,67,106,0) 100%)",
+                        "linear-gradient(0deg, rgba(10,67,106,0.95) 0%, rgba(10,67,106,0.80) 5%, rgba(10,67,106,0.65) 10%,  rgba(10,67,106,0) 100%)",
                     // backdropFilter: "blur(8px)",
                     // WebkitBackdropFilter: "blur(8px)",
                     willChange: "transform, opacity",
