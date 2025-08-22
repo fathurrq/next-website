@@ -7,6 +7,7 @@ import Image from "next/image";
 import CollapsibleTable from "./components/table";
 import { StructureImageLightbox } from "./components/lightbox";
 import Carousel from "./components/carousel";
+import ImageScroll from "./components/image-scroll";
 
 const timeline: {
     year: string
@@ -219,6 +220,7 @@ export default function CompanyProfile() {
                             </div>
                         ))}
                     </div>
+                    <ImageScroll />
                 </div>
 
                 <div className="pt-28 2xl:pt-40 w-full px-6 md:px-24 2xl:px-[196px]">

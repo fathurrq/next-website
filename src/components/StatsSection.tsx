@@ -9,8 +9,7 @@ import { Users, Building, Target } from "lucide-react"
 const  StatSection = () => {
   const [currentSection, setCurrentSection] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const touchStartX = useRef(0)
-  const touchEndX = useRef(0)
+
 
   const sections = [
     {
@@ -67,47 +66,6 @@ const  StatSection = () => {
 
     return () => clearInterval(interval)
   }, [isAutoPlaying, sections.length])
-
-  // Touch handlers for swipe functionality
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX
-  }
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX
-  }
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return
-
-    const distance = touchStartX.current - touchEndX.current
-    const isLeftSwipe = distance > 50
-    const isRightSwipe = distance < -50
-
-    if (isLeftSwipe && currentSection < sections.length - 1) {
-      setCurrentSection(currentSection + 1)
-      setIsAutoPlaying(false)
-    }
-    if (isRightSwipe && currentSection > 0) {
-      setCurrentSection(currentSection - 1)
-      setIsAutoPlaying(false)
-    }
-  }
-
-  const nextSection = () => {
-    setCurrentSection((prev) => (prev + 1) % sections.length)
-    setIsAutoPlaying(false)
-  }
-
-  const prevSection = () => {
-    setCurrentSection((prev) => (prev - 1 + sections.length) % sections.length)
-    setIsAutoPlaying(false)
-  }
-
-  const goToSection = (index: number) => {
-    setCurrentSection(index)
-    setIsAutoPlaying(false)
-  }
 
   return (
     <section className=" w-full bg-gradient-to-b from-slate-50 to-gray-100 py-16 px-4">
