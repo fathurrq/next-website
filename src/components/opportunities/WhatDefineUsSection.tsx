@@ -1,4 +1,5 @@
 "use client"
+import Carousel from "./WhatDefineUsCarousel";
 
 export default function  WhatDefineUsSection() {
 
@@ -32,9 +33,10 @@ export default function  WhatDefineUsSection() {
       className="font-montserrat relative w-full h-auto overflow-hidden p-[6rem] bg-white"
     >
         <div className="container mx-auto w-full h-auto flex justify-around items-center gap-12 text-slate-800">
-            <div className="flex-1/2 h-auto bg-[#F15A25] rounded-md p-8 flex flex-col">
+            {/* <div className="flex-1/2 h-auto bg-[#F15A25] rounded-md p-8 flex flex-col">
                 <h3 className="text-white font-medium text-[3.2vw]">Working at <span>BKI</span> has given me opportunities to grow while contributing to national maritime progress.</h3>
-            </div>
+            </div> */}
+            <Carousel/>
             <div className="flex-1/2 h-full flex flex-col gap-4">
                 <h3 className="text-5xl font-bold">What Defines Us</h3>
 
