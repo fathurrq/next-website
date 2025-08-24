@@ -5,6 +5,10 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import Link from "next/link";
 import TabBar from "@/app/our-services/components/TabBar";
 import ServicesSection from "@/app/our-services/components/ServicesSection";
+import WhyTrustSection from "@/components/WhyTrustSection";
+import ServiceCard from "@/components/ServiceCard";
+import ContactUsSection from "@/components/ContactUsSection";
+import NewsCard from "@/components/NewsCard";
 
 export type Tab = {
     key: string;
@@ -17,6 +21,83 @@ const tabs: Tab[] = [
     {key: "marine-services", label: "Marine Services", icon: "/icon-service-marine-services.png"},
     {key: "energy-industry", label: "Energy & Industry", icon: "/icon-service-energy-industry.png"},
     {key: "bki-academy", label: "BKI Academy", icon: "/icon-service-bki-academy.png"},
+];
+
+type ProgramItem = {
+    title: string;
+    image: string;
+};
+const programItems: ProgramItem[] = [
+    {
+        title: "Plan Approval",
+        image: "/our-services/program/plan-approval.png",
+    },
+    {
+        title: "Floating Offshore",
+        image: "/our-services/program/floating-offshore.png",
+    },
+    {
+        title: "Class Suspend",
+        image: "/our-services/program/class-suspend.jpg",
+    },
+    {
+        title: "Class Suspend",
+        image: "/our-services/program/class-suspend.jpg",
+    },
+    {
+        title: "Plan Approval",
+        image: "/our-services/program/plan-approval.png",
+    },
+    {
+        title: "Floating Offshore",
+        image: "/our-services/program/floating-offshore.png",
+    },
+    {
+        title: "Floating Offshore",
+        image: "/our-services/program/floating-offshore.png",
+    },
+    {
+        title: "Plan Approval",
+        image: "/our-services/program/plan-approval.png",
+    },
+];
+
+type NewsItem = {
+    id: string;
+    date: string;
+    title: string;
+    content: string;
+    img: string;
+    link: string;
+};
+const news: NewsItem[] = [
+    {
+        id: "1",
+        date: "08 Aug 2025 4:40 pm",
+        title: "New Research Vessel For Marine Science in SA",
+        content:
+            "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
+        img: "/news1.jpg",
+        link: "/news/news1",
+    },
+    {
+        id: "2",
+        date: "05 Aug 2025 1:10 pm",
+        title: "Container Shipping Sees Record High Traffic",
+        content:
+            "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
+        img: "/news2.png",
+        link: "/news/news1",
+    },
+    {
+        id: "3",
+        date: "05 Aug 2025 1:10 pm",
+        title: "Container Shipping Sees Record High Traffic",
+        content:
+            "Container shipping has experienced a significant surge in traffic, with ports reporting record volumes and increased demand for freight services.",
+        img: "/news3.jpg",
+        link: "/news/news1",
+    },
 ];
 
 export default function OurServices() {
@@ -167,6 +248,41 @@ export default function OurServices() {
                             <ServicesSection/>
                         </motion.div>
                     </AnimatePresence>
+                </div>
+            </section>
+
+            <WhyTrustSection/>
+
+            {/*Program Section*/}
+            <section className="w-full h-full 2xl:p-28 p-20 flex flex-col justify-center items-center bg-white gap-28">
+                <div className="w-full flex justify-between items-center">
+                    <p className="2xl:text-6xl text-4xl font-bold text-[#0A436A]">Program</p>
+                    <p className="2xl:text-3xl text-xl text-end text-black w-2/5">Tailored programs to ensure safety and
+                        compliance from
+                        design to operation.</p>
+                </div>
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-3 md:gap-x-5 2xl:gap-x-8 gap-y-8 md:gap-y-12 2xl:gap-y-16">
+                    {programItems.map((item, index) => (
+                        <ServiceCard href={'#'} image={item.image} title={item.title} key={index} isProgramPage/>
+                    ))}
+                </div>
+            </section>
+
+            <ContactUsSection/>
+
+            {/*News Section*/}
+            <section
+                className="w-full h-full 2xl:p-28 p-20 flex flex-col justify-center items-center bg-white 2xl:gap-8 md:gap-7 gap-6">
+                <div className="w-full flex flex-col 2xl:gap-6 md:gap-5 gap-4">
+                    <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A]">Keep Updated</p>
+                    <p className="2xl:text-5xl nd:text-4xl text-3xl text-[#0A436A]">Top News</p>
+                </div>
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 md:gap-6 2xl:gap-7">
+                    {news.map((n, i) => (
+                        <NewsCard key={i} news={n}/>
+                    ))}
                 </div>
             </section>
         </div>
