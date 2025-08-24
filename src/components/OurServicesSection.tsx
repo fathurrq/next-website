@@ -2,7 +2,7 @@
 import {useRef} from "react";
 import Image from "next/image";
 import {motion, useScroll, useTransform} from "framer-motion";
-import Link from "next/link";
+import ServiceCard from "@/components/ServiceCard";
 
 const services = [
     {
@@ -10,28 +10,28 @@ const services = [
         description: "Setting safety and performance standards for every vessel.",
         icon: "/icon-service-classification.png",
         image: "/service-classification.jpg",
-        href: "https://www.bki.co.id/halamanstatis-28.html",
+        href: "/our-services#classification",
     },
     {
         title: "Statutory",
         description: "Ensuring vessels comply with all regulatory requirements.",
         icon: "/icon-service-statutory.png",
         image: "/service-statutory.jpg",
-        href: "https://www.bki.co.id/info_statutory-1.html",
+        href: "/our-services#statutory",
     },
     {
         title: "Marine Services",
         description: "Supporting safe and efficient vessel operations.",
         icon: "/icon-service-marine-services.png",
         image: "/service-marine-services.jpg",
-        href: "https://www.bki.co.id/halamanstatis-29.html",
+        href: "/our-services#marine-services",
     },
     {
         title: "Energy & Industry",
         description: "Delivering reliable solutions maritime and industrial needs.",
         icon: "/icon-service-energy-industry.png",
         image: "/service-energy-industry.jpg",
-        href: "https://www.bki.co.id/halamanstatis-30.html",
+        href: "/our-services#energy-industry",
     },
     {
         title: "BKI Academy",
@@ -110,53 +110,8 @@ export default function OurServicesSection() {
                 <div
                     className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] mx-[50px] 2xl:mx-[70px] pb-[100px] 2xl:pb-0">
                     {services.map((service, index) => (
-                        <Link
-                            key={index}
-                            href={service.href}
-                            target={"_blank"}
-                            rel={"noopener noreferrer"}
-                            className="w-full md:w-[calc(50%-30px)] 2xl:w-[calc(33.333%-30px)]
-                 relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[250px] 2xl:h-[300px]"
-                        >
-                            {/* Background Image */}
-                            <div
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 ease-out group-hover:scale-[130%]"
-                                style={{backgroundImage: `url(${service.image})`}}
-                            />
-
-                            {/*Backround Overlay*/}
-                            <div
-                                className="absolute left-0 bottom-0 right-0 h-1/2 bg-gradient-to-b from-transparent to-[rgb(11,63,101)]"/>
-
-                            {/* Content */}
-                            <div
-                                className="relative z-10 flex flex-col justify-between gap-[15px] w-full h-full pb-[8px]">
-                                <Image
-                                    src={service.icon}
-                                    alt={service.title}
-                                    width={32}
-                                    height={22}
-                                />
-                                <div className="flex flex-col gap-1">
-                                    <p className="text-4xl 2xl:text-5xl text-white opacity-60 group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
-                                        {service.title}
-                                    </p>
-                                    <p className="text-sm 2xl:text-[16px] text-white opacity-60 group-hover:opacity-100 transition-opacity duration-1000">
-                                        {service.description}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Bottom line */}
-                            <div
-                                className="absolute bottom-0 left-[32px] right-[32px] h-[2px] bg-white opacity-30 z-10"/>
-                            <div
-                                className="absolute bottom-0 left-[32px] right-[32px] h-[2px] bg-white z-10
-                   opacity-30 group-hover:opacity-100
-                   transform scale-x-0 group-hover:scale-x-100
-                   origin-right transition-all duration-1000 ease-out"
-                            />
-                        </Link>
+                        <ServiceCard key={index} href={service.href} image={service.image} icon={service.icon}
+                                     title={service.title} description={service.description}/>
                     ))}
                 </div>
             </motion.div>
