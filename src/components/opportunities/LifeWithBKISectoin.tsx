@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function LifeWithBKISection() {
+export default function  LifeWithBKISection() {
   return (
     <div
       id="life-with-bki"
@@ -33,10 +33,10 @@ export default function LifeWithBKISection() {
       </div>
 
       {/*  */}
-      <div className="w-full mx-auto h-[20vh] bg-white flex justify-around items-center gap-12 px-12">
+      <div className="w-full mx-auto h-[20vh] bg-white text-black flex justify-around items-center gap-12 px-12">
         {/* Life With BKI */}
-        <div className="w-full h-full flex justify-center items-center">
-            <p className="font-montserrat text-4xl font-bold">Life With BKI</p>
+        <div className="w-full h-full flex justify-start items-center">
+            <p className="font-montserrat text-4xl font-bold text-start">Life With BKI</p>
         </div>
 
         <div className="w-full h-full flex justify-center items-center">
