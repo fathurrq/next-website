@@ -118,7 +118,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
         transition={{ duration: 0.75, ease: "easeOut" }}
         draggable={false}
       />
-      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* Bottom gradient */}
       <div

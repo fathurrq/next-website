@@ -24,7 +24,7 @@ export default function ServiceCard({href, image, icon, title, description, isPr
             href={href}
             target={"_blank"}
             rel={"noopener noreferrer"}
-            className={classes("relative group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[250px] 2xl:h-[300px]", parentClasses)}
+            className={classes("relative shadow-lg shadow-black/50 group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[250px] 2xl:h-[300px]", parentClasses)}
         >
             {/* Background Image */}
             <div
@@ -46,11 +46,11 @@ export default function ServiceCard({href, image, icon, title, description, isPr
                     height={22}
                 /> : <div/>}
                 <div className="flex flex-col gap-1">
-                    <p className="text-4xl 2xl:text-5xl text-white opacity-60 group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
+                    <p className="text-4xl 2xl:text-5xl text-white group-hover:opacity-100 mt-[15px] transition-opacity duration-1000">
                         {title}
                     </p>
                     {!!description &&
-                        <p className="text-sm 2xl:text-[16px] text-white opacity-60 group-hover:opacity-100 transition-opacity duration-1000">
+                        <p className="text-sm 2xl:text-[16px] text-white group-hover:opacity-100 transition-opacity duration-1000">
                             {description}
                         </p>}
                 </div>

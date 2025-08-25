@@ -83,7 +83,7 @@ export default function HeroSection() {
                 style={{
                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     opacity: darkOpacity,
-                    background: "linear-gradient(0deg, #000 5%, rgba(0,0,0,0.30) 100%)",
+                    // background: "linear-gradient(0deg, #000 5%, rgba(0,0,0,0.30) 100%)",
                     // background: 'red'
                 }}
             />
@@ -129,17 +129,17 @@ export default function HeroSection() {
                             style={{y: titleY, willChange: "transform"}}
                         >
                             <div
-                                className="jost-font font-medium text-5xl md:text-8xl text-transparent bg-clip-text tracking-tight"
+                                className="jost-font font-medium text-5xl md:text-8xl bg-clip-text tracking-tight text-shadow-lg"
                                 style={{
-                                    backgroundImage:
-                                        "linear-gradient(90deg, #0A346A -40.69%, #94BFD9 46.94%, #FFF 100%)",
-                                        textShadow: "0 4px 34px #000"
+                                    // backgroundImage:
+                                    //     "linear-gradient(90deg, #0A346A -40.69%, #94BFD9 46.94%, #FFF 100%)",
+                                    // background: 
                                 }}
                             >
                                 Your Global Partner
                             </div>
-                            <div className="text-white/70 mt-2 md:text-3xl">In</div>
-                            <div className="text-white text-sm md:text-2xl">TICCS (Testing, Inspection, Certification,
+                            {/* <div className="text-white font-semibold mt-2 md:text-3xl"></div> */}
+                            <div className="text-white font-semibold text-sm md:text-3xl mt-4 text-shadow-lg">In TICCS (Testing, Inspection, Certification,
                                 Classification and Statutory)
                             </div>
                         </motion.div>

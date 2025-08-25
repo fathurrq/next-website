@@ -96,7 +96,7 @@ export default function OurServicesSection() {
 
             <motion.div
                 style={{y: servicesSection, willChange: "transform"}}
-                className="absolute inset-0 h-[calc(100vh+240px)] bg-[linear-gradient(to_bottom,rgba(11,63,101,0.25),rgba(11,63,101,0.5)_20%,rgba(11,63,101,1)_75%,rgba(0,0,0,1)_90%)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
+                className="absolute inset-0 h-[calc(100vh+240px)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
             >
                 <div className="flex flex-col gap-6 mb-20">
                     <p className="text-5xl md:text-6xl text-white text-center">

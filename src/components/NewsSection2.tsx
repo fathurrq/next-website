@@ -3,7 +3,7 @@ import Newsletter from "./Newsletter";
 import NewsCard from "./NewsCard";
 
 export function NewsDivider() {
-  return <div className="w-full h-16 bg-[#00385A]"></div>;
+  return <div className="w-full h-1 bg-[#00385A]"></div>;
 }
 
 export default function NewsSection2() {
