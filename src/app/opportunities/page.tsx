@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import LifeWithBKISection from "@/components/opportunities/LifeWithBKISectoin";
 import  OurWorldSection from "@/components/opportunities/OurWorldSection";
 import WhatDefineUsSection from "@/components/opportunities/WhatDefineUsSection";
+import AvailableSection from "@/components/opportunities/AvailableSection";
 
 export default function Opportunities() {
   const { startTransition, setStartTransition } = useHeroTransition();
@@ -48,6 +49,9 @@ export default function Opportunities() {
 
     {/* what define us section */}
     <WhatDefineUsSection/>
+
+    {/* Available opportunities sections */}
+    <AvailableSection/>
     </div>
   )
 }
