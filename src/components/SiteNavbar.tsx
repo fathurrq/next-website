@@ -493,7 +493,7 @@ export default function SiteNavbar() {
                                 }}
                               >
                                 {/* Left side menu */}
-                                <ul className="min-w-[220px]">
+                                <ul className="min-w-[220px] pr-4">
                                   {item.submenu!.map((sub, si) => {
                                     const hasSubSub =
                                       Array.isArray(sub.submenu) &&
