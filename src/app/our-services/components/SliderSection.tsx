@@ -189,7 +189,7 @@ export default function SliderSection({
                                                 onClick={() => setSlideIndex(i)}
                                                 aria-label={`Go to slide ${i + 1}`}
                                                 className={`
-                          rounded-full transition
+                          rounded-full transition cursor-pointer
                           ${isActive ? "bg-white" : "bg-white/20 hover:bg-white/40"}
                           w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 xl:w-8 xl:h-8
                         `}

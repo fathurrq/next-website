@@ -13,6 +13,7 @@ export type Tab = {
     label: string;
     icon: string;
     content: React.ReactNode;
+    href?: string;
 };
 
 type NewsItem = {
@@ -63,31 +64,32 @@ export default function OurServices() {
             key: "classification",
             label: "Classification",
             icon: "/icon-service-classification.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>
+            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "statutory",
             label: "Statutory",
             icon: "/icon-service-statutory.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>
+            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "marine-services",
             label: "Marine Services",
             icon: "/icon-service-marine-services.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>
+            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "energy-industry",
             label: "Energy & Industry",
             icon: "/icon-service-energy-industry.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>
+            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "bki-academy",
             label: "BKI Academy",
             icon: "/icon-service-bki-academy.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>
+            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            href: "https://www.bki.academy/id",
         },
     ], [activeIndex]);
 

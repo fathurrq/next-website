@@ -11,7 +11,7 @@ type ProgramItem = {
 const programItems: ProgramItem[] = [
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
         href: "/our-services/classification-plan-approval",
     },
     {
@@ -28,7 +28,7 @@ const programItems: ProgramItem[] = [
     },
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
     },
     {
         title: "Floating Offshore",
@@ -60,7 +60,7 @@ export default function ClassificationTabContent({key, activeIndex, prevIndex}: 
             {/*Program Section*/}
             <section id="program"
                      className="w-full h-full 2xl:p-28 p-20 flex flex-col justify-center items-center bg-white gap-28">
-                <div className="w-full flex justify-between items-center">
+                <div className="w-full flex md:flex-row flex-col justify-between items-center">
                     <p className="2xl:text-6xl text-4xl font-bold text-[#0A436A]">Program</p>
                     <p className="2xl:text-3xl text-xl text-end text-black w-2/5">Tailored programs to ensure safety and
                         compliance from
