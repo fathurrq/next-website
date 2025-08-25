@@ -53,6 +53,7 @@ export default function HeroSection() {
                     autoPlay
                     loop
                     muted
+                    playsInline
                 />
             </motion.div>
 
