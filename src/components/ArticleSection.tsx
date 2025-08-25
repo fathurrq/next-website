@@ -37,7 +37,7 @@ export default async function ArticleSection() {
         Articles
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid relative z-10 grid-cols-1 md:grid-cols-3 gap-6">
         {data?.data?.map((article, i) => (
           <ArticleCard key={i} article={article} />
         ))}
