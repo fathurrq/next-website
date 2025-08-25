@@ -8,6 +8,10 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight
+} from 'lucide-react'
 import Image from "next/image";
 
 type Slide = {
