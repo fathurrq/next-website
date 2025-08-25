@@ -30,7 +30,7 @@ type ProgramItem = {
 const programItems: ProgramItem[] = [
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
     },
     {
         title: "Floating Offshore",
@@ -46,7 +46,7 @@ const programItems: ProgramItem[] = [
     },
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
     },
     {
         title: "Floating Offshore",
@@ -58,7 +58,7 @@ const programItems: ProgramItem[] = [
     },
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
     },
 ];
 
