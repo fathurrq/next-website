@@ -110,7 +110,7 @@ export default function OurServicesSection() {
                 <div
                     className="flex flex-wrap justify-center gap-x-[30px] gap-y-[60px] mx-6 md:mx-24 pb-[100px] 2xl:pb-0">
                     {services.map((service, index) => (
-                        <ServiceCard key={index} href={service.href} image={service.image} icon={service.icon}
+                        <ServiceCard key={index} href={service.href} image={service.image} icon={undefined}
                                      title={service.title} description={service.description}/>
                     ))}
                 </div>
