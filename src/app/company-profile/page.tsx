@@ -1,9 +1,4 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { useHeroTransition } from "@/components/TransitionProvider";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
 import CollapsibleTable from "./components/table";
 import { StructureImageLightbox } from "./components/lightbox";
 import Carousel from "./components/carousel";
@@ -11,6 +6,7 @@ import ImageScroll from "./components/image-scroll";
 import AboutUs from "./components/about-us";
 import BoardOfDirectors from "./components/board-of-directors";
 import Hero from "@/components/Hero";
+import PageTransition from "@/components/page-transition";
 
 const timeline: {
   year: string;
@@ -99,40 +95,13 @@ const boardOfDirectors = [
 ];
 
 export default function CompanyProfile() {
-  const companyProfileRef = useRef<HTMLDivElement | null>(null);
-  const { startTransition, setStartTransition } = useHeroTransition();
-
-  useEffect(() => {
-    const t = setTimeout(() => setStartTransition(true), 1000);
-    return () => clearTimeout(t);
-  }, [setStartTransition]);
-
-  // show "Welcome To" for 3s, then hide
-  useEffect(() => {
-    if (!startTransition) return;
-  }, [startTransition]);
 
   return (
     <div
       id="company-profile"
-      ref={companyProfileRef}
       className="relative min-h-screen overflow-hidden"
     >
-      <motion.div
-        className="absolute inset-0 z-10 pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: startTransition ? 0 : 1 }}
-        transition={{ duration: 0.8 }}
-        style={{
-          background: `
-          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
-          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
-          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
-        `,
-          backdropFilter: "blur(22px)",
-          WebkitBackdropFilter: "blur(22px)",
-        }}
-      />
+      <PageTransition />
 
       <Hero
         routes={[{ text: "Home", href: "/" }, { text: "Company Profile" }]}
