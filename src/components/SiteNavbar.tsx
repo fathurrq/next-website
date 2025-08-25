@@ -65,7 +65,7 @@ const NAV:Navigation[] = [
         href: "/our-services#energy-industry",
         type: "",
       },
-      { label: "BKI Academy", href: "/https://www.bki.academy/id", type: "" },
+      { label: "BKI Academy", href: "https://www.bki.academy/id", type: "" },
     ],
   },
   {
