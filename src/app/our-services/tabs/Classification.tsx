@@ -29,6 +29,7 @@ const programItems: ProgramItem[] = [
     {
         title: "Plan Approval",
         image: "/our-services/program/plan-approval.jpg",
+        href: "/our-services/classification-plan-approval",
     },
     {
         title: "Floating Offshore",
@@ -40,7 +41,8 @@ const programItems: ProgramItem[] = [
     },
     {
         title: "Plan Approval",
-        image: "/our-services/program/plan-approval.png",
+        image: "/our-services/program/plan-approval.jpg",
+        href: "/our-services/classification-plan-approval",
     },
 ];
 
