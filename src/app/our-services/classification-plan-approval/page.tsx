@@ -2,10 +2,10 @@
 import {motion} from "framer-motion";
 import {useEffect} from "react";
 import {useHeroTransition} from "@/components/TransitionProvider";
-import Link from "next/link";
 import Image from "next/image";
 import ContactUsSection from "@/components/ContactUsSection";
-import GlimpseSlider from "@/app/our-services/classification/components/GlimpseSlider";
+import GlimpseSlider from "@/app/our-services/classification-plan-approval/components/GlimpseSlider";
+import Hero from "@/components/Hero";
 
 const technologyAdvancement = [
     "Lines Plan",
@@ -55,38 +55,15 @@ export default function ClassificationPage() {
             />
 
             {/* Hero Section */}
-            <section
-                className="w-full h-[40vh] relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/classification-bg.jpg')] bg-cover blur-xs bg-center"/>
-                <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]"/>
-                <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]"/>
-                <div
-                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-40 text-center text-white">
-                    <div className="flex flex-row w-full justify-center items-center gap-2">
-                        <Link href={'/'} className="md:text-xl 2xl:text-3xl">
-                            Home
-                        </Link>
-                        <span className="md:text-xl 2xl:text-3xl">
-                            /
-                        </span>
-                        <Link href={'/our-services'} className="md:text-xl 2xl:text-3xl">
-                            Services
-                        </Link>
-                        <span className="md:text-xl 2xl:text-3xl">
-                            /
-                        </span>
-                        <span className="md:text-xl 2xl:text-3xl text-[#ffffff75]">
-                            Classification Plan Approval
-                        </span>
-                    </div>
-                    <span className="mt-4 text-2xl md:text-4xl 2xl:text-[64px] font-semibold">
-                        Classification Plan Approval
-                    </span>
-                    <span className="mt-4 text-md md:text-lg 2xl:text-[32px] max-w-3/5">
-                        Comprehensive review and approval of ship plans to ensure compliance with international safety and classification standards.
-                    </span>
-                </div>
-            </section>
+            <Hero
+                routes={[{text: 'Home', href: '/'}, {
+                    text: 'Services',
+                    href: '/our-services'
+                }, {text: 'Classification Plan Approval'}]}
+                backgroundClass="bg-[url('/classification-bg.jpg')]"
+                title={"Classification Plan Approval"}
+                description={"Comprehensive review and approval of ship plans to ensure compliance with international safety and classification standards."}
+            />
 
             {/*Introduction Section*/}
             <section
