@@ -9,7 +9,6 @@ interface Props {
 }
 
 export default function TabBar({tabs, active, setActive}: Props) {
-    // optional: keyboard nav basic (left/right)
     const onKeyDown = (e: React.KeyboardEvent<HTMLUListElement>) => {
         const currentIndex = tabs.findIndex(t => t.key === active);
         if (currentIndex < 0) return;
@@ -51,7 +50,13 @@ export default function TabBar({tabs, active, setActive}: Props) {
                                     role="tab"
                                     aria-selected={isActive}
                                     aria-controls={`panel-${t.key}`}
-                                    onClick={() => setActive(t.key)}
+                                    onClick={() => {
+                                        if (t.href) {
+                                            window.location.href = t.href;
+                                            return;
+                                        }
+                                        setActive(t.key);
+                                    }}
                                     className={`
                     relative group select-none cursor-pointer outline-none
                     flex flex-col items-center justify-between text-center
@@ -63,15 +68,15 @@ export default function TabBar({tabs, active, setActive}: Props) {
                   `}
                                 >
                                     {/* icon */}
-                                    <div className="flex items-center justify-center">
+                                    <div
+                                        className="flex items-center justify-center w-6 h-6 md:w-7 md:h-7 xl:w-8 xl:h-8">
                                         <Image
                                             src={t.icon}
                                             alt=""
                                             width={32}
                                             height={32}
                                             className={`object-contain object-center
-                        w-6 h-6 md:w-7 md:h-7 xl:w-8 xl:h-8
-                        transition-opacity duration-300
+                        transition-opacity duration-300 h-6 md:h-7 xl:h-8
                         ${isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80"}
                       `}
                                         />
