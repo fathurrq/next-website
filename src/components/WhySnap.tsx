@@ -1,17 +1,8 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useSpring,
-  useMotionValueEvent,
-} from "framer-motion";
-import {
-  ChevronLeft,
-  ChevronRight
-} from 'lucide-react'
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 type Slide = {
@@ -51,12 +42,22 @@ export default function WhyCrossfadeSteppedLocked() {
   ];
 
   const [index, setIndex] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 2500);
-    return () => clearInterval(timer);
+
+  // go to next slide
+  const nextSlide = useCallback(() => {
+    setIndex((prev) => (prev + 1) % slides.length);
   }, [slides.length]);
+
+  // go to previous slide
+  const prevSlide = useCallback(() => {
+    setIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  }, [slides.length]);
+
+  // autoplay with reset on user interaction
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 2500);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   return (
     <section id="why-trust" className="relative w-full h-screen snap-start">
@@ -64,13 +65,41 @@ export default function WhyCrossfadeSteppedLocked() {
         <AnimatePresence initial={false} mode="popLayout">
           <SlideView key={index} slide={slides[index]} hideText={false} />
         </AnimatePresence>
+
+        {/* Prev Button */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 z-20 cursor-pointer"
+        >
+          <ChevronLeft size={32} />
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 z-20 cursor-pointer"
+        >
+          <ChevronRight size={32} />
+        </button>
+
+        {/* Circle Indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              className={`w-3 h-3 rounded-full cursor-pointer ${
+                i === index ? "bg-white" : "border border-white"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
 
 function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
-  const isLastSlide = slide.bottomRight === "Decades of Experience";
   return (
     <motion.div
       className="absolute inset-0"
@@ -90,8 +119,8 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
         draggable={false}
       />
       <div className="absolute inset-0 bg-black/35" />
-      {/* Add bottom gradient only for last slide */}
 
+      {/* Bottom gradient */}
       <div
         style={{
           position: "absolute",
@@ -99,8 +128,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
           right: 0,
           bottom: 0,
           height: "120px",
-          background:
-            "linear-gradient(to bottom, transparent 0%, #D4A66A 100%)",
+          background: "linear-gradient(to bottom, transparent 0%, #D4A66A 100%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -108,13 +136,13 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
 
       {!hideText && (
         <>
-          {/* Top-left text with fade-in */}
+          {/* Top-left text */}
           <motion.div
             className="absolute top-[12vh] left-4 md:left-24 right-[10vw] text-white"
             initial={{ y: 18, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -12, opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }} // longer fade-in
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex items-center gap-2">
               {slide.topTitle ?? "Why"}{" "}
@@ -131,7 +159,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             </p>
           </motion.div>
 
-          {/* Bottom-right text with fade-in */}
+          {/* Bottom-right text */}
           <motion.div
             className="absolute bottom-[9vh] right-24 left-[10vw] md:left-auto text-white text-right"
             initial={{ y: 18, opacity: 0 }}

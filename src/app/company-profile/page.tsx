@@ -10,6 +10,7 @@ import Carousel from "./components/carousel";
 import ImageScroll from "./components/image-scroll";
 import AboutUs from "./components/about-us";
 import BoardOfDirectors from "./components/board-of-directors";
+import Hero from "@/components/Hero";
 
 const timeline: {
   year: string;
@@ -133,33 +134,14 @@ export default function CompanyProfile() {
         }}
       />
 
-      {/* Hero Section */}
-      <section
-        id="introduction"
-        className="w-full h-[40vh] relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-[url('/company-profile-bg.png')] bg-cover blur-xs bg-top" />
-        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-b from-[#0A436A06] to-[#0A436A00]" />
-        <div className="absolute top-0 inset-0 h-[40vh] bg-gradient-to-t from-[#0A436A] to-[#0A436A00]" />
-        <div className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-40 text-center text-white">
-          <div className="flex flex-row w-full justify-center items-center gap-2">
-            <Link href={"/"} className="md:text-xl 2xl:text-3xl">
-              Home
-            </Link>
-            <span className="md:text-xl 2xl:text-3xl">/</span>
-            <span className="md:text-xl 2xl:text-3xl text-[#ffffff75]">
-              Company Profile
-            </span>
-          </div>
-          <span className="mt-4 text-2xl md:text-4xl 2xl:text-[64px] font-semibold">
-            Anchored in Trust, Driven by Innovation
-          </span>
-          <span className="mt-4 text-md md:text-lg 2xl:text-[32px] max-w-3/5">
-            Building strong partnerships and pioneering solutions to meet the
-            evolving needs of maritime stakeholders.
-          </span>
-        </div>
-      </section>
+      <Hero
+        routes={[{ text: "Home", href: "/" }, { text: "Company Profile" }]}
+        backgroundClass="bg-[url('/company-profile-bg.png')] bg-top"
+        title={"Anchored in Trust, Driven by Innovation"}
+        description={
+          " Building strong partnerships and pioneering solutions to meet theevolving needs of maritime stakeholders."
+        }
+      />
 
       {/* about us */}
       {/* AboutUs is part of introduction section above */}
@@ -212,10 +194,12 @@ export default function CompanyProfile() {
       {/* History Section */}
       <section
         id="history"
-        className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16 2xl:pt-[135px]"
+        className="bg-gradient-to-b from-[#0A436A] to-[#000] pt-16 2xl:pt-[135px] text-white"
       >
         <div className="flex flex-col gap-7 px-10 2xl:px-[105px]">
-          <h2 className="text-3xl 2xl:text-[64px] font-bold">Our History</h2>
+          <h2 className="text-3xl 2xl:text-[64px] font-bold text-white">
+            Our History
+          </h2>
           <p className="2xl:text-2xl">
             <span className="font-bold">Biro Klasifikasi Indonesia (BKI)</span>{" "}
             berdiri pada 1 Juli 1964 sebagai satu-satunya biro klasifikasi
@@ -243,7 +227,7 @@ export default function CompanyProfile() {
             {timeline.map((item, idx) => (
               <div
                 key={`timeline-${idx + 1}`}
-                className="group flex gap-x-6 2xl:gap-x-[90px] grow"
+                className="group flex gap-x-6 2xl:gap-x-[90px] grow text-white"
               >
                 <div className="relative">
                   {idx + 1 !== timeline.length && (
@@ -321,12 +305,12 @@ export default function CompanyProfile() {
       {/* Committees */}
       <section
         id="technical-committee"
-        className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center"
+        className="px-6 py-16 md:py-16 bg-black flex flex-col items-center justify-center text-white"
       >
-        <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center">
+        <span className="text-4xl 2xl:text-[64px] font-medium mb-6 -tracking-tight text-center text-white">
           Technical Committee
         </span>
-        <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3">
+        <div className="text-xl 2xl:text-[32px] mb-12 2xl:mb-[102px] text-center md:max-w-2/3 text-white">
           Our world-class technical experts who drive innovation and ensure the
           highest standards of technology implementation across all our projects
         </div>
