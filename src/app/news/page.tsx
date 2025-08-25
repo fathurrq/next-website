@@ -1,23 +1,8 @@
-"use client";
-import { useHeroTransition } from "@/components/TransitionProvider";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Pagination from "@/components/pagination";
+import PageTransition from "@/components/page-transition";
 
 export default function News() {
-  const { startTransition, setStartTransition } = useHeroTransition();
-  const newsRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const t = setTimeout(() => setStartTransition(true), 1000);
-    return () => clearTimeout(t);
-  }, [setStartTransition]);
-
-  // show "Welcome To" for 3s, then hide
-  useEffect(() => {
-    if (!startTransition) return;
-  }, [startTransition]);
-
   const news = [
     {
       date: "08 Aug 2025 4:40 pm",
@@ -96,26 +81,9 @@ export default function News() {
   return (
     <div
       id="news"
-      ref={newsRef}
       className="pb-12 relative w-full min-h-screen overflow-hidden bg-white"
     >
-      {/* INTRO overlay (your multi-gradient) → fades out as before */}
-      <motion.div
-        className="absolute inset-0 z-10 pointer-events-none"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: startTransition ? 0 : 1 }}
-        transition={{ duration: 0.8 }}
-        style={{
-          background: `
-          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
-          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
-          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
-        `,
-          backdropFilter: "blur(22px)",
-          WebkitBackdropFilter: "blur(22px)",
-        }}
-      />
-
+      <PageTransition />
       {/* background image */}
       <div className="h-[50vh] bg-[url('/bg-news.jpg')] bg-cover bg-center"></div>
       {/* linear orange gradient overlay */}
@@ -129,7 +97,9 @@ export default function News() {
         {/* Articles */}
         <div className="container mx-auto px-4 lg:px-0 flex flex-col gap-2">
           {/* Title */}
-          <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8 text-white">News</h2>
+          <h2 className="text-[5vw] md:text-[2.5vw] font-medium mb-8 text-white">
+            News
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {news.map((n, i) => (
@@ -150,7 +120,7 @@ export default function News() {
                   <h3 className="font-semibold text-lg mb-3">{n.title}</h3>
                   <div className="text-sm mb-4">{n.content}</div>
                   <a
-                    href={'/news/news1'}
+                    href={"/news/news1"}
                     className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
                   >
                     Read News →
@@ -159,6 +129,11 @@ export default function News() {
               </div>
             ))}
           </div>
+          {/* <Pagination
+            totalPages={15}
+            currentPage={1}
+            onPageChange={(page) => console.log(page)}
+          /> */}
         </div>
       </div>
     </div>

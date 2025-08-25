@@ -23,7 +23,7 @@ export default function NewsCard({news, hasShadow, rounded}: Props) {
                 <div className="text-sm mb-4">{news.content}</div>
                 <Link
                     href={news.link}
-                    className="inline-block px-4 py-2 bg-[#0A436A] text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
+                    className="inline-block px-4 py-2 bg-bki-blue text-white font-medium text-lg rounded transition-colors duration-400 hover:bg-[#0A436A]/50"
                 >
                     Read News →
                 </Link>

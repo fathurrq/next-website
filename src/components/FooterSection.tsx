@@ -113,11 +113,6 @@ export default function FooterSection() {
 
             <ul className="mt-4 space-y-1 text-xs md:text-sm font-light">
               <li>+62 21 430 10 17</li>
-              <li>+62 21 430 17 03</li>
-              <li>+62 21 4393 70 21</li>
-              <li>+62 21 435 32 91</li>
-              <li>+62 21 436 19 03/04</li>
-              <li>+62 21 436 18 99</li>
             </ul>
           </div>
 
