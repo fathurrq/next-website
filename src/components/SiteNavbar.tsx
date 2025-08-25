@@ -156,7 +156,7 @@ const NAV:Navigation[] = [
         submenu: [
           {
             label: "Procurements",
-            href: "/opportunities#procurements",
+            href: "https://vms.bki.co.id",
             type: "",
           },
           {

@@ -25,11 +25,11 @@ const aboutUs = [
   },
   {
     title: "Opportunity",
-    href: "https://www.bki.co.id/halamanstatis-133.html",
+    href: "/opportunities",
     children: [
       {
         title: "Procurement",
-        href: "https://www.bki.co.id/halamanstatis-133.html#",
+        href: "https://vms.bki.co.id/",
       },
       {
         title: "Assets Auction",
