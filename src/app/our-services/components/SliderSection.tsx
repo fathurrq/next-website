@@ -117,7 +117,7 @@ export default function SliderSection({
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        className="absolute inset-0 2xl:pb-52 2xl:pt-24 2xl:px-24 pb-36 pt-12 px-12 flex flex-col justify-between items-end"
+                        className="absolute inset-0 2xl:pb-52 2xl:pt-24 2xl:px-28 pb-36 pt-12 px-12 flex flex-col justify-between items-end"
                         role="tabpanel"
                         aria-live="polite"
                         id={`panel-${key}`}

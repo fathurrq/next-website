@@ -19,7 +19,7 @@ export default function Hero(props: Props) {
     const {routes, backgroundClass, title, description, innerComponent} = props;
     return (
         <section
-            className={classes("w-full relative overflow-hidden", innerComponent ? "h-[55vh]" : "h-[50vh]")}>
+            className={classes("w-full relative overflow-hidden", innerComponent ? "h-[60vh]" : "h-[50vh]")}>
             <div className={classes('absolute inset-0 bg-cover blur-xs bg-center', backgroundClass)}/>
             <div
                 className={classes('absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A436A] to-[#0A436A00]', innerComponent ? "h-[20vh]" : "h-[15vh]")}/>

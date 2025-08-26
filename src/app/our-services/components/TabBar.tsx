@@ -1,6 +1,7 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import {Tab} from "@/app/our-services/page";
+import {classes} from "@/utils/string";
 
 interface Props {
     tabs: Tab[];
@@ -75,11 +76,13 @@ export default function TabBar({tabs, active, setActive}: Props) {
                                             alt=""
                                             width={32}
                                             height={32}
-                                            className={`object-contain object-center
-                        transition-all duration-500 h-6 md:h-7 xl:h-8
-                        ${isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80"}
-                        group-hover:scale-125
-                      `}
+                                            className={
+                                                classes(
+                                                    'object-contain object-center transition-all duration-500 h-6 md:h-7 xl:h-8 group-hover:scale-125',
+                                                    isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80",
+                                                    t.key === 'statutory' || t.key === 'energy-industry' ? '!h-4.5 md:!h-5 xl:!h-6' : ''
+                                                )
+                                            }
                                         />
                                     </div>
 

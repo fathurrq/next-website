@@ -10,10 +10,13 @@ export default function ContactUsSection() {
                        className="object-contain absolute bottom-0 left-0 opacity-20"/>
                 <div className="flex w-full 2xl:w-[unset] 2xl:min-h-[40vh] flex-col justify-between gap-4">
                     <div className="flex flex-col 2xl:gap-3.5 md:gap-3 gap-2.5">
-                        <p className="2xl:text-4xl md:text-3xl text-2xl font-bold text-white">Contact Us</p>
-                        <p className="2xl:text-xl md:text-lg font-semibold text-white max-w-1/2">Get in touch with our
-                            team for
-                            inquiries, support, or collaboration opportunities.</p>
+                        <p className="2xl:text-4xl md:text-3xl text-2xl font-bold text-white">
+                            Our experts are here to help.
+                        </p>
+                        <p className="2xl:text-xl md:text-lg font-semibold text-white max-w-1/2">
+                            Fill out the form to contact us or create your myBKI account and start using our TICCS
+                            services
+                        </p>
                     </div>
                     <div
                         className="relative flex flex-col 2xl:gap-5 md:gap-4 gap-3.5 2xl:py-4 md:py-3 py-2.5 2xl:px-5 md:px-4 px-3.5 border border-white self-start">
