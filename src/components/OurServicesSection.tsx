@@ -41,6 +41,12 @@ const services = [
         href: "https://www.bki.academy/id",
         type: "_blank",
     },
+    {
+        title: "Others",
+        description: "",
+        image: "/service-others.jpg",
+        href: "/our-services",
+    },
 ];
 
 export default function OurServicesSection() {

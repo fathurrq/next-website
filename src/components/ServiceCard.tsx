@@ -16,7 +16,7 @@ interface Props {
 export default function ServiceCard({href, image, icon, title, description, isProgramPage, target}: Props) {
     const parentClasses = useMemo(() => {
         if (isProgramPage) {
-            return 'w-[calc(100vw-160px)] md:w-[calc(50vw-100px)] 2xl:w-[calc(33.333vw-100px)]';
+            return 'w-[calc(100vw-80px)] md:w-[calc(50vw-100px)] 2xl:w-[calc(33.333vw-100px)]';
         }
         return 'w-full md:w-[calc(50%-30px)] 2xl:w-[calc(33.333%-30px)]';
     }, [isProgramPage]);

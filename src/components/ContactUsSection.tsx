@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function ContactUsSection() {
     return (
-        <section className="2xl:p-24 p-16 flex flex-col justify-center items-center bg-white">
+        <section className="2xl:p-24 lg:p-16 p-8 flex flex-col justify-center items-center bg-white">
             <div
                 className="relative w-full xl:p-12 md:p-10 p-8 flex 2xl:flex-row flex-col justify-center items-center bg-gradient-to-b from-[#0A436A] to-black min-h-[50vh]">
                 <Image src={'/bki-white-bg.png'} alt={"Logo BKI Putih"} width={780} height={500}
                        className="object-contain absolute bottom-0 left-0 opacity-20"/>
-                <div className="flex w-full 2xl:w-[unset] 2xl:min-h-[40vh] flex-col justify-between gap-4">
+                <div className="flex w-full 2xl:w-[unset] 2xl:min-h-[50vh] flex-col justify-between gap-4">
                     <div className="flex flex-col 2xl:gap-3.5 md:gap-3 gap-2.5">
                         <p className="2xl:text-4xl md:text-3xl text-2xl font-bold text-white">
                             Our experts are here to help.
