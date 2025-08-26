@@ -185,7 +185,7 @@ export default function SliderSection({
                                     {slide.title}
                                 </p>
 
-                                <div className="flex items-center gap-4 sm:gap-6 md:gap-8 xl:gap-14">
+                                <div className="flex items-center gap-2 sm:gap-3 md:gap-4 xl:gap-5">
                                     {SLIDES.map((_, i) => {
                                         const isActive = i === slideIndex;
                                         return (
@@ -194,9 +194,9 @@ export default function SliderSection({
                                                 onClick={() => setSlideIndex(i)}
                                                 aria-label={`Go to slide ${i + 1}`}
                                                 className={`
-                          rounded-full transition cursor-pointer
+                          rounded-full transition-colors duration-300 cursor-pointer
                           ${isActive ? "bg-white" : "bg-white/20 hover:bg-white/40"}
-                          w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 xl:w-5 xl:h-5
+                          w-2 h-2 md:w-2.5 md:h-2.5 xl:w-3 xl:h-3
                         `}
                                             />
                                         );

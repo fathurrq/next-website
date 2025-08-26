@@ -10,9 +10,10 @@ interface Props {
     title: string;
     description?: string;
     isProgramPage?: boolean;
+    target?: string;
 }
 
-export default function ServiceCard({href, image, icon, title, description, isProgramPage}: Props) {
+export default function ServiceCard({href, image, icon, title, description, isProgramPage, target}: Props) {
     const parentClasses = useMemo(() => {
         if (isProgramPage) {
             return 'w-[calc(100vw-160px)] md:w-[calc(50vw-100px)] 2xl:w-[calc(33.333vw-100px)]';
@@ -22,8 +23,8 @@ export default function ServiceCard({href, image, icon, title, description, isPr
     return (
         <Link
             href={href}
-            target={"_blank"}
-            rel={"noopener noreferrer"}
+            target={target ? target : "_self"}
+            // rel={"noopener noreferrer"}
             className={classes("relative shadow-lg shadow-black/50 group py-[20px] px-[32px] rounded-[4px] overflow-hidden cursor-pointer h-[250px] 2xl:h-[300px]", parentClasses)}
         >
             {/* Background Image */}

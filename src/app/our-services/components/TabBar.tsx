@@ -76,8 +76,9 @@ export default function TabBar({tabs, active, setActive}: Props) {
                                             width={32}
                                             height={32}
                                             className={`object-contain object-center
-                        transition-opacity duration-300 h-6 md:h-7 xl:h-8
+                        transition-all duration-500 h-6 md:h-7 xl:h-8
                         ${isActive ? "opacity-100" : "opacity-60 group-hover:opacity-80"}
+                        group-hover:scale-125
                       `}
                                         />
                                     </div>
@@ -85,9 +86,9 @@ export default function TabBar({tabs, active, setActive}: Props) {
                                     {/* label */}
                                     <div
                                         className={`
-                      tracking-wide transition-colors duration-300
+                      tracking-wide transition-all duration-300
                       ${isActive ? "text-white" : "text-white/60 group-hover:text-white/80"}
-                      text-sm sm:text-base lg:text-xl 2xl:text-3xl
+                      text-sm sm:text-base lg:text-xl 2xl:text-3xl group-hover:scale-110
                     `}
                                     >
                                         {t.label}
