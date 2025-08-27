@@ -17,7 +17,7 @@ export default function AvailableSection() {
 
             <div className="w-full h-full absolute top-0 inset-0 flex flex-col gap-20 2xl:gap-30">
                 {/* Bagian Heading Tengah */}
-                <div className="pt-24 text-white flex flex-col items-center gap-4 md:gap-7 2xl:gap-9">
+                <div className="pt-24 px-6 md:px-16 text-white flex flex-col items-center gap-4 md:gap-7 2xl:gap-9">
                     <h3 className="font-montserrat text-3xl 2xl:text-6xl font-medium text-center">
                         Available Opportunities
                     </h3>
