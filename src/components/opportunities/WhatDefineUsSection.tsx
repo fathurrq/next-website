@@ -30,23 +30,23 @@ export default function  WhatDefineUsSection() {
     return (
     <div
       id="what-define-us"
-      className="font-montserrat relative w-full h-auto overflow-hidden p-[6rem] bg-white"
+      className="font-montserrat relative w-full h-auto p-4 md:p-[6rem] bg-white"
     >
-        <div className="container mx-auto w-full h-auto flex justify-around items-center gap-12 text-slate-800">
+        <div className="mx-auto w-full h-auto flex flex-col md:flex-row justify-around items-center gap-12 text-slate-800">
             {/* <div className="flex-1/2 h-auto bg-[#F15A25] rounded-md p-8 flex flex-col">
                 <h3 className="text-white font-medium text-[3.2vw]">Working at <span>BKI</span> has given me opportunities to grow while contributing to national maritime progress.</h3>
             </div> */}
             <Carousel/>
             <div className="flex-1/2 h-full flex flex-col gap-4">
-                <h3 className="text-5xl font-bold">What Defines Us</h3>
+                <h3 className="text-lg md:text-2xl 2x:text-5xl font-bold">What Defines Us</h3>
 
-                <div className="h-full flex flex-col justify-evenly gap-4">
+                <div className="h-full flex flex-col justify-evenly gap-4 text-base md:text-xl 2xl:text-3xl">
                     {defineUs.map((item) => (
                         <div className="flex gap-4 items-stretch" key={item.id}>
-                            <span className="text-5xl font-bold text-slate-400">{item.id}</span>
+                            <span className="text-xl md:text-3xl 2xl:text-5xl font-bold text-slate-400">{item.id}</span>
                             <div className="text-slate-800">
-                                <span className=" text-3xl font-bold">{item.title}</span>
-                                <p className="text-2xl">{item.description}</p>
+                                <span className="font-bold">{item.title}</span>
+                                <p className="">{item.description}</p>
                             </div>
                         </div>
                     ))}

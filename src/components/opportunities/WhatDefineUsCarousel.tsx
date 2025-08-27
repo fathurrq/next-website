@@ -39,7 +39,8 @@ export default function CultureCarousel() {
   const prevSlide = () => setIndex((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <div className="relative bg-[#F15A25] text-white p-6 md:p-10 rounded-lg shadow-lg h-[50vh] md:h-[60vh] overflow-hidden w-1/2">
+    <div className="relative bg-[#F15A25] text-white p-6 md:p-10 rounded-lg shadow-lg md:h-[60vh] overflow-hidden md:w-1/2
+    pb-20 md:pb-0">
       {/* Slide animation */}
       <AnimatePresence mode="wait">
         <motion.h2
