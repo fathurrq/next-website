@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useHeroTransition } from "./TransitionProvider";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 /* ---------- helpers ---------- */
@@ -489,9 +490,7 @@ export default function SiteNavbar() {
                               onMouseLeave={() => handleLeaveSoon}
                               style={{ overflow: "visible" }}
                             >
-                              <div
-                                className="flex rounded-2xl shadow-2xl overflow-visible p-4 py-0 border border-white/10 bg-black/50 backdrop-blur-md"
-                              >
+                              <div className="flex rounded-2xl shadow-2xl overflow-visible p-4 py-0 border border-white/10 bg-black/50 backdrop-blur-md">
                                 {/* Left side menu */}
                                 <ul className="min-w-[220px] pr-4">
                                   {item.submenu!.map((sub, si) => {
@@ -580,25 +579,34 @@ export default function SiteNavbar() {
                   }}
                   transition={{ delay: 1.0, duration: 0.8 }}
                 >
-                  <a
-                    href={"https://www.bki.co.id/home"}
+                  <Link
+                    href={"https://my.bki.co.id/user/login"}
                     className={`relative inline-flex font-semibold text-sm items-center gap-1 px-1 ${
                       isCompact ? "py-1.5" : "py-2"
                     } transition-colors group-hover:${
                       useWhiteLogo ? "!text-white/30" : "!text-[#0A436A]"
-                    }`}
+                    } group`}
                     onFocus={() => handleEnter(NAV.length + 1)}
                     onBlur={handleLeaveSoon}
                   >
-                    PPID
+                    <div
+                      className="transition-transform duration-200 group-hover:scale-105"
+                      style={{ willChange: "transform" }}
+                    >
+                      Sign in
+                    </div>
                     <span
-                      className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${
-                        isCompact ? "-bottom-3" : "-bottom-4"
-                      } h-[2px] w-full rounded-full ${
-                        useWhiteLogo ? "bg-white" : "bg-[#0A436A]"
-                      } opacity-0 group-hover:opacity-100 transition-opacity`}
-                    />
-                  </a>
+                      className="transition-transform duration-200 group-hover:scale-110"
+                      style={{ willChange: "transform" }}
+                    >
+                      <Image
+                        src="/my-bki-logo.png"
+                        width={64}
+                        height={64}
+                        alt="my-bki"
+                      />
+                    </span>
+                  </Link>
                 </motion.div>
                 <motion.div
                   className={`hidden md:flex items-center ${

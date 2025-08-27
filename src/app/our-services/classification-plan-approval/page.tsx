@@ -1,11 +1,11 @@
 'use client';
 import {motion} from "framer-motion";
-import {useEffect} from "react";
-import {useHeroTransition} from "@/components/TransitionProvider";
 import Image from "next/image";
 import ContactUsSection from "@/components/ContactUsSection";
 import GlimpseSlider from "@/app/our-services/classification-plan-approval/components/GlimpseSlider";
 import Hero from "@/components/Hero";
+import FancyTitle from "@/components/FancyTitle";
+import PageTransition from "@/components/page-transition";
 
 const technologyAdvancement = [
     "Lines Plan",
@@ -27,32 +27,9 @@ const technologyAdvancement = [
 ];
 
 export default function ClassificationPage() {
-    const {startTransition, setStartTransition} = useHeroTransition();
-    useEffect(() => {
-        const t = setTimeout(() => setStartTransition(true), 1000);
-        return () => clearTimeout(t);
-    }, [setStartTransition]);
-
-    useEffect(() => {
-        if (!startTransition) return;
-    }, [startTransition]);
     return (
         <div className="relative min-h-screen w-full overflow-hidden">
-            <motion.div
-                className="absolute inset-0 z-10 pointer-events-none"
-                initial={{opacity: 1}}
-                animate={{opacity: startTransition ? 0 : 1}}
-                transition={{duration: 0.8}}
-                style={{
-                    background: `
-          linear-gradient(0deg, #0A436A 0%, rgba(10,67,106,0) 100%),
-          linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 100%),
-          linear-gradient(0deg, #000 0%, rgba(0,0,0,0) 100%)
-        `,
-                    backdropFilter: "blur(22px)",
-                    WebkitBackdropFilter: "blur(22px)",
-                }}
-            />
+            <PageTransition />
 
             {/* Hero Section */}
             <Hero
@@ -106,7 +83,7 @@ export default function ClassificationPage() {
             <section
                 className="w-full 2xl:py-20 md:py-16 py-12 2xl:px-28 md:px-24 px-20 bg-white flex flex-col justify-center items-center 2xl:gap-12 md:gap-8 gap-4">
                 <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A] text-center">
-                    Technology Advancement
+                    <FancyTitle title="Technology Advancement" />
                 </p>
                 <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
                     <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-center">

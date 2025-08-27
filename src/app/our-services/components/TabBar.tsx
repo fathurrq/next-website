@@ -1,8 +1,8 @@
 import {motion} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {Tab} from "@/app/our-services/page";
 import {classes} from "@/utils/string";
+import { Tab } from "./TabContent";
 
 interface Props {
     tabs: Tab[];

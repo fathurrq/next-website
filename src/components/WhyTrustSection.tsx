@@ -43,6 +43,7 @@ export default function WhyTrustSection({images}: Props) {
                                     fill
                                     className="object-cover"
                                     aria-hidden
+                                    priority={true}
                                 />
                             </div>
                         ))}
@@ -57,6 +58,7 @@ export default function WhyTrustSection({images}: Props) {
                                     fill
                                     className="object-cover"
                                     aria-hidden
+                                    priority={true}
                                 />
                             </div>
                         ))}

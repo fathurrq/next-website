@@ -207,3 +207,10 @@ a:focus-visible {
 .bg-bki-blue {
   background-color: #0A436A;
 }
+
+.text-bki-orange {
+  color: #e25b25;
+}
+.text-bki-yellow {
+  color: #eeb011;
+}

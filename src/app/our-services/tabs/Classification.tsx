@@ -2,6 +2,7 @@ import { Fragment, RefObject } from "react";
 import WhyTrustSection from "@/components/WhyTrustSection";
 import SliderSection from "@/app/our-services/components/SliderSection";
 import ServiceCard from "@/components/ServiceCard";
+import FancyTitle from "@/components/FancyTitle";
 
 type ProgramItem = {
   title: string;
@@ -10,7 +11,7 @@ type ProgramItem = {
 };
 const programItems: ProgramItem[] = [
   {
-    title: "Plan Approval",
+    title: "Ship Register",
     image: "/our-services/program/plan-approval.jpg",
     href: "/our-services/classification-plan-approval",
   },
@@ -19,30 +20,26 @@ const programItems: ProgramItem[] = [
     image: "/our-services/program/floating-offshore.png",
   },
   {
-    title: "Class Suspend",
+    title: "Class Suspend / Withdrawn",
     image: "/our-services/program/class-suspend.jpg",
   },
   {
-    title: "Class Suspend",
+    title: "Class Maintenance Certificate",
     image: "/our-services/program/class-suspend.jpg",
   },
   {
-    title: "Plan Approval",
+    title: "Material and Component",
     image: "/our-services/program/plan-approval.jpg",
     href: "/our-services/classification-plan-approval",
   },
   {
-    title: "Floating Offshore",
-    image: "/our-services/program/floating-offshore.png",
-  },
-  {
-    title: "Floating Offshore",
-    image: "/our-services/program/floating-offshore.png",
-  },
-  {
     title: "Plan Approval",
-    image: "/our-services/program/plan-approval.jpg",
+    image: "/our-services/program/floating-offshore.png",
     href: "/our-services/classification-plan-approval",
+  },
+  {
+    title: "Ship Recycling",
+    image: "/our-services/program/floating-offshore.png",
   },
 ];
 
@@ -81,18 +78,19 @@ export default function ClassificationTabContent({
         />
         <div className="flex flex-col gap-8 2xl:gap-12">
           <p className="2xl:text-5xl text-3xl font-bold text-[#0A436A]">
-            Ensuring your vessels meet the highest safety and quality standards.
+            Welcome to the heart of Biro Klasifikasi Indonesia (BKI)
           </p>
-          <p className="2xl:text-2xl text-lg text-black">
-            We provide independent and reliable ship classification services to
-            ensure your vessels comply with international safety, environmental,
-            and quality standards. From design approval to construction survey
-            and periodical inspections, our team helps secure your ship’s
-            performance and seaworthiness. We provide independent and reliable
-            ship classification services to ensure your vessels comply with
-            international safety, environmental, and quality standards. From
-            design approval to construction survey and periodical inspections,
-            our team helps secure your ship’s performance and seaworthiness.
+          <p className="2xl:text-2xl text-lg text-black text-justify">
+            For over half a century, we have been the vanguard of maritime
+            safety in Indonesia and a respected name on the global stage. Our
+            Classification services provide a comprehensive suite of technical
+            assessments and certifications designed to ensure your vessels are
+            safe, reliable, and compliant with all regulations.
+            <br />
+            <br />
+            By partnering with BKI, you are not just meeting requirements; you
+            are investing in operational excellence, risk mitigation, and the
+            long-term value of your maritime assets.
           </p>
         </div>
       </section>
@@ -104,11 +102,12 @@ export default function ClassificationTabContent({
       >
         <div className="w-full flex md:flex-row flex-col justify-between items-center gap-5 md:gap-0">
           <p className="2xl:text-6xl text-4xl font-bold text-[#0A436A] w-full">
-            Classification Services
+            {/* <span className="inline-block">Classification</span>&nbsp;<span className="font-medium inline-block">Services</span> */}
+            <FancyTitle title="Classification Services"/>
           </p>
-          <p className="2xl:text-3xl text-xl lg:text-end text-black w-full md:w-4/5">
-            Tailored programs to ensure safety and compliance from design to
-            operation.
+          <p className="2xl:text-2xl text-xl lg:text-end text-black w-full md:w-4/5 text-justify">
+            Explore how our expertise can empower your fleet to sail with
+            certainty.
           </p>
         </div>
         <div className="w-full grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-3 md:gap-x-5 2xl:gap-x-8 gap-y-8 md:gap-y-12 2xl:gap-y-16">

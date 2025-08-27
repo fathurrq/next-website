@@ -21,8 +21,8 @@ const jost = Jost({
 
 
 export const metadata: Metadata = {
-  title: "PT Biro Klasifikasi Indonesia (BKI) - Leading Maritime Classification Agency",
-  description: "BKI is Indonesia's premier maritime classification agency, providing vessel classification, statutory certification, and maritime consultancy services since 1964.",
+  title: "Marine Classification Services | Biro Klasifikasi Indonesia (BKI)",
+  description: "Partner with BKI for world-class marine classification services. Ensuring safety, compliance, and operational excellence for your fleet, from new builds to ships in service. Discover our commitment to global standards.",
 };
 
 export default function RootLayout({
