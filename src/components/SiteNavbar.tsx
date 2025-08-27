@@ -66,7 +66,7 @@ const NAV: Navigation[] = [
         href: "/our-services#energy-industry",
         type: "",
       },
-      { label: "BKI Academy", href: "https://www.bki.academy/id", type: "" },
+      { label: "BKI Academy", href: "https://www.bki.academy/id", type: "_blank" },
     ],
   },
   {
@@ -158,7 +158,7 @@ const NAV: Navigation[] = [
           {
             label: "Procurements",
             href: "https://vms.bki.co.id",
-            type: "",
+            type: "_blank",
           },
           {
             label: "Assets Auction",
@@ -545,12 +545,15 @@ export default function SiteNavbar() {
                                         item.submenu![subHovered]?.submenu || []
                                       ).map((ssub) => (
                                         <li key={ssub.label}>
-                                          <Link
+                                        <Link
                                             href={ssub.href}
                                             className="font-normal block py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
-                                          >
+                                            {...(ssub.type === "_blank"
+                                                ? { target: "_blank", rel: "noopener noreferrer" }
+                                                : {})}
+                                        >
                                             {ssub.label}
-                                          </Link>
+                                        </Link>
                                         </li>
                                       ))}
                                     </ul>
