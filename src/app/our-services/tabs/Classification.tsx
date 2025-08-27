@@ -47,20 +47,20 @@ const programItems: ProgramItem[] = [
 ];
 
 interface Props {
-  key: string;
+  keyContent: string;
   activeIndex: number;
   prevIndex: RefObject<number>;
 }
 
 export default function ClassificationTabContent({
-  key,
+  keyContent: key,
   activeIndex,
   prevIndex,
 }: Props) {
   return (
     <Fragment>
       <SliderSection
-        key={key}
+        keyContent={key}
         activeIndexParent={activeIndex}
         prevIndexParent={prevIndex}
       />
@@ -100,11 +100,11 @@ export default function ClassificationTabContent({
       {/*Program Section*/}
       <section
         id="program"
-        className="w-full h-full 2xl:px-24 2xl:py-12 md:px-24 md:py-6 py-8 px-8 flex flex-col justify-center items-center bg-white gap-14"
+        className="w-full h-full 2xl:px-24 2xl:py-18 md:px-24 md:py-6 py-8 px-8 flex flex-col justify-center items-center bg-white gap-14"
       >
         <div className="w-full flex md:flex-row flex-col justify-between items-center gap-5 md:gap-0">
           <p className="2xl:text-6xl text-4xl font-bold text-[#0A436A] w-full">
-            Program
+            Classification Services
           </p>
           <p className="2xl:text-3xl text-xl lg:text-end text-black w-full md:w-4/5">
             Tailored programs to ensure safety and compliance from design to

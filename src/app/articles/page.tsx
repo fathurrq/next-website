@@ -55,6 +55,24 @@ export default function Articles() {
       img: "/article3.jpg",
       link: "#",
     },
+    {
+      title: "New Research Vessel For Marine Science In SA",
+      content: "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
+      img: "/article1.jpg",
+      link: "#",
+    },
+    {
+      title: "Understanding ISO 45001: Safety Culture in Industrial Workplaces",
+      content: "Research Vessel Encounter pulls in at O'Sullivan Beach boat ramp. A new coastal research vessel, RV Encounter, will support the investigations and training opportunities of Flinders",
+      img: "/article2.jpg",
+      link: "#",
+    },
+    {
+      title: "The Role of T10 in the Renewable Energy Transition",
+      content: "The T10 is a crucial component in the shift towards renewable energy sources, facilitating the integration of various technologies and improving overall efficiency.",
+      img: "/article3.jpg",
+      link: "#",
+    },
     
   ]
 

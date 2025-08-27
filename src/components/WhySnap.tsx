@@ -144,7 +144,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             exit={{ y: -12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="font-montserrat text-5xl md:text-9xl leading-none font-extrabold flex items-center gap-2">
+            <div className="font-montserrat text-5xl text-shadow-xs text-shadow-black/50 md:text-9xl leading-none font-extrabold flex items-center gap-2">
               {slide.topTitle ?? "Why"}{" "}
               <Image
                 src="/tick-only.png"
@@ -154,7 +154,7 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
                 className="md:w-[96px] md:h-[96px] w-[32px] h-[32px]"
               />
             </div>
-            <p className="mt-2 text-xl md:text-5xl font-medium">
+            <p className="mt-2 text-xl md:text-5xl font-mediu text-shadow-xs text-shadow-black/50">
               {slide.subTitle ?? "The Global Trust Us"}
             </p>
           </motion.div>
@@ -167,9 +167,9 @@ function SlideView({ slide, hideText }: { slide: Slide; hideText: boolean }) {
             exit={{ y: 12, opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
           >
-            <div className="text-2xl md:text-5xl font-extrabold leading-[1.05] md:w-[50vw] text-left ">
+            <div className="text-2xl text-shadow-xs text-shadow-black/50 md:text-5xl font-extrabold leading-[1.05] md:w-[50vw] text-left ">
               {slide.bottomRight}
-              <div className="text-sm font-normal mt-2 md:text-xl">
+              <div className="text-sm font-normal mt-2 md:text-xl text-shadow-xs text-shadow-black/50">
                 {slide.description}
               </div>
             </div>

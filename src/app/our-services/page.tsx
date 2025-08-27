@@ -66,31 +66,31 @@ export default function OurServices() {
             key: "classification",
             label: "Classification",
             icon: "/icon-service-classification.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            content: <ClassificationTabContent keyContent={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "statutory",
             label: "Statutory",
             icon: "/icon-service-statutory.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            content: <ClassificationTabContent keyContent={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "marine-services",
             label: "Marine Services",
             icon: "/icon-service-marine-services.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            content: <ClassificationTabContent keyContent={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "energy-industry",
             label: "Energy & Industry",
             icon: "/icon-service-energy-industry.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            content: <ClassificationTabContent keyContent={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
         },
         {
             key: "bki-academy",
             label: "BKI Academy",
             icon: "/icon-service-bki-academy.png",
-            content: <ClassificationTabContent key={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
+            content: <ClassificationTabContent keyContent={'classification'} activeIndex={activeIndex} prevIndex={prevIndex}/>,
             href: "https://www.bki.academy/id",
         },
     ], [activeIndex]);
@@ -193,8 +193,8 @@ export default function OurServices() {
                     </p>
                 </div>
                 <div className="w-full flex flex-col xl:flex-row-reverse items-center xl:gap-6 gap-52">
-                    <div
-                        className="w-full xl:w-1/2 h-[400px] flex flex-col justify-end relative bg-[url('/bki-armada.jpg')] bg-cover bg-bottom rounded-lg">
+                    <Link href={"https://armada.bki.co.id"} rel="noopener noreferrer" target="_blank"
+                        className="w-full xl:w-1/2 h-[400px] cursor-pointer flex flex-col justify-end relative bg-[url('/bki-armada.jpg')] bg-cover bg-bottom rounded-lg">
                         <div
                             className="absolute left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#E2E7F0] h-1/3"/>
                         <div
@@ -205,14 +205,14 @@ export default function OurServices() {
                                 We provide independent and reliable ship classification services to ensure your vessels
                                 comply with international safety.
                             </p>
-                            <Link href={'#'}
+                            <div
                                   className="xl:text-2xl text-lg text-[#0A436A]/75 text-center hover:text-[#0A436A] transition-colors duration-500 border-b-2 border-[#0A436A]/75 hover:border-[#0A436A]">
                                 Visit BKI Armada
-                            </Link>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        className="w-full xl:w-1/2 h-[400px] flex flex-col justify-end relative bg-[url('/my-bki.jpg')] bg-cover bg-bottom rounded-lg">
+                    </Link>
+                    <Link href={"https://my.bki.co.id/user/login"} rel="noopener noreferrer" target="_blank"
+                        className="w-full xl:w-1/2 h-[400px] cursor-pointer flex flex-col justify-end relative bg-[url('/my-bki.jpg')] bg-cover bg-bottom rounded-lg">
                         <div
                             className="absolute left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#E2E7F0] h-1/3"/>
                         <div
@@ -223,12 +223,12 @@ export default function OurServices() {
                                 We provide independent and reliable ship classification services to ensure your vessels
                                 comply with international safety.
                             </p>
-                            <Link href={'#'}
+                            <div
                                   className="xl:text-2xl text-lg text-[#0A436A]/75 text-center hover:text-[#0A436A] transition-colors duration-500 border-b-2 border-[#0A436A]/75 hover:border-[#0A436A]">
                                 Visit myBKI
-                            </Link>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </section>
 

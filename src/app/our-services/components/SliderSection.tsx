@@ -4,7 +4,7 @@ import Link from "next/link";
 import {RefObject, useEffect, useRef, useState} from "react";
 
 interface Props {
-    key: string;
+    keyContent: string;
     activeIndexParent: number;
     prevIndexParent: RefObject<number>;
 }
@@ -49,7 +49,7 @@ const SLIDES: Slide[] = [
 const AUTOPLAY_MS = 5000;
 
 export default function SliderSection({
-                                          key,
+                                          keyContent: key,
                                           activeIndexParent,
                                           prevIndexParent,
                                       }: Props) {
