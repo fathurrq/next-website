@@ -75,6 +75,7 @@ export default function ClassificationTabContent({
           loop
           muted
           playsInline
+          preload="auto"
         />
         <div className="flex flex-col gap-8 2xl:gap-12">
           <p className="2xl:text-5xl text-3xl font-bold text-[#0A436A]">
