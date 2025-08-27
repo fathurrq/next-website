@@ -44,7 +44,7 @@ const services = [
     {
         title: "Others",
         description: "",
-        image: "/service-others.jpg",
+        image: "/service-others.JPG",
         href: "/our-services",
     },
 ];
@@ -95,6 +95,7 @@ export default function OurServicesSection() {
                     className="w-screen h-[110vh] object-cover z-0"
                     width={1920}
                     height={1080}
+                    priority={true}
                 />
 
                 {/*<div className="absolute left-0 right-0 bottom-0 bg-black h-[120px]"/>*/}
