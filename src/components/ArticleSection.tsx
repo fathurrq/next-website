@@ -1,6 +1,7 @@
 import { Article } from "@/types/articles";
 import Image from "next/image";
 import ArticleCard from "./ArticleCard";
+import ArticleCardModern from "./ArticleCardModern";
 
 export default async function ArticleSection() {
   const data = (await fetch(
@@ -39,7 +40,7 @@ export default async function ArticleSection() {
 
       <div className="grid relative z-10 grid-cols-1 md:grid-cols-3 gap-6">
         {data?.data?.map((article, i) => (
-          <ArticleCard key={i} article={article} />
+          <ArticleCardModern key={i} article={article} />
         ))}
       </div>
     </section>

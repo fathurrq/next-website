@@ -34,7 +34,7 @@ const programItems: ProgramItem[] = [
   },
   {
     title: "Plan Approval",
-    image: "/our-services/program/floating-offshore.png",
+    image: "/classification-plan-approval.jpg",
     href: "/our-services/classification-plan-approval",
   },
   {

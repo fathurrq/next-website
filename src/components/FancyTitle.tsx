@@ -5,7 +5,7 @@ export default function FancyTitle(props: { title: string, firstPartClassname?: 
   const restOfTitle = titlePart.length > 1 ? titlePart.slice(1).join(" ") : "";
   return (
     <React.Fragment>
-      <span className={`${props.firstPartClassname} inline-block`}>{firstPart}</span>&nbsp;
+      <span className={`${props.firstPartClassname} font-bold inline-block`}>{firstPart}</span>&nbsp;
       <span className={`${props.restClassName} font-medium inline-block`}>{restOfTitle}</span>
     </React.Fragment>
   );

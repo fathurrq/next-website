@@ -3,6 +3,7 @@ import {useRef} from "react";
 import Image from "next/image";
 import {motion, useScroll, useTransform} from "framer-motion";
 import ServiceCard from "@/components/ServiceCard";
+import FancyTitle from "./FancyTitle";
 
 const services = [
     {
@@ -30,20 +31,20 @@ const services = [
         title: "Energy & Industry",
         description: "Delivering reliable solutions maritime and industrial needs.",
         // icon: "/icon-service-energy-industry.png",
-        image: "/service-energy-industry.jpg",
+        image: "/our-services-energy-industry.jpg",
         href: "/our-services#energy-industry",
     },
     {
         title: "BKI Academy",
         description: "Advancing skills for the maritime industry",
         // icon: "/icon-service-bki-academy.png",
-        image: "/service-bki-academy.jpg",
+        image: "/our-services-bki-academy.jpg",
         href: "https://www.bki.academy/id",
         type: "_blank",
     },
     {
         title: "Others",
-        description: "",
+        description: "Learn more about our other services.",
         image: "/service-others.JPG",
         href: "/our-services",
     },
@@ -90,7 +91,7 @@ export default function OurServicesSection() {
 
                 {/* Background image */}
                 <Image
-                    src="/services-bg.jpg"
+                    src="/bg-our-services-2.jpg"
                     alt="Background"
                     className="w-screen h-[110vh] object-cover z-0"
                     width={1920}
@@ -106,8 +107,8 @@ export default function OurServicesSection() {
                 className="absolute inset-0 h-[calc(100vh+240px)] flex flex-col justify-center items-center pt-5 pb-36 -mt-7 z-1"
             >
                 <div className="flex flex-col gap-6 mb-20">
-                    <p className="text-5xl md:text-6xl text-white text-center">
-                        Our Services
+                    <p className="text-5xl md:text-6xl text-white font-bold text-center">
+                        <FancyTitle title="Our Services"/>
                     </p>
                     <p className="text-2xl md:text-2xl text-white text-center">
                         Discover maritime services built for safety, compliance, and
