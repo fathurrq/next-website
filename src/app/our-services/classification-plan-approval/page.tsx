@@ -1,11 +1,10 @@
-'use client';
-import {motion} from "framer-motion";
 import Image from "next/image";
 import ContactUsSection from "@/components/ContactUsSection";
 import GlimpseSlider from "@/app/our-services/classification-plan-approval/components/GlimpseSlider";
 import Hero from "@/components/Hero";
 import FancyTitle from "@/components/FancyTitle";
 import PageTransition from "@/components/page-transition";
+import DigitalPlatform from "@/app/our-services/components/DigitalPlatform";
 
 const technologyAdvancement = [
     "Lines Plan",
@@ -29,7 +28,7 @@ const technologyAdvancement = [
 export default function ClassificationPage() {
     return (
         <div className="relative min-h-screen w-full overflow-hidden">
-            <PageTransition />
+            <PageTransition/>
 
             {/* Hero Section */}
             <Hero
@@ -44,19 +43,24 @@ export default function ClassificationPage() {
 
             {/*Introduction Section*/}
             <section
-                className="w-full 2xl:py-20 md:py-16 py-12 2xl:px-28 md:px-24 px-20 bg-white flex flex-col justify-center items-center 2xl:gap-12 md:gap-8 gap-4">
-                <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A]">Introduction</p>
-                <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
-                    <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-center">
-                        Improve your confidence
-                        in your ship performance and statutory compliance with us.
-                    </p>
-                    <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-center">
-                        We offer a comprehensive
-                        range of approval services, covering both classification and statutory documentation. Our
-                        mission is to ensure the safety and sustainability of the global maritime industry through our
-                        genuine commitment to contribution, trustworthiness, and adherence to rules and regulations.
-                    </p>
+                className="w-full 2xl:py-20 md:py-16 py-12 2xl:px-28 md:px-24 px-8 bg-white flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
+                <Image src={'/our-services/plan-approval-introduction.jpg'} alt={'Introduction'} width={800}
+                       height={570} className="object-cover lg:h-[45vh] h-[300px] rounded-lg"/>
+                <div className="flex flex-col justify-center 2xl:gap-8 md:gap-6 gap-4">
+                    <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A]">Introduction</p>
+                    <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
+                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A]">
+                            Improve your confidence
+                            in your ship performance and statutory compliance with us.
+                        </p>
+                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A]">
+                            We offer a comprehensive
+                            range of approval services, covering both classification and statutory documentation. Our
+                            mission is to ensure the safety and sustainability of the global maritime industry through
+                            our
+                            genuine commitment to contribution, trustworthiness, and adherence to rules and regulations.
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -65,7 +69,7 @@ export default function ClassificationPage() {
 
             {/*Service Section*/}
             <section
-                className="w-full 2xl:p-28 md:p-24 p-20 bg-[#0A436A] flex flex-col justify-center items-center 2xl:gap-10 md:gap-6 gap-3">
+                className="w-full 2xl:p-28 md:p-24 p-8 bg-[#0A436A] flex flex-col justify-center items-center 2xl:gap-10 md:gap-6 gap-3">
                 <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-white text-center">Classification
                     Service</p>
                 <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
@@ -81,36 +85,52 @@ export default function ClassificationPage() {
 
             {/*Technology Section*/}
             <section
-                className="w-full 2xl:py-20 md:py-16 py-12 2xl:px-28 md:px-24 px-20 bg-white flex flex-col justify-center items-center 2xl:gap-12 md:gap-8 gap-4">
-                <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A] text-center">
-                    <FancyTitle title="Technology Advancement" />
-                </p>
-                <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
-                    <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-center">
-                        As a leading Indonesian Classification Society, we offer far more than compliance alone. Our
-                        goal is to ensure your designs meet the highest standards of safety, quality, and reliability.
-                        We leverage advanced engineering software such as <span className="font-bold"> NAPA, Maxsurf, Ansys, and Poseidon</span>.
-                        In addition, we have developed our own structural analysis software, Dewaruci, which fully
-                        complies with relevant standards and is designed to overcome real-world engineering challenges.
+                className="w-full 2xl:py-20 md:py-16 py-12 2xl:px-28 md:px-24 px-8 bg-white flex lg:flex-row flex-col justify-center items-center lg:gap-16 gap-8">
+                <div className="flex flex-col justify-center 2xl:gap-12 md:gap-8 gap-4">
+                    <p className="2xl:text-6xl md:text-5xl text-4xl font-bold text-[#0A436A]">
+                        <FancyTitle title="Technology Advancement"/>
                     </p>
-                    <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-center">
-                        Our expert engineers are committed to consistently exceeding your expectation services,
-                        providing owners and operators with confidence in managing ships and offshore assets safely. We
-                        ensure compliance with class documentation in accordance with our advanced class regulations,
-                        which include, but are not limited to:
-                    </p>
+                    <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
+                        <p className="2xl:text-2xl md:text-xl text-lg text-[#0A436A]">
+                            As a leading Indonesian Classification Society, we offer far more than compliance alone.
+                            Our
+                            goal is to ensure your designs meet the highest standards of safety, quality, and
+                            reliability.
+                            We leverage advanced engineering software such as <span className="font-bold"> NAPA, Maxsurf, Ansys, and Poseidon</span>.
+                            In addition, we have developed our own structural analysis software, Dewaruci, which
+                            fully
+                            complies with relevant standards and is designed to overcome real-world engineering
+                            challenges.
+                        </p>
+                        <p className="2xl:text-2xl md:text-xl text-lg text-[#0A436A]">
+                            Our expert engineers are committed to consistently exceeding your expectation services,
+                            providing owners and operators with confidence in managing ships and offshore assets
+                            safely. We
+                            ensure compliance with class documentation in accordance with our advanced class
+                            regulations,
+                            which include, but are not limited to:
+                        </p>
+                    </div>
                 </div>
-
-                <div
-                    className="grid grid-cols-1 md:grid-cols-2 2xl:gap-y-14 md:gap-y-12 gap-y-10 2xl:py-16 md:py-12 py-8">
-                    {technologyAdvancement.map((item, index) => (
-                        <div key={index} className="flex flex-row items-center 2xl:gap-6 md:gap-5 gap-4">
-                            <Image src={'/icons/anchor.png'} alt={"Anchor icon"} width={32} height={35}/>
-                            <p className="font-bold 2xl:text-3xl md:text-2xl text-xl text-[#0A436A]">{item}</p>
-                        </div>
-                    ))}
-                </div>
+                <Image src={'/our-services/plan-approval-introduction.jpg'} alt={'Introduction'} width={800}
+                       height={570} className="object-cover lg:h-[65vh] h-[450px] rounded-lg"/>
             </section>
+
+            <section className="w-full 2xl:py-20 md:py-16 py-12 lg:px-28 px-8
+  grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-4 lg:gap-y-10 gap-y-7 lg:gap-x-6 gap-x-4
+  bg-gradient-to-b from-black to-[#0A436A]">
+                {technologyAdvancement.map((item, i) => (
+                    <div key={i}
+                         className="h-24 md:h-28 lg:h-24 flex items-center lg:gap-3 gap-1.5
+                 lg:px-7 px-5 bg-white/20 rounded-xl">
+                        <Image src="/icons/anchor.png" alt="Anchor icon" width={27} height={28} className="h-7"/>
+                        <p className="font-bold lg:text-xl text-white">{item}</p>
+                    </div>
+                ))}
+            </section>
+
+
+            <DigitalPlatform/>
 
             <ContactUsSection/>
         </div>
