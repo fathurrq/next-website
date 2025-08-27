@@ -152,8 +152,8 @@ export default function SliderSection({
                         {/* Overlay */}
                         <div
                             className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-black to-transparent z-0"/>
-                        <div
-                            className="absolute bottom-0 left-0 right-0 h-[50vh] bg-[linear-gradient(to_bottom,transparent_0%,#0A436A50_50%,#0A436A_90%)] z-0"/>
+                        {/* <div
+                            className="absolute bottom-0 left-0 right-0 h-[50vh] bg-[linear-gradient(to_bottom,transparent_0%,#0A436A50_50%,#0A436A_90%)] z-0"/> */}
 
                         {/* === Arrow navigation on image === */}
                         <button

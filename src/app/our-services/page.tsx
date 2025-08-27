@@ -180,7 +180,7 @@ export default function OurServices() {
 
             <section
                 id={'digital-platform'}
-                className="w-full h-full 2xl:px-28 lg:px-20 px-8 2xl:pt-12 pt-8 2xl:pb-72 pb-56 flex flex-col justify-center items-center bg-[#E2E7F0] gap-10 2xl:gap-14"
+                className="w-full h-full 2xl:px-28 lg:px-20 px-8 2xl:pt-12 pt-8 2xl:pb-52 pb-56 flex flex-col justify-center items-center bg-[#E2E7F0] gap-10 2xl:gap-14"
             >
                 <div className="w-full lg:w-2/3 flex flex-col lg:gap-4 gap-3">
                     <p className="2xl:text-6xl lg:text-4xl text-2xl font-bold text-[#0A436A] text-center">
@@ -189,12 +189,12 @@ export default function OurServices() {
                     <p className="2xl:text-3xl lg:text-xl text-lg text-black text-center">
                         Connect with <span className="text-[#0A436A] font-bold">myBKI</span> for online services or
                         explore
-                        <span className="text-[#0A436A] font-bold">BKI Armada</span> for fleet management solutions.
+                        <span className="text-[#0A436A] font-bold">&nbsp;BKI Armada</span> for fleet management solutions.
                     </p>
                 </div>
-                <div className="w-full flex flex-col xl:flex-row items-center xl:gap-6 gap-52">
+                <div className="w-full flex flex-col xl:flex-row-reverse items-center xl:gap-6 gap-52">
                     <div
-                        className="w-full xl:w-1/2 h-[400px] flex flex-col justify-end relative bg-[url('/bki-armada.png')] bg-cover bg-bottom rounded-lg">
+                        className="w-full xl:w-1/2 h-[400px] flex flex-col justify-end relative bg-[url('/bki-armada.jpg')] bg-cover bg-bottom rounded-lg">
                         <div
                             className="absolute left-0 right-0 bottom-0 bg-gradient-to-b from-transparent to-[#E2E7F0] h-1/3"/>
                         <div

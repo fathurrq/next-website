@@ -8,7 +8,7 @@ export default function PageTransition(){
     const { startTransition, setStartTransition } = useHeroTransition();
      
       useEffect(() => {
-        const t = setTimeout(() => setStartTransition(true), 1000);
+        const t = setTimeout(() => setStartTransition(true), 500);
         return () => clearTimeout(t);
       }, [setStartTransition]);
     
