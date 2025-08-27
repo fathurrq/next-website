@@ -24,7 +24,7 @@ export default function AccordionItem({ title, children }: AccordionItemProps) {
                 className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[1000px]" : "max-h-0"
                     }`}
             >
-                <div className="text-black bg-gray-200 text-sm leading-relaxed p-4">
+                <div className="text-black bg-gray-200 text-xs md:text-sm leading-relaxed p-4">
                     {children}
                 </div>
             </div>
