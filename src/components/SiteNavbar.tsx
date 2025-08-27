@@ -223,7 +223,7 @@ export default function SiteNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // desktop dropdown state
-  const [hovered, setHovered] = useState<number | null>(2);
+  const [hovered, setHovered] = useState<number | null>(null);
   const [subHovered, setSubHovered] = useState<number | null>(null);
   // mobile menu helpers
   const [mobileOpen, setMobileOpen] = useState(false);
