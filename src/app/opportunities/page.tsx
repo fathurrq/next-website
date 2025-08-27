@@ -7,6 +7,7 @@ import  OurWorldSection from "@/components/opportunities/OurWorldSection";
 import WhatDefineUsSection from "@/components/opportunities/WhatDefineUsSection";
 import AvailableSection from "@/components/opportunities/AvailableSection";
 import AssetAuctionSection from "@/components/opportunities/AssetAuctionSection";
+import JobSection from "@/components/opportunities/JobSection";
 
 export default function Opportunities() {
   const { startTransition, setStartTransition } = useHeroTransition();
@@ -56,6 +57,9 @@ export default function Opportunities() {
 
     {/* asset auction section */}
     <AssetAuctionSection/>
+
+    {/* job opportunities section */}
+    <JobSection/>
     </div>
   )
 }
