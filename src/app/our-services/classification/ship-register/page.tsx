@@ -130,11 +130,17 @@ export default function ShipRegisterPage() {
                                 className="flex flex-col gap-4 p-4 md:p-5 lg:flex-row lg:items-start lg:justify-between">
                                 {/* Left */}
                                 <div className="min-w-0 flex-1">
-                                    {/* Title + Register No */}
-                                    <div className="flex items-center gap-3">
-                                        <h2 className="text-lg md:text-xl font-bold text-slate-900">Speed Boat
-                                            GT11X</h2>
-                                        <Badge>Register No: <span className="ml-1">31873193</span></Badge>
+                                    {/* Title + Register No + IMO No. + GT */}
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center gap-3">
+                                            <h2 className="text-lg md:text-xl font-bold text-slate-900">Speed Boat
+                                                GT11X</h2>
+                                            <Badge>Register No: <span className="ml-1">31873193</span></Badge>
+                                        </div>
+                                        <div className="flex flex-row gap-2 shrink-0 self-start">
+                                            <Pill><span className="mr-1 opacity-70">IMO:</span> 69753922</Pill>
+                                            <Pill>GT1212</Pill>
+                                        </div>
                                     </div>
 
                                     {/* Meta rows (FLEX) */}
@@ -154,12 +160,6 @@ export default function ShipRegisterPage() {
                                         We provide independent and reliable ship classification services to ensure your
                                         vessels comply with international safety, environmental, and quality standards.
                                     </div>
-                                </div>
-
-                                {/* Right: badges */}
-                                <div className="flex flex-row gap-2 shrink-0 self-start">
-                                    <Pill><span className="mr-1 opacity-70">IMO:</span> 69753922</Pill>
-                                    <Pill>GT1212</Pill>
                                 </div>
                             </div>
                         </article>
