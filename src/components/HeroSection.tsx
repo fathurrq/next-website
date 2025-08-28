@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   // trigger main transition after 1s
   useEffect(() => {
-    const t = setTimeout(() => setStartTransition(true), 50);
+    const t = setTimeout(() => setStartTransition(true), 500);
     return () => clearTimeout(t);
   }, [setStartTransition]);
 
@@ -79,7 +79,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* INTRO overlay (your multi-gradient) → fades out as before */}
-      {/* <motion.div
+      <motion.div
                 className="absolute inset-0 z-10 pointer-events-none"
                 initial={{opacity: 1}}
                 animate={{opacity: startTransition ? 0 : 1}}
@@ -93,7 +93,7 @@ export default function HeroSection() {
                     backdropFilter: "blur(22px)",
                     WebkitBackdropFilter: "blur(22px)",
                 }}
-            /> */}
+            />
 
       {/* AFTER transition: single dark gradient over whole hero (parallax-softened) */}
       <motion.div

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import ContactUsSection from "@/components/ContactUsSection";
-import GlimpseSlider from "@/app/our-services/classification-plan-approval/components/GlimpseSlider";
 import Hero from "@/components/Hero";
 import FancyTitle from "@/components/FancyTitle";
 import PageTransition from "@/components/page-transition";
 import DigitalPlatform from "@/app/our-services/components/DigitalPlatform";
 import {Anchor} from "lucide-react";
+import GlimpseSlider from "./components/GlimpseSlider";
 
 const technologyAdvancement = [
     "Lines Plan",
@@ -63,11 +63,11 @@ export default function ClassificationPage() {
                         Introduction
                     </p>
                     <div className="w-full flex flex-col justify-center items-center 2xl:gap-8 md:gap-4 gap-2">
-                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A]">
+                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-justify">
                             Improve your confidence in your ship performance and statutory
                             compliance with us.
                         </p>
-                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A]">
+                        <p className="2xl:text-3xl md:text-2xl text-xl text-[#0A436A] text-justify">
                             We offer a comprehensive range of approval services, covering both
                             classification and statutory documentation. Our mission is to
                             ensure the safety and sustainability of the global maritime

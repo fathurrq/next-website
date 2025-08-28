@@ -123,7 +123,7 @@ export default function FooterSection() {
               {[
                 {
                   label: "Classification",
-                  href: "https://www.bki.co.id/halamanstatis-64.html",
+                  href: "/our-services#classification",
                 },
                 {
                   label: "Statutory",

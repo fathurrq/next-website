@@ -56,23 +56,28 @@ const NAV: Navigation[] = [
         type: "",
         submenu: [
           {
+            label: "Ship Register",
+            href: "/our-services/classification/ship-register",
+            type: "",
+          },
+          {
             label: "Floating Offshore",
-            href: "/our-services/classification-floating-offshore",
+            href: "/our-services/classification/floating-offshore",
             type: "",
           },
           {
             label: "Class Suspend/Withdrawal",
-            href: "/our-services/classification-class-withdrawal",
+            href: "/our-services/classification/class-withdrawal",
             type: "",
           },
           {
             label: "Class Maintenance",
-            href: "/our-services/classification-class-maintenance",
+            href: "/our-services/classification/class-maintenance",
             type: "",
           },
           {
             label: "Plan Approval",
-            href: "/our-services/classification-plan-approval",
+            href: "/our-services/classification/plan-approval",
             type: ""
           }
         ]
