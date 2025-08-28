@@ -24,7 +24,7 @@ const services = [
         title: "Marine Services",
         description: "Supporting safe and efficient vessel operations.",
         // icon: "/icon-service-marine-services.png",
-        image: "/service-marine-services.jpg",
+        image: "/our-services-bki-marine-services.jpg",
         href: "/our-services#marine-services",
     },
     {
@@ -45,7 +45,7 @@ const services = [
     {
         title: "Others",
         description: "Learn more about our other services.",
-        image: "/service-others.JPG",
+        image: "/our-services-bki-others.jpg",
         href: "/our-services",
     },
 ];

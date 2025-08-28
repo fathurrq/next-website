@@ -604,8 +604,8 @@ export default function SiteNavbar() {
                     >
                       <Image
                         src="/my-bki-logo.png"
-                        width={64}
-                        height={64}
+                        width={88}
+                        height={88}
                         alt="my-bki"
                       />
                     </span>

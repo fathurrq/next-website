@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function WhyTrustSection({images}: Props) {
-    const IMGS = images ?? ["/bki-marine.jpg", "/bki-marine2.jpg", "/bki-marine3.jpg", "/bki-marine4.jpg", "/bki-marine5.jpg"];
+    const IMGS = images ?? ["/why-trust-slider-1.jpg", "/why-trust-slider-2.jpg", "/why-trust-slider-3.jpg", "/why-trust-slider-4.jpg"];
     const ref = useRef<HTMLDivElement>(null);
 
     // Track scroll progress for this section only
@@ -66,8 +66,8 @@ export default function WhyTrustSection({images}: Props) {
                 </motion.div>
 
                 {/* Soft fade at bottom of strip */}
-                <div
-                    className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-black/30 to-transparent pointer-events-none"/>
+                {/* <div
+                    className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-black/30 to-transparent pointer-events-none"/> */}
             </div>
 
 
