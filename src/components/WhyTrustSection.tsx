@@ -10,7 +10,8 @@ interface Props {
 }
 
 export default function WhyTrustSection({images}: Props) {
-    const IMGS = images ?? ["/why-trust-slider-1.jpg", "/why-trust-slider-2.jpg", "/why-trust-slider-3.jpg", "/why-trust-slider-4.jpg"];
+    const IMGS = images ?? ["/why-trust-slider-3.jpg", "/why-trust-slider-1.jpg", "/why-trust-slider-4.jpg", "/why-trust-slider-2.jpg"];
+    
     const ref = useRef<HTMLDivElement>(null);
 
     // Track scroll progress for this section only
