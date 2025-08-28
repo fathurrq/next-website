@@ -18,14 +18,17 @@ const programItems: ProgramItem[] = [
   {
     title: "Floating Offshore",
     image: "/our-services/program/floating-offshore.png",
+    href: "/our-services/classification-floating-offshore",
   },
   {
     title: "Class Suspend / Withdrawn",
     image: "/our-services/program/class-suspend.jpg",
+    href: "/our-services/classification-class-withdrawal",
   },
   {
     title: "Class Maintenance Certificate",
     image: "/our-services/program/class-suspend.jpg",
+    href: "/our-services/classification-class-maintenance",
   },
   {
     title: "Material and Component",

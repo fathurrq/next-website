@@ -54,6 +54,28 @@ const NAV: Navigation[] = [
         label: "Classification",
         href: "/our-services#classification",
         type: "",
+        submenu: [
+          {
+            label: "Floating Offshore",
+            href: "/our-services/classification-floating-offshore",
+            type: "",
+          },
+          {
+            label: "Class Suspend/Withdrawal",
+            href: "/our-services/classification-class-withdrawal",
+            type: "",
+          },
+          {
+            label: "Class Maintenance",
+            href: "/our-services/classification-class-maintenance",
+            type: "",
+          },
+          {
+            label: "Plan Approval",
+            href: "/our-services/classification-plan-approval",
+            type: ""
+          }
+        ]
       },
       { label: "Statutory", href: "/our-services#statutory", type: "" },
       {
@@ -94,7 +116,7 @@ const NAV: Navigation[] = [
       { label: "Articles", href: "/articles", type: "" },
       {
         label: "Annual Report",
-        href: "https://www.bki.co.id/download-2-1.html",
+        href: "/annual-report",
         type: "",
       },
     ],
@@ -547,7 +569,7 @@ export default function SiteNavbar() {
                                         <li key={ssub.label}>
                                         <Link
                                             href={ssub.href}
-                                            className="font-normal block py-3 text-[16px] text-white border-b border-white/30 hover:text-white/30 hover:border-white transition-colors duration-150"
+                                            className="font-normal block py-3 text-[16px] text-white border-b border-white/30 hover:font-bold hover:border-white transition-colors duration-150"
                                             {...(ssub.type === "_blank"
                                                 ? { target: "_blank", rel: "noopener noreferrer" }
                                                 : {})}
