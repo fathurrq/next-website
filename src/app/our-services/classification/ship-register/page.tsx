@@ -37,8 +37,8 @@ export default function ShipRegisterPage() {
                 <div
                     className="absolute inset-0 bg-gradient-to-b from-[#0A436A]/60 to-black/60"/>
                 <div
-                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-40 text-center text-white text-shadow-lg text-shadow-black/30 gap-y-7 lg:gap-y-14">
-                    <div className="flex flex-row w-full justify-center items-center gap-2">
+                    className="w-full relative flex flex-col justify-center items-center py-24 2xl:pt-40 text-center text-white text-shadow-lg text-shadow-black/30 gap-y-7 lg:gap-y-14 px-4">
+                    <div className="flex flex-row lg:w-full w-1/2 justify-center items-center gap-2 flex-wrap">
                         {routes.map((route, index) => (
                             <Fragment key={route.text + '-' + index}>
                                 {index > 0 && (
@@ -59,7 +59,7 @@ export default function ShipRegisterPage() {
                         ))}
                     </div>
                     <div
-                        className="flex flex-col items-center lg:gap-y-3 gap-y-2 lg:p-8 p-6 rounded-lg overflow-hidden border-2 border-[#E8E8E866]/40 w-1/2 relative">
+                        className="flex flex-col items-center lg:gap-y-3 gap-y-2 lg:p-8 p-6 rounded-lg overflow-hidden border-2 border-[#E8E8E866]/40 lg:w-1/2 w-full relative">
                         <div className="absolute inset-0 bg-black/50 blur-xl z-0"/>
                         <p className="lg:text-5xl text-2xl font-bold text-white text-center z-1">
                             Register of Ships
@@ -118,7 +118,7 @@ export default function ShipRegisterPage() {
                 </div>
             </section>
 
-            <section className="w-full flex flex-col lg:py-20 py-10 lg:px-24 px-6 lg:gap-y-8 gap-y-4 bg-[#E2E7F0]">
+            <section className="w-full flex flex-col lg:py-20 py-10 lg:px-24 px-4 lg:gap-y-8 gap-y-4 bg-[#E2E7F0]">
                 <p className="lg:text-6xl text-3xl text-[#0A436A] font-bold">Result</p>
                 <div className="w-full flex flex-col lg:gap-y-8 gap-y-4">
                     {new Array(10).fill(0).map((_, index) => (
@@ -132,12 +132,12 @@ export default function ShipRegisterPage() {
                                 <div className="min-w-0 flex-1">
                                     {/* Title + Register No + IMO No. + GT */}
                                     <div className="flex justify-between items-center">
-                                        <div className="flex items-center gap-3">
+                                        <div className="flex items-center gap-3 lg:flex-row flex-col">
                                             <h2 className="text-lg md:text-xl font-bold text-slate-900">Speed Boat
                                                 GT11X</h2>
                                             <Badge>Register No: <span className="ml-1">31873193</span></Badge>
                                         </div>
-                                        <div className="flex flex-row gap-2 shrink-0 self-start">
+                                        <div className="flex lg:flex-row flex-col gap-2 shrink-0 self-start">
                                             <Pill><span className="mr-1 opacity-70">IMO:</span> 69753922</Pill>
                                             <Pill>GT1212</Pill>
                                         </div>
