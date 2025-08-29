@@ -123,7 +123,7 @@ export default function FooterSection() {
               {[
                 {
                   label: "Classification",
-                  href: "https://www.bki.co.id/halamanstatis-64.html",
+                  href: "/our-services#classification",
                 },
                 {
                   label: "Statutory",
@@ -200,7 +200,7 @@ export default function FooterSection() {
                 { label: "Article", href: "/articles" },
                 {
                   label: "Annual Report",
-                  href: "https://www.bki.co.id/download-2-1.html",
+                  href: "/annual-report",
                 },
               ].map((item) => (
                 <li key={item.label} className="py-1">
