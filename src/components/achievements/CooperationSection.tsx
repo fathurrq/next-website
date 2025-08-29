@@ -96,7 +96,7 @@ export default function Cooperation() {
 
             {/* Classification Segment */}
             <div className="container flex flex-col text-base md:text-2xl font-bold">
-              <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2 text-center md:text-left">
+              <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2">
                 CLASSIFICATION SEGMENT
               </h4>
               <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-full md:w-3/4 mb-6"></div>
@@ -147,7 +147,7 @@ export default function Cooperation() {
 
             {/* Commercial Segment */}
             <div className="container flex flex-col text-base md:text-2xl font-bold">
-              <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2 text-center md:text-left">
+              <h4 className="font-semibold text-lg md:text-xl 2xl:text-3xl text-white/70 mb-2">
                 COMMERCIAL SEGMENT
               </h4>
               <div className="h-[1px] bg-gradient-to-r from-white to-transparent w-full md:w-3/4 mb-6"></div>
